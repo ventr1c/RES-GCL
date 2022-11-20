@@ -1,0 +1,140 @@
+Cora:
+  seed: 10
+  learning_rate: 0.0001
+  num_hidden: 128
+  num_proj_hidden: 128
+  activation: 'relu'
+  base_model: 'GCNConv'
+  num_layers: 2
+  add_edge_rate_1: 0.2
+  add_edge_rate_2: 0.2
+  drop_edge_rate_1: 0.4
+  drop_edge_rate_2: 0.6
+  drop_feature_rate_1: 0.4
+  drop_feature_rate_2: 0.4
+  tau: 0.4
+  num_epochs: 1500
+  weight_decay: 0.00001
+  cont_weight: 3 # without unnoticeable 
+  vs_number: 5
+  homo_loss_weight: 100
+  homo_boost_thrd: 0.5 
+  trojan_epochs: 200
+  selection_method: 'cluster_degree'
+  cont_batch_size: 0
+
+# Cora:
+#   seed: 10
+#   learning_rate: 0.001
+#   num_hidden: 128
+#   num_proj_hidden: 128
+#   activation: 'relu'
+#   base_model: 'GCNConv'
+#   num_layers: 2
+#   add_edge_rate_1: 0
+#   add_edge_rate_2: 0
+#   drop_edge_rate_1: 0.3
+#   drop_edge_rate_2: 0.5
+#   drop_feature_rate_1: 0.4
+#   drop_feature_rate_2: 0.4
+#   tau: 0.4
+#   num_epochs: 1000
+#   weight_decay: 0.0005
+#   cont_weight: 100 # without unnoticeable 
+#   vs_number: 5
+#   homo_loss_weight: 500
+#   homo_boost_thrd: 0.5 
+#   trojan_epochs: 200
+#   selection_method: 'cluster_degree'
+#   cont_batch_size: 0
+
+Pubmed:
+  seed: 10
+  learning_rate: 0.0005
+  num_hidden: 256
+  num_proj_hidden: 256
+  activation: 'relu'
+  base_model: 'GCNConv'
+  num_layers: 2
+  add_edge_rate_1: 0
+  add_edge_rate_2: 0
+  drop_edge_rate_1: 0.4
+  drop_edge_rate_2: 0.1
+  drop_feature_rate_1: 0.0
+  drop_feature_rate_2: 0.2
+  tau: 0.7
+  num_epochs: 200
+  weight_decay: 0.00001
+  cont_weight: 3
+  vs_number: 80
+  homo_loss_weight: 0
+  homo_boost_thrd: 0.5 
+  trojan_epochs: 400
+  selection_method: 'cluster_degree'
+  cont_batch_size: 0
+ogbn-arxiv:
+  seed: 10
+  learning_rate: 0.0005
+  num_hidden: 64
+  num_proj_hidden: 64
+  activation: 'relu'
+  base_model: 'GCNConv'
+  num_layers: 2
+  add_edge_rate_1: 0
+  add_edge_rate_2: 0
+  drop_edge_rate_1: 0.3
+  drop_edge_rate_2: 0.5
+  drop_feature_rate_1: 0.4
+  drop_feature_rate_2: 0.4
+  tau: 0.7
+  num_epochs: 500
+  weight_decay: 0.00001
+  cont_weight: 3
+  vs_number: 160
+  homo_loss_weight: 100
+  homo_boost_thrd: 0.8
+  trojan_epochs: 800
+  selection_method: 'cluster_degree'
+  cont_batch_size: 512
+
+# Pubmed:
+#   seed: 23344
+#   # learning_rate: 0.001
+#   learning_rate: 0.0001
+#   num_hidden: 256
+#   num_proj_hidden: 256
+#   activation: 'relu'
+#   base_model: 'GCNConv'
+#   num_layers: 2
+#   drop_edge_rate_1: 0.4
+#   drop_edge_rate_2: 0.1
+#   drop_feature_rate_1: 0.0
+#   drop_feature_rate_2: 0.2
+#   tau: 0.7
+#   num_epochs: 1500
+#   weight_decay: 0.00001
+
+Citeseer:
+  seed: 10
+  learning_rate: 0.0002
+  num_hidden: 256
+  num_proj_hidden: 256
+  activation: 'prelu'
+  base_model: 'GCNConv'
+  num_layers: 2
+  add_edge_rate_1: 0.2
+  add_edge_rate_2: 0
+  drop_edge_rate_1: 0.2
+  drop_edge_rate_2: 0
+  drop_feature_rate_1: 0.3
+  drop_feature_rate_2: 0.2
+  tau: 0.9
+  num_epochs: 1000
+  weight_decay: 0.00001
+  cont_weight: 50 # without unnoticeable 
+  vs_number: 5
+  homo_loss_weight: 100
+  homo_boost_thrd: 0.5 
+  trojan_epochs: 200
+  selection_method: 'cluster_degree'
+  cont_batch_size: 0
