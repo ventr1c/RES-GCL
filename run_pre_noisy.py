@@ -7,7 +7,7 @@
 # * try different noisy and augmentation
 # * try against with/without unnoticeable 
 
-# In[8]:
+# In[1]:
 
 
 #!/usr/bin/env python
@@ -37,16 +37,18 @@ parser.add_argument('--no-cuda', action='store_true', default=False,
 parser.add_argument('--seed', type=int, default=10, help='Random seed.')
 parser.add_argument('--model', type=str, default='GCN', help='model',
                     choices=['GCN','GAT','GraphSage','GIN'])
-parser.add_argument('--dataset', type=str, default='Cora', 
+parser.add_argument('--dataset', type=str, default='Pubmed', 
                     help='Dataset',
                     choices=['Cora','Citeseer','Pubmed','PPI','Flickr','ogbn-arxiv','Reddit','Reddit2','Yelp'])
 parser.add_argument('--train_lr', type=float, default=0.01,
                     help='Initial learning rate.')
 parser.add_argument('--weight_decay', type=float, default=5e-4,
                     help='Weight decay (L2 loss on parameters).')
-parser.add_argument('--hidden', type=int, default=128,
+parser.add_argument('--hidden', type=int, default=32,
+                    help='Number of hidden units of backdoor model.')
+parser.add_argument('--num_hidden', type=int, default=32,
                     help='Number of hidden units.')
-parser.add_argument('--proj_hidden', type=int, default=128,
+parser.add_argument('--num_proj_hidden', type=int, default=32,
                     help='Number of hidden units in MLP.')
 parser.add_argument('--thrd', type=float, default=0.5)
 parser.add_argument('--target_class', type=int, default=0)
@@ -99,22 +101,24 @@ parser.add_argument('--gpu_id', type=int, default=0)
 parser.add_argument('--config', type=str, default="config.yaml")
 ## Contrasitve setting
 parser.add_argument('--cl_lr', type=float, default=0.0002)
-parser.add_argument('--cl_num_hidden', type=int, default=128)
-parser.add_argument('--cl_num_proj_hidden', type=int, default=128)
+# parser.add_argument('--cl_num_hidden', type=int, default=128)
+parser.add_argument('--cl_num_proj_hidden', type=int, default=32)
 parser.add_argument('--cl_num_layers', type=int, default=2)
 parser.add_argument('--cl_activation', type=str, default='relu')
 parser.add_argument('--cl_base_model', type=str, default='GCNConv')
 parser.add_argument('--cont_weight', type=float, default=100)
 parser.add_argument('--add_edge_rate_1', type=float, default=0)
 parser.add_argument('--add_edge_rate_2', type=float, default=0)
-parser.add_argument('--drop_edge_rate_1', type=float, default=0.3)
+parser.add_argument('--drop_edge_rate_1', type=float, default=0)
 parser.add_argument('--drop_edge_rate_2', type=float, default=0.5)
-parser.add_argument('--drop_feat_rate_1', type=float, default=0.4)
-parser.add_argument('--drop_feat_rate_2', type=float, default=0.4)
+parser.add_argument('--drop_feat_rate_1', type=float, default=0)
+parser.add_argument('--drop_feat_rate_2', type=float, default=0.5)
 parser.add_argument('--tau', type=float, default=0.4)
-parser.add_argument('--cl_num_epochs', type=int, default=1000)
+parser.add_argument('--cl_num_epochs', type=int, default=0)
 parser.add_argument('--cl_weight_decay', type=float, default=0.00001)
 parser.add_argument('--cont_batch_size', type=int, default=0)
+parser.add_argument('--noisy_level', type=float, default=0.25)
+
 # args = parser.parse_args()
 args = parser.parse_known_args()[0]
 args.cuda =  not args.no_cuda and torch.cuda.is_available()
@@ -130,11 +134,15 @@ import torch_geometric.transforms as T
 transform = T.Compose([T.NormalizeFeatures()])
 
 if(args.dataset == 'Cora' or args.dataset == 'Citeseer' or args.dataset == 'Pubmed'):
-    dataset = Planetoid(root='./data/',                         name=args.dataset,                        transform=transform)
+    dataset = Planetoid(root='./data/', \
+                        name=args.dataset,\
+                        transform=transform)
 elif(args.dataset == 'Flickr'):
-    dataset = Flickr(root='./data/Flickr/',                     transform=transform)
+    dataset = Flickr(root='./data/Flickr/', \
+                    transform=transform)
 elif(args.dataset == 'Reddit2'):
-    dataset = Reddit2(root='./data/Reddit2/',                     transform=transform)
+    dataset = Reddit2(root='./data/Reddit2/', \
+                    transform=transform)
 elif(args.dataset == 'ogbn-arxiv'):
     from ogb.nodeproppred import PygNodePropPredDataset
     # Download and process data at './dataset/ogbg_molhiv/'
@@ -164,7 +172,7 @@ mask_edge_index = data.edge_index[:,torch.bitwise_not(edge_mask)]
 unlabeled_idx = (torch.bitwise_not(data.test_mask)&torch.bitwise_not(data.train_mask)).nonzero().flatten()
 
 
-# In[5]:
+# In[8]:
 
 
 from torch_geometric.utils import to_dense_adj, dense_to_sparse
@@ -415,7 +423,13 @@ class PPRDataset(InMemoryDataset):
 
 # ### Noisy
 
-# In[6]:
+# In[9]:
+
+
+args.num_hidden
+
+
+# In[10]:
 
 
 import copy 
@@ -440,7 +454,7 @@ num_class = int(data.y.max()+1)
 # args.cl_activation = ({'relu': F.relu, 'prelu': nn.PReLU()})[config['activation']]
 # args.cl_base_model = ({'GCNConv': GCNConv})[config['base_model']]
 
-noisy_data = construct_noisy_graph(data,perturb_ratio=0.10,mode='random_noise')
+noisy_data = construct_noisy_graph(data,perturb_ratio=args.noisy_level,mode='random_noise')
 noisy_data = noisy_data.to(device)
 
 # diff_dataset = PPRDataset(noisy_data,args.dataset)
@@ -461,9 +475,9 @@ for seed in seeds:
     # torch.manual_seed(seed)
     # torch.cuda.manual_seed(seed)
     '''Transductive'''
-    encoder = Encoder(dataset.num_features, args.cl_num_hidden, args.cl_activation,
+    encoder = Encoder(dataset.num_features, args.num_hidden, args.cl_activation,
                             base_model=args.cl_base_model, k=args.cl_num_layers).to(device)
-    model = UnifyModel(args, encoder, args.cl_num_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=args.cl_weight_decay, device=device).to(device)
+    model = UnifyModel(args, encoder, args.num_hidden, args.num_proj_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=args.cl_weight_decay, device=device).to(device)
     # model = UnifyModel(args, encoder, args.cl_num_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=weight_decay, device=device,data1=noisy_data,data2=diff_noisy_data).to(device)
     model.fit(args, noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight,noisy_data.y,idx_train,idx_val=idx_val,train_iters=args.cl_num_epochs,cont_iters=args.cl_num_epochs,seen_node_idx=None)
     # model.fit_1(args, noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight,noisy_data.y,idx_train,idx_val=idx_val,train_iters=num_epochs,cont_iters=num_epochs,seen_node_idx=None)
@@ -478,7 +492,8 @@ for seed in seeds:
     final_gnn_acc_noisy.append(clean_acc)
 
 
-print('The final CL Acc:{:.5f}, {:.5f}, The final GNN Acc:{:.5f}, {:.5f}'            .format(np.average(final_cl_acc_noisy),np.std(final_cl_acc_noisy),np.average(final_gnn_acc_noisy),np.std(final_gnn_acc_noisy)))
+print('The final CL Acc:{:.5f}, {:.5f}, The final GNN Acc:{:.5f}, {:.5f}'\
+            .format(np.average(final_cl_acc_noisy),np.std(final_cl_acc_noisy),np.average(final_gnn_acc_noisy),np.std(final_gnn_acc_noisy)))
 
 
 # ### Raw
@@ -539,9 +554,9 @@ for seed in seeds:
     # torch.manual_seed(seed)
     # torch.cuda.manual_seed(seed)
     '''Transductive'''
-    encoder = Encoder(dataset.num_features, args.cl_num_hidden, args.cl_activation,
+    encoder = Encoder(dataset.num_features, args.num_hidden, args.cl_activation,
                             base_model=args.cl_base_model, k=args.cl_num_layers).to(device)
-    model = UnifyModel(args, encoder, args.cl_num_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=args.cl_weight_decay, device=None).to(device)
+    model = UnifyModel(args, encoder, args.num_hidden, args.num_proj_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=args.cl_weight_decay, device=device).to(device)
     model.fit(args, data.x, data.edge_index,data.edge_weight,data.y,idx_train,idx_val=idx_val,train_iters=args.cl_num_epochs,cont_iters=args.cl_num_epochs,seen_node_idx=None)
     # x, edge_index,edge_weight,labels,idx_train,idx_val=None,cont_iters=None,train_iters=200,seen_node_idx = None
     acc_cl = model.test(data.x, data.edge_index,data.edge_weight,data.y,idx_clean_test)
@@ -554,7 +569,8 @@ for seed in seeds:
     final_gnn_acc.append(clean_acc)
 
 
-print('The final CL Acc:{:.5f}, {:.5f}, The final GNN Acc:{:.5f}, {:.5f}'            .format(np.average(final_cl_acc),np.std(final_cl_acc),np.average(final_gnn_acc),np.std(final_gnn_acc)))
+print('The final CL Acc:{:.5f}, {:.5f}, The final GNN Acc:{:.5f}, {:.5f}'\
+            .format(np.average(final_cl_acc),np.std(final_cl_acc),np.average(final_gnn_acc),np.std(final_gnn_acc)))
 
 
 # ### Noisy+DIffuse
@@ -620,7 +636,7 @@ print('The final CL Acc:{:.5f}, {:.5f}, The final GNN Acc:{:.5f}, {:.5f}'       
 #     # torch.manual_seed(seed)
 #     # torch.cuda.manual_seed(seed)
 #     '''Transductive'''
-#     encoder = Encoder(dataset.num_features, args.cl_num_hidden, args.cl_activation,
+#     encoder = Encoder(dataset.num_features, args.num_hidden, args.cl_activation,
 #                             base_model=args.cl_base_model, k=args.cl_num_layers).to(device)
 #     # model = UnifyModel(args, encoder, args.cl_num_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=weight_decay, device=device).to(device)
 #     model = UnifyModel(args, encoder, args.cl_num_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=weight_decay, device=device,data1=noisy_data,data2=diff_noisy_data).to(device)

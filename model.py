@@ -131,14 +131,14 @@ def drop_feature(x, drop_prob):
     return x
 
 class UnifyModel(torch.nn.Module):
-    def __init__(self, args, encoder: Encoder, num_hidden: int, num_proj_hidden: int, num_class: int,
+    def __init__(self, args, encoder: Encoder, num_hidden: int, num_proj_hidden: int, cl_num_proj_hidden: int, num_class: int,
                  tau: float = 0.5, cont_lr=0.0001, cont_weight_decay=0.00001, lr=0.01, weight_decay=5e-4, device=None,data1=None,data2=None):
         super(UnifyModel, self).__init__()
         self.encoder: Encoder = encoder
         self.tau: float = tau
 
-        self.fc1 = torch.nn.Linear(num_hidden, num_proj_hidden)
-        self.fc2 = torch.nn.Linear(num_proj_hidden, num_hidden)
+        self.fc1 = torch.nn.Linear(num_hidden, cl_num_proj_hidden)
+        self.fc2 = torch.nn.Linear(cl_num_proj_hidden, num_hidden)
 
         self.fc1_c = torch.nn.Linear(num_hidden, num_proj_hidden)
         self.fc2_c = torch.nn.Linear(num_proj_hidden, num_class)

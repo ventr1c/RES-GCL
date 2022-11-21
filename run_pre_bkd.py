@@ -7,7 +7,7 @@
 # * try different noisy and augmentation
 # * try against with/without unnoticeable 
 
-# In[1]:
+# In[8]:
 
 
 #!/usr/bin/env python
@@ -37,16 +37,18 @@ parser.add_argument('--no-cuda', action='store_true', default=False,
 parser.add_argument('--seed', type=int, default=10, help='Random seed.')
 parser.add_argument('--model', type=str, default='GCN', help='model',
                     choices=['GCN','GAT','GraphSage','GIN'])
-parser.add_argument('--dataset', type=str, default='Cora', 
+parser.add_argument('--dataset', type=str, default='Pubmed', 
                     help='Dataset',
                     choices=['Cora','Citeseer','Pubmed','PPI','Flickr','ogbn-arxiv','Reddit','Reddit2','Yelp'])
 parser.add_argument('--train_lr', type=float, default=0.01,
                     help='Initial learning rate.')
 parser.add_argument('--weight_decay', type=float, default=5e-4,
                     help='Weight decay (L2 loss on parameters).')
-parser.add_argument('--hidden', type=int, default=128,
+parser.add_argument('--hidden', type=int, default=32,
                     help='Number of hidden units.')
-parser.add_argument('--proj_hidden', type=int, default=128,
+parser.add_argument('--num_hidden', type=int, default=64,
+                    help='Number of hidden units.')
+parser.add_argument('--num_proj_hidden', type=int, default=64,
                     help='Number of hidden units in MLP.')
 parser.add_argument('--thrd', type=float, default=0.5)
 parser.add_argument('--target_class', type=int, default=0)
@@ -99,8 +101,8 @@ parser.add_argument('--gpu_id', type=int, default=0)
 parser.add_argument('--config', type=str, default="config.yaml")
 ## Contrasitve setting
 parser.add_argument('--cl_lr', type=float, default=0.0002)
-parser.add_argument('--cl_num_hidden', type=int, default=128)
-parser.add_argument('--cl_num_proj_hidden', type=int, default=128)
+# parser.add_argument('--cl_num_hidden', type=int, default=64)
+parser.add_argument('--cl_num_proj_hidden', type=int, default=64)
 parser.add_argument('--cl_num_layers', type=int, default=2)
 parser.add_argument('--cl_activation', type=str, default='relu')
 parser.add_argument('--cl_base_model', type=str, default='GCNConv')
@@ -131,11 +133,15 @@ import torch_geometric.transforms as T
 transform = T.Compose([T.NormalizeFeatures()])
 
 if(args.dataset == 'Cora' or args.dataset == 'Citeseer' or args.dataset == 'Pubmed'):
-    dataset = Planetoid(root='./data/',                         name=args.dataset,                        transform=transform)
+    dataset = Planetoid(root='./data/', \
+                        name=args.dataset,\
+                        transform=transform)
 elif(args.dataset == 'Flickr'):
-    dataset = Flickr(root='./data/Flickr/',                     transform=transform)
+    dataset = Flickr(root='./data/Flickr/', \
+                    transform=transform)
 elif(args.dataset == 'Reddit2'):
-    dataset = Reddit2(root='./data/Reddit2/',                     transform=transform)
+    dataset = Reddit2(root='./data/Reddit2/', \
+                    transform=transform)
 elif(args.dataset == 'ogbn-arxiv'):
     from ogb.nodeproppred import PygNodePropPredDataset
     # Download and process data at './dataset/ogbg_molhiv/'
@@ -165,7 +171,14 @@ mask_edge_index = data.edge_index[:,torch.bitwise_not(edge_mask)]
 unlabeled_idx = (torch.bitwise_not(data.test_mask)&torch.bitwise_not(data.train_mask)).nonzero().flatten()
 
 
-# In[2]:
+# In[9]:
+
+
+# data.val_mask.nonzero().flatten().shape
+data
+
+
+# In[10]:
 
 
 from torch_geometric.utils import to_dense_adj, dense_to_sparse
@@ -410,7 +423,7 @@ class PPRDataset(InMemoryDataset):
         return f'{self.name}_ppr_alpha={self.alpha}_k={self.k}_eps={self.eps}_lcc={self.use_lcc}'
 
 
-# In[3]:
+# In[11]:
 
 
 from torch_geometric.utils import to_dense_adj, dense_to_sparse
@@ -661,7 +674,7 @@ class PPRDataset(InMemoryDataset):
 
 # #### GNN+CL
 
-# In[4]:
+# In[ ]:
 
 
 ''' Contrastive learning to backdoor in Contrastive learning'''
@@ -707,7 +720,8 @@ for seed in seeds:
     model.fit(data.x, train_edge_index, None, data.y, idx_train,idx_attach, unlabeled_idx)
     poison_x, poison_edge_index, poison_edge_weights, poison_labels = model.get_poisoned()
     bkd_tn_nodes = torch.cat([idx_train,idx_attach]).to(device)
-    print("precent of left attach nodes: {:.3f}"        .format(len(set(bkd_tn_nodes.tolist()) & set(idx_attach.tolist()))/len(idx_attach)))
+    print("precent of left attach nodes: {:.3f}"\
+        .format(len(set(bkd_tn_nodes.tolist()) & set(idx_attach.tolist()))/len(idx_attach)))
     #%%
 
     # model = GCN(nfeat=data.x.shape[1],\
@@ -718,9 +732,10 @@ for seed in seeds:
     #             weight_decay=args.weight_decay,\
     #             device=device)
     # test_model = model_construct(args,args.test_model,data,device).to(device) 
-    encoder = Encoder(dataset.num_features, args.cl_num_hidden, args.cl_activation,
+    encoder = Encoder(dataset.num_features, args.num_hidden, args.cl_activation,
                             base_model=args.cl_base_model, k=args.cl_num_layers).to(device)
-    test_model = UnifyModel(args, encoder, args.cl_num_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=args.cl_weight_decay, device=None).to(device)
+    # test_model = UnifyModel(args, encoder, args.cl_num_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=args.cl_weight_decay, device=None).to(device)
+    test_model = UnifyModel(args, encoder, args.num_hidden, args.num_proj_hidden, args.cl_num_proj_hidden, num_class, args.tau, lr=args.cl_lr, weight_decay=args.cl_weight_decay, device=device).to(device)
     # test_model = UnifyModel(args, encoder, num_hidden, num_proj_hidden, num_class, tau, lr=learning_rate, weight_decay=weight_decay, device=device,data1=noisy_data,data2=diff_noisy_data).to(device)
     test_model.fit(args, poison_x, poison_edge_index,poison_edge_weights,poison_labels,bkd_tn_nodes,idx_val=idx_val,train_iters=args.cl_num_epochs,cont_iters=args.cl_num_epochs,seen_node_idx=seen_node_idx)
     test_embds = test_model(poison_x,poison_edge_index,poison_edge_weights)
@@ -809,7 +824,8 @@ for seed in seeds:
     result_asr.append(float(asr))
     result_acc.append(float(clean_acc))
 
-print('The final ASR:{:.5f}, {:.5f}, Accuracy:{:.5f}, {:.5f}'            .format(np.average(result_asr),np.std(result_asr),np.average(result_acc),np.std(result_acc)))
+print('The final ASR:{:.5f}, {:.5f}, Accuracy:{:.5f}, {:.5f}'\
+            .format(np.average(result_asr),np.std(result_asr),np.average(result_acc),np.std(result_acc)))
 
 
 # ### GNN
@@ -883,7 +899,8 @@ for seed in seeds:
     # contrastive_model.eval()
     # cont_poison_x = contrastive_model(poison_x, poison_edge_index, poison_edge_weights).detach().to(device)
 
-    print("precent of left attach nodes: {:.3f}"        .format(len(set(bkd_tn_nodes.tolist()) & set(idx_attach.tolist()))/len(idx_attach)))
+    print("precent of left attach nodes: {:.3f}"\
+        .format(len(set(bkd_tn_nodes.tolist()) & set(idx_attach.tolist()))/len(idx_attach)))
     #%%
 
     # model = GCN(nfeat=data.x.shape[1],\
@@ -951,7 +968,8 @@ for seed in seeds:
         print("Flip ASR: {:.4f}/{} nodes".format(flip_asr,flip_idx_atk.shape[0]))
     result_asr.append(float(asr))
     result_acc.append(float(clean_acc))
-print('The final ASR:{:.5f}, {:.5f}, Accuracy:{:.5f}, {:.5f}'            .format(np.average(result_asr),np.std(result_asr),np.average(result_acc),np.std(result_acc)))
+print('The final ASR:{:.5f}, {:.5f}, Accuracy:{:.5f}, {:.5f}'\
+            .format(np.average(result_asr),np.std(result_asr),np.average(result_acc),np.std(result_acc)))
 
 
 # In[ ]:
