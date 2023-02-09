@@ -114,3 +114,42 @@ def label_classification(embeddings, y, idx_train, idx_test):
 #         'F1Mi': micro,
 #         'F1Ma': macro
 #     }
+
+def label_evaluation(embeddings, y, idx_train, idx_test):
+    idx_train = idx_train.cpu().numpy()
+    idx_test = idx_test.cpu().numpy()
+
+    X = embeddings.detach().cpu().numpy()
+    Y = y.detach().cpu().numpy()
+    Y = Y.reshape(-1, 1)
+    onehot_encoder = OneHotEncoder(categories='auto').fit(Y)
+    Y = onehot_encoder.transform(Y).toarray().astype(np.bool)
+
+    X = normalize(X, norm='l2')
+
+    # X_train, X_test, y_train, y_test = train_test_split(X, Y,
+    #                                                     test_size=1 - ratio)
+
+    logreg = LogisticRegression(solver='liblinear')
+    c = 2.0 ** np.arange(-10, 10)
+
+    clf = GridSearchCV(estimator=OneVsRestClassifier(logreg),
+                       param_grid=dict(estimator__C=c), n_jobs=8, cv=5,
+                       verbose=0)
+    clf.fit(X[idx_train], Y[idx_train])
+
+    y_pred = clf.predict_proba(X[idx_test])
+    y_pred = prob_to_one_hot(y_pred)
+    y_test = Y[idx_test]
+
+    micro = f1_score(y_test, y_pred, average="micro")
+    macro = f1_score(y_test, y_pred, average="macro")
+
+    # print(y_pred.argmax(1).shape,y_test.argmax(1))
+    acc = (((y_pred.argmax(1)==y_test.argmax(1)).sum())/len(y_pred.argmax(1)))
+    # print(acc)
+    return acc
+    # return {
+    #     'F1Mi': micro,
+    #     'F1Ma': macro
+    # }

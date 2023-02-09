@@ -68,6 +68,7 @@ def drop_adj_1by1(args,edge_index, edge_weight, p,device):
 #     # graph 2:
 #     aug_edge_index_2,aug_x_2 = data2.edge_index,data2.x
 #     return aug_edge_index_1,aug_x_1,aug_edge_index_2,aug_x_2
+
 def construct_augmentation_1(args, x, edge_index, edge_weight=None):
     #
 
@@ -128,4 +129,19 @@ def construct_augmentation(args, x, edge_index, edge_weight=None, device=None):
     aug_x_2 = drop_feature(x,drop_prob=args.drop_feat_rate_2)
     return aug_edge_index_1,aug_x_1,aug_edge_weight_1,aug_edge_index_2,aug_x_2,aug_edge_weight_2
 
-# 每个节点有多少个邻居属于哪类
+def _sample_structure_noise(args,x,edge_index, edge_weight, idx, device):
+    # update edge_index according to edge_weight
+    if(edge_weight!=None):
+        edge_index = edge_index[:,edge_weight.long()]
+        edge_weight = torch.ones([edge_index.shape[1],]).to(device)
+
+    # select edge_index according to idx
+    
+
+    # rs = np.random.RandomState(args.seed)
+    # remain_mask = rs.binomial(1,p,edge_index.shape[1])
+    remain_mask = np.random.binomial(1,p,edge_index.shape[1])
+    remain_index = remain_mask.nonzero()[0]
+    remain_edge_index = edge_index[:,remain_index]
+    remain_edge_weight = torch.ones([remain_edge_index.shape[1],]).to(device)
+    return remain_edge_index,remain_edge_weight
