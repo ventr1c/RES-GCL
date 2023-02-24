@@ -1,0 +1,71 @@
+nohup: ignoring input
+run_robust_acc.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='nettack', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Cora', debug=True, device_id=0, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, encoder_model='Grace', hidden=128, if_smoothed=False, inv_weight=1, no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+beta 0.5
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.59642505645752
+Epoch 10, training loss: 8.565939903259277
+Epoch 20, training loss: 8.447736740112305
+Epoch 30, training loss: 8.274752616882324
+Epoch 40, training loss: 7.999054908752441
+Epoch 50, training loss: 7.62150764465332
+Epoch 60, training loss: 7.225142002105713
+Epoch 70, training loss: 7.1436448097229
+Epoch 80, training loss: 6.889727592468262
+Epoch 90, training loss: 6.733100414276123
+Epoch 100, training loss: 6.619032382965088
+Epoch 110, training loss: 6.430211067199707
+Epoch 120, training loss: 6.338076591491699
+Epoch 130, training loss: 6.285653591156006
+Epoch 140, training loss: 6.246912956237793
+Epoch 150, training loss: 6.178194522857666
+Epoch 160, training loss: 6.176459312438965
+Epoch 170, training loss: 6.045408725738525
+Epoch 180, training loss: 6.024548053741455
+Epoch 190, training loss: 5.932859897613525
+Epoch 200, training loss: 5.884749412536621
+Epoch 210, training loss: 5.933194160461426
+Epoch 220, training loss: 5.779177188873291
+Epoch 230, training loss: 5.904978275299072
+Epoch 240, training loss: 5.759826183319092
+Epoch 250, training loss: 5.780670642852783
+Epoch 260, training loss: 5.8205084800720215
+Epoch 270, training loss: 5.657907009124756
+Epoch 280, training loss: 5.729735374450684
+Epoch 290, training loss: 5.597221374511719
+Epoch 300, training loss: 5.588415145874023
+Epoch 310, training loss: 5.613003253936768
+Epoch 320, training loss: 5.585423946380615
+Epoch 330, training loss: 5.508430004119873
+Epoch 340, training loss: 5.460917949676514
+Epoch 350, training loss: 5.552671432495117
+Epoch 360, training loss: 5.386764049530029
+Epoch 370, training loss: 5.418267726898193
+Epoch 380, training loss: 5.487286567687988
+Epoch 390, training loss: 5.386919021606445
+Epoch 400, training loss: 5.434410095214844
+Epoch 410, training loss: 5.347957134246826
+Epoch 420, training loss: 5.391809940338135
+Epoch 430, training loss: 5.343892574310303
+Epoch 440, training loss: 5.360054969787598
+Epoch 450, training loss: 5.258083343505859
+Epoch 460, training loss: 5.28079891204834
+Epoch 470, training loss: 5.265320301055908
+Epoch 480, training loss: 5.279364585876465
+Epoch 490, training loss: 5.213352203369141
+nettack
+=== [Evasion] Attacking 100 nodes respectively ===
+=== Perturbation Size 1 ===
+  0%|          | 0/100 [00:00<?, ?it/s]/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/numba/core/ir_utils.py:2147: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected set' found for argument 'edges_set' of function 'compute_new_a_hat_uv'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "../../anaconda3/envs/py38_torch120/lib/python3.8/site-packages/deeprobust/graph/targeted_attack/nettack.py", line 501:
+@jit(nopython=True)
+def compute_new_a_hat_uv(edge_ixs, node_nb_ixs, edges_set, twohop_ixs, values_before, degs, potential_edges, u):
+^
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))

@@ -122,3 +122,28 @@ def get_split(args,data, device):
     idx_atk = idx_test[int(len(idx_test)/2):]
 
     return data, idx_train, idx_val, idx_clean_test, idx_atk
+
+def single_add_random_edges(idx_target, idx_add_nodes,device):
+    edge_list = []
+    for idx_add in idx_add_nodes:
+        edge_list.append([idx_target,idx_add])
+    edge_index = torch.tensor(edge_list).to(device).transpose(1,0)
+
+    row = torch.cat([edge_index[0], edge_index[1]])
+    col = torch.cat([edge_index[1],edge_index[0]])
+    edge_index = torch.stack([row,col])
+    return edge_index
+
+def get_split_self(num_samples: int, train_ratio: float = 0.1, test_ratio: float = 0.8, device=None):
+    assert train_ratio + test_ratio < 1
+    rs = np.random.RandomState(42)
+    perm = rs.permutation(num_samples)
+    indices = torch.tensor(perm).to(device)
+    train_size = int(num_samples * train_ratio)
+    test_size = int(num_samples * test_ratio)
+    # indices = torch.randperm(num_samples)
+    return {
+        'train': indices[:train_size],
+        'test': indices[train_size: test_size + train_size],
+        'valid': indices[test_size + train_size:]
+    }

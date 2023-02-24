@@ -1,0 +1,105 @@
+nohup: ignoring input
+run_gnn.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='nettack', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Pubmed', debug=True, device_id=1, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, hidden=128, if_smoothed=True, inv_weight=1, model='GNNGuard', no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, num_repeat=1, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+=== training gcn model ===
+=== picking the best model according to the performance on validation ===
+nettack
+=== [Evasion] Attacking 100 nodes respectively ===
+=== Perturbation Size 1 ===
+  0%|          | 0/100 [00:00<?, ?it/s]/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/numba/core/ir_utils.py:2147: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected set' found for argument 'edges_set' of function 'compute_new_a_hat_uv'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "../../anaconda3/envs/py38_torch120/lib/python3.8/site-packages/deeprobust/graph/targeted_attack/nettack.py", line 501:
+@jit(nopython=True)
+def compute_new_a_hat_uv(edge_ixs, node_nb_ixs, edges_set, twohop_ixs, values_before, degs, potential_edges, u):
+^
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+GCN False
+Robust GNN 0
+  1%|          | 1/100 [00:12<21:13, 12.86s/it]GCN False
+Robust GNN 0
+  2%|▏         | 2/100 [00:22<17:48, 10.90s/it]GCN False
+Robust GNN 0
+  3%|▎         | 3/100 [00:32<16:53, 10.44s/it]GCN False
+Robust GNN 0
+  4%|▍         | 4/100 [00:42<16:30, 10.32s/it]GCN False
+Robust GNN 1
+  5%|▌         | 5/100 [00:53<16:47, 10.60s/it]GCN True
+Robust GNN 1
+  6%|▌         | 6/100 [01:03<16:13, 10.36s/it]GCN False
+Robust GNN 1
+  7%|▋         | 7/100 [01:14<16:38, 10.73s/it]GCN False
+Robust GNN 0
+  8%|▊         | 8/100 [01:25<16:22, 10.68s/it]GCN False
+Robust GNN 0
+  9%|▉         | 9/100 [01:34<15:32, 10.25s/it]GCN True
+Robust GNN 1
+ 10%|█         | 10/100 [01:47<16:43, 11.15s/it]GCN False
+Robust GNN 0
+ 11%|█         | 11/100 [01:58<16:28, 11.10s/it]GCN False
+Robust GNN 0
+ 12%|█▏        | 12/100 [02:10<16:36, 11.33s/it]GCN False
+Robust GNN 0
+ 13%|█▎        | 13/100 [02:21<16:01, 11.05s/it]GCN False
+Robust GNN 0
+ 14%|█▍        | 14/100 [02:30<15:07, 10.55s/it]GCN False
+Robust GNN 0
+ 15%|█▌        | 15/100 [02:39<14:21, 10.13s/it]GCN True
+Robust GNN 1
+ 16%|█▌        | 16/100 [02:49<14:03, 10.04s/it]GCN False
+Robust GNN 0
+ 17%|█▋        | 17/100 [03:00<14:09, 10.24s/it]GCN False
+Robust GNN 0
+ 18%|█▊        | 18/100 [03:09<13:46, 10.07s/it]GCN False
+Robust GNN 1
+ 19%|█▉        | 19/100 [03:19<13:29, 10.00s/it]GCN True
+Robust GNN 1
+ 20%|██        | 20/100 [03:30<13:41, 10.26s/it]GCN False
+Robust GNN 0
+ 21%|██        | 21/100 [03:40<13:20, 10.14s/it]GCN False
+Robust GNN 0
+ 22%|██▏       | 22/100 [03:51<13:28, 10.36s/it]GCN False
+Robust GNN 1
+ 23%|██▎       | 23/100 [04:01<13:06, 10.22s/it]GCN False
+Robust GNN 1
+ 24%|██▍       | 24/100 [04:10<12:31,  9.88s/it]GCN False
+Robust GNN 0
+ 25%|██▌       | 25/100 [04:20<12:16,  9.82s/it]GCN False
+Robust GNN 1
+ 26%|██▌       | 26/100 [04:31<12:35, 10.21s/it]GCN False
+Robust GNN 0
+ 27%|██▋       | 27/100 [04:40<12:05,  9.93s/it]GCN True
+Robust GNN 0
+ 28%|██▊       | 28/100 [04:50<11:50,  9.87s/it]GCN False
+Robust GNN 0
+ 29%|██▉       | 29/100 [05:00<11:39,  9.86s/it]GCN False
+Robust GNN 0
+ 30%|███       | 30/100 [05:10<11:33,  9.91s/it]GCN False
+Robust GNN 0
+ 31%|███       | 31/100 [05:21<11:48, 10.27s/it]GCN True
+Robust GNN 1
+ 32%|███▏      | 32/100 [05:33<12:14, 10.80s/it]GCN False
+Robust GNN 1
+ 33%|███▎      | 33/100 [05:43<11:56, 10.69s/it]GCN False
+Robust GNN 0
+ 34%|███▍      | 34/100 [05:54<11:46, 10.71s/it]GCN False
+Robust GNN 0
+ 35%|███▌      | 35/100 [06:05<11:45, 10.86s/it]GCN False
+Robust GNN 0
+ 36%|███▌      | 36/100 [06:15<11:22, 10.66s/it]GCN False
+Robust GNN 0
+ 37%|███▋      | 37/100 [06:26<11:05, 10.56s/it]GCN False
+Robust GNN 1
+ 38%|███▊      | 38/100 [06:36<10:49, 10.47s/it]GCN False
+Robust GNN 0
+ 39%|███▉      | 39/100 [06:46<10:33, 10.38s/it]GCN True
+Robust GNN 1
+ 40%|████      | 40/100 [06:56<10:21, 10.36s/it]GCN False
+Robust GNN 0
+ 41%|████      | 41/100 [07:07<10:16, 10.44s/it]GCN False
+Robust GNN 0
+ 42%|████▏     | 42/100 [07:18<10:09, 10.51s/it]

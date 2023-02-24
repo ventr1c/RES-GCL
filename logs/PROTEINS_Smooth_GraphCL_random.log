@@ -1,0 +1,614 @@
+nohup: ignoring input
+run_graphcl.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='random', base_model='GCN', batch_size=128, cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.01, cl_num_epochs=100, cl_num_layers=2, cl_weight_decay=1e-05, config='config.yaml', cont_weight=1, cuda=True, dataset='PROTEINS', debug=True, device_id=2, drop_edge_rate_1=0.1, drop_edge_rate_2=0.1, drop_feat_rate_1=0.1, drop_feat_rate_2=0.1, drop_node_rate_1=0.1, drop_node_rate_2=0.1, dropout=0.5, encoder_model='GraphCL', hidden=32, if_smoothed=False, no_cuda=False, num_hidden=32, num_proj_hidden=32, prob=1.0, seed=10, select_target_ratio=0.1, tau=0.2, test_model='GCN', train_lr=0.01, walk_length=10, weight_decay=0.0005)
+Perturbation Size:1
+1
+Perturbation Size:2
+2
+Perturbation Size:3
+3
+Perturbation Size:4
+4
+Perturbation Size:5
+5
+(T):   0%|          | 0/100 [00:00<?, ?it/s](T):   0%|          | 0/100 [00:01<?, ?it/s, loss=29](T):   1%|          | 1/100 [00:01<02:16,  1.38s/it, loss=29](T):   1%|          | 1/100 [00:01<02:16,  1.38s/it, loss=26.1](T):   2%|▏         | 2/100 [00:01<01:07,  1.45it/s, loss=26.1](T):   2%|▏         | 2/100 [00:01<01:07,  1.45it/s, loss=24.6](T):   3%|▎         | 3/100 [00:01<00:46,  2.11it/s, loss=24.6](T):   3%|▎         | 3/100 [00:01<00:46,  2.11it/s, loss=21]  (T):   4%|▍         | 4/100 [00:01<00:34,  2.76it/s, loss=21](T):   4%|▍         | 4/100 [00:02<00:34,  2.76it/s, loss=18.6](T):   5%|▌         | 5/100 [00:02<00:28,  3.38it/s, loss=18.6](T):   5%|▌         | 5/100 [00:02<00:28,  3.38it/s, loss=20.6](T):   6%|▌         | 6/100 [00:02<00:24,  3.89it/s, loss=20.6](T):   6%|▌         | 6/100 [00:02<00:24,  3.89it/s, loss=23.3](T):   7%|▋         | 7/100 [00:02<00:21,  4.33it/s, loss=23.3](T):   7%|▋         | 7/100 [00:02<00:21,  4.33it/s, loss=21]  (T):   8%|▊         | 8/100 [00:02<00:19,  4.72it/s, loss=21](T):   8%|▊         | 8/100 [00:02<00:19,  4.72it/s, loss=20](T):   9%|▉         | 9/100 [00:02<00:18,  4.95it/s, loss=20](T):   9%|▉         | 9/100 [00:03<00:18,  4.95it/s, loss=21.1](T):  10%|█         | 10/100 [00:03<00:17,  5.17it/s, loss=21.1](T):  10%|█         | 10/100 [00:03<00:17,  5.17it/s, loss=23.5](T):  11%|█         | 11/100 [00:03<00:16,  5.37it/s, loss=23.5](T):  11%|█         | 11/100 [00:03<00:16,  5.37it/s, loss=22.6](T):  12%|█▏        | 12/100 [00:03<00:16,  5.46it/s, loss=22.6](T):  12%|█▏        | 12/100 [00:03<00:16,  5.46it/s, loss=18.2](T):  13%|█▎        | 13/100 [00:03<00:16,  5.40it/s, loss=18.2](T):  13%|█▎        | 13/100 [00:03<00:16,  5.40it/s, loss=18.8](T):  14%|█▍        | 14/100 [00:03<00:15,  5.42it/s, loss=18.8](T):  14%|█▍        | 14/100 [00:03<00:15,  5.42it/s, loss=20]  (T):  15%|█▌        | 15/100 [00:03<00:15,  5.43it/s, loss=20](T):  15%|█▌        | 15/100 [00:04<00:15,  5.43it/s, loss=19](T):  16%|█▌        | 16/100 [00:04<00:15,  5.32it/s, loss=19](T):  16%|█▌        | 16/100 [00:04<00:15,  5.32it/s, loss=21.4](T):  17%|█▋        | 17/100 [00:04<00:16,  5.13it/s, loss=21.4](T):  17%|█▋        | 17/100 [00:04<00:16,  5.13it/s, loss=17.8](T):  18%|█▊        | 18/100 [00:04<00:16,  5.06it/s, loss=17.8](T):  18%|█▊        | 18/100 [00:04<00:16,  5.06it/s, loss=18.3](T):  19%|█▉        | 19/100 [00:04<00:16,  4.98it/s, loss=18.3](T):  19%|█▉        | 19/100 [00:04<00:16,  4.98it/s, loss=19.2](T):  20%|██        | 20/100 [00:04<00:16,  4.91it/s, loss=19.2](T):  20%|██        | 20/100 [00:05<00:16,  4.91it/s, loss=21.4](T):  21%|██        | 21/100 [00:05<00:16,  4.84it/s, loss=21.4](T):  21%|██        | 21/100 [00:05<00:16,  4.84it/s, loss=15.5](T):  22%|██▏       | 22/100 [00:05<00:16,  4.82it/s, loss=15.5](T):  22%|██▏       | 22/100 [00:05<00:16,  4.82it/s, loss=23]  (T):  23%|██▎       | 23/100 [00:05<00:16,  4.72it/s, loss=23](T):  23%|██▎       | 23/100 [00:05<00:16,  4.72it/s, loss=18.6](T):  24%|██▍       | 24/100 [00:05<00:16,  4.73it/s, loss=18.6](T):  24%|██▍       | 24/100 [00:06<00:16,  4.73it/s, loss=19.3](T):  25%|██▌       | 25/100 [00:06<00:15,  4.71it/s, loss=19.3](T):  25%|██▌       | 25/100 [00:06<00:15,  4.71it/s, loss=21.2](T):  26%|██▌       | 26/100 [00:06<00:15,  4.68it/s, loss=21.2](T):  26%|██▌       | 26/100 [00:06<00:15,  4.68it/s, loss=20.1](T):  27%|██▋       | 27/100 [00:06<00:15,  4.68it/s, loss=20.1](T):  27%|██▋       | 27/100 [00:06<00:15,  4.68it/s, loss=16.3](T):  28%|██▊       | 28/100 [00:06<00:15,  4.70it/s, loss=16.3](T):  28%|██▊       | 28/100 [00:06<00:15,  4.70it/s, loss=17.9](T):  29%|██▉       | 29/100 [00:06<00:15,  4.71it/s, loss=17.9](T):  29%|██▉       | 29/100 [00:07<00:15,  4.71it/s, loss=18.3](T):  30%|███       | 30/100 [00:07<00:14,  4.72it/s, loss=18.3](T):  30%|███       | 30/100 [00:07<00:14,  4.72it/s, loss=19.5](T):  31%|███       | 31/100 [00:07<00:14,  4.63it/s, loss=19.5](T):  31%|███       | 31/100 [00:07<00:14,  4.63it/s, loss=16.6](T):  32%|███▏      | 32/100 [00:07<00:14,  4.66it/s, loss=16.6](T):  32%|███▏      | 32/100 [00:07<00:14,  4.66it/s, loss=16.7](T):  33%|███▎      | 33/100 [00:07<00:14,  4.60it/s, loss=16.7](T):  33%|███▎      | 33/100 [00:07<00:14,  4.60it/s, loss=15.6](T):  34%|███▍      | 34/100 [00:07<00:14,  4.67it/s, loss=15.6](T):  34%|███▍      | 34/100 [00:08<00:14,  4.67it/s, loss=14.5](T):  35%|███▌      | 35/100 [00:08<00:13,  4.71it/s, loss=14.5](T):  35%|███▌      | 35/100 [00:08<00:13,  4.71it/s, loss=14.6](T):  36%|███▌      | 36/100 [00:08<00:13,  4.78it/s, loss=14.6](T):  36%|███▌      | 36/100 [00:08<00:13,  4.78it/s, loss=21.6](T):  37%|███▋      | 37/100 [00:08<00:13,  4.79it/s, loss=21.6](T):  37%|███▋      | 37/100 [00:08<00:13,  4.79it/s, loss=16.2](T):  38%|███▊      | 38/100 [00:08<00:12,  4.94it/s, loss=16.2](T):  38%|███▊      | 38/100 [00:08<00:12,  4.94it/s, loss=20.3](T):  39%|███▉      | 39/100 [00:08<00:12,  5.03it/s, loss=20.3](T):  39%|███▉      | 39/100 [00:09<00:12,  5.03it/s, loss=18.5](T):  40%|████      | 40/100 [00:09<00:11,  5.10it/s, loss=18.5](T):  40%|████      | 40/100 [00:09<00:11,  5.10it/s, loss=17.1](T):  41%|████      | 41/100 [00:09<00:11,  5.26it/s, loss=17.1](T):  41%|████      | 41/100 [00:09<00:11,  5.26it/s, loss=16.4](T):  42%|████▏     | 42/100 [00:09<00:10,  5.35it/s, loss=16.4](T):  42%|████▏     | 42/100 [00:09<00:10,  5.35it/s, loss=17.7](T):  43%|████▎     | 43/100 [00:09<00:10,  5.35it/s, loss=17.7](T):  43%|████▎     | 43/100 [00:09<00:10,  5.35it/s, loss=17]  (T):  44%|████▍     | 44/100 [00:09<00:10,  5.32it/s, loss=17](T):  44%|████▍     | 44/100 [00:10<00:10,  5.32it/s, loss=15.8](T):  45%|████▌     | 45/100 [00:10<00:10,  5.17it/s, loss=15.8](T):  45%|████▌     | 45/100 [00:10<00:10,  5.17it/s, loss=21.5](T):  46%|████▌     | 46/100 [00:10<00:10,  4.99it/s, loss=21.5](T):  46%|████▌     | 46/100 [00:10<00:10,  4.99it/s, loss=17.6](T):  47%|████▋     | 47/100 [00:10<00:10,  4.84it/s, loss=17.6](T):  47%|████▋     | 47/100 [00:10<00:10,  4.84it/s, loss=16]  (T):  48%|████▊     | 48/100 [00:10<00:10,  4.80it/s, loss=16](T):  48%|████▊     | 48/100 [00:10<00:10,  4.80it/s, loss=18.1](T):  49%|████▉     | 49/100 [00:10<00:10,  4.64it/s, loss=18.1](T):  49%|████▉     | 49/100 [00:11<00:10,  4.64it/s, loss=17.6](T):  50%|█████     | 50/100 [00:11<00:10,  4.62it/s, loss=17.6](T):  50%|█████     | 50/100 [00:11<00:10,  4.62it/s, loss=17]  (T):  51%|█████     | 51/100 [00:11<00:10,  4.62it/s, loss=17](T):  51%|█████     | 51/100 [00:11<00:10,  4.62it/s, loss=17.3](T):  52%|█████▏    | 52/100 [00:11<00:10,  4.56it/s, loss=17.3](T):  52%|█████▏    | 52/100 [00:11<00:10,  4.56it/s, loss=16.4](T):  53%|█████▎    | 53/100 [00:11<00:10,  4.56it/s, loss=16.4](T):  53%|█████▎    | 53/100 [00:12<00:10,  4.56it/s, loss=14.3](T):  54%|█████▍    | 54/100 [00:12<00:10,  4.58it/s, loss=14.3](T):  54%|█████▍    | 54/100 [00:12<00:10,  4.58it/s, loss=15.6](T):  55%|█████▌    | 55/100 [00:12<00:09,  4.62it/s, loss=15.6](T):  55%|█████▌    | 55/100 [00:12<00:09,  4.62it/s, loss=13.6](T):  56%|█████▌    | 56/100 [00:12<00:09,  4.69it/s, loss=13.6](T):  56%|█████▌    | 56/100 [00:12<00:09,  4.69it/s, loss=15.4](T):  57%|█████▋    | 57/100 [00:12<00:09,  4.68it/s, loss=15.4](T):  57%|█████▋    | 57/100 [00:12<00:09,  4.68it/s, loss=13]  (T):  58%|█████▊    | 58/100 [00:12<00:08,  4.74it/s, loss=13](T):  58%|█████▊    | 58/100 [00:13<00:08,  4.74it/s, loss=17.7](T):  59%|█████▉    | 59/100 [00:13<00:08,  4.68it/s, loss=17.7](T):  59%|█████▉    | 59/100 [00:13<00:08,  4.68it/s, loss=17.2](T):  60%|██████    | 60/100 [00:13<00:08,  4.66it/s, loss=17.2](T):  60%|██████    | 60/100 [00:13<00:08,  4.66it/s, loss=16.7](T):  61%|██████    | 61/100 [00:13<00:08,  4.57it/s, loss=16.7](T):  61%|██████    | 61/100 [00:13<00:08,  4.57it/s, loss=14.3](T):  62%|██████▏   | 62/100 [00:13<00:08,  4.65it/s, loss=14.3](T):  62%|██████▏   | 62/100 [00:14<00:08,  4.65it/s, loss=17]  (T):  63%|██████▎   | 63/100 [00:14<00:07,  4.63it/s, loss=17](T):  63%|██████▎   | 63/100 [00:14<00:07,  4.63it/s, loss=16.1](T):  64%|██████▍   | 64/100 [00:14<00:07,  4.60it/s, loss=16.1](T):  64%|██████▍   | 64/100 [00:14<00:07,  4.60it/s, loss=16.2](T):  65%|██████▌   | 65/100 [00:14<00:07,  4.71it/s, loss=16.2](T):  65%|██████▌   | 65/100 [00:14<00:07,  4.71it/s, loss=17.7](T):  66%|██████▌   | 66/100 [00:14<00:07,  4.82it/s, loss=17.7](T):  66%|██████▌   | 66/100 [00:14<00:07,  4.82it/s, loss=16.8](T):  67%|██████▋   | 67/100 [00:14<00:06,  4.91it/s, loss=16.8](T):  67%|██████▋   | 67/100 [00:15<00:06,  4.91it/s, loss=15.5](T):  68%|██████▊   | 68/100 [00:15<00:06,  4.96it/s, loss=15.5](T):  68%|██████▊   | 68/100 [00:15<00:06,  4.96it/s, loss=15.1](T):  69%|██████▉   | 69/100 [00:15<00:05,  5.24it/s, loss=15.1](T):  69%|██████▉   | 69/100 [00:15<00:05,  5.24it/s, loss=15.6](T):  70%|███████   | 70/100 [00:15<00:05,  5.38it/s, loss=15.6](T):  70%|███████   | 70/100 [00:15<00:05,  5.38it/s, loss=17.5](T):  71%|███████   | 71/100 [00:15<00:05,  5.44it/s, loss=17.5](T):  71%|███████   | 71/100 [00:15<00:05,  5.44it/s, loss=14.6](T):  72%|███████▏  | 72/100 [00:15<00:05,  5.51it/s, loss=14.6](T):  72%|███████▏  | 72/100 [00:15<00:05,  5.51it/s, loss=15.7](T):  73%|███████▎  | 73/100 [00:15<00:05,  5.39it/s, loss=15.7](T):  73%|███████▎  | 73/100 [00:16<00:05,  5.39it/s, loss=15.3](T):  74%|███████▍  | 74/100 [00:16<00:04,  5.39it/s, loss=15.3](T):  74%|███████▍  | 74/100 [00:16<00:04,  5.39it/s, loss=14.6](T):  75%|███████▌  | 75/100 [00:16<00:04,  5.43it/s, loss=14.6](T):  75%|███████▌  | 75/100 [00:16<00:04,  5.43it/s, loss=14]  (T):  76%|███████▌  | 76/100 [00:16<00:04,  5.27it/s, loss=14](T):  76%|███████▌  | 76/100 [00:16<00:04,  5.27it/s, loss=14.4](T):  77%|███████▋  | 77/100 [00:16<00:04,  5.09it/s, loss=14.4](T):  77%|███████▋  | 77/100 [00:16<00:04,  5.09it/s, loss=15.9](T):  78%|███████▊  | 78/100 [00:16<00:04,  4.93it/s, loss=15.9](T):  78%|███████▊  | 78/100 [00:17<00:04,  4.93it/s, loss=15.7](T):  79%|███████▉  | 79/100 [00:17<00:04,  4.78it/s, loss=15.7](T):  79%|███████▉  | 79/100 [00:17<00:04,  4.78it/s, loss=14.8](T):  80%|████████  | 80/100 [00:17<00:04,  4.73it/s, loss=14.8](T):  80%|████████  | 80/100 [00:17<00:04,  4.73it/s, loss=17.9](T):  81%|████████  | 81/100 [00:17<00:04,  4.75it/s, loss=17.9](T):  81%|████████  | 81/100 [00:17<00:04,  4.75it/s, loss=17.4](T):  82%|████████▏ | 82/100 [00:17<00:03,  4.64it/s, loss=17.4](T):  82%|████████▏ | 82/100 [00:18<00:03,  4.64it/s, loss=15.1](T):  83%|████████▎ | 83/100 [00:18<00:03,  4.63it/s, loss=15.1](T):  83%|████████▎ | 83/100 [00:18<00:03,  4.63it/s, loss=16.4](T):  84%|████████▍ | 84/100 [00:18<00:03,  4.65it/s, loss=16.4](T):  84%|████████▍ | 84/100 [00:18<00:03,  4.65it/s, loss=15.3](T):  85%|████████▌ | 85/100 [00:18<00:03,  4.62it/s, loss=15.3](T):  85%|████████▌ | 85/100 [00:18<00:03,  4.62it/s, loss=15.2](T):  86%|████████▌ | 86/100 [00:18<00:03,  4.63it/s, loss=15.2](T):  86%|████████▌ | 86/100 [00:18<00:03,  4.63it/s, loss=13.6](T):  87%|████████▋ | 87/100 [00:18<00:02,  4.61it/s, loss=13.6](T):  87%|████████▋ | 87/100 [00:19<00:02,  4.61it/s, loss=11.8](T):  88%|████████▊ | 88/100 [00:19<00:02,  4.66it/s, loss=11.8](T):  88%|████████▊ | 88/100 [00:19<00:02,  4.66it/s, loss=13]  (T):  89%|████████▉ | 89/100 [00:19<00:02,  4.65it/s, loss=13](T):  89%|████████▉ | 89/100 [00:19<00:02,  4.65it/s, loss=13.9](T):  90%|█████████ | 90/100 [00:19<00:02,  4.67it/s, loss=13.9](T):  90%|█████████ | 90/100 [00:19<00:02,  4.67it/s, loss=15.7](T):  91%|█████████ | 91/100 [00:19<00:01,  4.67it/s, loss=15.7](T):  91%|█████████ | 91/100 [00:19<00:01,  4.67it/s, loss=16.7](T):  92%|█████████▏| 92/100 [00:19<00:01,  4.69it/s, loss=16.7](T):  92%|█████████▏| 92/100 [00:20<00:01,  4.69it/s, loss=16.6](T):  93%|█████████▎| 93/100 [00:20<00:01,  4.65it/s, loss=16.6](T):  93%|█████████▎| 93/100 [00:20<00:01,  4.65it/s, loss=16.5](T):  94%|█████████▍| 94/100 [00:20<00:01,  4.68it/s, loss=16.5](T):  94%|█████████▍| 94/100 [00:20<00:01,  4.68it/s, loss=11.9](T):  95%|█████████▌| 95/100 [00:20<00:01,  4.86it/s, loss=11.9](T):  95%|█████████▌| 95/100 [00:20<00:01,  4.86it/s, loss=15.5](T):  96%|█████████▌| 96/100 [00:20<00:00,  4.92it/s, loss=15.5](T):  96%|█████████▌| 96/100 [00:20<00:00,  4.92it/s, loss=17.5](T):  97%|█████████▋| 97/100 [00:20<00:00,  5.00it/s, loss=17.5](T):  97%|█████████▋| 97/100 [00:21<00:00,  5.00it/s, loss=15.1](T):  98%|█████████▊| 98/100 [00:21<00:00,  5.03it/s, loss=15.1](T):  98%|█████████▊| 98/100 [00:21<00:00,  5.03it/s, loss=14.7](T):  99%|█████████▉| 99/100 [00:21<00:00,  5.20it/s, loss=14.7](T):  99%|█████████▉| 99/100 [00:21<00:00,  5.20it/s, loss=19]  (T): 100%|██████████| 100/100 [00:21<00:00,  5.34it/s, loss=19](T): 100%|██████████| 100/100 [00:21<00:00,  4.65it/s, loss=19]
+Accuracy: 0.6936936936936937
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7387, F1Ma=0.7332
+random
+Perturbation Size:1
+1
+Accuracy: 0.6756756756756757
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7117, F1Ma=0.7063
+Perturbation Size:2
+2
+Accuracy: 0.6756756756756757
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7477, F1Ma=0.7431
+Perturbation Size:3
+3
+Accuracy: 0.6666666666666666
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7297, F1Ma=0.7247
+Perturbation Size:4
+4
+Accuracy: 0.6756756756756757
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7297, F1Ma=0.7247
+Perturbation Size:5
+5
+Accuracy: 0.6936936936936937
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7297, F1Ma=0.7247
+(T):   0%|          | 0/100 [00:00<?, ?it/s](T):   0%|          | 0/100 [00:00<?, ?it/s, loss=28.6](T):   1%|          | 1/100 [00:00<00:17,  5.67it/s, loss=28.6](T):   1%|          | 1/100 [00:00<00:17,  5.67it/s, loss=24.7](T):   2%|▏         | 2/100 [00:00<00:17,  5.55it/s, loss=24.7](T):   2%|▏         | 2/100 [00:00<00:17,  5.55it/s, loss=21.9](T):   3%|▎         | 3/100 [00:00<00:17,  5.50it/s, loss=21.9](T):   3%|▎         | 3/100 [00:00<00:17,  5.50it/s, loss=21.7](T):   4%|▍         | 4/100 [00:00<00:17,  5.53it/s, loss=21.7](T):   4%|▍         | 4/100 [00:00<00:17,  5.53it/s, loss=22.6](T):   5%|▌         | 5/100 [00:00<00:17,  5.54it/s, loss=22.6](T):   5%|▌         | 5/100 [00:01<00:17,  5.54it/s, loss=21.1](T):   6%|▌         | 6/100 [00:01<00:16,  5.54it/s, loss=21.1](T):   6%|▌         | 6/100 [00:01<00:16,  5.54it/s, loss=20.6](T):   7%|▋         | 7/100 [00:01<00:16,  5.58it/s, loss=20.6](T):   7%|▋         | 7/100 [00:01<00:16,  5.58it/s, loss=21.9](T):   8%|▊         | 8/100 [00:01<00:16,  5.57it/s, loss=21.9](T):   8%|▊         | 8/100 [00:01<00:16,  5.57it/s, loss=20.4](T):   9%|▉         | 9/100 [00:01<00:16,  5.62it/s, loss=20.4](T):   9%|▉         | 9/100 [00:01<00:16,  5.62it/s, loss=18.9](T):  10%|█         | 10/100 [00:01<00:15,  5.63it/s, loss=18.9](T):  10%|█         | 10/100 [00:01<00:15,  5.63it/s, loss=25.9](T):  11%|█         | 11/100 [00:01<00:15,  5.62it/s, loss=25.9](T):  11%|█         | 11/100 [00:02<00:15,  5.62it/s, loss=21]  (T):  12%|█▏        | 12/100 [00:02<00:15,  5.57it/s, loss=21](T):  12%|█▏        | 12/100 [00:02<00:15,  5.57it/s, loss=20.9](T):  13%|█▎        | 13/100 [00:02<00:15,  5.53it/s, loss=20.9](T):  13%|█▎        | 13/100 [00:02<00:15,  5.53it/s, loss=17.1](T):  14%|█▍        | 14/100 [00:02<00:15,  5.59it/s, loss=17.1](T):  14%|█▍        | 14/100 [00:02<00:15,  5.59it/s, loss=21.1](T):  15%|█▌        | 15/100 [00:02<00:15,  5.51it/s, loss=21.1](T):  15%|█▌        | 15/100 [00:02<00:15,  5.51it/s, loss=22.4](T):  16%|█▌        | 16/100 [00:02<00:15,  5.48it/s, loss=22.4](T):  16%|█▌        | 16/100 [00:03<00:15,  5.48it/s, loss=20.2](T):  17%|█▋        | 17/100 [00:03<00:14,  5.54it/s, loss=20.2](T):  17%|█▋        | 17/100 [00:03<00:14,  5.54it/s, loss=19.4](T):  18%|█▊        | 18/100 [00:03<00:14,  5.56it/s, loss=19.4](T):  18%|█▊        | 18/100 [00:03<00:14,  5.56it/s, loss=17.3](T):  19%|█▉        | 19/100 [00:03<00:14,  5.57it/s, loss=17.3](T):  19%|█▉        | 19/100 [00:03<00:14,  5.57it/s, loss=19.4](T):  20%|██        | 20/100 [00:03<00:14,  5.45it/s, loss=19.4](T):  20%|██        | 20/100 [00:03<00:14,  5.45it/s, loss=19.8](T):  21%|██        | 21/100 [00:03<00:14,  5.46it/s, loss=19.8](T):  21%|██        | 21/100 [00:03<00:14,  5.46it/s, loss=17.9](T):  22%|██▏       | 22/100 [00:03<00:14,  5.53it/s, loss=17.9](T):  22%|██▏       | 22/100 [00:04<00:14,  5.53it/s, loss=20.7](T):  23%|██▎       | 23/100 [00:04<00:14,  5.50it/s, loss=20.7](T):  23%|██▎       | 23/100 [00:04<00:14,  5.50it/s, loss=20.8](T):  24%|██▍       | 24/100 [00:04<00:13,  5.47it/s, loss=20.8](T):  24%|██▍       | 24/100 [00:04<00:13,  5.47it/s, loss=19.7](T):  25%|██▌       | 25/100 [00:04<00:13,  5.47it/s, loss=19.7](T):  25%|██▌       | 25/100 [00:04<00:13,  5.47it/s, loss=17.2](T):  26%|██▌       | 26/100 [00:04<00:13,  5.52it/s, loss=17.2](T):  26%|██▌       | 26/100 [00:04<00:13,  5.52it/s, loss=18.4](T):  27%|██▋       | 27/100 [00:04<00:13,  5.50it/s, loss=18.4](T):  27%|██▋       | 27/100 [00:05<00:13,  5.50it/s, loss=18.2](T):  28%|██▊       | 28/100 [00:05<00:13,  5.51it/s, loss=18.2](T):  28%|██▊       | 28/100 [00:05<00:13,  5.51it/s, loss=15.5](T):  29%|██▉       | 29/100 [00:05<00:12,  5.51it/s, loss=15.5](T):  29%|██▉       | 29/100 [00:05<00:12,  5.51it/s, loss=15.1](T):  30%|███       | 30/100 [00:05<00:12,  5.51it/s, loss=15.1](T):  30%|███       | 30/100 [00:05<00:12,  5.51it/s, loss=16.1](T):  31%|███       | 31/100 [00:05<00:12,  5.51it/s, loss=16.1](T):  31%|███       | 31/100 [00:05<00:12,  5.51it/s, loss=17]  (T):  32%|███▏      | 32/100 [00:05<00:12,  5.54it/s, loss=17](T):  32%|███▏      | 32/100 [00:05<00:12,  5.54it/s, loss=17.4](T):  33%|███▎      | 33/100 [00:05<00:12,  5.54it/s, loss=17.4](T):  33%|███▎      | 33/100 [00:06<00:12,  5.54it/s, loss=15.2](T):  34%|███▍      | 34/100 [00:06<00:11,  5.54it/s, loss=15.2](T):  34%|███▍      | 34/100 [00:06<00:11,  5.54it/s, loss=19.6](T):  35%|███▌      | 35/100 [00:06<00:11,  5.58it/s, loss=19.6](T):  35%|███▌      | 35/100 [00:06<00:11,  5.58it/s, loss=18]  (T):  36%|███▌      | 36/100 [00:06<00:11,  5.56it/s, loss=18](T):  36%|███▌      | 36/100 [00:06<00:11,  5.56it/s, loss=17.3](T):  37%|███▋      | 37/100 [00:06<00:11,  5.59it/s, loss=17.3](T):  37%|███▋      | 37/100 [00:06<00:11,  5.59it/s, loss=19]  (T):  38%|███▊      | 38/100 [00:06<00:10,  5.68it/s, loss=19](T):  38%|███▊      | 38/100 [00:07<00:10,  5.68it/s, loss=20.9](T):  39%|███▉      | 39/100 [00:07<00:10,  5.65it/s, loss=20.9](T):  39%|███▉      | 39/100 [00:07<00:10,  5.65it/s, loss=19.2](T):  40%|████      | 40/100 [00:07<00:10,  5.63it/s, loss=19.2](T):  40%|████      | 40/100 [00:07<00:10,  5.63it/s, loss=15.7](T):  41%|████      | 41/100 [00:07<00:10,  5.65it/s, loss=15.7](T):  41%|████      | 41/100 [00:07<00:10,  5.65it/s, loss=20.7](T):  42%|████▏     | 42/100 [00:07<00:10,  5.69it/s, loss=20.7](T):  42%|████▏     | 42/100 [00:07<00:10,  5.69it/s, loss=16.9](T):  43%|████▎     | 43/100 [00:07<00:10,  5.67it/s, loss=16.9](T):  43%|████▎     | 43/100 [00:07<00:10,  5.67it/s, loss=16.7](T):  44%|████▍     | 44/100 [00:07<00:09,  5.69it/s, loss=16.7](T):  44%|████▍     | 44/100 [00:08<00:09,  5.69it/s, loss=17.3](T):  45%|████▌     | 45/100 [00:08<00:09,  5.69it/s, loss=17.3](T):  45%|████▌     | 45/100 [00:08<00:09,  5.69it/s, loss=15.1](T):  46%|████▌     | 46/100 [00:08<00:09,  5.71it/s, loss=15.1](T):  46%|████▌     | 46/100 [00:08<00:09,  5.71it/s, loss=16.7](T):  47%|████▋     | 47/100 [00:08<00:09,  5.68it/s, loss=16.7](T):  47%|████▋     | 47/100 [00:08<00:09,  5.68it/s, loss=13]  (T):  48%|████▊     | 48/100 [00:08<00:09,  5.69it/s, loss=13](T):  48%|████▊     | 48/100 [00:08<00:09,  5.69it/s, loss=19.7](T):  49%|████▉     | 49/100 [00:08<00:09,  5.61it/s, loss=19.7](T):  49%|████▉     | 49/100 [00:08<00:09,  5.61it/s, loss=16.5](T):  50%|█████     | 50/100 [00:08<00:08,  5.56it/s, loss=16.5](T):  50%|█████     | 50/100 [00:09<00:08,  5.56it/s, loss=16.5](T):  51%|█████     | 51/100 [00:09<00:08,  5.62it/s, loss=16.5](T):  51%|█████     | 51/100 [00:09<00:08,  5.62it/s, loss=17.2](T):  52%|█████▏    | 52/100 [00:09<00:08,  5.58it/s, loss=17.2](T):  52%|█████▏    | 52/100 [00:09<00:08,  5.58it/s, loss=15.9](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.59it/s, loss=15.9](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.59it/s, loss=18.3](T):  54%|█████▍    | 54/100 [00:09<00:08,  5.60it/s, loss=18.3](T):  54%|█████▍    | 54/100 [00:09<00:08,  5.60it/s, loss=19.9](T):  55%|█████▌    | 55/100 [00:09<00:07,  5.65it/s, loss=19.9](T):  55%|█████▌    | 55/100 [00:10<00:07,  5.65it/s, loss=15.3](T):  56%|█████▌    | 56/100 [00:10<00:07,  5.68it/s, loss=15.3](T):  56%|█████▌    | 56/100 [00:10<00:07,  5.68it/s, loss=17.4](T):  57%|█████▋    | 57/100 [00:10<00:07,  5.64it/s, loss=17.4](T):  57%|█████▋    | 57/100 [00:10<00:07,  5.64it/s, loss=18.4](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.63it/s, loss=18.4](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.63it/s, loss=15.6](T):  59%|█████▉    | 59/100 [00:10<00:07,  5.66it/s, loss=15.6](T):  59%|█████▉    | 59/100 [00:10<00:07,  5.66it/s, loss=17.2](T):  60%|██████    | 60/100 [00:10<00:07,  5.65it/s, loss=17.2](T):  60%|██████    | 60/100 [00:10<00:07,  5.65it/s, loss=17.2](T):  61%|██████    | 61/100 [00:10<00:06,  5.58it/s, loss=17.2](T):  61%|██████    | 61/100 [00:11<00:06,  5.58it/s, loss=14.7](T):  62%|██████▏   | 62/100 [00:11<00:06,  5.58it/s, loss=14.7](T):  62%|██████▏   | 62/100 [00:11<00:06,  5.58it/s, loss=15.5](T):  63%|██████▎   | 63/100 [00:11<00:06,  5.60it/s, loss=15.5](T):  63%|██████▎   | 63/100 [00:11<00:06,  5.60it/s, loss=14.5](T):  64%|██████▍   | 64/100 [00:11<00:06,  5.57it/s, loss=14.5](T):  64%|██████▍   | 64/100 [00:11<00:06,  5.57it/s, loss=19.7](T):  65%|██████▌   | 65/100 [00:11<00:06,  5.59it/s, loss=19.7](T):  65%|██████▌   | 65/100 [00:11<00:06,  5.59it/s, loss=14.1](T):  66%|██████▌   | 66/100 [00:11<00:06,  5.58it/s, loss=14.1](T):  66%|██████▌   | 66/100 [00:12<00:06,  5.58it/s, loss=15]  (T):  67%|██████▋   | 67/100 [00:12<00:05,  5.57it/s, loss=15](T):  67%|██████▋   | 67/100 [00:12<00:05,  5.57it/s, loss=15.5](T):  68%|██████▊   | 68/100 [00:12<00:05,  5.59it/s, loss=15.5](T):  68%|██████▊   | 68/100 [00:12<00:05,  5.59it/s, loss=14.3](T):  69%|██████▉   | 69/100 [00:12<00:05,  5.59it/s, loss=14.3](T):  69%|██████▉   | 69/100 [00:12<00:05,  5.59it/s, loss=16.2](T):  70%|███████   | 70/100 [00:12<00:05,  5.48it/s, loss=16.2](T):  70%|███████   | 70/100 [00:12<00:05,  5.48it/s, loss=13.7](T):  71%|███████   | 71/100 [00:12<00:05,  5.53it/s, loss=13.7](T):  71%|███████   | 71/100 [00:12<00:05,  5.53it/s, loss=18.4](T):  72%|███████▏  | 72/100 [00:12<00:05,  5.56it/s, loss=18.4](T):  72%|███████▏  | 72/100 [00:13<00:05,  5.56it/s, loss=17.7](T):  73%|███████▎  | 73/100 [00:13<00:04,  5.51it/s, loss=17.7](T):  73%|███████▎  | 73/100 [00:13<00:04,  5.51it/s, loss=15.6](T):  74%|███████▍  | 74/100 [00:13<00:04,  5.58it/s, loss=15.6](T):  74%|███████▍  | 74/100 [00:13<00:04,  5.58it/s, loss=15.2](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.52it/s, loss=15.2](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.52it/s, loss=16.6](T):  76%|███████▌  | 76/100 [00:13<00:04,  5.49it/s, loss=16.6](T):  76%|███████▌  | 76/100 [00:13<00:04,  5.49it/s, loss=17.5](T):  77%|███████▋  | 77/100 [00:13<00:04,  5.50it/s, loss=17.5](T):  77%|███████▋  | 77/100 [00:14<00:04,  5.50it/s, loss=14.8](T):  78%|███████▊  | 78/100 [00:14<00:04,  5.48it/s, loss=14.8](T):  78%|███████▊  | 78/100 [00:14<00:04,  5.48it/s, loss=15]  (T):  79%|███████▉  | 79/100 [00:14<00:03,  5.53it/s, loss=15](T):  79%|███████▉  | 79/100 [00:14<00:03,  5.53it/s, loss=16.2](T):  80%|████████  | 80/100 [00:14<00:03,  5.52it/s, loss=16.2](T):  80%|████████  | 80/100 [00:14<00:03,  5.52it/s, loss=15.6](T):  81%|████████  | 81/100 [00:14<00:03,  5.61it/s, loss=15.6](T):  81%|████████  | 81/100 [00:14<00:03,  5.61it/s, loss=13.3](T):  82%|████████▏ | 82/100 [00:14<00:03,  5.59it/s, loss=13.3](T):  82%|████████▏ | 82/100 [00:14<00:03,  5.59it/s, loss=14.4](T):  83%|████████▎ | 83/100 [00:14<00:03,  5.61it/s, loss=14.4](T):  83%|████████▎ | 83/100 [00:15<00:03,  5.61it/s, loss=13.3](T):  84%|████████▍ | 84/100 [00:15<00:02,  5.59it/s, loss=13.3](T):  84%|████████▍ | 84/100 [00:15<00:02,  5.59it/s, loss=15.5](T):  85%|████████▌ | 85/100 [00:15<00:02,  5.61it/s, loss=15.5](T):  85%|████████▌ | 85/100 [00:15<00:02,  5.61it/s, loss=14.2](T):  86%|████████▌ | 86/100 [00:15<00:02,  5.62it/s, loss=14.2](T):  86%|████████▌ | 86/100 [00:15<00:02,  5.62it/s, loss=14.6](T):  87%|████████▋ | 87/100 [00:15<00:02,  5.61it/s, loss=14.6](T):  87%|████████▋ | 87/100 [00:15<00:02,  5.61it/s, loss=14.4](T):  88%|████████▊ | 88/100 [00:15<00:02,  5.69it/s, loss=14.4](T):  88%|████████▊ | 88/100 [00:15<00:02,  5.69it/s, loss=16.1](T):  89%|████████▉ | 89/100 [00:15<00:01,  5.78it/s, loss=16.1](T):  89%|████████▉ | 89/100 [00:16<00:01,  5.78it/s, loss=13.4](T):  90%|█████████ | 90/100 [00:16<00:01,  5.78it/s, loss=13.4](T):  90%|█████████ | 90/100 [00:16<00:01,  5.78it/s, loss=17.9](T):  91%|█████████ | 91/100 [00:16<00:01,  5.70it/s, loss=17.9](T):  91%|█████████ | 91/100 [00:16<00:01,  5.70it/s, loss=14.8](T):  92%|█████████▏| 92/100 [00:16<00:01,  5.74it/s, loss=14.8](T):  92%|█████████▏| 92/100 [00:16<00:01,  5.74it/s, loss=13.3](T):  93%|█████████▎| 93/100 [00:16<00:01,  5.75it/s, loss=13.3](T):  93%|█████████▎| 93/100 [00:16<00:01,  5.75it/s, loss=14]  (T):  94%|█████████▍| 94/100 [00:16<00:01,  5.75it/s, loss=14](T):  94%|█████████▍| 94/100 [00:16<00:01,  5.75it/s, loss=15](T):  95%|█████████▌| 95/100 [00:16<00:00,  5.65it/s, loss=15](T):  95%|█████████▌| 95/100 [00:17<00:00,  5.65it/s, loss=15.8](T):  96%|█████████▌| 96/100 [00:17<00:00,  5.59it/s, loss=15.8](T):  96%|█████████▌| 96/100 [00:17<00:00,  5.59it/s, loss=14.7](T):  97%|█████████▋| 97/100 [00:17<00:00,  5.53it/s, loss=14.7](T):  97%|█████████▋| 97/100 [00:17<00:00,  5.53it/s, loss=16]  (T):  98%|█████████▊| 98/100 [00:17<00:00,  5.44it/s, loss=16](T):  98%|█████████▊| 98/100 [00:17<00:00,  5.44it/s, loss=15.3](T):  99%|█████████▉| 99/100 [00:17<00:00,  5.37it/s, loss=15.3](T):  99%|█████████▉| 99/100 [00:17<00:00,  5.37it/s, loss=15.9](T): 100%|██████████| 100/100 [00:17<00:00,  5.49it/s, loss=15.9](T): 100%|██████████| 100/100 [00:17<00:00,  5.58it/s, loss=15.9]
+Accuracy: 0.6846846846846847
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7477, F1Ma=0.7417
+random
+Perturbation Size:1
+1
+Accuracy: 0.7027027027027027
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7568, F1Ma=0.7516
+Perturbation Size:2
+2
+Accuracy: 0.7207207207207207
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7568, F1Ma=0.7516
+Perturbation Size:3
+3
+Accuracy: 0.7207207207207207
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7568, F1Ma=0.7516
+Perturbation Size:4
+4
+Accuracy: 0.6936936936936937
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7568, F1Ma=0.7528
+Perturbation Size:5
+5
+Accuracy: 0.7027027027027027
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7568, F1Ma=0.7516
+(T):   0%|          | 0/100 [00:00<?, ?it/s](T):   0%|          | 0/100 [00:00<?, ?it/s, loss=27.5](T):   1%|          | 1/100 [00:00<00:17,  5.67it/s, loss=27.5](T):   1%|          | 1/100 [00:00<00:17,  5.67it/s, loss=25.5](T):   2%|▏         | 2/100 [00:00<00:17,  5.53it/s, loss=25.5](T):   2%|▏         | 2/100 [00:00<00:17,  5.53it/s, loss=20.5](T):   3%|▎         | 3/100 [00:00<00:17,  5.60it/s, loss=20.5](T):   3%|▎         | 3/100 [00:00<00:17,  5.60it/s, loss=27.1](T):   4%|▍         | 4/100 [00:00<00:17,  5.43it/s, loss=27.1](T):   4%|▍         | 4/100 [00:00<00:17,  5.43it/s, loss=20.2](T):   5%|▌         | 5/100 [00:00<00:17,  5.51it/s, loss=20.2](T):   5%|▌         | 5/100 [00:01<00:17,  5.51it/s, loss=24.3](T):   6%|▌         | 6/100 [00:01<00:17,  5.41it/s, loss=24.3](T):   6%|▌         | 6/100 [00:01<00:17,  5.41it/s, loss=24]  (T):   7%|▋         | 7/100 [00:01<00:17,  5.34it/s, loss=24](T):   7%|▋         | 7/100 [00:01<00:17,  5.34it/s, loss=19.1](T):   8%|▊         | 8/100 [00:01<00:16,  5.42it/s, loss=19.1](T):   8%|▊         | 8/100 [00:01<00:16,  5.42it/s, loss=19.2](T):   9%|▉         | 9/100 [00:01<00:16,  5.43it/s, loss=19.2](T):   9%|▉         | 9/100 [00:01<00:16,  5.43it/s, loss=19.4](T):  10%|█         | 10/100 [00:01<00:16,  5.38it/s, loss=19.4](T):  10%|█         | 10/100 [00:02<00:16,  5.38it/s, loss=18.5](T):  11%|█         | 11/100 [00:02<00:16,  5.38it/s, loss=18.5](T):  11%|█         | 11/100 [00:02<00:16,  5.38it/s, loss=22.6](T):  12%|█▏        | 12/100 [00:02<00:16,  5.30it/s, loss=22.6](T):  12%|█▏        | 12/100 [00:02<00:16,  5.30it/s, loss=17.9](T):  13%|█▎        | 13/100 [00:02<00:16,  5.31it/s, loss=17.9](T):  13%|█▎        | 13/100 [00:02<00:16,  5.31it/s, loss=18.5](T):  14%|█▍        | 14/100 [00:02<00:16,  5.36it/s, loss=18.5](T):  14%|█▍        | 14/100 [00:02<00:16,  5.36it/s, loss=15.7](T):  15%|█▌        | 15/100 [00:02<00:15,  5.45it/s, loss=15.7](T):  15%|█▌        | 15/100 [00:02<00:15,  5.45it/s, loss=23.1](T):  16%|█▌        | 16/100 [00:02<00:15,  5.36it/s, loss=23.1](T):  16%|█▌        | 16/100 [00:03<00:15,  5.36it/s, loss=22.8](T):  17%|█▋        | 17/100 [00:03<00:17,  4.85it/s, loss=22.8](T):  17%|█▋        | 17/100 [00:03<00:17,  4.85it/s, loss=18.6](T):  18%|█▊        | 18/100 [00:03<00:16,  5.05it/s, loss=18.6](T):  18%|█▊        | 18/100 [00:03<00:16,  5.05it/s, loss=17.8](T):  19%|█▉        | 19/100 [00:03<00:15,  5.12it/s, loss=17.8](T):  19%|█▉        | 19/100 [00:03<00:15,  5.12it/s, loss=18.4](T):  20%|██        | 20/100 [00:03<00:15,  5.14it/s, loss=18.4](T):  20%|██        | 20/100 [00:03<00:15,  5.14it/s, loss=15.3](T):  21%|██        | 21/100 [00:03<00:15,  5.24it/s, loss=15.3](T):  21%|██        | 21/100 [00:04<00:15,  5.24it/s, loss=15.3](T):  22%|██▏       | 22/100 [00:04<00:14,  5.31it/s, loss=15.3](T):  22%|██▏       | 22/100 [00:04<00:14,  5.31it/s, loss=18.1](T):  23%|██▎       | 23/100 [00:04<00:14,  5.24it/s, loss=18.1](T):  23%|██▎       | 23/100 [00:04<00:14,  5.24it/s, loss=21.8](T):  24%|██▍       | 24/100 [00:04<00:14,  5.24it/s, loss=21.8](T):  24%|██▍       | 24/100 [00:04<00:14,  5.24it/s, loss=17.2](T):  25%|██▌       | 25/100 [00:04<00:14,  5.31it/s, loss=17.2](T):  25%|██▌       | 25/100 [00:04<00:14,  5.31it/s, loss=18.7](T):  26%|██▌       | 26/100 [00:04<00:14,  5.28it/s, loss=18.7](T):  26%|██▌       | 26/100 [00:05<00:14,  5.28it/s, loss=17.6](T):  27%|██▋       | 27/100 [00:05<00:13,  5.36it/s, loss=17.6](T):  27%|██▋       | 27/100 [00:05<00:13,  5.36it/s, loss=18.9](T):  28%|██▊       | 28/100 [00:05<00:13,  5.36it/s, loss=18.9](T):  28%|██▊       | 28/100 [00:05<00:13,  5.36it/s, loss=18.2](T):  29%|██▉       | 29/100 [00:05<00:13,  5.46it/s, loss=18.2](T):  29%|██▉       | 29/100 [00:05<00:13,  5.46it/s, loss=18.3](T):  30%|███       | 30/100 [00:05<00:12,  5.55it/s, loss=18.3](T):  30%|███       | 30/100 [00:05<00:12,  5.55it/s, loss=17.1](T):  31%|███       | 31/100 [00:05<00:12,  5.50it/s, loss=17.1](T):  31%|███       | 31/100 [00:05<00:12,  5.50it/s, loss=18.3](T):  32%|███▏      | 32/100 [00:05<00:12,  5.53it/s, loss=18.3](T):  32%|███▏      | 32/100 [00:06<00:12,  5.53it/s, loss=17.7](T):  33%|███▎      | 33/100 [00:06<00:12,  5.54it/s, loss=17.7](T):  33%|███▎      | 33/100 [00:06<00:12,  5.54it/s, loss=20.7](T):  34%|███▍      | 34/100 [00:06<00:11,  5.54it/s, loss=20.7](T):  34%|███▍      | 34/100 [00:06<00:11,  5.54it/s, loss=19.1](T):  35%|███▌      | 35/100 [00:06<00:11,  5.65it/s, loss=19.1](T):  35%|███▌      | 35/100 [00:06<00:11,  5.65it/s, loss=17.3](T):  36%|███▌      | 36/100 [00:06<00:11,  5.62it/s, loss=17.3](T):  36%|███▌      | 36/100 [00:06<00:11,  5.62it/s, loss=14.2](T):  37%|███▋      | 37/100 [00:06<00:11,  5.61it/s, loss=14.2](T):  37%|███▋      | 37/100 [00:07<00:11,  5.61it/s, loss=19.1](T):  38%|███▊      | 38/100 [00:07<00:11,  5.51it/s, loss=19.1](T):  38%|███▊      | 38/100 [00:07<00:11,  5.51it/s, loss=22]  (T):  39%|███▉      | 39/100 [00:07<00:10,  5.56it/s, loss=22](T):  39%|███▉      | 39/100 [00:07<00:10,  5.56it/s, loss=17.9](T):  40%|████      | 40/100 [00:07<00:10,  5.55it/s, loss=17.9](T):  40%|████      | 40/100 [00:07<00:10,  5.55it/s, loss=15.7](T):  41%|████      | 41/100 [00:07<00:10,  5.52it/s, loss=15.7](T):  41%|████      | 41/100 [00:07<00:10,  5.52it/s, loss=16.3](T):  42%|████▏     | 42/100 [00:07<00:10,  5.54it/s, loss=16.3](T):  42%|████▏     | 42/100 [00:07<00:10,  5.54it/s, loss=16.7](T):  43%|████▎     | 43/100 [00:07<00:10,  5.56it/s, loss=16.7](T):  43%|████▎     | 43/100 [00:08<00:10,  5.56it/s, loss=16.6](T):  44%|████▍     | 44/100 [00:08<00:09,  5.63it/s, loss=16.6](T):  44%|████▍     | 44/100 [00:08<00:09,  5.63it/s, loss=15.9](T):  45%|████▌     | 45/100 [00:08<00:09,  5.68it/s, loss=15.9](T):  45%|████▌     | 45/100 [00:08<00:09,  5.68it/s, loss=15.8](T):  46%|████▌     | 46/100 [00:08<00:09,  5.67it/s, loss=15.8](T):  46%|████▌     | 46/100 [00:08<00:09,  5.67it/s, loss=17.1](T):  47%|████▋     | 47/100 [00:08<00:09,  5.68it/s, loss=17.1](T):  47%|████▋     | 47/100 [00:08<00:09,  5.68it/s, loss=15.7](T):  48%|████▊     | 48/100 [00:08<00:09,  5.64it/s, loss=15.7](T):  48%|████▊     | 48/100 [00:09<00:09,  5.64it/s, loss=15.5](T):  49%|████▉     | 49/100 [00:09<00:09,  5.61it/s, loss=15.5](T):  49%|████▉     | 49/100 [00:09<00:09,  5.61it/s, loss=18.7](T):  50%|█████     | 50/100 [00:09<00:08,  5.58it/s, loss=18.7](T):  50%|█████     | 50/100 [00:09<00:08,  5.58it/s, loss=16.8](T):  51%|█████     | 51/100 [00:09<00:08,  5.48it/s, loss=16.8](T):  51%|█████     | 51/100 [00:09<00:08,  5.48it/s, loss=14]  (T):  52%|█████▏    | 52/100 [00:09<00:08,  5.47it/s, loss=14](T):  52%|█████▏    | 52/100 [00:09<00:08,  5.47it/s, loss=13.3](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.49it/s, loss=13.3](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.49it/s, loss=14.6](T):  54%|█████▍    | 54/100 [00:09<00:08,  5.48it/s, loss=14.6](T):  54%|█████▍    | 54/100 [00:10<00:08,  5.48it/s, loss=20.5](T):  55%|█████▌    | 55/100 [00:10<00:08,  5.38it/s, loss=20.5](T):  55%|█████▌    | 55/100 [00:10<00:08,  5.38it/s, loss=17.9](T):  56%|█████▌    | 56/100 [00:10<00:08,  5.23it/s, loss=17.9](T):  56%|█████▌    | 56/100 [00:10<00:08,  5.23it/s, loss=18.9](T):  57%|█████▋    | 57/100 [00:10<00:08,  5.37it/s, loss=18.9](T):  57%|█████▋    | 57/100 [00:10<00:08,  5.37it/s, loss=14.4](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.43it/s, loss=14.4](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.43it/s, loss=14.7](T):  59%|█████▉    | 59/100 [00:10<00:07,  5.47it/s, loss=14.7](T):  59%|█████▉    | 59/100 [00:11<00:07,  5.47it/s, loss=15.9](T):  60%|██████    | 60/100 [00:11<00:07,  5.51it/s, loss=15.9](T):  60%|██████    | 60/100 [00:11<00:07,  5.51it/s, loss=16.5](T):  61%|██████    | 61/100 [00:11<00:07,  5.50it/s, loss=16.5](T):  61%|██████    | 61/100 [00:11<00:07,  5.50it/s, loss=15.7](T):  62%|██████▏   | 62/100 [00:11<00:06,  5.55it/s, loss=15.7](T):  62%|██████▏   | 62/100 [00:11<00:06,  5.55it/s, loss=15.1](T):  63%|██████▎   | 63/100 [00:11<00:06,  5.53it/s, loss=15.1](T):  63%|██████▎   | 63/100 [00:11<00:06,  5.53it/s, loss=13.5](T):  64%|██████▍   | 64/100 [00:11<00:06,  5.59it/s, loss=13.5](T):  64%|██████▍   | 64/100 [00:11<00:06,  5.59it/s, loss=14]  (T):  65%|██████▌   | 65/100 [00:11<00:06,  5.63it/s, loss=14](T):  65%|██████▌   | 65/100 [00:12<00:06,  5.63it/s, loss=11.4](T):  66%|██████▌   | 66/100 [00:12<00:05,  5.69it/s, loss=11.4](T):  66%|██████▌   | 66/100 [00:12<00:05,  5.69it/s, loss=15.8](T):  67%|██████▋   | 67/100 [00:12<00:05,  5.63it/s, loss=15.8](T):  67%|██████▋   | 67/100 [00:12<00:05,  5.63it/s, loss=12.3](T):  68%|██████▊   | 68/100 [00:12<00:05,  5.64it/s, loss=12.3](T):  68%|██████▊   | 68/100 [00:12<00:05,  5.64it/s, loss=17.3](T):  69%|██████▉   | 69/100 [00:12<00:05,  5.67it/s, loss=17.3](T):  69%|██████▉   | 69/100 [00:12<00:05,  5.67it/s, loss=15.3](T):  70%|███████   | 70/100 [00:12<00:05,  5.59it/s, loss=15.3](T):  70%|███████   | 70/100 [00:13<00:05,  5.59it/s, loss=15.6](T):  71%|███████   | 71/100 [00:13<00:05,  5.54it/s, loss=15.6](T):  71%|███████   | 71/100 [00:13<00:05,  5.54it/s, loss=13.8](T):  72%|███████▏  | 72/100 [00:13<00:05,  5.54it/s, loss=13.8](T):  72%|███████▏  | 72/100 [00:13<00:05,  5.54it/s, loss=12.7](T):  73%|███████▎  | 73/100 [00:13<00:04,  5.54it/s, loss=12.7](T):  73%|███████▎  | 73/100 [00:13<00:04,  5.54it/s, loss=15.5](T):  74%|███████▍  | 74/100 [00:13<00:04,  5.52it/s, loss=15.5](T):  74%|███████▍  | 74/100 [00:13<00:04,  5.52it/s, loss=14.7](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.57it/s, loss=14.7](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.57it/s, loss=15.1](T):  76%|███████▌  | 76/100 [00:13<00:04,  5.49it/s, loss=15.1](T):  76%|███████▌  | 76/100 [00:14<00:04,  5.49it/s, loss=14.8](T):  77%|███████▋  | 77/100 [00:14<00:04,  5.44it/s, loss=14.8](T):  77%|███████▋  | 77/100 [00:14<00:04,  5.44it/s, loss=13.7](T):  78%|███████▊  | 78/100 [00:14<00:04,  5.40it/s, loss=13.7](T):  78%|███████▊  | 78/100 [00:14<00:04,  5.40it/s, loss=14.9](T):  79%|███████▉  | 79/100 [00:14<00:03,  5.46it/s, loss=14.9](T):  79%|███████▉  | 79/100 [00:14<00:03,  5.46it/s, loss=18.5](T):  80%|████████  | 80/100 [00:14<00:03,  5.47it/s, loss=18.5](T):  80%|████████  | 80/100 [00:14<00:03,  5.47it/s, loss=17.1](T):  81%|████████  | 81/100 [00:14<00:03,  5.53it/s, loss=17.1](T):  81%|████████  | 81/100 [00:15<00:03,  5.53it/s, loss=13.9](T):  82%|████████▏ | 82/100 [00:15<00:03,  5.50it/s, loss=13.9](T):  82%|████████▏ | 82/100 [00:15<00:03,  5.50it/s, loss=18.6](T):  83%|████████▎ | 83/100 [00:15<00:03,  5.44it/s, loss=18.6](T):  83%|████████▎ | 83/100 [00:15<00:03,  5.44it/s, loss=14.8](T):  84%|████████▍ | 84/100 [00:15<00:02,  5.47it/s, loss=14.8](T):  84%|████████▍ | 84/100 [00:15<00:02,  5.47it/s, loss=16.4](T):  85%|████████▌ | 85/100 [00:15<00:02,  5.47it/s, loss=16.4](T):  85%|████████▌ | 85/100 [00:15<00:02,  5.47it/s, loss=12.9](T):  86%|████████▌ | 86/100 [00:15<00:02,  5.50it/s, loss=12.9](T):  86%|████████▌ | 86/100 [00:15<00:02,  5.50it/s, loss=11.4](T):  87%|████████▋ | 87/100 [00:15<00:02,  5.53it/s, loss=11.4](T):  87%|████████▋ | 87/100 [00:16<00:02,  5.53it/s, loss=15.9](T):  88%|████████▊ | 88/100 [00:16<00:02,  5.52it/s, loss=15.9](T):  88%|████████▊ | 88/100 [00:16<00:02,  5.52it/s, loss=12.4](T):  89%|████████▉ | 89/100 [00:16<00:01,  5.54it/s, loss=12.4](T):  89%|████████▉ | 89/100 [00:16<00:01,  5.54it/s, loss=15.1](T):  90%|█████████ | 90/100 [00:16<00:01,  5.55it/s, loss=15.1](T):  90%|█████████ | 90/100 [00:16<00:01,  5.55it/s, loss=13.5](T):  91%|█████████ | 91/100 [00:16<00:01,  5.53it/s, loss=13.5](T):  91%|█████████ | 91/100 [00:16<00:01,  5.53it/s, loss=15.2](T):  92%|█████████▏| 92/100 [00:16<00:01,  5.45it/s, loss=15.2](T):  92%|█████████▏| 92/100 [00:17<00:01,  5.45it/s, loss=17.8](T):  93%|█████████▎| 93/100 [00:17<00:01,  5.43it/s, loss=17.8](T):  93%|█████████▎| 93/100 [00:17<00:01,  5.43it/s, loss=14.2](T):  94%|█████████▍| 94/100 [00:17<00:01,  5.50it/s, loss=14.2](T):  94%|█████████▍| 94/100 [00:17<00:01,  5.50it/s, loss=13.7](T):  95%|█████████▌| 95/100 [00:17<00:00,  5.52it/s, loss=13.7](T):  95%|█████████▌| 95/100 [00:17<00:00,  5.52it/s, loss=14.8](T):  96%|█████████▌| 96/100 [00:17<00:00,  5.58it/s, loss=14.8](T):  96%|█████████▌| 96/100 [00:17<00:00,  5.58it/s, loss=16.2](T):  97%|█████████▋| 97/100 [00:17<00:00,  5.58it/s, loss=16.2](T):  97%|█████████▋| 97/100 [00:17<00:00,  5.58it/s, loss=14.4](T):  98%|█████████▊| 98/100 [00:17<00:00,  5.66it/s, loss=14.4](T):  98%|█████████▊| 98/100 [00:18<00:00,  5.66it/s, loss=15.3](T):  99%|█████████▉| 99/100 [00:18<00:00,  5.61it/s, loss=15.3](T):  99%|█████████▉| 99/100 [00:18<00:00,  5.61it/s, loss=12.3](T): 100%|██████████| 100/100 [00:18<00:00,  5.70it/s, loss=12.3](T): 100%|██████████| 100/100 [00:18<00:00,  5.48it/s, loss=12.3]
+Accuracy: 0.6846846846846847
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7568, F1Ma=0.7528
+random
+Perturbation Size:1
+1
+Accuracy: 0.7027027027027027
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7477, F1Ma=0.7452
+Perturbation Size:2
+2
+Accuracy: 0.7117117117117117
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.6847, F1Ma=0.6762
+Perturbation Size:3
+3
+Accuracy: 0.7027027027027027
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.6577, F1Ma=0.6576
+Perturbation Size:4
+4
+Accuracy: 0.7027027027027027
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7117, F1Ma=0.7098
+Perturbation Size:5
+5
+Accuracy: 0.7117117117117117
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7117, F1Ma=0.7010
+(T):   0%|          | 0/100 [00:00<?, ?it/s](T):   0%|          | 0/100 [00:00<?, ?it/s, loss=28](T):   1%|          | 1/100 [00:00<00:17,  5.82it/s, loss=28](T):   1%|          | 1/100 [00:00<00:17,  5.82it/s, loss=26.5](T):   2%|▏         | 2/100 [00:00<00:17,  5.76it/s, loss=26.5](T):   2%|▏         | 2/100 [00:00<00:17,  5.76it/s, loss=23]  (T):   3%|▎         | 3/100 [00:00<00:16,  5.84it/s, loss=23](T):   3%|▎         | 3/100 [00:00<00:16,  5.84it/s, loss=20.1](T):   4%|▍         | 4/100 [00:00<00:16,  5.90it/s, loss=20.1](T):   4%|▍         | 4/100 [00:00<00:16,  5.90it/s, loss=19.1](T):   5%|▌         | 5/100 [00:00<00:16,  5.90it/s, loss=19.1](T):   5%|▌         | 5/100 [00:01<00:16,  5.90it/s, loss=20.4](T):   6%|▌         | 6/100 [00:01<00:16,  5.79it/s, loss=20.4](T):   6%|▌         | 6/100 [00:01<00:16,  5.79it/s, loss=18.4](T):   7%|▋         | 7/100 [00:01<00:16,  5.78it/s, loss=18.4](T):   7%|▋         | 7/100 [00:01<00:16,  5.78it/s, loss=19.9](T):   8%|▊         | 8/100 [00:01<00:16,  5.72it/s, loss=19.9](T):   8%|▊         | 8/100 [00:01<00:16,  5.72it/s, loss=18.3](T):   9%|▉         | 9/100 [00:01<00:15,  5.72it/s, loss=18.3](T):   9%|▉         | 9/100 [00:01<00:15,  5.72it/s, loss=19.9](T):  10%|█         | 10/100 [00:01<00:15,  5.69it/s, loss=19.9](T):  10%|█         | 10/100 [00:01<00:15,  5.69it/s, loss=19.8](T):  11%|█         | 11/100 [00:01<00:15,  5.63it/s, loss=19.8](T):  11%|█         | 11/100 [00:02<00:15,  5.63it/s, loss=17.5](T):  12%|█▏        | 12/100 [00:02<00:15,  5.65it/s, loss=17.5](T):  12%|█▏        | 12/100 [00:02<00:15,  5.65it/s, loss=21.8](T):  13%|█▎        | 13/100 [00:02<00:15,  5.61it/s, loss=21.8](T):  13%|█▎        | 13/100 [00:02<00:15,  5.61it/s, loss=17.9](T):  14%|█▍        | 14/100 [00:02<00:15,  5.56it/s, loss=17.9](T):  14%|█▍        | 14/100 [00:02<00:15,  5.56it/s, loss=15.4](T):  15%|█▌        | 15/100 [00:02<00:15,  5.57it/s, loss=15.4](T):  15%|█▌        | 15/100 [00:02<00:15,  5.57it/s, loss=18.5](T):  16%|█▌        | 16/100 [00:02<00:14,  5.65it/s, loss=18.5](T):  16%|█▌        | 16/100 [00:02<00:14,  5.65it/s, loss=20.1](T):  17%|█▋        | 17/100 [00:02<00:15,  5.53it/s, loss=20.1](T):  17%|█▋        | 17/100 [00:03<00:15,  5.53it/s, loss=16.6](T):  18%|█▊        | 18/100 [00:03<00:14,  5.57it/s, loss=16.6](T):  18%|█▊        | 18/100 [00:03<00:14,  5.57it/s, loss=17]  (T):  19%|█▉        | 19/100 [00:03<00:14,  5.54it/s, loss=17](T):  19%|█▉        | 19/100 [00:03<00:14,  5.54it/s, loss=17.3](T):  20%|██        | 20/100 [00:03<00:14,  5.54it/s, loss=17.3](T):  20%|██        | 20/100 [00:03<00:14,  5.54it/s, loss=15.6](T):  21%|██        | 21/100 [00:03<00:14,  5.58it/s, loss=15.6](T):  21%|██        | 21/100 [00:03<00:14,  5.58it/s, loss=19.2](T):  22%|██▏       | 22/100 [00:03<00:14,  5.51it/s, loss=19.2](T):  22%|██▏       | 22/100 [00:04<00:14,  5.51it/s, loss=21]  (T):  23%|██▎       | 23/100 [00:04<00:14,  5.45it/s, loss=21](T):  23%|██▎       | 23/100 [00:04<00:14,  5.45it/s, loss=17](T):  24%|██▍       | 24/100 [00:04<00:13,  5.53it/s, loss=17](T):  24%|██▍       | 24/100 [00:04<00:13,  5.53it/s, loss=18.1](T):  25%|██▌       | 25/100 [00:04<00:13,  5.56it/s, loss=18.1](T):  25%|██▌       | 25/100 [00:04<00:13,  5.56it/s, loss=17.4](T):  26%|██▌       | 26/100 [00:04<00:13,  5.55it/s, loss=17.4](T):  26%|██▌       | 26/100 [00:04<00:13,  5.55it/s, loss=13.8](T):  27%|██▋       | 27/100 [00:04<00:12,  5.63it/s, loss=13.8](T):  27%|██▋       | 27/100 [00:04<00:12,  5.63it/s, loss=19]  (T):  28%|██▊       | 28/100 [00:04<00:12,  5.56it/s, loss=19](T):  28%|██▊       | 28/100 [00:05<00:12,  5.56it/s, loss=17.1](T):  29%|██▉       | 29/100 [00:05<00:12,  5.60it/s, loss=17.1](T):  29%|██▉       | 29/100 [00:05<00:12,  5.60it/s, loss=15.4](T):  30%|███       | 30/100 [00:05<00:12,  5.61it/s, loss=15.4](T):  30%|███       | 30/100 [00:05<00:12,  5.61it/s, loss=19.4](T):  31%|███       | 31/100 [00:05<00:12,  5.58it/s, loss=19.4](T):  31%|███       | 31/100 [00:05<00:12,  5.58it/s, loss=17.1](T):  32%|███▏      | 32/100 [00:05<00:12,  5.55it/s, loss=17.1](T):  32%|███▏      | 32/100 [00:05<00:12,  5.55it/s, loss=14.7](T):  33%|███▎      | 33/100 [00:05<00:13,  5.01it/s, loss=14.7](T):  33%|███▎      | 33/100 [00:06<00:13,  5.01it/s, loss=16.4](T):  34%|███▍      | 34/100 [00:06<00:12,  5.16it/s, loss=16.4](T):  34%|███▍      | 34/100 [00:06<00:12,  5.16it/s, loss=17.7](T):  35%|███▌      | 35/100 [00:06<00:12,  5.32it/s, loss=17.7](T):  35%|███▌      | 35/100 [00:06<00:12,  5.32it/s, loss=16.9](T):  36%|███▌      | 36/100 [00:06<00:11,  5.45it/s, loss=16.9](T):  36%|███▌      | 36/100 [00:06<00:11,  5.45it/s, loss=16.6](T):  37%|███▋      | 37/100 [00:06<00:11,  5.51it/s, loss=16.6](T):  37%|███▋      | 37/100 [00:06<00:11,  5.51it/s, loss=16.1](T):  38%|███▊      | 38/100 [00:06<00:11,  5.56it/s, loss=16.1](T):  38%|███▊      | 38/100 [00:07<00:11,  5.56it/s, loss=17.1](T):  39%|███▉      | 39/100 [00:07<00:11,  5.51it/s, loss=17.1](T):  39%|███▉      | 39/100 [00:07<00:11,  5.51it/s, loss=14.1](T):  40%|████      | 40/100 [00:07<00:10,  5.55it/s, loss=14.1](T):  40%|████      | 40/100 [00:07<00:10,  5.55it/s, loss=15.6](T):  41%|████      | 41/100 [00:07<00:10,  5.58it/s, loss=15.6](T):  41%|████      | 41/100 [00:07<00:10,  5.58it/s, loss=14]  (T):  42%|████▏     | 42/100 [00:07<00:10,  5.60it/s, loss=14](T):  42%|████▏     | 42/100 [00:07<00:10,  5.60it/s, loss=13.7](T):  43%|████▎     | 43/100 [00:07<00:10,  5.54it/s, loss=13.7](T):  43%|████▎     | 43/100 [00:07<00:10,  5.54it/s, loss=12.4](T):  44%|████▍     | 44/100 [00:07<00:10,  5.56it/s, loss=12.4](T):  44%|████▍     | 44/100 [00:08<00:10,  5.56it/s, loss=14.6](T):  45%|████▌     | 45/100 [00:08<00:09,  5.64it/s, loss=14.6](T):  45%|████▌     | 45/100 [00:08<00:09,  5.64it/s, loss=14.4](T):  46%|████▌     | 46/100 [00:08<00:09,  5.61it/s, loss=14.4](T):  46%|████▌     | 46/100 [00:08<00:09,  5.61it/s, loss=17.4](T):  47%|████▋     | 47/100 [00:08<00:09,  5.61it/s, loss=17.4](T):  47%|████▋     | 47/100 [00:08<00:09,  5.61it/s, loss=13.4](T):  48%|████▊     | 48/100 [00:08<00:09,  5.66it/s, loss=13.4](T):  48%|████▊     | 48/100 [00:08<00:09,  5.66it/s, loss=14.1](T):  49%|████▉     | 49/100 [00:08<00:08,  5.72it/s, loss=14.1](T):  49%|████▉     | 49/100 [00:08<00:08,  5.72it/s, loss=18.7](T):  50%|█████     | 50/100 [00:08<00:08,  5.71it/s, loss=18.7](T):  50%|█████     | 50/100 [00:09<00:08,  5.71it/s, loss=17.4](T):  51%|█████     | 51/100 [00:09<00:08,  5.66it/s, loss=17.4](T):  51%|█████     | 51/100 [00:09<00:08,  5.66it/s, loss=14.3](T):  52%|█████▏    | 52/100 [00:09<00:08,  5.64it/s, loss=14.3](T):  52%|█████▏    | 52/100 [00:09<00:08,  5.64it/s, loss=13.8](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.66it/s, loss=13.8](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.66it/s, loss=16.7](T):  54%|█████▍    | 54/100 [00:09<00:08,  5.55it/s, loss=16.7](T):  54%|█████▍    | 54/100 [00:09<00:08,  5.55it/s, loss=15]  (T):  55%|█████▌    | 55/100 [00:09<00:08,  5.56it/s, loss=15](T):  55%|█████▌    | 55/100 [00:10<00:08,  5.56it/s, loss=16.4](T):  56%|█████▌    | 56/100 [00:10<00:07,  5.54it/s, loss=16.4](T):  56%|█████▌    | 56/100 [00:10<00:07,  5.54it/s, loss=15.8](T):  57%|█████▋    | 57/100 [00:10<00:07,  5.45it/s, loss=15.8](T):  57%|█████▋    | 57/100 [00:10<00:07,  5.45it/s, loss=13.6](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.52it/s, loss=13.6](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.52it/s, loss=12.1](T):  59%|█████▉    | 59/100 [00:10<00:07,  5.56it/s, loss=12.1](T):  59%|█████▉    | 59/100 [00:10<00:07,  5.56it/s, loss=15.4](T):  60%|██████    | 60/100 [00:10<00:07,  5.64it/s, loss=15.4](T):  60%|██████    | 60/100 [00:10<00:07,  5.64it/s, loss=13.9](T):  61%|██████    | 61/100 [00:10<00:06,  5.71it/s, loss=13.9](T):  61%|██████    | 61/100 [00:11<00:06,  5.71it/s, loss=14.8](T):  62%|██████▏   | 62/100 [00:11<00:06,  5.72it/s, loss=14.8](T):  62%|██████▏   | 62/100 [00:11<00:06,  5.72it/s, loss=16.4](T):  63%|██████▎   | 63/100 [00:11<00:06,  5.70it/s, loss=16.4](T):  63%|██████▎   | 63/100 [00:11<00:06,  5.70it/s, loss=17.5](T):  64%|██████▍   | 64/100 [00:11<00:06,  5.62it/s, loss=17.5](T):  64%|██████▍   | 64/100 [00:11<00:06,  5.62it/s, loss=17]  (T):  65%|██████▌   | 65/100 [00:11<00:06,  5.59it/s, loss=17](T):  65%|██████▌   | 65/100 [00:11<00:06,  5.59it/s, loss=13.9](T):  66%|██████▌   | 66/100 [00:11<00:06,  5.58it/s, loss=13.9](T):  66%|██████▌   | 66/100 [00:11<00:06,  5.58it/s, loss=14.9](T):  67%|██████▋   | 67/100 [00:11<00:05,  5.55it/s, loss=14.9](T):  67%|██████▋   | 67/100 [00:12<00:05,  5.55it/s, loss=14.2](T):  68%|██████▊   | 68/100 [00:12<00:05,  5.57it/s, loss=14.2](T):  68%|██████▊   | 68/100 [00:12<00:05,  5.57it/s, loss=14.1](T):  69%|██████▉   | 69/100 [00:12<00:05,  5.57it/s, loss=14.1](T):  69%|██████▉   | 69/100 [00:12<00:05,  5.57it/s, loss=15.5](T):  70%|███████   | 70/100 [00:12<00:05,  5.47it/s, loss=15.5](T):  70%|███████   | 70/100 [00:12<00:05,  5.47it/s, loss=18.7](T):  71%|███████   | 71/100 [00:12<00:05,  5.49it/s, loss=18.7](T):  71%|███████   | 71/100 [00:12<00:05,  5.49it/s, loss=12.9](T):  72%|███████▏  | 72/100 [00:12<00:05,  5.52it/s, loss=12.9](T):  72%|███████▏  | 72/100 [00:13<00:05,  5.52it/s, loss=17.5](T):  73%|███████▎  | 73/100 [00:13<00:04,  5.59it/s, loss=17.5](T):  73%|███████▎  | 73/100 [00:13<00:04,  5.59it/s, loss=17]  (T):  74%|███████▍  | 74/100 [00:13<00:04,  5.65it/s, loss=17](T):  74%|███████▍  | 74/100 [00:13<00:04,  5.65it/s, loss=12.5](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.61it/s, loss=12.5](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.61it/s, loss=15.2](T):  76%|███████▌  | 76/100 [00:13<00:04,  5.60it/s, loss=15.2](T):  76%|███████▌  | 76/100 [00:13<00:04,  5.60it/s, loss=16.7](T):  77%|███████▋  | 77/100 [00:13<00:04,  5.61it/s, loss=16.7](T):  77%|███████▋  | 77/100 [00:13<00:04,  5.61it/s, loss=16.7](T):  78%|███████▊  | 78/100 [00:13<00:03,  5.54it/s, loss=16.7](T):  78%|███████▊  | 78/100 [00:14<00:03,  5.54it/s, loss=16]  (T):  79%|███████▉  | 79/100 [00:14<00:03,  5.53it/s, loss=16](T):  79%|███████▉  | 79/100 [00:14<00:03,  5.53it/s, loss=12](T):  80%|████████  | 80/100 [00:14<00:03,  5.58it/s, loss=12](T):  80%|████████  | 80/100 [00:14<00:03,  5.58it/s, loss=13.9](T):  81%|████████  | 81/100 [00:14<00:03,  5.52it/s, loss=13.9](T):  81%|████████  | 81/100 [00:14<00:03,  5.52it/s, loss=12.9](T):  82%|████████▏ | 82/100 [00:14<00:03,  5.56it/s, loss=12.9](T):  82%|████████▏ | 82/100 [00:14<00:03,  5.56it/s, loss=14.6](T):  83%|████████▎ | 83/100 [00:14<00:03,  5.59it/s, loss=14.6](T):  83%|████████▎ | 83/100 [00:15<00:03,  5.59it/s, loss=14.7](T):  84%|████████▍ | 84/100 [00:15<00:02,  5.54it/s, loss=14.7](T):  84%|████████▍ | 84/100 [00:15<00:02,  5.54it/s, loss=15.4](T):  85%|████████▌ | 85/100 [00:15<00:02,  5.53it/s, loss=15.4](T):  85%|████████▌ | 85/100 [00:15<00:02,  5.53it/s, loss=14]  (T):  86%|████████▌ | 86/100 [00:15<00:02,  5.52it/s, loss=14](T):  86%|████████▌ | 86/100 [00:15<00:02,  5.52it/s, loss=13.5](T):  87%|████████▋ | 87/100 [00:15<00:02,  5.53it/s, loss=13.5](T):  87%|████████▋ | 87/100 [00:15<00:02,  5.53it/s, loss=13.3](T):  88%|████████▊ | 88/100 [00:15<00:02,  5.53it/s, loss=13.3](T):  88%|████████▊ | 88/100 [00:15<00:02,  5.53it/s, loss=12.1](T):  89%|████████▉ | 89/100 [00:15<00:02,  5.50it/s, loss=12.1](T):  89%|████████▉ | 89/100 [00:16<00:02,  5.50it/s, loss=14.2](T):  90%|█████████ | 90/100 [00:16<00:01,  5.53it/s, loss=14.2](T):  90%|█████████ | 90/100 [00:16<00:01,  5.53it/s, loss=17.6](T):  91%|█████████ | 91/100 [00:16<00:01,  5.55it/s, loss=17.6](T):  91%|█████████ | 91/100 [00:16<00:01,  5.55it/s, loss=16.1](T):  92%|█████████▏| 92/100 [00:16<00:01,  5.56it/s, loss=16.1](T):  92%|█████████▏| 92/100 [00:16<00:01,  5.56it/s, loss=14.3](T):  93%|█████████▎| 93/100 [00:16<00:01,  5.56it/s, loss=14.3](T):  93%|█████████▎| 93/100 [00:16<00:01,  5.56it/s, loss=14.2](T):  94%|█████████▍| 94/100 [00:16<00:01,  5.64it/s, loss=14.2](T):  94%|█████████▍| 94/100 [00:17<00:01,  5.64it/s, loss=12.7](T):  95%|█████████▌| 95/100 [00:17<00:00,  5.67it/s, loss=12.7](T):  95%|█████████▌| 95/100 [00:17<00:00,  5.67it/s, loss=12.7](T):  96%|█████████▌| 96/100 [00:17<00:00,  5.64it/s, loss=12.7](T):  96%|█████████▌| 96/100 [00:17<00:00,  5.64it/s, loss=13.5](T):  97%|█████████▋| 97/100 [00:17<00:00,  5.58it/s, loss=13.5](T):  97%|█████████▋| 97/100 [00:17<00:00,  5.58it/s, loss=12.4](T):  98%|█████████▊| 98/100 [00:17<00:00,  5.66it/s, loss=12.4](T):  98%|█████████▊| 98/100 [00:17<00:00,  5.66it/s, loss=12.2](T):  99%|█████████▉| 99/100 [00:17<00:00,  5.72it/s, loss=12.2](T):  99%|█████████▉| 99/100 [00:17<00:00,  5.72it/s, loss=14.5](T): 100%|██████████| 100/100 [00:17<00:00,  5.88it/s, loss=14.5](T): 100%|██████████| 100/100 [00:17<00:00,  5.59it/s, loss=14.5]
+Accuracy: 0.6936936936936937
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7117, F1Ma=0.7048
+random
+Perturbation Size:1
+1
+Accuracy: 0.6936936936936937
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.6757, F1Ma=0.6696
+Perturbation Size:2
+2
+Accuracy: 0.6846846846846847
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7297, F1Ma=0.7247
+Perturbation Size:3
+3
+Accuracy: 0.6756756756756757
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7387, F1Ma=0.7356
+Perturbation Size:4
+4
+Accuracy: 0.6756756756756757
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7297, F1Ma=0.7260
+Perturbation Size:5
+5
+Accuracy: 0.6936936936936937
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.5946, F1Ma=0.5105
+(T):   0%|          | 0/100 [00:00<?, ?it/s](T):   0%|          | 0/100 [00:00<?, ?it/s, loss=31.3](T):   1%|          | 1/100 [00:00<00:17,  5.51it/s, loss=31.3](T):   1%|          | 1/100 [00:00<00:17,  5.51it/s, loss=26.6](T):   2%|▏         | 2/100 [00:00<00:17,  5.60it/s, loss=26.6](T):   2%|▏         | 2/100 [00:00<00:17,  5.60it/s, loss=23.9](T):   3%|▎         | 3/100 [00:00<00:16,  5.74it/s, loss=23.9](T):   3%|▎         | 3/100 [00:00<00:16,  5.74it/s, loss=25.7](T):   4%|▍         | 4/100 [00:00<00:16,  5.70it/s, loss=25.7](T):   4%|▍         | 4/100 [00:00<00:16,  5.70it/s, loss=21.6](T):   5%|▌         | 5/100 [00:00<00:16,  5.63it/s, loss=21.6](T):   5%|▌         | 5/100 [00:01<00:16,  5.63it/s, loss=22.2](T):   6%|▌         | 6/100 [00:01<00:16,  5.61it/s, loss=22.2](T):   6%|▌         | 6/100 [00:01<00:16,  5.61it/s, loss=20.9](T):   7%|▋         | 7/100 [00:01<00:16,  5.72it/s, loss=20.9](T):   7%|▋         | 7/100 [00:01<00:16,  5.72it/s, loss=20]  (T):   8%|▊         | 8/100 [00:01<00:16,  5.72it/s, loss=20](T):   8%|▊         | 8/100 [00:01<00:16,  5.72it/s, loss=19.5](T):   9%|▉         | 9/100 [00:01<00:15,  5.77it/s, loss=19.5](T):   9%|▉         | 9/100 [00:01<00:15,  5.77it/s, loss=20.9](T):  10%|█         | 10/100 [00:01<00:15,  5.69it/s, loss=20.9](T):  10%|█         | 10/100 [00:01<00:15,  5.69it/s, loss=18.1](T):  11%|█         | 11/100 [00:01<00:15,  5.71it/s, loss=18.1](T):  11%|█         | 11/100 [00:02<00:15,  5.71it/s, loss=17.1](T):  12%|█▏        | 12/100 [00:02<00:15,  5.73it/s, loss=17.1](T):  12%|█▏        | 12/100 [00:02<00:15,  5.73it/s, loss=21.1](T):  13%|█▎        | 13/100 [00:02<00:15,  5.72it/s, loss=21.1](T):  13%|█▎        | 13/100 [00:02<00:15,  5.72it/s, loss=17.4](T):  14%|█▍        | 14/100 [00:02<00:14,  5.75it/s, loss=17.4](T):  14%|█▍        | 14/100 [00:02<00:14,  5.75it/s, loss=16.8](T):  15%|█▌        | 15/100 [00:02<00:14,  5.76it/s, loss=16.8](T):  15%|█▌        | 15/100 [00:02<00:14,  5.76it/s, loss=20.8](T):  16%|█▌        | 16/100 [00:02<00:14,  5.72it/s, loss=20.8](T):  16%|█▌        | 16/100 [00:02<00:14,  5.72it/s, loss=19.9](T):  17%|█▋        | 17/100 [00:02<00:14,  5.76it/s, loss=19.9](T):  17%|█▋        | 17/100 [00:03<00:14,  5.76it/s, loss=15.5](T):  18%|█▊        | 18/100 [00:03<00:14,  5.75it/s, loss=15.5](T):  18%|█▊        | 18/100 [00:03<00:14,  5.75it/s, loss=20.8](T):  19%|█▉        | 19/100 [00:03<00:14,  5.71it/s, loss=20.8](T):  19%|█▉        | 19/100 [00:03<00:14,  5.71it/s, loss=20.4](T):  20%|██        | 20/100 [00:03<00:14,  5.64it/s, loss=20.4](T):  20%|██        | 20/100 [00:03<00:14,  5.64it/s, loss=19.3](T):  21%|██        | 21/100 [00:03<00:14,  5.64it/s, loss=19.3](T):  21%|██        | 21/100 [00:03<00:14,  5.64it/s, loss=18.4](T):  22%|██▏       | 22/100 [00:03<00:13,  5.70it/s, loss=18.4](T):  22%|██▏       | 22/100 [00:04<00:13,  5.70it/s, loss=16]  (T):  23%|██▎       | 23/100 [00:04<00:13,  5.68it/s, loss=16](T):  23%|██▎       | 23/100 [00:04<00:13,  5.68it/s, loss=18.5](T):  24%|██▍       | 24/100 [00:04<00:13,  5.69it/s, loss=18.5](T):  24%|██▍       | 24/100 [00:04<00:13,  5.69it/s, loss=15.8](T):  25%|██▌       | 25/100 [00:04<00:13,  5.69it/s, loss=15.8](T):  25%|██▌       | 25/100 [00:04<00:13,  5.69it/s, loss=19.3](T):  26%|██▌       | 26/100 [00:04<00:13,  5.60it/s, loss=19.3](T):  26%|██▌       | 26/100 [00:04<00:13,  5.60it/s, loss=17.9](T):  27%|██▋       | 27/100 [00:04<00:13,  5.61it/s, loss=17.9](T):  27%|██▋       | 27/100 [00:04<00:13,  5.61it/s, loss=18.8](T):  28%|██▊       | 28/100 [00:04<00:13,  5.52it/s, loss=18.8](T):  28%|██▊       | 28/100 [00:05<00:13,  5.52it/s, loss=14.6](T):  29%|██▉       | 29/100 [00:05<00:12,  5.59it/s, loss=14.6](T):  29%|██▉       | 29/100 [00:05<00:12,  5.59it/s, loss=16.1](T):  30%|███       | 30/100 [00:05<00:12,  5.62it/s, loss=16.1](T):  30%|███       | 30/100 [00:05<00:12,  5.62it/s, loss=16]  (T):  31%|███       | 31/100 [00:05<00:12,  5.68it/s, loss=16](T):  31%|███       | 31/100 [00:05<00:12,  5.68it/s, loss=15.4](T):  32%|███▏      | 32/100 [00:05<00:11,  5.73it/s, loss=15.4](T):  32%|███▏      | 32/100 [00:05<00:11,  5.73it/s, loss=15.3](T):  33%|███▎      | 33/100 [00:05<00:11,  5.75it/s, loss=15.3](T):  33%|███▎      | 33/100 [00:05<00:11,  5.75it/s, loss=20]  (T):  34%|███▍      | 34/100 [00:05<00:11,  5.72it/s, loss=20](T):  34%|███▍      | 34/100 [00:06<00:11,  5.72it/s, loss=17.6](T):  35%|███▌      | 35/100 [00:06<00:11,  5.75it/s, loss=17.6](T):  35%|███▌      | 35/100 [00:06<00:11,  5.75it/s, loss=17.7](T):  36%|███▌      | 36/100 [00:06<00:11,  5.80it/s, loss=17.7](T):  36%|███▌      | 36/100 [00:06<00:11,  5.80it/s, loss=15]  (T):  37%|███▋      | 37/100 [00:06<00:10,  5.74it/s, loss=15](T):  37%|███▋      | 37/100 [00:06<00:10,  5.74it/s, loss=17.5](T):  38%|███▊      | 38/100 [00:06<00:10,  5.69it/s, loss=17.5](T):  38%|███▊      | 38/100 [00:06<00:10,  5.69it/s, loss=17.8](T):  39%|███▉      | 39/100 [00:06<00:10,  5.65it/s, loss=17.8](T):  39%|███▉      | 39/100 [00:07<00:10,  5.65it/s, loss=18.2](T):  40%|████      | 40/100 [00:07<00:10,  5.61it/s, loss=18.2](T):  40%|████      | 40/100 [00:07<00:10,  5.61it/s, loss=17.6](T):  41%|████      | 41/100 [00:07<00:10,  5.68it/s, loss=17.6](T):  41%|████      | 41/100 [00:07<00:10,  5.68it/s, loss=17.3](T):  42%|████▏     | 42/100 [00:07<00:10,  5.65it/s, loss=17.3](T):  42%|████▏     | 42/100 [00:07<00:10,  5.65it/s, loss=14.7](T):  43%|████▎     | 43/100 [00:07<00:10,  5.67it/s, loss=14.7](T):  43%|████▎     | 43/100 [00:07<00:10,  5.67it/s, loss=16.2](T):  44%|████▍     | 44/100 [00:07<00:09,  5.62it/s, loss=16.2](T):  44%|████▍     | 44/100 [00:07<00:09,  5.62it/s, loss=16.2](T):  45%|████▌     | 45/100 [00:07<00:09,  5.67it/s, loss=16.2](T):  45%|████▌     | 45/100 [00:08<00:09,  5.67it/s, loss=16.4](T):  46%|████▌     | 46/100 [00:08<00:09,  5.65it/s, loss=16.4](T):  46%|████▌     | 46/100 [00:08<00:09,  5.65it/s, loss=14]  (T):  47%|████▋     | 47/100 [00:08<00:09,  5.79it/s, loss=14](T):  47%|████▋     | 47/100 [00:08<00:09,  5.79it/s, loss=15.2](T):  48%|████▊     | 48/100 [00:08<00:09,  5.76it/s, loss=15.2](T):  48%|████▊     | 48/100 [00:08<00:09,  5.76it/s, loss=17.1](T):  49%|████▉     | 49/100 [00:08<00:08,  5.73it/s, loss=17.1](T):  49%|████▉     | 49/100 [00:08<00:08,  5.73it/s, loss=14.3](T):  50%|█████     | 50/100 [00:08<00:08,  5.73it/s, loss=14.3](T):  50%|█████     | 50/100 [00:09<00:08,  5.73it/s, loss=17.6](T):  51%|█████     | 51/100 [00:09<00:09,  5.09it/s, loss=17.6](T):  51%|█████     | 51/100 [00:09<00:09,  5.09it/s, loss=15.5](T):  52%|█████▏    | 52/100 [00:09<00:09,  5.27it/s, loss=15.5](T):  52%|█████▏    | 52/100 [00:09<00:09,  5.27it/s, loss=15.4](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.38it/s, loss=15.4](T):  53%|█████▎    | 53/100 [00:09<00:08,  5.38it/s, loss=15.8](T):  54%|█████▍    | 54/100 [00:09<00:08,  5.49it/s, loss=15.8](T):  54%|█████▍    | 54/100 [00:09<00:08,  5.49it/s, loss=13.9](T):  55%|█████▌    | 55/100 [00:09<00:08,  5.56it/s, loss=13.9](T):  55%|█████▌    | 55/100 [00:09<00:08,  5.56it/s, loss=18.3](T):  56%|█████▌    | 56/100 [00:09<00:07,  5.60it/s, loss=18.3](T):  56%|█████▌    | 56/100 [00:10<00:07,  5.60it/s, loss=16.6](T):  57%|█████▋    | 57/100 [00:10<00:07,  5.63it/s, loss=16.6](T):  57%|█████▋    | 57/100 [00:10<00:07,  5.63it/s, loss=16.2](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.66it/s, loss=16.2](T):  58%|█████▊    | 58/100 [00:10<00:07,  5.66it/s, loss=13.8](T):  59%|█████▉    | 59/100 [00:10<00:06,  5.90it/s, loss=13.8](T):  59%|█████▉    | 59/100 [00:10<00:06,  5.90it/s, loss=13.9](T):  60%|██████    | 60/100 [00:10<00:06,  5.96it/s, loss=13.9](T):  60%|██████    | 60/100 [00:10<00:06,  5.96it/s, loss=15.4](T):  61%|██████    | 61/100 [00:10<00:06,  6.00it/s, loss=15.4](T):  61%|██████    | 61/100 [00:10<00:06,  6.00it/s, loss=16.9](T):  62%|██████▏   | 62/100 [00:10<00:06,  6.13it/s, loss=16.9](T):  62%|██████▏   | 62/100 [00:11<00:06,  6.13it/s, loss=13.5](T):  63%|██████▎   | 63/100 [00:11<00:06,  6.15it/s, loss=13.5](T):  63%|██████▎   | 63/100 [00:11<00:06,  6.15it/s, loss=14.1](T):  64%|██████▍   | 64/100 [00:11<00:05,  6.16it/s, loss=14.1](T):  64%|██████▍   | 64/100 [00:11<00:05,  6.16it/s, loss=17]  (T):  65%|██████▌   | 65/100 [00:11<00:05,  6.16it/s, loss=17](T):  65%|██████▌   | 65/100 [00:11<00:05,  6.16it/s, loss=14](T):  66%|██████▌   | 66/100 [00:11<00:05,  6.32it/s, loss=14](T):  66%|██████▌   | 66/100 [00:11<00:05,  6.32it/s, loss=14.2](T):  67%|██████▋   | 67/100 [00:11<00:05,  6.26it/s, loss=14.2](T):  67%|██████▋   | 67/100 [00:11<00:05,  6.26it/s, loss=16.9](T):  68%|██████▊   | 68/100 [00:11<00:05,  6.18it/s, loss=16.9](T):  68%|██████▊   | 68/100 [00:12<00:05,  6.18it/s, loss=14.7](T):  69%|██████▉   | 69/100 [00:12<00:05,  6.05it/s, loss=14.7](T):  69%|██████▉   | 69/100 [00:12<00:05,  6.05it/s, loss=14.3](T):  70%|███████   | 70/100 [00:12<00:04,  6.05it/s, loss=14.3](T):  70%|███████   | 70/100 [00:12<00:04,  6.05it/s, loss=15]  (T):  71%|███████   | 71/100 [00:12<00:04,  5.95it/s, loss=15](T):  71%|███████   | 71/100 [00:12<00:04,  5.95it/s, loss=14.6](T):  72%|███████▏  | 72/100 [00:12<00:04,  6.00it/s, loss=14.6](T):  72%|███████▏  | 72/100 [00:12<00:04,  6.00it/s, loss=13.1](T):  73%|███████▎  | 73/100 [00:12<00:04,  5.99it/s, loss=13.1](T):  73%|███████▎  | 73/100 [00:12<00:04,  5.99it/s, loss=15.3](T):  74%|███████▍  | 74/100 [00:12<00:04,  5.94it/s, loss=15.3](T):  74%|███████▍  | 74/100 [00:13<00:04,  5.94it/s, loss=15.2](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.94it/s, loss=15.2](T):  75%|███████▌  | 75/100 [00:13<00:04,  5.94it/s, loss=14.7](T):  76%|███████▌  | 76/100 [00:13<00:04,  5.87it/s, loss=14.7](T):  76%|███████▌  | 76/100 [00:13<00:04,  5.87it/s, loss=15.7](T):  77%|███████▋  | 77/100 [00:13<00:03,  5.79it/s, loss=15.7](T):  77%|███████▋  | 77/100 [00:13<00:03,  5.79it/s, loss=12.8](T):  78%|███████▊  | 78/100 [00:13<00:03,  5.91it/s, loss=12.8](T):  78%|███████▊  | 78/100 [00:13<00:03,  5.91it/s, loss=15.4](T):  79%|███████▉  | 79/100 [00:13<00:03,  5.82it/s, loss=15.4](T):  79%|███████▉  | 79/100 [00:13<00:03,  5.82it/s, loss=14.9](T):  80%|████████  | 80/100 [00:13<00:03,  5.85it/s, loss=14.9](T):  80%|████████  | 80/100 [00:14<00:03,  5.85it/s, loss=13.7](T):  81%|████████  | 81/100 [00:14<00:03,  5.87it/s, loss=13.7](T):  81%|████████  | 81/100 [00:14<00:03,  5.87it/s, loss=15]  (T):  82%|████████▏ | 82/100 [00:14<00:03,  5.86it/s, loss=15](T):  82%|████████▏ | 82/100 [00:14<00:03,  5.86it/s, loss=16.4](T):  83%|████████▎ | 83/100 [00:14<00:02,  5.80it/s, loss=16.4](T):  83%|████████▎ | 83/100 [00:14<00:02,  5.80it/s, loss=13.5](T):  84%|████████▍ | 84/100 [00:14<00:02,  5.76it/s, loss=13.5](T):  84%|████████▍ | 84/100 [00:14<00:02,  5.76it/s, loss=15]  (T):  85%|████████▌ | 85/100 [00:14<00:02,  5.68it/s, loss=15](T):  85%|████████▌ | 85/100 [00:14<00:02,  5.68it/s, loss=13.5](T):  86%|████████▌ | 86/100 [00:14<00:02,  5.64it/s, loss=13.5](T):  86%|████████▌ | 86/100 [00:15<00:02,  5.64it/s, loss=15.4](T):  87%|████████▋ | 87/100 [00:15<00:02,  5.60it/s, loss=15.4](T):  87%|████████▋ | 87/100 [00:15<00:02,  5.60it/s, loss=13.8](T):  88%|████████▊ | 88/100 [00:15<00:02,  5.56it/s, loss=13.8](T):  88%|████████▊ | 88/100 [00:15<00:02,  5.56it/s, loss=13.6](T):  89%|████████▉ | 89/100 [00:15<00:01,  5.59it/s, loss=13.6](T):  89%|████████▉ | 89/100 [00:15<00:01,  5.59it/s, loss=15.4](T):  90%|█████████ | 90/100 [00:15<00:01,  5.58it/s, loss=15.4](T):  90%|█████████ | 90/100 [00:15<00:01,  5.58it/s, loss=13.3](T):  91%|█████████ | 91/100 [00:15<00:01,  5.59it/s, loss=13.3](T):  91%|█████████ | 91/100 [00:16<00:01,  5.59it/s, loss=13.5](T):  92%|█████████▏| 92/100 [00:16<00:01,  5.57it/s, loss=13.5](T):  92%|█████████▏| 92/100 [00:16<00:01,  5.57it/s, loss=15.2](T):  93%|█████████▎| 93/100 [00:16<00:01,  5.61it/s, loss=15.2](T):  93%|█████████▎| 93/100 [00:16<00:01,  5.61it/s, loss=13.5](T):  94%|█████████▍| 94/100 [00:16<00:01,  5.68it/s, loss=13.5](T):  94%|█████████▍| 94/100 [00:16<00:01,  5.68it/s, loss=12.6](T):  95%|█████████▌| 95/100 [00:16<00:00,  5.71it/s, loss=12.6](T):  95%|█████████▌| 95/100 [00:16<00:00,  5.71it/s, loss=13.8](T):  96%|█████████▌| 96/100 [00:16<00:00,  5.64it/s, loss=13.8](T):  96%|█████████▌| 96/100 [00:16<00:00,  5.64it/s, loss=15.4](T):  97%|█████████▋| 97/100 [00:16<00:00,  5.76it/s, loss=15.4](T):  97%|█████████▋| 97/100 [00:17<00:00,  5.76it/s, loss=13.5](T):  98%|█████████▊| 98/100 [00:17<00:00,  5.90it/s, loss=13.5](T):  98%|█████████▊| 98/100 [00:17<00:00,  5.90it/s, loss=11.8](T):  99%|█████████▉| 99/100 [00:17<00:00,  5.85it/s, loss=11.8](T):  99%|█████████▉| 99/100 [00:17<00:00,  5.85it/s, loss=12.3](T): 100%|██████████| 100/100 [00:17<00:00,  5.92it/s, loss=12.3](T): 100%|██████████| 100/100 [00:17<00:00,  5.75it/s, loss=12.3]
+Accuracy: 0.7297297297297297
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7207, F1Ma=0.7148
+random
+Perturbation Size:1
+1
+Accuracy: 0.7207207207207207
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7207, F1Ma=0.7070
+Perturbation Size:2
+2
+Accuracy: 0.7297297297297297
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7117, F1Ma=0.7048
+Perturbation Size:3
+3
+Accuracy: 0.7297297297297297
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7117, F1Ma=0.7048
+Perturbation Size:4
+4
+Accuracy: 0.7117117117117117
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7027, F1Ma=0.6947
+Perturbation Size:5
+5
+Accuracy: 0.7027027027027027
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+(E): Best test F1Mi=0.7207, F1Ma=0.7132

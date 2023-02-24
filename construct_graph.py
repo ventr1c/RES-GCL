@@ -91,7 +91,7 @@ def construct_augmentation_1(args, x, edge_index, edge_weight=None):
     aug_x_2 = drop_feature(x,drop_prob=args.drop_feat_rate_2)
     aug_edge_weight_2 = edge_weight
     return aug_edge_index_1,aug_x_1,aug_edge_weight_1,aug_edge_index_2,aug_x_2,aug_edge_weight_2
-def construct_augmentation_1(args, x, edge_index, edge_weight=None):
+def construct_augmentation_1by1(args, x, edge_index, edge_weight=None):
     #
 
     # graph 1:
@@ -115,7 +115,7 @@ def construct_augmentation_1(args, x, edge_index, edge_weight=None):
     return aug_edge_index_1,aug_x_1,aug_edge_weight_1,aug_edge_index_2,aug_x_2,aug_edge_weight_2
 # aug_edge_index_1,aug_x_1,aug_edge_index_2,aug_x_2 = construct_augmentation(noisy_data)
 
-def construct_augmentation(args, x, edge_index, edge_weight=None, device=None):
+def construct_augmentation_overall(args, x, edge_index, edge_weight=None, device=None):
     # graph 1:
     aug_edge_index_1,aug_edge_weight_1 = drop_adj_1by1(args,edge_index, edge_weight, 1-args.drop_edge_rate_1,device)
     aug_edge_index_1 = aug_edge_index_1.long()
@@ -145,3 +145,58 @@ def _sample_structure_noise(args,x,edge_index, edge_weight, idx, device):
     remain_edge_index = edge_index[:,remain_index]
     remain_edge_weight = torch.ones([remain_edge_index.shape[1],]).to(device)
     return remain_edge_index,remain_edge_weight
+
+def single_add_random_edges(idx_target, idx_add_nodes,device):
+    edge_list = []
+    for idx_add in idx_add_nodes:
+        edge_list.append([idx_target,idx_add])
+    edge_index = torch.tensor(edge_list).to(device).transpose(1,0)
+
+    row = torch.cat([edge_index[0], edge_index[1]])
+    col = torch.cat([edge_index[1],edge_index[0]])
+    edge_index = torch.stack([row,col])
+    return edge_index
+    
+def generate_node_noisy(args,data,idx_target,perturbation_size,device):
+    noisy_data = copy.deepcopy(data)
+    idx_overall = torch.tensor(range(data.num_nodes)).to(device)
+    # find connected nodes
+    idx_edge_index = (data.edge_index[0] == idx_target).nonzero().flatten()
+    idx_connected_nodes = data.edge_index[1][idx_edge_index]
+    idx_nonconnected_nodes = torch.tensor(list(set(np.array(idx_overall.cpu())) - set(np.array(idx_connected_nodes.cpu())))).to(device)
+    # permute the non-connected nodes
+    rs = np.random.RandomState(args.seed)
+    perm = rs.permutation(idx_nonconnected_nodes.shape[0])
+    idx_add_nodes = perm[:perturbation_size]
+    add_edge_index = single_add_random_edges(idx_target,idx_add_nodes,device)
+    update_edge_index = torch.cat([data.edge_index,add_edge_index],dim=1)
+    noisy_data.edge_index = update_edge_index
+    return noisy_data
+
+def generate_graph_noisy(args,data,perturbation_size,device,to_undirected=False):
+    rs = np.random.RandomState(10)
+    N = data.x.shape[0]
+    noisy_data = copy.deepcopy(data)
+
+    edge_index_to_add = rs.randint(0, N, (2, perturbation_size))
+    edge_index_to_add = torch.tensor(edge_index_to_add)
+    if(to_undirected):
+        row = torch.cat([edge_index_to_add[0], edge_index_to_add[1]])
+        col = torch.cat([edge_index_to_add[1],edge_index_to_add[0]])
+        edge_index_to_add = torch.stack([row,col])
+
+    updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    noisy_data.edge_index = updated_edge_index
+    return noisy_data
+
+    # noisy_data = copy.deepcopy(data)
+
+    # _, added_edges = add_random_edge(data.edge_index,p=perturbation_size/data.edge_index.shape[1],force_undirected=False,)
+    # row = torch.cat([added_edges[0], added_edges[1]])
+    # col = torch.cat([added_edges[1],added_edges[0]])
+    # added_edges = torch.stack([row,col])
+    # updated_edge_index = torch.cat([data.edge_index,added_edges],dim=1)
+    # noisy_data.edge_index = updated_edge_index
+    # return noisy_data
+    

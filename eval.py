@@ -84,36 +84,36 @@ def label_classification(embeddings, y, idx_train, idx_test):
         'F1Ma': macro
     }
 
-# def label_classification(embeddings, y, ratio):
-#     X = embeddings.detach().cpu().numpy()
-#     Y = y.detach().cpu().numpy()
-#     Y = Y.reshape(-1, 1)
-#     onehot_encoder = OneHotEncoder(categories='auto').fit(Y)
-#     Y = onehot_encoder.transform(Y).toarray().astype(np.bool)
+def label_classification_origin(embeddings, y, ratio):
+    X = embeddings.detach().cpu().numpy()
+    Y = y.detach().cpu().numpy()
+    Y = Y.reshape(-1, 1)
+    onehot_encoder = OneHotEncoder(categories='auto').fit(Y)
+    Y = onehot_encoder.transform(Y).toarray().astype(np.bool)
 
-#     X = normalize(X, norm='l2')
+    X = normalize(X, norm='l2')
 
-#     X_train, X_test, y_train, y_test = train_test_split(X, Y,
-#                                                         test_size=1 - ratio)
+    X_train, X_test, y_train, y_test = train_test_split(X, Y,
+                                                        test_size=1 - ratio)
 
-#     logreg = LogisticRegression(solver='liblinear')
-#     c = 2.0 ** np.arange(-10, 10)
+    logreg = LogisticRegression(solver='liblinear')
+    c = 2.0 ** np.arange(-10, 10)
 
-#     clf = GridSearchCV(estimator=OneVsRestClassifier(logreg),
-#                        param_grid=dict(estimator__C=c), n_jobs=8, cv=5,
-#                        verbose=0)
-#     clf.fit(X_train, y_train)
+    clf = GridSearchCV(estimator=OneVsRestClassifier(logreg),
+                       param_grid=dict(estimator__C=c), n_jobs=8, cv=5,
+                       verbose=0)
+    clf.fit(X_train, y_train)
 
-#     y_pred = clf.predict_proba(X_test)
-#     y_pred = prob_to_one_hot(y_pred)
+    y_pred = clf.predict_proba(X_test)
+    y_pred = prob_to_one_hot(y_pred)
 
-#     micro = f1_score(y_test, y_pred, average="micro")
-#     macro = f1_score(y_test, y_pred, average="macro")
-
-#     return {
-#         'F1Mi': micro,
-#         'F1Ma': macro
-#     }
+    micro = f1_score(y_test, y_pred, average="micro")
+    macro = f1_score(y_test, y_pred, average="macro")
+    print('F1Mi',micro,'F1Ma',macro)
+    return {
+        'F1Mi': micro,
+        'F1Ma': macro
+    }
 
 def label_evaluation(embeddings, y, idx_train, idx_test):
     idx_train = idx_train.cpu().numpy()
@@ -142,14 +142,49 @@ def label_evaluation(embeddings, y, idx_train, idx_test):
     y_pred = prob_to_one_hot(y_pred)
     y_test = Y[idx_test]
 
-    micro = f1_score(y_test, y_pred, average="micro")
-    macro = f1_score(y_test, y_pred, average="macro")
+    # micro = f1_score(y_test, y_pred, average="micro")
+    # macro = f1_score(y_test, y_pred, average="macro")
 
     # print(y_pred.argmax(1).shape,y_test.argmax(1))
-    acc = (((y_pred.argmax(1)==y_test.argmax(1)).sum())/len(y_pred.argmax(1)))
-    # print(acc)
-    return acc
     # return {
     #     'F1Mi': micro,
     #     'F1Ma': macro
     # }
+    acc = (((y_pred.argmax(1)==y_test.argmax(1)).sum())/len(y_pred.argmax(1)))
+    return acc
+
+def svc_classify(x, y, search):
+    kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=None)
+    accuracies = []
+    accuracies_val = []
+    for train_index, test_index in kf.split(x, y):
+
+        # test
+        x_train, x_test = x[train_index], x[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        # x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.1)
+        if search:
+            params = {'C':[0.001, 0.01,0.1,1,10,100,1000]}
+            classifier = GridSearchCV(SVC(), params, cv=5, scoring='accuracy', verbose=0)
+        else:
+            classifier = SVC(C=10)
+        classifier.fit(x_train, y_train)
+        accuracies.append(accuracy_score(y_test, classifier.predict(x_test)))
+
+        # val
+        val_size = len(test_index)
+        test_index = np.random.choice(train_index, val_size, replace=False).tolist()
+        train_index = [i for i in train_index if not i in test_index]
+
+        x_train, x_test = x[train_index], x[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        # x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.1)
+        if search:
+            params = {'C':[0.001, 0.01,0.1,1,10,100,1000]}
+            classifier = GridSearchCV(SVC(), params, cv=5, scoring='accuracy', verbose=0)
+        else:
+            classifier = SVC(C=10)
+        classifier.fit(x_train, y_train)
+        accuracies_val.append(accuracy_score(y_test, classifier.predict(x_test)))
+
+    return np.mean(accuracies_val), np.mean(accuracies)

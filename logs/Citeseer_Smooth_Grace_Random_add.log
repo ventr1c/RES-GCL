@@ -1,0 +1,42 @@
+nohup: ignoring input
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='random', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Citeseer', debug=True, device_id=0, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, encoder_model='Grace', hidden=128, if_smoothed=True, inv_weight=1, no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.803611755371094
+Epoch 10, training loss: 8.802506446838379
+Epoch 20, training loss: 8.798245429992676
+Epoch 30, training loss: 8.557413101196289
+Epoch 40, training loss: 7.936720371246338
+Epoch 50, training loss: 7.351806163787842
+Epoch 60, training loss: 7.0117387771606445
+Epoch 70, training loss: 6.7655134201049805
+Epoch 80, training loss: 6.55898904800415
+Epoch 90, training loss: 6.411305904388428
+Epoch 100, training loss: 6.266609191894531
+Epoch 110, training loss: 6.197396755218506
+Epoch 120, training loss: 6.0972771644592285
+Epoch 130, training loss: 5.969508647918701
+Epoch 140, training loss: 5.966239929199219
+Epoch 150, training loss: 5.944496154785156
+Epoch 160, training loss: 5.842294692993164
+Epoch 170, training loss: 5.836963653564453
+Epoch 180, training loss: 5.818922519683838
+Epoch 190, training loss: 5.739373207092285
+random
+Perturbation Size:1
+1
+run_robust_acc.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Accuracy: 0.635
+Perturbation Size:2
+2
+Accuracy: 0.647
+Perturbation Size:3
+3
+Accuracy: 0.624
+Perturbation Size:4
+4
+Accuracy: 0.643
+Perturbation Size:5
+5
+Accuracy: 0.664

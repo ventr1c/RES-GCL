@@ -1,0 +1,308 @@
+nohup: ignoring input
+run_robust_acc.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='none', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Citeseer', debug=True, device_id=0, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, encoder_model='Grace', hidden=128, if_smoothed=False, inv_weight=1, no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+beta 0.5
+seed 265
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802684783935547
+Epoch 10, training loss: 8.790635108947754
+Epoch 20, training loss: 8.609516143798828
+Epoch 30, training loss: 8.028905868530273
+Epoch 40, training loss: 7.23264217376709
+Epoch 50, training loss: 6.687808513641357
+Epoch 60, training loss: 6.337108135223389
+Epoch 70, training loss: 6.0077714920043945
+Epoch 80, training loss: 5.832503318786621
+Epoch 90, training loss: 5.725374221801758
+Epoch 100, training loss: 5.600033760070801
+Epoch 110, training loss: 5.538715839385986
+Epoch 120, training loss: 5.4954447746276855
+Epoch 130, training loss: 5.362512111663818
+Epoch 140, training loss: 5.385407447814941
+Epoch 150, training loss: 5.334384918212891
+Epoch 160, training loss: 5.25747537612915
+Epoch 170, training loss: 5.23093843460083
+Epoch 180, training loss: 5.2150139808654785
+Epoch 190, training loss: 5.117822647094727
+none
+Accuracy: 0.63
+seed 125
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802681922912598
+Epoch 10, training loss: 8.787023544311523
+Epoch 20, training loss: 8.485708236694336
+Epoch 30, training loss: 7.520010471343994
+Epoch 40, training loss: 7.016107559204102
+Epoch 50, training loss: 6.701474666595459
+Epoch 60, training loss: 6.357667922973633
+Epoch 70, training loss: 6.12166166305542
+Epoch 80, training loss: 5.914488792419434
+Epoch 90, training loss: 5.7462477684021
+Epoch 100, training loss: 5.579659461975098
+Epoch 110, training loss: 5.483156204223633
+Epoch 120, training loss: 5.410797595977783
+Epoch 130, training loss: 5.3116912841796875
+Epoch 140, training loss: 5.2590813636779785
+Epoch 150, training loss: 5.211562156677246
+Epoch 160, training loss: 5.127451419830322
+Epoch 170, training loss: 5.088043689727783
+Epoch 180, training loss: 4.982557773590088
+Epoch 190, training loss: 5.001535892486572
+none
+Accuracy: 0.596
+seed 996
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802655220031738
+Epoch 10, training loss: 8.788895606994629
+Epoch 20, training loss: 8.598498344421387
+Epoch 30, training loss: 8.136281967163086
+Epoch 40, training loss: 7.514672756195068
+Epoch 50, training loss: 7.019815444946289
+Epoch 60, training loss: 6.631734848022461
+Epoch 70, training loss: 6.307847023010254
+Epoch 80, training loss: 6.173348426818848
+Epoch 90, training loss: 6.044458866119385
+Epoch 100, training loss: 5.84823751449585
+Epoch 110, training loss: 5.708367824554443
+Epoch 120, training loss: 5.63600492477417
+Epoch 130, training loss: 5.5119452476501465
+Epoch 140, training loss: 5.478826999664307
+Epoch 150, training loss: 5.378651142120361
+Epoch 160, training loss: 5.384203910827637
+Epoch 170, training loss: 5.274196147918701
+Epoch 180, training loss: 5.247104644775391
+Epoch 190, training loss: 5.208874225616455
+none
+Accuracy: 0.673
+beta 0.6
+seed 265
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.80268383026123
+Epoch 10, training loss: 8.785979270935059
+Epoch 20, training loss: 8.511808395385742
+Epoch 30, training loss: 7.53989839553833
+Epoch 40, training loss: 7.036598205566406
+Epoch 50, training loss: 6.709380626678467
+Epoch 60, training loss: 6.359348773956299
+Epoch 70, training loss: 6.088679313659668
+Epoch 80, training loss: 6.0106611251831055
+Epoch 90, training loss: 5.783937454223633
+Epoch 100, training loss: 5.689940929412842
+Epoch 110, training loss: 5.525628566741943
+Epoch 120, training loss: 5.461740493774414
+Epoch 130, training loss: 5.362717628479004
+Epoch 140, training loss: 5.2599334716796875
+Epoch 150, training loss: 5.222415447235107
+Epoch 160, training loss: 5.143801212310791
+Epoch 170, training loss: 5.150135517120361
+Epoch 180, training loss: 5.072760581970215
+Epoch 190, training loss: 5.058779239654541
+none
+Accuracy: 0.648
+seed 125
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.80272102355957
+Epoch 10, training loss: 8.791773796081543
+Epoch 20, training loss: 8.626691818237305
+Epoch 30, training loss: 8.215031623840332
+Epoch 40, training loss: 7.528453350067139
+Epoch 50, training loss: 6.977578639984131
+Epoch 60, training loss: 6.421793460845947
+Epoch 70, training loss: 6.12096643447876
+Epoch 80, training loss: 5.971834659576416
+Epoch 90, training loss: 5.746644496917725
+Epoch 100, training loss: 5.680710792541504
+Epoch 110, training loss: 5.5985541343688965
+Epoch 120, training loss: 5.4987101554870605
+Epoch 130, training loss: 5.445064067840576
+Epoch 140, training loss: 5.34467887878418
+Epoch 150, training loss: 5.270086765289307
+Epoch 160, training loss: 5.296675682067871
+Epoch 170, training loss: 5.215979099273682
+Epoch 180, training loss: 5.192383289337158
+Epoch 190, training loss: 5.101513385772705
+none
+Accuracy: 0.619
+seed 996
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802692413330078
+Epoch 10, training loss: 8.791451454162598
+Epoch 20, training loss: 8.634347915649414
+Epoch 30, training loss: 8.118430137634277
+Epoch 40, training loss: 7.114818096160889
+Epoch 50, training loss: 6.6158061027526855
+Epoch 60, training loss: 6.222397804260254
+Epoch 70, training loss: 5.984671115875244
+Epoch 80, training loss: 5.786693096160889
+Epoch 90, training loss: 5.684256553649902
+Epoch 100, training loss: 5.658904075622559
+Epoch 110, training loss: 5.533596515655518
+Epoch 120, training loss: 5.464517593383789
+Epoch 130, training loss: 5.462996482849121
+Epoch 140, training loss: 5.416308879852295
+Epoch 150, training loss: 5.407928943634033
+Epoch 160, training loss: 5.3898491859436035
+Epoch 170, training loss: 5.34570837020874
+Epoch 180, training loss: 5.3228230476379395
+Epoch 190, training loss: 5.285317897796631
+none
+Accuracy: 0.582
+beta 0.7
+seed 265
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802654266357422
+Epoch 10, training loss: 8.781518936157227
+Epoch 20, training loss: 8.56083869934082
+Epoch 30, training loss: 7.6603617668151855
+Epoch 40, training loss: 6.945868015289307
+Epoch 50, training loss: 6.572988033294678
+Epoch 60, training loss: 6.245823383331299
+Epoch 70, training loss: 6.139864444732666
+Epoch 80, training loss: 5.9659810066223145
+Epoch 90, training loss: 5.932453632354736
+Epoch 100, training loss: 5.854025840759277
+Epoch 110, training loss: 5.772861480712891
+Epoch 120, training loss: 5.659489631652832
+Epoch 130, training loss: 5.572722911834717
+Epoch 140, training loss: 5.494177341461182
+Epoch 150, training loss: 5.45707368850708
+Epoch 160, training loss: 5.388428211212158
+Epoch 170, training loss: 5.380104064941406
+Epoch 180, training loss: 5.300980567932129
+Epoch 190, training loss: 5.2450995445251465
+none
+Accuracy: 0.619
+seed 125
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802690505981445
+Epoch 10, training loss: 8.789397239685059
+Epoch 20, training loss: 8.606356620788574
+Epoch 30, training loss: 7.79319429397583
+Epoch 40, training loss: 7.027071952819824
+Epoch 50, training loss: 6.570774078369141
+Epoch 60, training loss: 6.255366802215576
+Epoch 70, training loss: 6.0754714012146
+Epoch 80, training loss: 5.970707893371582
+Epoch 90, training loss: 5.827639579772949
+Epoch 100, training loss: 5.7803497314453125
+Epoch 110, training loss: 5.735481262207031
+Epoch 120, training loss: 5.645090103149414
+Epoch 130, training loss: 5.585816860198975
+Epoch 140, training loss: 5.532498359680176
+Epoch 150, training loss: 5.51462984085083
+Epoch 160, training loss: 5.472277641296387
+Epoch 170, training loss: 5.380332946777344
+Epoch 180, training loss: 5.317748546600342
+Epoch 190, training loss: 5.262731075286865
+none
+Accuracy: 0.645
+seed 996
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.80270767211914
+Epoch 10, training loss: 8.792765617370605
+Epoch 20, training loss: 8.601821899414062
+Epoch 30, training loss: 7.946197986602783
+Epoch 40, training loss: 7.092486381530762
+Epoch 50, training loss: 6.670698642730713
+Epoch 60, training loss: 6.430941581726074
+Epoch 70, training loss: 6.20734167098999
+Epoch 80, training loss: 5.99950647354126
+Epoch 90, training loss: 5.825267314910889
+Epoch 100, training loss: 5.814552307128906
+Epoch 110, training loss: 5.665828227996826
+Epoch 120, training loss: 5.618538856506348
+Epoch 130, training loss: 5.567809581756592
+Epoch 140, training loss: 5.49816370010376
+Epoch 150, training loss: 5.490241050720215
+Epoch 160, training loss: 5.43151330947876
+Epoch 170, training loss: 5.3440423011779785
+Epoch 180, training loss: 5.347275733947754
+Epoch 190, training loss: 5.306840896606445
+none
+Accuracy: 0.61
+beta 0.9
+seed 265
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802700996398926
+Epoch 10, training loss: 8.793294906616211
+Epoch 20, training loss: 8.610429763793945
+Epoch 30, training loss: 7.7749128341674805
+Epoch 40, training loss: 7.258589744567871
+Epoch 50, training loss: 6.60407829284668
+Epoch 60, training loss: 6.3630266189575195
+Epoch 70, training loss: 6.1712493896484375
+Epoch 80, training loss: 6.007042407989502
+Epoch 90, training loss: 5.878610610961914
+Epoch 100, training loss: 5.790902614593506
+Epoch 110, training loss: 5.75229549407959
+Epoch 120, training loss: 5.617159843444824
+Epoch 130, training loss: 5.530174732208252
+Epoch 140, training loss: 5.525196552276611
+Epoch 150, training loss: 5.403199672698975
+Epoch 160, training loss: 5.373481750488281
+Epoch 170, training loss: 5.336490631103516
+Epoch 180, training loss: 5.2221760749816895
+Epoch 190, training loss: 5.203444004058838
+none
+Accuracy: 0.64
+seed 125
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802692413330078
+Epoch 10, training loss: 8.787223815917969
+Epoch 20, training loss: 8.564314842224121
+Epoch 30, training loss: 8.085555076599121
+Epoch 40, training loss: 7.62374210357666
+Epoch 50, training loss: 7.214614391326904
+Epoch 60, training loss: 6.801591396331787
+Epoch 70, training loss: 6.394957542419434
+Epoch 80, training loss: 6.12985897064209
+Epoch 90, training loss: 6.033280849456787
+Epoch 100, training loss: 5.924572467803955
+Epoch 110, training loss: 5.855001449584961
+Epoch 120, training loss: 5.778877258300781
+Epoch 130, training loss: 5.713325023651123
+Epoch 140, training loss: 5.598819732666016
+Epoch 150, training loss: 5.634871959686279
+Epoch 160, training loss: 5.511905670166016
+Epoch 170, training loss: 5.436054706573486
+Epoch 180, training loss: 5.418188571929932
+Epoch 190, training loss: 5.3743133544921875
+none
+Accuracy: 0.653
+seed 996
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802701950073242
+Epoch 10, training loss: 8.789738655090332
+Epoch 20, training loss: 8.585204124450684
+Epoch 30, training loss: 7.61931037902832
+Epoch 40, training loss: 7.0776238441467285
+Epoch 50, training loss: 6.700473785400391
+Epoch 60, training loss: 6.521997928619385
+Epoch 70, training loss: 6.298650741577148
+Epoch 80, training loss: 6.1595611572265625
+Epoch 90, training loss: 5.972121715545654
+Epoch 100, training loss: 5.817319869995117
+Epoch 110, training loss: 5.725886344909668
+Epoch 120, training loss: 5.630820274353027
+Epoch 130, training loss: 5.526986122131348
+Epoch 140, training loss: 5.460634231567383
+Epoch 150, training loss: 5.33675479888916
+Epoch 160, training loss: 5.312314510345459
+Epoch 170, training loss: 5.268679141998291
+Epoch 180, training loss: 5.176997661590576
+Epoch 190, training loss: 5.130892753601074
+none
+Accuracy: 0.613

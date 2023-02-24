@@ -1,0 +1,94 @@
+nohup: ignoring input
+run_gnn.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='random', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Citeseer', debug=True, device_id=2, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, hidden=128, if_smoothed=True, inv_weight=1, model='GNNGuard', no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, num_repeat=5, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+=== training gcn model ===
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:1
+1
+Accuracy: 0.616
+Perturbation Size:2
+2
+Accuracy: 0.618
+Perturbation Size:3
+3
+Accuracy: 0.608
+Perturbation Size:4
+4
+Accuracy: 0.592
+Perturbation Size:5
+5
+Accuracy: 0.5710000000000001
+=== training gcn model ===
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:1
+1
+Accuracy: 0.607
+Perturbation Size:2
+2
+Accuracy: 0.613
+Perturbation Size:3
+3
+Accuracy: 0.6
+Perturbation Size:4
+4
+Accuracy: 0.588
+Perturbation Size:5
+5
+Accuracy: 0.5660000000000001
+=== training gcn model ===
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:1
+1
+Accuracy: 0.61
+Perturbation Size:2
+2
+Accuracy: 0.628
+Perturbation Size:3
+3
+Accuracy: 0.625
+Perturbation Size:4
+4
+Accuracy: 0.615
+Perturbation Size:5
+5
+Accuracy: 0.598
+=== training gcn model ===
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:1
+1
+Accuracy: 0.622
+Perturbation Size:2
+2
+Accuracy: 0.631
+Perturbation Size:3
+3
+Accuracy: 0.627
+Perturbation Size:4
+4
+Accuracy: 0.619
+Perturbation Size:5
+5
+Accuracy: 0.61
+=== training gcn model ===
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:1
+1
+Accuracy: 0.59
+Perturbation Size:2
+2
+Accuracy: 0.6
+Perturbation Size:3
+3
+Accuracy: 0.584
+Perturbation Size:4
+4
+Accuracy: 0.5720000000000001
+Perturbation Size:5
+5
+Accuracy: 0.554

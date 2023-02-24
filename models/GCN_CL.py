@@ -12,7 +12,7 @@ import numpy as np
 import scipy.sparse as sp
 from torch_geometric.utils import from_scipy_sparse_matrix
 
-from construct_graph import construct_augmentation_1,construct_augmentation 
+from construct_graph import construct_augmentation_1by1,construct_augmentation_overall
 from copy import deepcopy
 from torch.distributions.bernoulli import Bernoulli
 from torch_geometric.utils import subgraph
@@ -372,6 +372,36 @@ class GCN_Encoder(nn.Module):
         # target_pred_prob1 /= torch.mean(target_pred_prob)
         return select_unlabel_index1,select_label1,select_unlabel_index2,select_label2
 
+# class GCN_body(nn.Module):
+#     def __init__(self,nfeat, nhid, dropout=0.5, layer=2,device=None,layer_norm_first=False,use_ln=False):
+#         super(GCN_body, self).__init__()
+#         self.device = device
+#         self.nfeat = nfeat
+#         self.hidden_sizes = [nhid]
+#         self.dropout = dropout
+
+#         self.convs = nn.ModuleList()
+#         self.convs.append(GCNConv(nfeat, nhid))
+#         self.lns = nn.ModuleList()
+#         self.lns.append(torch.nn.LayerNorm(nfeat))
+#         for _ in range(layer-1):
+#             self.convs.append(GCNConv(nhid,nhid))
+#             self.lns.append(nn.LayerNorm(nhid))
+#         self.lns.append(torch.nn.LayerNorm(nhid))
+#         self.layer_norm_first = layer_norm_first
+#         self.use_ln = use_ln
+#     def forward(self,x, edge_index,edge_weight=None):
+#         if(self.layer_norm_first):
+#             x = self.lns[0](x)
+#         i=0
+#         for conv in self.convs:
+#             x = F.relu(conv(x, edge_index,edge_weight))
+#             if self.use_ln: 
+#                 x = self.lns[i+1](x)
+#             i+=1
+#             x = F.dropout(x, self.dropout, training=self.training)
+#         return x
+
 class GCN_body(nn.Module):
     def __init__(self,nfeat, nhid, dropout=0.5, layer=2,device=None,layer_norm_first=False,use_ln=False):
         super(GCN_body, self).__init__()
@@ -381,12 +411,16 @@ class GCN_body(nn.Module):
         self.dropout = dropout
 
         self.convs = nn.ModuleList()
-        self.convs.append(GCNConv(nfeat, nhid))
+        self.convs.append(GCNConv(nfeat,2 * nhid))
         self.lns = nn.ModuleList()
         self.lns.append(torch.nn.LayerNorm(nfeat))
-        for _ in range(layer-1):
-            self.convs.append(GCNConv(nhid,nhid))
-            self.lns.append(nn.LayerNorm(nhid))
+        for _ in range(1, layer-1):
+            self.convs.append(GCNConv(2 * nhid,2 * nhid))
+            self.lns.append(nn.LayerNorm(2 * nhid))
+            
+        self.convs.append(GCNConv(2 * nhid,nhid))
+        self.lns.append(nn.LayerNorm(2 * nhid))
+
         self.lns.append(torch.nn.LayerNorm(nhid))
         self.layer_norm_first = layer_norm_first
         self.use_ln = use_ln
@@ -401,6 +435,7 @@ class GCN_body(nn.Module):
             i+=1
             x = F.dropout(x, self.dropout, training=self.training)
         return x
+
 # %%
 class BRGNN(nn.Module):
 
@@ -989,11 +1024,11 @@ class Grace_Encoder(nn.Module):
         # return self.fc2_c(z)
         # return z
 
-class Smoothed_Encoder(nn.Module):
+class Grace(nn.Module):
 
     def __init__(self, args, nfeat, nhid, nclass, unlabeled_idx, dropout=0.5, lr=0.01, weight_decay=5e-4,tau=None, layer=2,device=None,use_ln=False,layer_norm_first=False):
 
-        super(Smoothed_Encoder, self).__init__()
+        super(Grace, self).__init__()
 
         assert device is not None, "Please specify 'device'!"
         self.device = device
@@ -1001,20 +1036,6 @@ class Smoothed_Encoder(nn.Module):
         self.hidden_sizes = [nhid]
         self.nclass = nclass
         self.use_ln = use_ln
-        self.layer_norm_first = layer_norm_first
-        # self.convs = nn.ModuleList()
-        # self.convs.append(GCNConv(nfeat, nhid))
-        # for _ in range(layer-2):
-        #     self.convs.append(GCNConv(nhid,nhid))
-        # self.gc2 = GCNConv(nhid, nclass)
-        self.body = GCN_body(nfeat, nhid, dropout, layer,device=device,use_ln=use_ln,layer_norm_first=layer_norm_first).to(device)
-        
-        # linear evaluation layer
-        self.fc = nn.Linear(nhid,nclass).to(device)
-
-        # projection layer
-        self.fc1 = torch.nn.Linear(nhid, 128).to(device)
-        self.fc2 = torch.nn.Linear(128, nhid).to(device)
 
         self.dropout = dropout
         self.lr = lr
@@ -1030,6 +1051,23 @@ class Smoothed_Encoder(nn.Module):
         self.inv_weight = args.inv_weight
         self.unlabeled_idx = unlabeled_idx
         self.args = args
+
+        self.layer_norm_first = layer_norm_first
+        # self.convs = nn.ModuleList()
+        # self.convs.append(GCNConv(nfeat, nhid))
+        # for _ in range(layer-2):
+        #     self.convs.append(GCNConv(nhid,nhid))
+        # self.gc2 = GCNConv(nhid, nclass)
+        self.body = GCN_body(nfeat, nhid, dropout, layer,device=device,use_ln=use_ln,layer_norm_first=layer_norm_first).to(device)
+        
+        # linear evaluation layer
+        self.fc = nn.Linear(nhid,nclass).to(device)
+
+        # projection layer
+        self.fc1 = torch.nn.Linear(nhid, 128).to(device)
+        self.fc2 = torch.nn.Linear(128, nhid).to(device)
+
+    
     def forward(self, x, edge_index, edge_weight=None):
         # for conv in self.convs:
         #     x = F.relu(conv(x, edge_index,edge_weight))
@@ -1109,11 +1147,11 @@ class Smoothed_Encoder(nn.Module):
             optimizer.zero_grad()
             # edge_index, edge_weight = self.sample_noise_all(self.edge_index,self.edge_weight,idx_train)
             edge_index, edge_weight = self.edge_index, self.edge_weight
-            # edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_1(self.args, self.features, edge_index, edge_weight)
-            edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation(self.args, self.features, edge_index, edge_weight, device= self.device)
-
-            edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1,idx_train)
-    
+            # edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_1by1(self.args, self.features, edge_index, edge_weight)
+            edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_overall(self.args, self.features, edge_index, edge_weight, device= self.device)
+            if(self.args.if_smoothed==True):
+                edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1,idx_train)
+            
             z1 = self.forward(x_1, edge_index_1,edge_weight_1)
             z2 = self.forward(x_2, edge_index_2,edge_weight_2)
             # h1 = self.projection(z1)
@@ -1131,35 +1169,7 @@ class Smoothed_Encoder(nn.Module):
                 print('Epoch {}, training loss: {}'.format(i, loss.item()))
             loss.backward()
             optimizer.step()
-        # print("----Training DT Classifier----")
-        # # freeze parameter
-        # for param in self.body.parameters():
-        #     param.requires_grad = False
         
-        # for i in range(train_iters):
-        #     h = self.forward(self.features, edge_index, edge_weight)
-        #     clf_loss = self.clf_loss(h,labels,idx_train)
-        #     if verbose and i % 10 == 0:
-        #         print('Epoch {}, classification loss: {}'.format(i, clf_loss.item()))
-        #     clf_loss.backward()
-        #     optimizer.step()
-            
-        #     self.eval()
-        #     clf_loss_val = self.clf_loss(h,labels,idx_val)
-        #     # loss_val = clf_loss_val + self.cont_weight * cont_loss
-        #     loss_val = clf_loss_val
-        #     output = self.clf_head(h)
-        #     acc_val = utils.accuracy(output[idx_val], labels[idx_val])
-        #     if verbose and i % 10 == 0:
-        #         print('Epoch {}, val loss: {}'.format(i, loss_val.item()))
-        #         print('Epoch {}, val acc: {}'.format(i, acc_val.item()))
-        #     if acc_val > best_acc_val:
-        #         best_acc_val = acc_val
-        #         # self.output = output
-        #         weights = deepcopy(self.state_dict())
-        # if verbose:
-        #     print('=== picking the best model according to the performance on validation ===')
-        # self.load_state_dict(weights)
 
     def _train_with_val_withtwohead(self, labels, idx_train, idx_val, train_iters, verbose):
         if verbose:

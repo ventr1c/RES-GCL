@@ -1,0 +1,42 @@
+nohup: ignoring input
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='random', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Citeseer', debug=True, device_id=0, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, encoder_model='Grace', hidden=128, if_smoothed=False, inv_weight=1, no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.802630424499512
+Epoch 10, training loss: 8.781787872314453
+Epoch 20, training loss: 8.553987503051758
+Epoch 30, training loss: 7.920827865600586
+Epoch 40, training loss: 7.102913856506348
+Epoch 50, training loss: 6.7764716148376465
+Epoch 60, training loss: 6.396084785461426
+Epoch 70, training loss: 6.14622688293457
+Epoch 80, training loss: 6.018060207366943
+Epoch 90, training loss: 5.885395050048828
+Epoch 100, training loss: 5.830448150634766
+Epoch 110, training loss: 5.703908443450928
+Epoch 120, training loss: 5.6219258308410645
+Epoch 130, training loss: 5.547809600830078
+Epoch 140, training loss: 5.394847393035889
+Epoch 150, training loss: 5.384105205535889
+Epoch 160, training loss: 5.296171188354492
+Epoch 170, training loss: 5.273395538330078
+Epoch 180, training loss: 5.216862678527832
+Epoch 190, training loss: 5.188392162322998
+random
+Perturbation Size:1
+1
+run_robust_acc.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Accuracy: 0.648
+Perturbation Size:2
+2
+Accuracy: 0.652
+Perturbation Size:3
+3
+Accuracy: 0.635
+Perturbation Size:4
+4
+Accuracy: 0.623
+Perturbation Size:5
+5
+Accuracy: 0.607

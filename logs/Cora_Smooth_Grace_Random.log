@@ -1,0 +1,72 @@
+nohup: ignoring input
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='random', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Cora', debug=True, device_id=2, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, encoder_model='Grace', hidden=128, if_smoothed=True, inv_weight=1, no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+Not implement Grace
+=== training gcn model ===
+Epoch 0, training loss: 8.598848342895508
+Epoch 10, training loss: 8.596745491027832
+Epoch 20, training loss: 8.592256546020508
+Epoch 30, training loss: 8.537174224853516
+Epoch 40, training loss: 8.22236156463623
+Epoch 50, training loss: 7.91898250579834
+Epoch 60, training loss: 7.795459270477295
+Epoch 70, training loss: 7.417060375213623
+Epoch 80, training loss: 7.417989730834961
+Epoch 90, training loss: 7.278255462646484
+Epoch 100, training loss: 7.293509006500244
+Epoch 110, training loss: 7.135853290557861
+Epoch 120, training loss: 7.1096367835998535
+Epoch 130, training loss: 7.109138488769531
+Epoch 140, training loss: 6.956552982330322
+Epoch 150, training loss: 6.968801975250244
+Epoch 160, training loss: 6.886070728302002
+Epoch 170, training loss: 6.716013431549072
+Epoch 180, training loss: 6.827935218811035
+Epoch 190, training loss: 6.7418341636657715
+Epoch 200, training loss: 6.650004863739014
+Epoch 210, training loss: 6.566686630249023
+Epoch 220, training loss: 6.552289962768555
+Epoch 230, training loss: 6.548709869384766
+Epoch 240, training loss: 6.420604228973389
+Epoch 250, training loss: 6.415505409240723
+Epoch 260, training loss: 6.391774654388428
+Epoch 270, training loss: 6.339515686035156
+Epoch 280, training loss: 6.416415691375732
+Epoch 290, training loss: 6.256939888000488
+Epoch 300, training loss: 6.271021842956543
+Epoch 310, training loss: 6.2310051918029785
+Epoch 320, training loss: 6.20509147644043
+Epoch 330, training loss: 6.2373552322387695
+Epoch 340, training loss: 6.108587265014648
+Epoch 350, training loss: 6.195563316345215
+Epoch 360, training loss: 6.206747055053711
+Epoch 370, training loss: 6.1317458152771
+Epoch 380, training loss: 6.130813121795654
+Epoch 390, training loss: 6.084989547729492
+Epoch 400, training loss: 6.057773590087891
+Epoch 410, training loss: 6.124111175537109
+Epoch 420, training loss: 5.9640116691589355
+Epoch 430, training loss: 5.953336715698242
+Epoch 440, training loss: 5.983175754547119
+Epoch 450, training loss: 5.917392253875732
+Epoch 460, training loss: 5.9407958984375
+Epoch 470, training loss: 5.901233196258545
+Epoch 480, training loss: 5.893917560577393
+Epoch 490, training loss: 5.869274139404297
+random
+Perturbation Size:1
+1
+run_robust_acc.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Accuracy: 0.783
+Perturbation Size:2
+2
+Accuracy: 0.783
+Perturbation Size:3
+3
+Accuracy: 0.783
+Perturbation Size:4
+4
+Accuracy: 0.783
+Perturbation Size:5
+5
+Accuracy: 0.783

@@ -15,7 +15,7 @@ from deeprobust.graph.targeted_attack import Nettack
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--seed', type=int, default=15, help='Random seed.')
-parser.add_argument('--dataset', type=str, default='cora', choices=['cora', 'cora_ml', 'citeseer','Pubmed'], help='dataset')
+parser.add_argument('--dataset', type=str, default='pubmed', choices=['cora', 'cora_ml', 'citeseer','pubmed'], help='dataset')
 parser.add_argument('--ptb_rate', type=float, default=0.1,  help='pertubation rate')
 parser.add_argument("--label_rate", type=float, default=0.1, help='rate of labeled data')
 args = parser.parse_known_args()[0]
@@ -28,10 +28,16 @@ torch.manual_seed(args.seed)
 if args.cuda:
     torch.cuda.manual_seed(args.seed)
 
-data = Dataset(root='./data/', name=args.dataset)
+data = Dataset(root='/tmp/', name=args.dataset)
 adj, features, labels = data.adj, data.features, data.labels
 
-idx_train, idx_val, idx_test = data.idx_train, data.idx_val, data.idx_test
+# idx_train, idx_val, idx_test = data.idx_train, data.idx_val, data.idx_test
+num_nodes = data.adj.shape[0]
+num_classes = len(np.unique(data.labels))
+idx_test = np.array(range(num_nodes-1000,num_nodes))
+idx_train = np.array(range(0,num_classes*20))
+idx_val = np.array(range(num_classes*20,num_classes*20+500))
+
 # idx_train = idx_train[:int(args.label_rate * adj.shape[0])]
 # Setup Surrogate model
 surrogate = GCN(nfeat=features.shape[1], nclass=labels.max().item()+1,
@@ -132,6 +138,7 @@ idx = np.array(idx_test)
 print("idx:",idx)
 np.random.shuffle(idx)
 node_list = idx[:int(args.ptb_rate*len(idx))]
+# node_list = idx
 # node_list = idx[:50]
 # node_list=[0]
 
