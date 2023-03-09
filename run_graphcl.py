@@ -31,6 +31,7 @@ parser.add_argument('--debug', action='store_true',
         default=True, help='debug mode')
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='Disables CUDA training.')
+parser.add_argument('--num_repeat', type=int, default=1)
 parser.add_argument('--seed', type=int, default=10, help='Random seed.')
 parser.add_argument('--base_model', type=str, default='GCN', help='propagation model for encoder',
                     choices=['GCN','GAT','GraphSage','GIN'])
@@ -39,7 +40,7 @@ parser.add_argument('--encoder_model', type=str, default='Grace', help='propagat
                     choices=['Grace','GraphCL'])
 parser.add_argument('--dataset', type=str, default='PROTEINS', 
                     help='Dataset',
-                    choices=['PROTEINS','MUTAG'])
+                    choices=['PROTEINS','MUTAG','COLLAB','ENZYMES'])
 parser.add_argument('--train_lr', type=float, default=0.01,
                     help='Initial learning rate.')
 parser.add_argument('--weight_decay', type=float, default=5e-4,
@@ -91,7 +92,7 @@ parser.add_argument('--attack', type=str, default='none',
 parser.add_argument('--select_target_ratio', type=float, default=0.1,
                     help="The number of selected target test nodes for targeted attack")
 # Randomized Smoothing
-parser.add_argument('--prob', default=1.0, type=float,
+parser.add_argument('--prob', default=0.8, type=float,
                     help="probability to keep the status for each binary entry")
 # args = parser.parse_args()
 args = parser.parse_known_args()[0]
@@ -103,6 +104,8 @@ np.random.seed(args.seed)
 # torch.cuda.manual_seed(args.seed)
 print(args)
 
+import os
+os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
 # In[13]:
 
@@ -112,14 +115,14 @@ import torch_geometric.transforms as T
 transform = T.Compose([T.NormalizeFeatures()])
 
 
-if(args.dataset == 'PROTEINS' or args.dataset == 'MUTAG'):
+if(args.dataset == 'PROTEINS' or args.dataset == 'MUTAG' or args.dataset == 'COLLAB' or args.dataset == 'ENZYMES'):
     dataset = TUDataset(root='./data/', name=args.dataset, transform=None,use_node_attr = True)
 
 data = dataset[0].to(device)
 
 from torch_geometric.utils import to_undirected
-# for data in dataset:
-#     data.edge_index = to_undirected(data.edge_index)
+for data in dataset:
+    data.edge_index = to_undirected(data.edge_index)
 dataloader = DataLoader(dataset, batch_size=args.batch_size)
 
 from GCL.eval import get_split
@@ -154,44 +157,6 @@ split = utils.get_split_self(num_samples=len(dataset), train_ratio=0.8, test_rat
 # # filter out the unlabeled nodes except from training nodes and testing nodes, nonzero() is to get index, flatten is to get 1-d tensor
 # unlabeled_idx = (torch.bitwise_not(data.test_mask)&torch.bitwise_not(data.train_mask)).nonzero().flatten()
 
-
-# In[28]:
-
-
-if(args.dataset == 'Cora'):
-    args.drop_edge_rate_1 = 0.2
-    args.drop_edge_rate_2 = 0.4
-    args.drop_feat_rate_1 = 0.3
-    args.drop_feat_rate_2 = 0.4
-    args.tau = 0.1
-    args.cl_lr = 0.0005
-    args.weight_decay = 1e-5
-    args.cl_num_epochs = 500
-    args.num_hidden = 128
-    args.hidden = 128
-    args.num_proj_hidden = 128
-elif(args.dataset == "Pubmed"):
-    args.drop_edge_rate_1 = 0.4
-    args.drop_edge_rate_2 = 0.1
-    args.drop_feat_rate_1 = 0.0
-    args.drop_feat_rate_2 = 0.2
-    args.tau = 0.1
-    args.cl_lr = 0.001
-    args.weight_decay = 1e-5
-    args.cl_num_epochs = 500
-    args.num_hidden = 256
-    args.hidden = 256
-elif(args.dataset == "Citeseer"):
-    args.drop_edge_rate_1 = 0.2
-    args.drop_edge_rate_2 = 0.0
-    args.drop_feat_rate_1 = 0.3
-    args.drop_feat_rate_2 = 0.2
-    args.tau = 0.1
-    args.cl_lr = 0.001
-    args.weight_decay = 1e-5
-    args.cl_num_epochs = 500
-    args.num_hidden = 256
-    args.hidden = 256
 
 # In[29]:
 
@@ -240,85 +205,120 @@ num_class = int(data.y.max()+1)
 input_dim = max(dataset.num_features, 1)
 
 rs = np.random.RandomState(args.seed)
-seeds = rs.randint(1000,size=5)
+seeds = rs.randint(1000,size=args.num_repeat)
 
-accs = []
-perturbation_sizes = list(range(1,6))
-noisy_dataloaders = []
-noisy_datasets = []
-for n_perturbation in perturbation_sizes:
-    print("Perturbation Size:{}".format(n_perturbation))
-    # noisy_dataset = copy.deepcopy(dataset)
-    print(n_perturbation)
-    noisy_dataset = []
-    if(len(noisy_datasets)==0):
-        for data in dataset:
-            noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
-            noisy_dataset.append(noisy_data)
-    else:
-        for data in noisy_datasets[-1]:
-            noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
-            noisy_dataset.append(noisy_data)
-    noisy_datasets.append(noisy_dataset)
-    noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
-    noisy_dataloaders.append(noisy_dataloader)
-
-for seed in seeds:
-    # Construct and train encoder
-    aug1 = A.Identity()
-    aug2 = A.RandomChoice([A.RWSampling(num_seeds=args.seed, walk_length=args.walk_length),
-                           A.NodeDropping(pn=args.drop_edge_rate_2),
-                           A.FeatureMasking(pf=args.drop_feat_rate_2),
-                           A.EdgeRemoving(pe=args.drop_node_rate_2)], 1)
-
-    gconv = GConv(input_dim=input_dim, hidden_dim=args.hidden, num_layers=2).to(device)
-    model = Encoder(args = args, encoder=gconv, augmentor=(aug1, aug2), input_dim=input_dim, hidden_dim=args.num_hidden, lr=args.cl_lr, tau=args.tau,num_epoch = args.cl_num_epochs, if_smoothed = args.if_smoothed,device = device)
-    model.fit(dataloader)
-    test_result = model.test(dataloader,split)
-    print(f'(E): Best test F1Mi={test_result["micro_f1"]:.4f}, F1Ma={test_result["macro_f1"]:.4f}')
-    
-# In[30]:
-    # Evaluation Metric: Robust Accuracy
-    # Node-level task
-    print(args.attack)
+perturbation_sizes = list(range(0,21))
+# noisy_dataloaders = []
+# noisy_datasets = []
+# for n_perturbation in perturbation_sizes:
+#     print("Perturbation Size:{}".format(n_perturbation))
+#     # noisy_dataset = copy.deepcopy(dataset)
+#     print(n_perturbation)
+#     noisy_dataset = []
+#     if(len(noisy_datasets)==0):
+#         for data in dataset:
+#             noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
+#             noisy_dataset.append(noisy_data)
+#     else:
+#         for data in noisy_datasets[-1]:
+#             noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
+#             noisy_dataset.append(noisy_data)
+#     noisy_datasets.append(noisy_dataset)
+#     noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
+#     noisy_dataloaders.append(noisy_dataloader)
+betas = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9] 
+for beta in betas:
+    args.prob = beta
+    print("beta:{}".format(beta))
     if(args.attack == 'random'):
-        import construct_graph
-        import copy
-        perturbation_sizes = list(range(1,6))
+        accuracys = {}
         for n_perturbation in perturbation_sizes:
-            print("Perturbation Size:{}".format(n_perturbation))
-            # noisy_dataset = copy.deepcopy(dataset)
-            print(n_perturbation)
-            noisy_dataloader = noisy_dataloaders[n_perturbation-1]
-            # noisy_dataset = []
-            # for data in dataset:
-            # # for i in range(len(noisy_dataset)):
-            #     noisy_data = construct_graph.generate_graph_noisy(args,data,n_perturbation,device)
-            #     # noisy_dataset[i] = noisy_data.to(device)
-            #     noisy_dataset.append(noisy_data)
-            # noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
+            accuracys[n_perturbation] = []
+        
+    for seed in seeds:
+        args.seed = seed
+        # Construct and train encoder
+        aug1 = A.Identity()
+        aug2 = A.RandomChoice([A.RWSampling(num_seeds=args.seed, walk_length=args.walk_length),
+                            A.NodeDropping(pn=args.drop_edge_rate_2),
+                            A.FeatureMasking(pf=args.drop_feat_rate_2),
+                            A.EdgeRemoving(pe=args.drop_node_rate_2)], 1)
 
-            # for i in range(3):        
-            test_result = model.test(noisy_dataloader,split)
-            # for i in range(len(noisy_dataset)):
-            #     noisy_data = construct_graph.generate_graph_noisy(args,noisy_dataset[i],n_perturbation,device)
-            #     # noisy_dataset[i] = noisy_data.to(device)
-            #     # noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
-            #     test_result = model.single_test(noisy_data)
-            print(f'(E): Best test F1Mi={test_result["micro_f1"]:.4f}, F1Ma={test_result["macro_f1"]:.4f}')
+        gconv = GConv(input_dim=input_dim, hidden_dim=args.hidden, num_layers=2).to(device)
+        model = Encoder(args = args, encoder=gconv, augmentor=(aug1, aug2), input_dim=input_dim, hidden_dim=args.num_hidden, lr=args.cl_lr, tau=args.tau,num_epoch = args.cl_num_epochs, if_smoothed = args.if_smoothed,device = device)
+        model.fit(dataloader)
+        model.test(dataloader,split)
+        # test_result = model.test(dataloader,split)
+        # print(f'(E): Best test F1Mi={test_result["micro_f1"]:.4f}, F1Ma={test_result["macro_f1"]:.4f}')
+        
+    # In[30]:
+        # Evaluation Metric: Robust Accuracy
+        # Node-level task
+        print(args.attack)
+        if(args.attack == 'random'):
+            import construct_graph
+            import copy
+            # perturbation_sizes = list(range(0,21))
+            noisy_datasets = []
+            for n_perturbation in perturbation_sizes:
+                # print("Perturbation Size:{}".format(n_perturbation))
+                # noisy_dataset = copy.deepcopy(dataset)
+                # print(n_perturbation)
+                if(n_perturbation > 0):
+                    noisy_dataset = []
+                    if(len(noisy_datasets)==0):
+                        for data in dataset:
+                            noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
+                            noisy_dataset.append(noisy_data)
+                    else:
+                        for data in noisy_datasets[-1]:
+                            noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
+                            noisy_dataset.append(noisy_data)
+                    noisy_datasets.append(noisy_dataset)
+                    noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
+                else:
+                    noisy_dataset = dataset
+                    noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
+                # noisy_dataloaders.append(noisy_dataloader)
+
+                # noisy_dataloader = noisy_dataloaders[n_perturbation-1]
+                
+                # noisy_dataset = []
+                # for data in dataset:
+                # # for i in range(len(noisy_dataset)):
+                #     noisy_data = construct_graph.generate_graph_noisy(args,data,n_perturbation,device)
+                #     # noisy_dataset[i] = noisy_data.to(device)
+                #     noisy_dataset.append(noisy_data)
+                # noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
+                # for i in range(3):  
+                if(args.if_smoothed):
+                    test_result = model.smooth_test(100, noisy_dataset, split)
+                else:      
+                    test_result = model.test(noisy_dataloader,split)
+                accuracys[n_perturbation].append(test_result)
+                print("Accuracy:{:4f}".format(test_result))
+                # for i in range(len(noisy_dataset)):
+                #     noisy_data = construct_graph.generate_graph_noisy(args,noisy_dataset[i],n_perturbation,device)
+                #     # noisy_dataset[i] = noisy_data.to(device)
+                #     # noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
+                #     test_result = model.single_test(noisy_data)
+                # print(f'(E): Best test F1Mi={test_result["micro_f1"]:.4f}, F1Ma={test_result["macro_f1"]:.4f}')
             
-    # elif(args.attack == 'none'):
-    #     model.eval()
-    #     if(args.if_smoothed == True):
-    #         rs_edge_index, rs_edge_weight = sample_noise_all(args, data.edge_index, data.edge_weight, device)
-    #         z, _, _ = model(data.x, rs_edge_index, rs_edge_weight)
-    #     else:
-    #         z, _, _ = model(data.x, data.edge_index, data.edge_weight)
-        # acc = label_evaluation(z, data.y, idx_train, idx_clean_test)
-        # print("Accuracy:",acc)
-
-
-# In[ ]:
+        # elif(args.attack == 'none'):
+        #     model.eval()
+        #     if(args.if_smoothed == True):
+        #         rs_edge_index, rs_edge_weight = sample_noise_all(args, data.edge_index, data.edge_weight, device)
+        #         z, _, _ = model(data.x, rs_edge_index, rs_edge_weight)
+        #     else:
+        #         z, _, _ = model(data.x, data.edge_index, data.edge_weight)
+            # acc = label_evaluation(z, data.y, idx_train, idx_clean_test)
+            # print("Accuracy:",acc)
+    if(args.attack == 'random'):
+        for n_perturbation in perturbation_sizes:
+            mean_acc =  np.mean(accuracys[n_perturbation])  
+            std_acc =  np.std(accuracys[n_perturbation])     
+            print("Beta:{} Ptb size:{} Accuracy:{:.4f}+-{:.4f}".format(args.prob, n_perturbation,mean_acc,std_acc))
+    # In[ ]:
 
 
 

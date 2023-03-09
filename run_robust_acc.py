@@ -203,7 +203,7 @@ import torch.nn.functional as F
 import torch.nn as nn
 from torch_geometric.nn import GCNConv
 
-from eval import label_classification,label_evaluation,label_classification_origin
+from eval import label_classification,label_evaluation,label_classification_origin, smoothed_linear_evaluation
 
 import torch
 import numpy as np
@@ -220,7 +220,7 @@ from deeprobust.graph.data import Dataset, Pyg2Dpr, Dpr2Pyg
 from deeprobust.graph.defense import GCN
 from deeprobust.graph.targeted_attack import Nettack
 
-from models.random_smooth import sample_noise_all_dense,sample_noise_1by1_dense
+from models.random_smooth import sample_noise_all_dense,sample_noise_1by1_dense, _lower_confidence_bound
 
 data = data.to(device)
 num_class = int(data.y.max()+1)
@@ -229,11 +229,30 @@ rs = np.random.RandomState(args.seed)
 seeds = rs.randint(1000,size=args.num_repeat)
 
 accs = []
-betas = [0.5,0.6,0.7,0.9]
+# betas = [0.1,0.2,0.3,0.4]
+betas = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]
+# betas = [0.,0.1,0.3,0.5,0.7,0.9]
 for beta in betas:
     args.prob = beta
     print("beta {}".format(beta))
+    # initialize 
+    if(args.attack == 'nettack'):
+        perturbation_sizes = list(range(1,6))
+        misclf_rates_cl = {}
+        misclf_rates_gcn = {}
+        for n_perturbation in perturbation_sizes:
+            misclf_rates_cl[n_perturbation] = []
+            misclf_rates_gcn[n_perturbation] = []
+    elif(args.attack == 'random'):
+        perturbation_sizes = list(range(0,21))
+        accuracys = {}
+        for n_perturbation in perturbation_sizes:
+            accuracys[n_perturbation] = []
+
     for seed in seeds:
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        torch.cuda.manual_seed(seed)
         print("seed {}".format(seed))
         # Construct and train encoder
         model = model_construct(args,args.encoder_model,data,device)
@@ -323,14 +342,20 @@ for beta in betas:
                         if cl_acc == 0:
                             cl_cnt += 1
                         # break
+                    misclf_cl = cl_cnt/target_num
+                    misclf_gcn = cnt/target_num
+
+                    misclf_rates_cl[n_perturbation].append(misclf_cl)
+                    misclf_rates_gcn[n_perturbation].append(misclf_gcn)
                     print('[GCN] misclassification rate : %s' % (cnt/target_num))
                     print('[CL] misclassification rate : %s' % (cl_cnt/target_num))
+
             elif(args.attack == 'random'):
                 import construct_graph
                 import copy
-                perturbation_sizes = list(range(0,6))
+                perturbation_sizes = list(range(0,21))
                 for n_perturbation in perturbation_sizes:
-                    print("Perturbation Size:{}".format(n_perturbation))
+                    # print("Perturbation Size:{}".format(n_perturbation))
                     noisy_data = copy.deepcopy(data)
                     if(n_perturbation > 0):
                         for idx in idx_clean_test:
@@ -338,12 +363,21 @@ for beta in betas:
                             noisy_data = noisy_data.to(device)
                     model.eval()
                     if(args.if_smoothed):
-                        noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                        # noisy_data.edge_index,noisy_data.edge_weight = sample_noise_1by1_dense(args,noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test, device)
-                        # noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise_1by1(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                    z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight)
-                    acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
+                        acc, prediction = smoothed_linear_evaluation(args, model, noisy_data.x, noisy_data.edge_index, noisy_data.edge_weight, 100, noisy_data.y, idx_train, idx_clean_test, device)
+                    else:
+                        acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
+                    # if(args.if_smoothed):
+                    #     noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
+                    #     # noisy_data.edge_index,noisy_data.edge_weight = sample_noise_1by1_dense(args,noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test, device)
+                    #     # noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise_1by1(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
+                    # z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight)
+                    # # Calculate Robust Accuracy and Bounded Probability 
+                    # acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
                     print("Accuracy:",acc)
+                    accuracys[n_perturbation].append(acc)
+
+                    # _lower_confidence_bound()
+
             elif(args.attack == 'none'):
                 model.eval()
                 rs_data = copy.deepcopy(data)
@@ -355,10 +389,22 @@ for beta in betas:
                 acc = label_evaluation(z, rs_data.y, idx_train, idx_clean_test)
                 print("Accuracy:",acc)
                 # accs.append(acc)
+    if(args.attack == 'nettack'):
+        for n_perturbation in perturbation_sizes:
+            mean_misclf_rate_gcn = np.mean(misclf_rates_gcn[n_perturbation])
+            std_misclf_rate_gcn = np.std(misclf_rates_gcn[n_perturbation])
 
+            mean_misclf_rate_cl = np.mean(misclf_rates_cl[n_perturbation])
+            std_misclf_rate_cl = np.std(misclf_rates_cl[n_perturbation])
+
+            print('[GCN] Beta=%s Ptb size=%s total misclassification rate : %s+-%s' % (args.prob, n_perturbation,mean_misclf_rate_gcn,std_misclf_rate_gcn))
+            print('[CL]  Beta=%s Ptb size=%s total misclassification rate : %s+-%s' % (args.prob, n_perturbation,mean_misclf_rate_cl,std_misclf_rate_cl))
+    elif(args.attack == 'random'):
+        for n_perturbation in perturbation_sizes:
+            mean_acc =  np.mean(accuracys[n_perturbation])  
+            std_acc =  np.std(accuracys[n_perturbation])     
+            print("Beta:{} Ptb size:{} Accuracy:{:.4f}+-{:.4f}".format(args.prob, n_perturbation,mean_acc,std_acc))
 
     # In[ ]:
-
-
 
 

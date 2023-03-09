@@ -1,0 +1,2489 @@
+nohup: ignoring input
+run_robust_acc.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='random', base_model='GCN', cl_activation='relu', cl_base_model='GCNConv', cl_lr=0.0005, cl_num_epochs=200, cl_num_layers=2, cl_num_proj_hidden=128, cl_weight_decay=1e-05, clf_weight=1, config='config.yaml', cont_batch_size=0, cont_weight=1, cuda=True, dataset='Cora', debug=True, device_id=1, drop_edge_rate_1=0.2, drop_edge_rate_2=0, drop_feat_rate_1=0.3, drop_feat_rate_2=0.2, dropout=0.5, encoder_model='Grace', hidden=128, if_smoothed=False, inv_weight=1, no_cuda=False, noisy_level=0.3, num_hidden=128, num_proj_hidden=128, num_repeat=5, prob=0.8, seed=10, select_target_ratio=0.1, tau=0.1, test_model='GCN', train_lr=0.01, weight_decay=0.0005)
+beta 0.5
+seed 265
+=== training gcn model ===
+Epoch 0, training loss: 8.596508026123047
+Epoch 10, training loss: 8.57919979095459
+Epoch 20, training loss: 8.453472137451172
+Epoch 30, training loss: 8.295169830322266
+Epoch 40, training loss: 7.942394733428955
+Epoch 50, training loss: 7.392380237579346
+Epoch 60, training loss: 7.185555458068848
+Epoch 70, training loss: 6.952273845672607
+Epoch 80, training loss: 7.063404083251953
+Epoch 90, training loss: 6.608041286468506
+Epoch 100, training loss: 6.52433443069458
+Epoch 110, training loss: 6.495637893676758
+Epoch 120, training loss: 6.249973297119141
+Epoch 130, training loss: 6.207971096038818
+Epoch 140, training loss: 6.290286540985107
+Epoch 150, training loss: 6.306826591491699
+Epoch 160, training loss: 5.982349395751953
+Epoch 170, training loss: 6.016620635986328
+Epoch 180, training loss: 5.8479180335998535
+Epoch 190, training loss: 5.843350887298584
+Epoch 200, training loss: 5.864234447479248
+Epoch 210, training loss: 5.934404373168945
+Epoch 220, training loss: 5.800920009613037
+Epoch 230, training loss: 5.769455909729004
+Epoch 240, training loss: 5.599786281585693
+Epoch 250, training loss: 5.700973987579346
+Epoch 260, training loss: 5.657506465911865
+Epoch 270, training loss: 5.530250549316406
+Epoch 280, training loss: 5.492216110229492
+Epoch 290, training loss: 5.546657085418701
+Epoch 300, training loss: 5.491424083709717
+Epoch 310, training loss: 5.473033428192139
+Epoch 320, training loss: 5.524970054626465
+Epoch 330, training loss: 5.410299777984619
+Epoch 340, training loss: 5.387844562530518
+Epoch 350, training loss: 5.405694007873535
+Epoch 360, training loss: 5.364826202392578
+Epoch 370, training loss: 5.370268821716309
+Epoch 380, training loss: 5.333326816558838
+Epoch 390, training loss: 5.300805568695068
+Epoch 400, training loss: 5.346287250518799
+Epoch 410, training loss: 5.341246128082275
+Epoch 420, training loss: 5.280411243438721
+Epoch 430, training loss: 5.322756290435791
+Epoch 440, training loss: 5.2379279136657715
+Epoch 450, training loss: 5.193556308746338
+Epoch 460, training loss: 5.219598770141602
+Epoch 470, training loss: 5.146299839019775
+Epoch 480, training loss: 5.141504287719727
+Epoch 490, training loss: 5.181017875671387
+random
+Perturbation Size:0
+Accuracy: 0.77
+Perturbation Size:1
+Accuracy: 0.768
+Perturbation Size:2
+Accuracy: 0.757
+Perturbation Size:3
+Accuracy: 0.757
+Perturbation Size:4
+Accuracy: 0.751
+Perturbation Size:5
+Accuracy: 0.749
+Perturbation Size:6
+Accuracy: 0.739
+Perturbation Size:7
+Accuracy: 0.729
+Perturbation Size:8
+Accuracy: 0.739
+Perturbation Size:9
+Accuracy: 0.733
+Perturbation Size:10
+Accuracy: 0.718
+Perturbation Size:11
+Accuracy: 0.717
+Perturbation Size:12
+Accuracy: 0.716
+Perturbation Size:13
+Accuracy: 0.714
+Perturbation Size:14
+Accuracy: 0.71
+Perturbation Size:15
+Accuracy: 0.701
+Perturbation Size:16
+Accuracy: 0.685
+Perturbation Size:17
+Accuracy: 0.696
+Perturbation Size:18
+Accuracy: 0.69
+Perturbation Size:19
+Accuracy: 0.678
+Perturbation Size:20
+Accuracy: 0.675
+seed 125
+=== training gcn model ===
+Epoch 0, training loss: 8.596582412719727
+Epoch 10, training loss: 8.581026077270508
+Epoch 20, training loss: 8.4550142288208
+Epoch 30, training loss: 8.35987663269043
+Epoch 40, training loss: 8.10344409942627
+Epoch 50, training loss: 8.003158569335938
+Epoch 60, training loss: 7.775917053222656
+Epoch 70, training loss: 7.473482608795166
+Epoch 80, training loss: 7.293121337890625
+Epoch 90, training loss: 7.125349521636963
+Epoch 100, training loss: 6.8980255126953125
+Epoch 110, training loss: 6.745960712432861
+Epoch 120, training loss: 6.5551042556762695
+Epoch 130, training loss: 6.582380294799805
+Epoch 140, training loss: 6.355761528015137
+Epoch 150, training loss: 6.422382831573486
+Epoch 160, training loss: 6.257279396057129
+Epoch 170, training loss: 6.181595802307129
+Epoch 180, training loss: 6.12481689453125
+Epoch 190, training loss: 6.145882606506348
+Epoch 200, training loss: 5.878899097442627
+Epoch 210, training loss: 6.027708053588867
+Epoch 220, training loss: 5.913211345672607
+Epoch 230, training loss: 5.904120445251465
+Epoch 240, training loss: 5.8523688316345215
+Epoch 250, training loss: 5.8556952476501465
+Epoch 260, training loss: 5.768431186676025
+Epoch 270, training loss: 5.715435981750488
+Epoch 280, training loss: 5.846100330352783
+Epoch 290, training loss: 5.734724521636963
+Epoch 300, training loss: 5.551965236663818
+Epoch 310, training loss: 5.613055229187012
+Epoch 320, training loss: 5.576372146606445
+Epoch 330, training loss: 5.515380859375
+Epoch 340, training loss: 5.580411434173584
+Epoch 350, training loss: 5.48164701461792
+Epoch 360, training loss: 5.406869411468506
+Epoch 370, training loss: 5.367763042449951
+Epoch 380, training loss: 5.426583290100098
+Epoch 390, training loss: 5.406435012817383
+Epoch 400, training loss: 5.38820743560791
+Epoch 410, training loss: 5.352781295776367
+Epoch 420, training loss: 5.302327632904053
+Epoch 430, training loss: 5.344729423522949
+Epoch 440, training loss: 5.345467567443848
+Epoch 450, training loss: 5.25888204574585
+Epoch 460, training loss: 5.348622798919678
+Epoch 470, training loss: 5.2934651374816895
+Epoch 480, training loss: 5.296132564544678
+Epoch 490, training loss: 5.27947473526001
+random
+Perturbation Size:0
+Accuracy: 0.736
+Perturbation Size:1
+Accuracy: 0.731
+Perturbation Size:2
+Accuracy: 0.732
+Perturbation Size:3
+Accuracy: 0.738
+Perturbation Size:4
+Accuracy: 0.715
+Perturbation Size:5
+Accuracy: 0.716
+Perturbation Size:6
+Accuracy: 0.715
+Perturbation Size:7
+Accuracy: 0.706
+Perturbation Size:8
+Accuracy: 0.698
+Perturbation Size:9
+Accuracy: 0.692
+Perturbation Size:10
+Accuracy: 0.683
+Perturbation Size:11
+Accuracy: 0.683
+Perturbation Size:12
+Accuracy: 0.679
+Perturbation Size:13
+Accuracy: 0.677
+Perturbation Size:14
+Accuracy: 0.677
+Perturbation Size:15
+Accuracy: 0.675
+Perturbation Size:16
+Accuracy: 0.639
+Perturbation Size:17
+Accuracy: 0.637
+Perturbation Size:18
+Accuracy: 0.646
+Perturbation Size:19
+Accuracy: 0.655
+Perturbation Size:20
+Accuracy: 0.651
+seed 996
+=== training gcn model ===
+Epoch 0, training loss: 8.596548080444336
+Epoch 10, training loss: 8.57329273223877
+Epoch 20, training loss: 8.443650245666504
+Epoch 30, training loss: 8.332481384277344
+Epoch 40, training loss: 7.971151351928711
+Epoch 50, training loss: 7.751131534576416
+Epoch 60, training loss: 7.479106903076172
+Epoch 70, training loss: 7.292203903198242
+Epoch 80, training loss: 7.131253242492676
+Epoch 90, training loss: 6.911816596984863
+Epoch 100, training loss: 6.825158596038818
+Epoch 110, training loss: 6.576875686645508
+Epoch 120, training loss: 6.595211029052734
+Epoch 130, training loss: 6.312208652496338
+Epoch 140, training loss: 6.297729015350342
+Epoch 150, training loss: 6.114190101623535
+Epoch 160, training loss: 6.2255425453186035
+Epoch 170, training loss: 5.979066371917725
+Epoch 180, training loss: 5.931718349456787
+Epoch 190, training loss: 5.852880954742432
+Epoch 200, training loss: 5.816187381744385
+Epoch 210, training loss: 5.873586177825928
+Epoch 220, training loss: 5.737829685211182
+Epoch 230, training loss: 5.743222236633301
+Epoch 240, training loss: 5.707284450531006
+Epoch 250, training loss: 5.637212753295898
+Epoch 260, training loss: 5.652339935302734
+Epoch 270, training loss: 5.627148628234863
+Epoch 280, training loss: 5.600142478942871
+Epoch 290, training loss: 5.488460540771484
+Epoch 300, training loss: 5.503673076629639
+Epoch 310, training loss: 5.465000152587891
+Epoch 320, training loss: 5.448424339294434
+Epoch 330, training loss: 5.400888919830322
+Epoch 340, training loss: 5.474032878875732
+Epoch 350, training loss: 5.348638534545898
+Epoch 360, training loss: 5.357146263122559
+Epoch 370, training loss: 5.376380920410156
+Epoch 380, training loss: 5.336076736450195
+Epoch 390, training loss: 5.321877479553223
+Epoch 400, training loss: 5.37124490737915
+Epoch 410, training loss: 5.270104885101318
+Epoch 420, training loss: 5.316390037536621
+Epoch 430, training loss: 5.2426228523254395
+Epoch 440, training loss: 5.2117085456848145
+Epoch 450, training loss: 5.219387531280518
+Epoch 460, training loss: 5.20166015625
+Epoch 470, training loss: 5.194149017333984
+Epoch 480, training loss: 5.2463698387146
+Epoch 490, training loss: 5.290109634399414
+random
+Perturbation Size:0
+Accuracy: 0.797
+Perturbation Size:1
+Accuracy: 0.8
+Perturbation Size:2
+Accuracy: 0.795
+Perturbation Size:3
+Accuracy: 0.787
+Perturbation Size:4
+Accuracy: 0.785
+Perturbation Size:5
+Accuracy: 0.767
+Perturbation Size:6
+Accuracy: 0.758
+Perturbation Size:7
+Accuracy: 0.753
+Perturbation Size:8
+Accuracy: 0.733
+Perturbation Size:9
+Accuracy: 0.722
+Perturbation Size:10
+Accuracy: 0.712
+Perturbation Size:11
+Accuracy: 0.702
+Perturbation Size:12
+Accuracy: 0.688
+Perturbation Size:13
+Accuracy: 0.67
+Perturbation Size:14
+Accuracy: 0.663
+Perturbation Size:15
+Accuracy: 0.65
+Perturbation Size:16
+Accuracy: 0.635
+Perturbation Size:17
+Accuracy: 0.611
+Perturbation Size:18
+Accuracy: 0.603
+Perturbation Size:19
+Accuracy: 0.61
+Perturbation Size:20
+Accuracy: 0.598
+seed 527
+=== training gcn model ===
+Epoch 0, training loss: 8.596390724182129
+Epoch 10, training loss: 8.572457313537598
+Epoch 20, training loss: 8.477368354797363
+Epoch 30, training loss: 8.347315788269043
+Epoch 40, training loss: 8.067073822021484
+Epoch 50, training loss: 7.845582008361816
+Epoch 60, training loss: 7.340463638305664
+Epoch 70, training loss: 7.192104816436768
+Epoch 80, training loss: 7.082470893859863
+Epoch 90, training loss: 6.862845420837402
+Epoch 100, training loss: 6.769082546234131
+Epoch 110, training loss: 6.686765670776367
+Epoch 120, training loss: 6.64304256439209
+Epoch 130, training loss: 6.381668567657471
+Epoch 140, training loss: 6.43641996383667
+Epoch 150, training loss: 6.302008152008057
+Epoch 160, training loss: 6.066361427307129
+Epoch 170, training loss: 6.066287040710449
+Epoch 180, training loss: 6.041986465454102
+Epoch 190, training loss: 6.013955116271973
+Epoch 200, training loss: 5.953428745269775
+Epoch 210, training loss: 5.874938488006592
+Epoch 220, training loss: 5.8205366134643555
+Epoch 230, training loss: 5.761266708374023
+Epoch 240, training loss: 5.7075042724609375
+Epoch 250, training loss: 5.805528163909912
+Epoch 260, training loss: 5.680278301239014
+Epoch 270, training loss: 5.599892616271973
+Epoch 280, training loss: 5.605809211730957
+Epoch 290, training loss: 5.5400824546813965
+Epoch 300, training loss: 5.583043098449707
+Epoch 310, training loss: 5.555703639984131
+Epoch 320, training loss: 5.57424783706665
+Epoch 330, training loss: 5.496994972229004
+Epoch 340, training loss: 5.48201322555542
+Epoch 350, training loss: 5.413732051849365
+Epoch 360, training loss: 5.495493412017822
+Epoch 370, training loss: 5.3485517501831055
+Epoch 380, training loss: 5.297740459442139
+Epoch 390, training loss: 5.318478584289551
+Epoch 400, training loss: 5.231174468994141
+Epoch 410, training loss: 5.327783584594727
+Epoch 420, training loss: 5.250908374786377
+Epoch 430, training loss: 5.345627307891846
+Epoch 440, training loss: 5.2178955078125
+Epoch 450, training loss: 5.115504741668701
+Epoch 460, training loss: 5.245203018188477
+Epoch 470, training loss: 5.20979642868042
+Epoch 480, training loss: 5.168887138366699
+Epoch 490, training loss: 5.098666667938232
+random
+Perturbation Size:0
+Accuracy: 0.768
+Perturbation Size:1
+Accuracy: 0.777
+Perturbation Size:2
+Accuracy: 0.771
+Perturbation Size:3
+Accuracy: 0.768
+Perturbation Size:4
+Accuracy: 0.763
+Perturbation Size:5
+Accuracy: 0.764
+Perturbation Size:6
+Accuracy: 0.755
+Perturbation Size:7
+Accuracy: 0.751
+Perturbation Size:8
+Accuracy: 0.74
+Perturbation Size:9
+Accuracy: 0.727
+Perturbation Size:10
+Accuracy: 0.713
+Perturbation Size:11
+Accuracy: 0.701
+Perturbation Size:12
+Accuracy: 0.687
+Perturbation Size:13
+Accuracy: 0.667
+Perturbation Size:14
+Accuracy: 0.652
+Perturbation Size:15
+Accuracy: 0.636
+Perturbation Size:16
+Accuracy: 0.604
+Perturbation Size:17
+Accuracy: 0.59
+Perturbation Size:18
+Accuracy: 0.589
+Perturbation Size:19
+Accuracy: 0.587
+Perturbation Size:20
+Accuracy: 0.576
+seed 320
+=== training gcn model ===
+Epoch 0, training loss: 8.596449851989746
+Epoch 10, training loss: 8.571748733520508
+Epoch 20, training loss: 8.449814796447754
+Epoch 30, training loss: 8.289406776428223
+Epoch 40, training loss: 7.8617730140686035
+Epoch 50, training loss: 7.707152366638184
+Epoch 60, training loss: 7.490350246429443
+Epoch 70, training loss: 7.173991680145264
+Epoch 80, training loss: 7.021217346191406
+Epoch 90, training loss: 6.719126224517822
+Epoch 100, training loss: 6.634364604949951
+Epoch 110, training loss: 6.5071797370910645
+Epoch 120, training loss: 6.387332439422607
+Epoch 130, training loss: 6.3909502029418945
+Epoch 140, training loss: 6.235908031463623
+Epoch 150, training loss: 6.0837860107421875
+Epoch 160, training loss: 6.153085231781006
+Epoch 170, training loss: 5.847231864929199
+Epoch 180, training loss: 5.954031467437744
+Epoch 190, training loss: 5.878490924835205
+Epoch 200, training loss: 5.781472206115723
+Epoch 210, training loss: 5.832880020141602
+Epoch 220, training loss: 5.741931438446045
+Epoch 230, training loss: 5.67242956161499
+Epoch 240, training loss: 5.602329254150391
+Epoch 250, training loss: 5.676009178161621
+Epoch 260, training loss: 5.699066638946533
+Epoch 270, training loss: 5.560899257659912
+Epoch 280, training loss: 5.62515926361084
+Epoch 290, training loss: 5.53809928894043
+Epoch 300, training loss: 5.5058369636535645
+Epoch 310, training loss: 5.403124809265137
+Epoch 320, training loss: 5.420668125152588
+Epoch 330, training loss: 5.37725305557251
+Epoch 340, training loss: 5.388930797576904
+Epoch 350, training loss: 5.294318199157715
+Epoch 360, training loss: 5.365342617034912
+Epoch 370, training loss: 5.255858421325684
+Epoch 380, training loss: 5.303545951843262
+Epoch 390, training loss: 5.316586971282959
+Epoch 400, training loss: 5.309171199798584
+Epoch 410, training loss: 5.213315486907959
+Epoch 420, training loss: 5.196207046508789
+Epoch 430, training loss: 5.189817428588867
+Epoch 440, training loss: 5.191174507141113
+Epoch 450, training loss: 5.152592658996582
+Epoch 460, training loss: 5.173104763031006
+Epoch 470, training loss: 5.108734607696533
+Epoch 480, training loss: 5.102015972137451
+Epoch 490, training loss: 5.069814682006836
+random
+Perturbation Size:0
+Accuracy: 0.752
+Perturbation Size:1
+Accuracy: 0.755
+Perturbation Size:2
+Accuracy: 0.756
+Perturbation Size:3
+Accuracy: 0.751
+Perturbation Size:4
+Accuracy: 0.743
+Perturbation Size:5
+Accuracy: 0.741
+Perturbation Size:6
+Accuracy: 0.747
+Perturbation Size:7
+Accuracy: 0.736
+Perturbation Size:8
+Accuracy: 0.732
+Perturbation Size:9
+Accuracy: 0.729
+Perturbation Size:10
+Accuracy: 0.716
+Perturbation Size:11
+Accuracy: 0.712
+Perturbation Size:12
+Accuracy: 0.714
+Perturbation Size:13
+Accuracy: 0.704
+Perturbation Size:14
+Accuracy: 0.705
+Perturbation Size:15
+Accuracy: 0.697
+Perturbation Size:16
+Accuracy: 0.695
+Perturbation Size:17
+Accuracy: 0.686
+Perturbation Size:18
+Accuracy: 0.675
+Perturbation Size:19
+Accuracy: 0.676
+Perturbation Size:20
+Accuracy: 0.658
+Beta:0.5 Ptb size:0 Accuracy:0.7646+-0.02033322404342215
+Beta:0.5 Ptb size:1 Accuracy:0.7662000000000001+-0.02292073297257313
+Beta:0.5 Ptb size:2 Accuracy:0.7622+-0.020643643089338682
+Beta:0.5 Ptb size:3 Accuracy:0.7602+-0.01653360214835232
+Beta:0.5 Ptb size:4 Accuracy:0.7514+-0.023061656488639344
+Beta:0.5 Ptb size:5 Accuracy:0.7474+-0.018380424369420872
+Beta:0.5 Ptb size:6 Accuracy:0.7427999999999999+-0.015393505123915099
+Beta:0.5 Ptb size:7 Accuracy:0.735+-0.017076299364909262
+Beta:0.5 Ptb size:8 Accuracy:0.7284+-0.015525462956060294
+Beta:0.5 Ptb size:9 Accuracy:0.7205999999999999+-0.01473227748856233
+Beta:0.5 Ptb size:10 Accuracy:0.7083999999999999+-0.012877888025604165
+Beta:0.5 Ptb size:11 Accuracy:0.703+-0.011679041056525119
+Beta:0.5 Ptb size:12 Accuracy:0.6968000000000001+-0.01519736819321027
+Beta:0.5 Ptb size:13 Accuracy:0.6863999999999999+-0.01900105260242176
+Beta:0.5 Ptb size:14 Accuracy:0.6814+-0.022791226382097095
+Beta:0.5 Ptb size:15 Accuracy:0.6718+-0.025513917770503197
+Beta:0.5 Ptb size:16 Accuracy:0.6516+-0.03376151655361471
+Beta:0.5 Ptb size:17 Accuracy:0.6439999999999999+-0.04128437961263316
+Beta:0.5 Ptb size:18 Accuracy:0.6405999999999998+-0.03931717182097411
+Beta:0.5 Ptb size:19 Accuracy:0.6412000000000001+-0.03651520231355705
+Beta:0.5 Ptb size:20 Accuracy:0.6315999999999999+-0.037887201005088814
+beta 0.6
+seed 265
+=== training gcn model ===
+Epoch 0, training loss: 8.596508026123047
+Epoch 10, training loss: 8.57919692993164
+Epoch 20, training loss: 8.45350170135498
+Epoch 30, training loss: 8.29521656036377
+Epoch 40, training loss: 7.942634582519531
+Epoch 50, training loss: 7.393736362457275
+Epoch 60, training loss: 7.185983180999756
+Epoch 70, training loss: 6.951930522918701
+Epoch 80, training loss: 7.068295955657959
+Epoch 90, training loss: 6.607391357421875
+Epoch 100, training loss: 6.52464485168457
+Epoch 110, training loss: 6.494274139404297
+Epoch 120, training loss: 6.251814365386963
+Epoch 130, training loss: 6.2068023681640625
+Epoch 140, training loss: 6.286372661590576
+Epoch 150, training loss: 6.308978080749512
+Epoch 160, training loss: 5.980260372161865
+Epoch 170, training loss: 6.018496036529541
+Epoch 180, training loss: 5.847500801086426
+Epoch 190, training loss: 5.841976165771484
+Epoch 200, training loss: 5.863928318023682
+Epoch 210, training loss: 5.934483528137207
+Epoch 220, training loss: 5.801741600036621
+Epoch 230, training loss: 5.7668352127075195
+Epoch 240, training loss: 5.599947452545166
+Epoch 250, training loss: 5.699395179748535
+Epoch 260, training loss: 5.659210681915283
+Epoch 270, training loss: 5.5286641120910645
+Epoch 280, training loss: 5.490981578826904
+Epoch 290, training loss: 5.545854091644287
+Epoch 300, training loss: 5.493755340576172
+Epoch 310, training loss: 5.475595951080322
+Epoch 320, training loss: 5.527777671813965
+Epoch 330, training loss: 5.4109039306640625
+Epoch 340, training loss: 5.388275623321533
+Epoch 350, training loss: 5.407840728759766
+Epoch 360, training loss: 5.368730068206787
+Epoch 370, training loss: 5.370266914367676
+Epoch 380, training loss: 5.335434913635254
+Epoch 390, training loss: 5.298896312713623
+Epoch 400, training loss: 5.347414970397949
+Epoch 410, training loss: 5.343062877655029
+Epoch 420, training loss: 5.283148765563965
+Epoch 430, training loss: 5.325582504272461
+Epoch 440, training loss: 5.239290237426758
+Epoch 450, training loss: 5.195003032684326
+Epoch 460, training loss: 5.223595142364502
+Epoch 470, training loss: 5.149752616882324
+Epoch 480, training loss: 5.141972064971924
+Epoch 490, training loss: 5.181285858154297
+random
+Perturbation Size:0
+Accuracy: 0.768
+Perturbation Size:1
+Accuracy: 0.769
+Perturbation Size:2
+Accuracy: 0.767
+Perturbation Size:3
+Accuracy: 0.752
+Perturbation Size:4
+Accuracy: 0.74
+Perturbation Size:5
+Accuracy: 0.736
+Perturbation Size:6
+Accuracy: 0.736
+Perturbation Size:7
+Accuracy: 0.723
+Perturbation Size:8
+Accuracy: 0.729
+Perturbation Size:9
+Accuracy: 0.727
+Perturbation Size:10
+Accuracy: 0.714
+Perturbation Size:11
+Accuracy: 0.707
+Perturbation Size:12
+Accuracy: 0.712
+Perturbation Size:13
+Accuracy: 0.703
+Perturbation Size:14
+Accuracy: 0.709
+Perturbation Size:15
+Accuracy: 0.698
+Perturbation Size:16
+Accuracy: 0.693
+Perturbation Size:17
+Accuracy: 0.675
+Perturbation Size:18
+Accuracy: 0.675
+Perturbation Size:19
+Accuracy: 0.667
+Perturbation Size:20
+Accuracy: 0.652
+seed 125
+=== training gcn model ===
+Epoch 0, training loss: 8.596582412719727
+Epoch 10, training loss: 8.581026077270508
+Epoch 20, training loss: 8.455016136169434
+Epoch 30, training loss: 8.359869003295898
+Epoch 40, training loss: 8.103398323059082
+Epoch 50, training loss: 8.00307846069336
+Epoch 60, training loss: 7.776271820068359
+Epoch 70, training loss: 7.472622871398926
+Epoch 80, training loss: 7.29156494140625
+Epoch 90, training loss: 7.123249530792236
+Epoch 100, training loss: 6.896589756011963
+Epoch 110, training loss: 6.7451934814453125
+Epoch 120, training loss: 6.554234504699707
+Epoch 130, training loss: 6.5826616287231445
+Epoch 140, training loss: 6.353551387786865
+Epoch 150, training loss: 6.4198408126831055
+Epoch 160, training loss: 6.258027076721191
+Epoch 170, training loss: 6.180580139160156
+Epoch 180, training loss: 6.123520374298096
+Epoch 190, training loss: 6.145448684692383
+Epoch 200, training loss: 5.87929105758667
+Epoch 210, training loss: 6.02710485458374
+Epoch 220, training loss: 5.9097185134887695
+Epoch 230, training loss: 5.903884410858154
+Epoch 240, training loss: 5.849641799926758
+Epoch 250, training loss: 5.853885173797607
+Epoch 260, training loss: 5.76624059677124
+Epoch 270, training loss: 5.7127604484558105
+Epoch 280, training loss: 5.8471269607543945
+Epoch 290, training loss: 5.733741283416748
+Epoch 300, training loss: 5.551772594451904
+Epoch 310, training loss: 5.6141510009765625
+Epoch 320, training loss: 5.574272155761719
+Epoch 330, training loss: 5.514416217803955
+Epoch 340, training loss: 5.580999374389648
+Epoch 350, training loss: 5.481556415557861
+Epoch 360, training loss: 5.408359527587891
+Epoch 370, training loss: 5.370567321777344
+Epoch 380, training loss: 5.430870056152344
+Epoch 390, training loss: 5.409747123718262
+Epoch 400, training loss: 5.3916916847229
+Epoch 410, training loss: 5.361284255981445
+Epoch 420, training loss: 5.304830074310303
+Epoch 430, training loss: 5.348865509033203
+Epoch 440, training loss: 5.349004745483398
+Epoch 450, training loss: 5.261721134185791
+Epoch 460, training loss: 5.349640846252441
+Epoch 470, training loss: 5.294547080993652
+Epoch 480, training loss: 5.29467248916626
+Epoch 490, training loss: 5.28424072265625
+random
+Perturbation Size:0
+Accuracy: 0.737
+Perturbation Size:1
+Accuracy: 0.737
+Perturbation Size:2
+Accuracy: 0.732
+Perturbation Size:3
+Accuracy: 0.738
+Perturbation Size:4
+Accuracy: 0.719
+Perturbation Size:5
+Accuracy: 0.718
+Perturbation Size:6
+Accuracy: 0.709
+Perturbation Size:7
+Accuracy: 0.71
+Perturbation Size:8
+Accuracy: 0.703
+Perturbation Size:9
+Accuracy: 0.691
+Perturbation Size:10
+Accuracy: 0.684
+Perturbation Size:11
+Accuracy: 0.687
+Perturbation Size:12
+Accuracy: 0.682
+Perturbation Size:13
+Accuracy: 0.682
+Perturbation Size:14
+Accuracy: 0.682
+Perturbation Size:15
+Accuracy: 0.68
+Perturbation Size:16
+Accuracy: 0.645
+Perturbation Size:17
+Accuracy: 0.64
+Perturbation Size:18
+Accuracy: 0.652
+Perturbation Size:19
+Accuracy: 0.662
+Perturbation Size:20
+Accuracy: 0.662
+seed 996
+=== training gcn model ===
+Epoch 0, training loss: 8.596548080444336
+Epoch 10, training loss: 8.57329273223877
+Epoch 20, training loss: 8.443671226501465
+Epoch 30, training loss: 8.33244514465332
+Epoch 40, training loss: 7.970943927764893
+Epoch 50, training loss: 7.751016616821289
+Epoch 60, training loss: 7.4772257804870605
+Epoch 70, training loss: 7.291109085083008
+Epoch 80, training loss: 7.128727912902832
+Epoch 90, training loss: 6.910951137542725
+Epoch 100, training loss: 6.823369026184082
+Epoch 110, training loss: 6.577634334564209
+Epoch 120, training loss: 6.596758842468262
+Epoch 130, training loss: 6.311853408813477
+Epoch 140, training loss: 6.296367168426514
+Epoch 150, training loss: 6.11328125
+Epoch 160, training loss: 6.22379732131958
+Epoch 170, training loss: 5.978302955627441
+Epoch 180, training loss: 5.93052864074707
+Epoch 190, training loss: 5.8518853187561035
+Epoch 200, training loss: 5.815605640411377
+Epoch 210, training loss: 5.873899936676025
+Epoch 220, training loss: 5.737692356109619
+Epoch 230, training loss: 5.742800712585449
+Epoch 240, training loss: 5.707890033721924
+Epoch 250, training loss: 5.636265754699707
+Epoch 260, training loss: 5.652476787567139
+Epoch 270, training loss: 5.625487327575684
+Epoch 280, training loss: 5.600106716156006
+Epoch 290, training loss: 5.488754749298096
+Epoch 300, training loss: 5.503334045410156
+Epoch 310, training loss: 5.462837219238281
+Epoch 320, training loss: 5.449394702911377
+Epoch 330, training loss: 5.4016947746276855
+Epoch 340, training loss: 5.47576379776001
+Epoch 350, training loss: 5.348294258117676
+Epoch 360, training loss: 5.357482433319092
+Epoch 370, training loss: 5.375674724578857
+Epoch 380, training loss: 5.335723400115967
+Epoch 390, training loss: 5.321532726287842
+Epoch 400, training loss: 5.371244430541992
+Epoch 410, training loss: 5.270942687988281
+Epoch 420, training loss: 5.31797981262207
+Epoch 430, training loss: 5.243474960327148
+Epoch 440, training loss: 5.213156223297119
+Epoch 450, training loss: 5.222681045532227
+Epoch 460, training loss: 5.199277400970459
+Epoch 470, training loss: 5.195652961730957
+Epoch 480, training loss: 5.244837284088135
+Epoch 490, training loss: 5.28862190246582
+random
+Perturbation Size:0
+Accuracy: 0.792
+Perturbation Size:1
+Accuracy: 0.799
+Perturbation Size:2
+Accuracy: 0.792
+Perturbation Size:3
+Accuracy: 0.788
+Perturbation Size:4
+Accuracy: 0.783
+Perturbation Size:5
+Accuracy: 0.771
+Perturbation Size:6
+Accuracy: 0.761
+Perturbation Size:7
+Accuracy: 0.751
+Perturbation Size:8
+Accuracy: 0.737
+Perturbation Size:9
+Accuracy: 0.726
+Perturbation Size:10
+Accuracy: 0.716
+Perturbation Size:11
+Accuracy: 0.709
+Perturbation Size:12
+Accuracy: 0.688
+Perturbation Size:13
+Accuracy: 0.672
+Perturbation Size:14
+Accuracy: 0.662
+Perturbation Size:15
+Accuracy: 0.655
+Perturbation Size:16
+Accuracy: 0.634
+Perturbation Size:17
+Accuracy: 0.619
+Perturbation Size:18
+Accuracy: 0.612
+Perturbation Size:19
+Accuracy: 0.605
+Perturbation Size:20
+Accuracy: 0.6
+seed 527
+=== training gcn model ===
+Epoch 0, training loss: 8.596390724182129
+Epoch 10, training loss: 8.572457313537598
+Epoch 20, training loss: 8.477356910705566
+Epoch 30, training loss: 8.347261428833008
+Epoch 40, training loss: 8.067645072937012
+Epoch 50, training loss: 7.8459696769714355
+Epoch 60, training loss: 7.34174919128418
+Epoch 70, training loss: 7.193362236022949
+Epoch 80, training loss: 7.081645965576172
+Epoch 90, training loss: 6.861425876617432
+Epoch 100, training loss: 6.768832206726074
+Epoch 110, training loss: 6.686412811279297
+Epoch 120, training loss: 6.644115447998047
+Epoch 130, training loss: 6.383510589599609
+Epoch 140, training loss: 6.438621520996094
+Epoch 150, training loss: 6.302548885345459
+Epoch 160, training loss: 6.066290855407715
+Epoch 170, training loss: 6.065526962280273
+Epoch 180, training loss: 6.042240142822266
+Epoch 190, training loss: 6.011101722717285
+Epoch 200, training loss: 5.951786994934082
+Epoch 210, training loss: 5.874442100524902
+Epoch 220, training loss: 5.819660186767578
+Epoch 230, training loss: 5.759590148925781
+Epoch 240, training loss: 5.708384990692139
+Epoch 250, training loss: 5.803856372833252
+Epoch 260, training loss: 5.68136739730835
+Epoch 270, training loss: 5.600199222564697
+Epoch 280, training loss: 5.603573322296143
+Epoch 290, training loss: 5.538339138031006
+Epoch 300, training loss: 5.579539775848389
+Epoch 310, training loss: 5.555019855499268
+Epoch 320, training loss: 5.575364112854004
+Epoch 330, training loss: 5.496293544769287
+Epoch 340, training loss: 5.481485366821289
+Epoch 350, training loss: 5.415224552154541
+Epoch 360, training loss: 5.495846748352051
+Epoch 370, training loss: 5.34733247756958
+Epoch 380, training loss: 5.294569492340088
+Epoch 390, training loss: 5.313506603240967
+Epoch 400, training loss: 5.230879783630371
+Epoch 410, training loss: 5.324981212615967
+Epoch 420, training loss: 5.2499895095825195
+Epoch 430, training loss: 5.3438897132873535
+Epoch 440, training loss: 5.2185444831848145
+Epoch 450, training loss: 5.110886096954346
+Epoch 460, training loss: 5.246401786804199
+Epoch 470, training loss: 5.210079669952393
+Epoch 480, training loss: 5.1694231033325195
+Epoch 490, training loss: 5.09781551361084
+random
+Perturbation Size:0
+Accuracy: 0.776
+Perturbation Size:1
+Accuracy: 0.773
+Perturbation Size:2
+Accuracy: 0.772
+Perturbation Size:3
+Accuracy: 0.769
+Perturbation Size:4
+Accuracy: 0.761
+Perturbation Size:5
+Accuracy: 0.762
+Perturbation Size:6
+Accuracy: 0.758
+Perturbation Size:7
+Accuracy: 0.748
+Perturbation Size:8
+Accuracy: 0.741
+Perturbation Size:9
+Accuracy: 0.729
+Perturbation Size:10
+Accuracy: 0.718
+Perturbation Size:11
+Accuracy: 0.702
+Perturbation Size:12
+Accuracy: 0.689
+Perturbation Size:13
+Accuracy: 0.674
+Perturbation Size:14
+Accuracy: 0.653
+Perturbation Size:15
+Accuracy: 0.64
+Perturbation Size:16
+Accuracy: 0.604
+Perturbation Size:17
+Accuracy: 0.595
+Perturbation Size:18
+Accuracy: 0.591
+Perturbation Size:19
+Accuracy: 0.58
+Perturbation Size:20
+Accuracy: 0.577
+seed 320
+=== training gcn model ===
+Epoch 0, training loss: 8.596449851989746
+Epoch 10, training loss: 8.571748733520508
+Epoch 20, training loss: 8.449813842773438
+Epoch 30, training loss: 8.289392471313477
+Epoch 40, training loss: 7.861688613891602
+Epoch 50, training loss: 7.707272529602051
+Epoch 60, training loss: 7.4901347160339355
+Epoch 70, training loss: 7.174519062042236
+Epoch 80, training loss: 7.023621082305908
+Epoch 90, training loss: 6.720555782318115
+Epoch 100, training loss: 6.636131286621094
+Epoch 110, training loss: 6.508392810821533
+Epoch 120, training loss: 6.389343738555908
+Epoch 130, training loss: 6.397397994995117
+Epoch 140, training loss: 6.239635467529297
+Epoch 150, training loss: 6.085545539855957
+Epoch 160, training loss: 6.156449794769287
+Epoch 170, training loss: 5.847723007202148
+Epoch 180, training loss: 5.953644275665283
+Epoch 190, training loss: 5.880137920379639
+Epoch 200, training loss: 5.781733512878418
+Epoch 210, training loss: 5.834218502044678
+Epoch 220, training loss: 5.74188756942749
+Epoch 230, training loss: 5.673497676849365
+Epoch 240, training loss: 5.60316276550293
+Epoch 250, training loss: 5.675891399383545
+Epoch 260, training loss: 5.698352813720703
+Epoch 270, training loss: 5.560878753662109
+Epoch 280, training loss: 5.626007080078125
+Epoch 290, training loss: 5.538607597351074
+Epoch 300, training loss: 5.507157325744629
+Epoch 310, training loss: 5.402868270874023
+Epoch 320, training loss: 5.42254638671875
+Epoch 330, training loss: 5.377213001251221
+Epoch 340, training loss: 5.389194488525391
+Epoch 350, training loss: 5.294695854187012
+Epoch 360, training loss: 5.367288589477539
+Epoch 370, training loss: 5.25835657119751
+Epoch 380, training loss: 5.301090717315674
+Epoch 390, training loss: 5.317215919494629
+Epoch 400, training loss: 5.312245845794678
+Epoch 410, training loss: 5.212549209594727
+Epoch 420, training loss: 5.197800636291504
+Epoch 430, training loss: 5.190069198608398
+Epoch 440, training loss: 5.192693710327148
+Epoch 450, training loss: 5.152031421661377
+Epoch 460, training loss: 5.173610210418701
+Epoch 470, training loss: 5.10860013961792
+Epoch 480, training loss: 5.10154390335083
+Epoch 490, training loss: 5.070158958435059
+random
+Perturbation Size:0
+Accuracy: 0.764
+Perturbation Size:1
+Accuracy: 0.756
+Perturbation Size:2
+Accuracy: 0.751
+Perturbation Size:3
+Accuracy: 0.748
+Perturbation Size:4
+Accuracy: 0.745
+Perturbation Size:5
+Accuracy: 0.744
+Perturbation Size:6
+Accuracy: 0.747
+Perturbation Size:7
+Accuracy: 0.739
+Perturbation Size:8
+Accuracy: 0.735
+Perturbation Size:9
+Accuracy: 0.723
+Perturbation Size:10
+Accuracy: 0.717
+Perturbation Size:11
+Accuracy: 0.713
+Perturbation Size:12
+Accuracy: 0.713
+Perturbation Size:13
+Accuracy: 0.708
+Perturbation Size:14
+Accuracy: 0.702
+Perturbation Size:15
+Accuracy: 0.696
+Perturbation Size:16
+Accuracy: 0.69
+Perturbation Size:17
+Accuracy: 0.686
+Perturbation Size:18
+Accuracy: 0.678
+Perturbation Size:19
+Accuracy: 0.671
+Perturbation Size:20
+Accuracy: 0.654
+Beta:0.6 Ptb size:0 Accuracy:0.7674+-0.017973313550928793
+Beta:0.6 Ptb size:1 Accuracy:0.7668000000000001+-0.020419598428960368
+Beta:0.6 Ptb size:2 Accuracy:0.7628000000000001+-0.02021286718899624
+Beta:0.6 Ptb size:3 Accuracy:0.759+-0.017618172436436208
+Beta:0.6 Ptb size:4 Accuracy:0.7496+-0.021425218785347346
+Beta:0.6 Ptb size:5 Accuracy:0.7462+-0.01880850871281401
+Beta:0.6 Ptb size:6 Accuracy:0.7422+-0.018797872220014708
+Beta:0.6 Ptb size:7 Accuracy:0.7341999999999999+-0.015535765188750775
+Beta:0.6 Ptb size:8 Accuracy:0.729+-0.01356465996625055
+Beta:0.6 Ptb size:9 Accuracy:0.7192000000000001+-0.014232357499725769
+Beta:0.6 Ptb size:10 Accuracy:0.7098+-0.012967652061957831
+Beta:0.6 Ptb size:11 Accuracy:0.7036+-0.00902441133814275
+Beta:0.6 Ptb size:12 Accuracy:0.6968+-0.01304453908729625
+Beta:0.6 Ptb size:13 Accuracy:0.6878+-0.014918444959177173
+Beta:0.6 Ptb size:14 Accuracy:0.6816+-0.02176786622524125
+Beta:0.6 Ptb size:15 Accuracy:0.6738000000000002+-0.02285957129956725
+Beta:0.6 Ptb size:16 Accuracy:0.6532+-0.03404350158253406
+Beta:0.6 Ptb size:17 Accuracy:0.643+-0.03394701754204634
+Beta:0.6 Ptb size:18 Accuracy:0.6416000000000001+-0.03459826585249616
+Beta:0.6 Ptb size:19 Accuracy:0.6370000000000001+-0.03729343105695697
+Beta:0.6 Ptb size:20 Accuracy:0.629+-0.03402352127572927
+beta 0.7
+seed 265
+=== training gcn model ===
+Epoch 0, training loss: 8.596508026123047
+Epoch 10, training loss: 8.57919979095459
+Epoch 20, training loss: 8.453472137451172
+Epoch 30, training loss: 8.295177459716797
+Epoch 40, training loss: 7.942567348480225
+Epoch 50, training loss: 7.392236232757568
+Epoch 60, training loss: 7.185049057006836
+Epoch 70, training loss: 6.954046726226807
+Epoch 80, training loss: 7.064177513122559
+Epoch 90, training loss: 6.607586860656738
+Epoch 100, training loss: 6.525078773498535
+Epoch 110, training loss: 6.492918491363525
+Epoch 120, training loss: 6.250350475311279
+Epoch 130, training loss: 6.2074174880981445
+Epoch 140, training loss: 6.290552616119385
+Epoch 150, training loss: 6.307065486907959
+Epoch 160, training loss: 5.983512878417969
+Epoch 170, training loss: 6.017611026763916
+Epoch 180, training loss: 5.847423553466797
+Epoch 190, training loss: 5.842276573181152
+Epoch 200, training loss: 5.865734100341797
+Epoch 210, training loss: 5.934906005859375
+Epoch 220, training loss: 5.800557613372803
+Epoch 230, training loss: 5.767933368682861
+Epoch 240, training loss: 5.601424694061279
+Epoch 250, training loss: 5.70123291015625
+Epoch 260, training loss: 5.6583571434021
+Epoch 270, training loss: 5.530846118927002
+Epoch 280, training loss: 5.493669033050537
+Epoch 290, training loss: 5.546682357788086
+Epoch 300, training loss: 5.493649482727051
+Epoch 310, training loss: 5.475522994995117
+Epoch 320, training loss: 5.5257673263549805
+Epoch 330, training loss: 5.410457134246826
+Epoch 340, training loss: 5.390750408172607
+Epoch 350, training loss: 5.407395839691162
+Epoch 360, training loss: 5.3675856590271
+Epoch 370, training loss: 5.368963718414307
+Epoch 380, training loss: 5.334123611450195
+Epoch 390, training loss: 5.300107479095459
+Epoch 400, training loss: 5.346538066864014
+Epoch 410, training loss: 5.343130111694336
+Epoch 420, training loss: 5.280760765075684
+Epoch 430, training loss: 5.328367233276367
+Epoch 440, training loss: 5.23884916305542
+Epoch 450, training loss: 5.194996356964111
+Epoch 460, training loss: 5.220707893371582
+Epoch 470, training loss: 5.1497955322265625
+Epoch 480, training loss: 5.143978118896484
+Epoch 490, training loss: 5.182840824127197
+random
+Perturbation Size:0
+Accuracy: 0.765
+Perturbation Size:1
+Accuracy: 0.768
+Perturbation Size:2
+Accuracy: 0.76
+Perturbation Size:3
+Accuracy: 0.754
+Perturbation Size:4
+Accuracy: 0.746
+Perturbation Size:5
+Accuracy: 0.749
+Perturbation Size:6
+Accuracy: 0.735
+Perturbation Size:7
+Accuracy: 0.725
+Perturbation Size:8
+Accuracy: 0.729
+Perturbation Size:9
+Accuracy: 0.725
+Perturbation Size:10
+Accuracy: 0.715
+Perturbation Size:11
+Accuracy: 0.71
+Perturbation Size:12
+Accuracy: 0.708
+Perturbation Size:13
+Accuracy: 0.709
+Perturbation Size:14
+Accuracy: 0.706
+Perturbation Size:15
+Accuracy: 0.694
+Perturbation Size:16
+Accuracy: 0.68
+Perturbation Size:17
+Accuracy: 0.685
+Perturbation Size:18
+Accuracy: 0.668
+Perturbation Size:19
+Accuracy: 0.668
+Perturbation Size:20
+Accuracy: 0.658
+seed 125
+=== training gcn model ===
+Epoch 0, training loss: 8.596582412719727
+Epoch 10, training loss: 8.581026077270508
+Epoch 20, training loss: 8.4550142288208
+Epoch 30, training loss: 8.35987663269043
+Epoch 40, training loss: 8.103446960449219
+Epoch 50, training loss: 8.003098487854004
+Epoch 60, training loss: 7.776059150695801
+Epoch 70, training loss: 7.474433422088623
+Epoch 80, training loss: 7.293579578399658
+Epoch 90, training loss: 7.126484394073486
+Epoch 100, training loss: 6.897672653198242
+Epoch 110, training loss: 6.74739408493042
+Epoch 120, training loss: 6.557065963745117
+Epoch 130, training loss: 6.581954479217529
+Epoch 140, training loss: 6.357109546661377
+Epoch 150, training loss: 6.422318935394287
+Epoch 160, training loss: 6.259103298187256
+Epoch 170, training loss: 6.181000232696533
+Epoch 180, training loss: 6.125194549560547
+Epoch 190, training loss: 6.1467180252075195
+Epoch 200, training loss: 5.880969524383545
+Epoch 210, training loss: 6.028680324554443
+Epoch 220, training loss: 5.915008544921875
+Epoch 230, training loss: 5.90443754196167
+Epoch 240, training loss: 5.851338863372803
+Epoch 250, training loss: 5.857222080230713
+Epoch 260, training loss: 5.768508434295654
+Epoch 270, training loss: 5.715124130249023
+Epoch 280, training loss: 5.846225738525391
+Epoch 290, training loss: 5.734555721282959
+Epoch 300, training loss: 5.553352355957031
+Epoch 310, training loss: 5.613735675811768
+Epoch 320, training loss: 5.574370384216309
+Epoch 330, training loss: 5.516043186187744
+Epoch 340, training loss: 5.582589626312256
+Epoch 350, training loss: 5.482268810272217
+Epoch 360, training loss: 5.407922267913818
+Epoch 370, training loss: 5.3709211349487305
+Epoch 380, training loss: 5.429609298706055
+Epoch 390, training loss: 5.408962726593018
+Epoch 400, training loss: 5.390278339385986
+Epoch 410, training loss: 5.3526387214660645
+Epoch 420, training loss: 5.298949241638184
+Epoch 430, training loss: 5.348060607910156
+Epoch 440, training loss: 5.347421646118164
+Epoch 450, training loss: 5.259063243865967
+Epoch 460, training loss: 5.348430633544922
+Epoch 470, training loss: 5.293280601501465
+Epoch 480, training loss: 5.296794891357422
+Epoch 490, training loss: 5.284582614898682
+random
+Perturbation Size:0
+Accuracy: 0.737
+Perturbation Size:1
+Accuracy: 0.729
+Perturbation Size:2
+Accuracy: 0.727
+Perturbation Size:3
+Accuracy: 0.739
+Perturbation Size:4
+Accuracy: 0.725
+Perturbation Size:5
+Accuracy: 0.717
+Perturbation Size:6
+Accuracy: 0.714
+Perturbation Size:7
+Accuracy: 0.714
+Perturbation Size:8
+Accuracy: 0.702
+Perturbation Size:9
+Accuracy: 0.696
+Perturbation Size:10
+Accuracy: 0.684
+Perturbation Size:11
+Accuracy: 0.684
+Perturbation Size:12
+Accuracy: 0.684
+Perturbation Size:13
+Accuracy: 0.679
+Perturbation Size:14
+Accuracy: 0.681
+Perturbation Size:15
+Accuracy: 0.682
+Perturbation Size:16
+Accuracy: 0.636
+Perturbation Size:17
+Accuracy: 0.634
+Perturbation Size:18
+Accuracy: 0.645
+Perturbation Size:19
+Accuracy: 0.668
+Perturbation Size:20
+Accuracy: 0.655
+seed 996
+=== training gcn model ===
+Epoch 0, training loss: 8.596548080444336
+Epoch 10, training loss: 8.57329273223877
+Epoch 20, training loss: 8.443650245666504
+Epoch 30, training loss: 8.332481384277344
+Epoch 40, training loss: 7.971141338348389
+Epoch 50, training loss: 7.751515865325928
+Epoch 60, training loss: 7.478701591491699
+Epoch 70, training loss: 7.29257345199585
+Epoch 80, training loss: 7.13278341293335
+Epoch 90, training loss: 6.912578105926514
+Epoch 100, training loss: 6.826853275299072
+Epoch 110, training loss: 6.577530384063721
+Epoch 120, training loss: 6.59849214553833
+Epoch 130, training loss: 6.312673568725586
+Epoch 140, training loss: 6.298719882965088
+Epoch 150, training loss: 6.116260051727295
+Epoch 160, training loss: 6.226632118225098
+Epoch 170, training loss: 5.981265068054199
+Epoch 180, training loss: 5.93350076675415
+Epoch 190, training loss: 5.853117942810059
+Epoch 200, training loss: 5.816874980926514
+Epoch 210, training loss: 5.875197410583496
+Epoch 220, training loss: 5.738031387329102
+Epoch 230, training loss: 5.742954254150391
+Epoch 240, training loss: 5.7092671394348145
+Epoch 250, training loss: 5.637481689453125
+Epoch 260, training loss: 5.652140140533447
+Epoch 270, training loss: 5.629076957702637
+Epoch 280, training loss: 5.598852157592773
+Epoch 290, training loss: 5.489110946655273
+Epoch 300, training loss: 5.504449367523193
+Epoch 310, training loss: 5.461413383483887
+Epoch 320, training loss: 5.448416709899902
+Epoch 330, training loss: 5.400362491607666
+Epoch 340, training loss: 5.475636005401611
+Epoch 350, training loss: 5.349186420440674
+Epoch 360, training loss: 5.356268405914307
+Epoch 370, training loss: 5.375983238220215
+Epoch 380, training loss: 5.334773540496826
+Epoch 390, training loss: 5.322709560394287
+Epoch 400, training loss: 5.369157314300537
+Epoch 410, training loss: 5.269186973571777
+Epoch 420, training loss: 5.316936016082764
+Epoch 430, training loss: 5.238032817840576
+Epoch 440, training loss: 5.212522029876709
+Epoch 450, training loss: 5.219546318054199
+Epoch 460, training loss: 5.19932222366333
+Epoch 470, training loss: 5.194213390350342
+Epoch 480, training loss: 5.24675989151001
+Epoch 490, training loss: 5.289098262786865
+random
+Perturbation Size:0
+Accuracy: 0.793
+Perturbation Size:1
+Accuracy: 0.798
+Perturbation Size:2
+Accuracy: 0.794
+Perturbation Size:3
+Accuracy: 0.791
+Perturbation Size:4
+Accuracy: 0.786
+Perturbation Size:5
+Accuracy: 0.776
+Perturbation Size:6
+Accuracy: 0.764
+Perturbation Size:7
+Accuracy: 0.753
+Perturbation Size:8
+Accuracy: 0.738
+Perturbation Size:9
+Accuracy: 0.729
+Perturbation Size:10
+Accuracy: 0.71
+Perturbation Size:11
+Accuracy: 0.7
+Perturbation Size:12
+Accuracy: 0.697
+Perturbation Size:13
+Accuracy: 0.671
+Perturbation Size:14
+Accuracy: 0.661
+Perturbation Size:15
+Accuracy: 0.654
+Perturbation Size:16
+Accuracy: 0.63
+Perturbation Size:17
+Accuracy: 0.615
+Perturbation Size:18
+Accuracy: 0.611
+Perturbation Size:19
+Accuracy: 0.603
+Perturbation Size:20
+Accuracy: 0.594
+seed 527
+=== training gcn model ===
+Epoch 0, training loss: 8.596390724182129
+Epoch 10, training loss: 8.572457313537598
+Epoch 20, training loss: 8.477351188659668
+Epoch 30, training loss: 8.347328186035156
+Epoch 40, training loss: 8.067108154296875
+Epoch 50, training loss: 7.845831871032715
+Epoch 60, training loss: 7.341814041137695
+Epoch 70, training loss: 7.193698883056641
+Epoch 80, training loss: 7.083591938018799
+Epoch 90, training loss: 6.862512111663818
+Epoch 100, training loss: 6.769303321838379
+Epoch 110, training loss: 6.687817096710205
+Epoch 120, training loss: 6.643584728240967
+Epoch 130, training loss: 6.381397247314453
+Epoch 140, training loss: 6.43952751159668
+Epoch 150, training loss: 6.301265239715576
+Epoch 160, training loss: 6.066590785980225
+Epoch 170, training loss: 6.067045211791992
+Epoch 180, training loss: 6.042501449584961
+Epoch 190, training loss: 6.015088081359863
+Epoch 200, training loss: 5.953823566436768
+Epoch 210, training loss: 5.8758463859558105
+Epoch 220, training loss: 5.817436218261719
+Epoch 230, training loss: 5.761499404907227
+Epoch 240, training loss: 5.707861423492432
+Epoch 250, training loss: 5.8045454025268555
+Epoch 260, training loss: 5.6825079917907715
+Epoch 270, training loss: 5.600146770477295
+Epoch 280, training loss: 5.606606960296631
+Epoch 290, training loss: 5.538390159606934
+Epoch 300, training loss: 5.581805229187012
+Epoch 310, training loss: 5.554629802703857
+Epoch 320, training loss: 5.576405048370361
+Epoch 330, training loss: 5.499275207519531
+Epoch 340, training loss: 5.484109878540039
+Epoch 350, training loss: 5.4140472412109375
+Epoch 360, training loss: 5.49731969833374
+Epoch 370, training loss: 5.349145889282227
+Epoch 380, training loss: 5.294999122619629
+Epoch 390, training loss: 5.317835330963135
+Epoch 400, training loss: 5.231043338775635
+Epoch 410, training loss: 5.328271389007568
+Epoch 420, training loss: 5.2513322830200195
+Epoch 430, training loss: 5.345182418823242
+Epoch 440, training loss: 5.220391750335693
+Epoch 450, training loss: 5.115722179412842
+Epoch 460, training loss: 5.245865345001221
+Epoch 470, training loss: 5.20972204208374
+Epoch 480, training loss: 5.171106338500977
+Epoch 490, training loss: 5.098209381103516
+random
+Perturbation Size:0
+Accuracy: 0.776
+Perturbation Size:1
+Accuracy: 0.774
+Perturbation Size:2
+Accuracy: 0.772
+Perturbation Size:3
+Accuracy: 0.766
+Perturbation Size:4
+Accuracy: 0.761
+Perturbation Size:5
+Accuracy: 0.761
+Perturbation Size:6
+Accuracy: 0.759
+Perturbation Size:7
+Accuracy: 0.751
+Perturbation Size:8
+Accuracy: 0.744
+Perturbation Size:9
+Accuracy: 0.722
+Perturbation Size:10
+Accuracy: 0.715
+Perturbation Size:11
+Accuracy: 0.704
+Perturbation Size:12
+Accuracy: 0.684
+Perturbation Size:13
+Accuracy: 0.671
+Perturbation Size:14
+Accuracy: 0.66
+Perturbation Size:15
+Accuracy: 0.636
+Perturbation Size:16
+Accuracy: 0.61
+Perturbation Size:17
+Accuracy: 0.601
+Perturbation Size:18
+Accuracy: 0.589
+Perturbation Size:19
+Accuracy: 0.585
+Perturbation Size:20
+Accuracy: 0.581
+seed 320
+=== training gcn model ===
+Epoch 0, training loss: 8.596449851989746
+Epoch 10, training loss: 8.571748733520508
+Epoch 20, training loss: 8.449814796447754
+Epoch 30, training loss: 8.289410591125488
+Epoch 40, training loss: 7.861702919006348
+Epoch 50, training loss: 7.707056999206543
+Epoch 60, training loss: 7.489802837371826
+Epoch 70, training loss: 7.173913955688477
+Epoch 80, training loss: 7.022082805633545
+Epoch 90, training loss: 6.720433235168457
+Epoch 100, training loss: 6.635374069213867
+Epoch 110, training loss: 6.5077056884765625
+Epoch 120, training loss: 6.387035369873047
+Epoch 130, training loss: 6.393183708190918
+Epoch 140, training loss: 6.235543251037598
+Epoch 150, training loss: 6.0838212966918945
+Epoch 160, training loss: 6.152777194976807
+Epoch 170, training loss: 5.847701072692871
+Epoch 180, training loss: 5.95374870300293
+Epoch 190, training loss: 5.879575252532959
+Epoch 200, training loss: 5.779520511627197
+Epoch 210, training loss: 5.834778308868408
+Epoch 220, training loss: 5.741544723510742
+Epoch 230, training loss: 5.672542572021484
+Epoch 240, training loss: 5.602795124053955
+Epoch 250, training loss: 5.676980018615723
+Epoch 260, training loss: 5.697312355041504
+Epoch 270, training loss: 5.561424732208252
+Epoch 280, training loss: 5.6252665519714355
+Epoch 290, training loss: 5.538867473602295
+Epoch 300, training loss: 5.507741928100586
+Epoch 310, training loss: 5.401920318603516
+Epoch 320, training loss: 5.420978546142578
+Epoch 330, training loss: 5.3778533935546875
+Epoch 340, training loss: 5.388129234313965
+Epoch 350, training loss: 5.292690753936768
+Epoch 360, training loss: 5.365591526031494
+Epoch 370, training loss: 5.254457950592041
+Epoch 380, training loss: 5.3019185066223145
+Epoch 390, training loss: 5.31577205657959
+Epoch 400, training loss: 5.310693740844727
+Epoch 410, training loss: 5.213062763214111
+Epoch 420, training loss: 5.197699069976807
+Epoch 430, training loss: 5.188183307647705
+Epoch 440, training loss: 5.191845417022705
+Epoch 450, training loss: 5.150465488433838
+Epoch 460, training loss: 5.173531532287598
+Epoch 470, training loss: 5.108804225921631
+Epoch 480, training loss: 5.100702285766602
+Epoch 490, training loss: 5.067995548248291
+random
+Perturbation Size:0
+Accuracy: 0.759
+Perturbation Size:1
+Accuracy: 0.755
+Perturbation Size:2
+Accuracy: 0.755
+Perturbation Size:3
+Accuracy: 0.746
+Perturbation Size:4
+Accuracy: 0.745
+Perturbation Size:5
+Accuracy: 0.744
+Perturbation Size:6
+Accuracy: 0.749
+Perturbation Size:7
+Accuracy: 0.739
+Perturbation Size:8
+Accuracy: 0.733
+Perturbation Size:9
+Accuracy: 0.731
+Perturbation Size:10
+Accuracy: 0.716
+Perturbation Size:11
+Accuracy: 0.715
+Perturbation Size:12
+Accuracy: 0.716
+Perturbation Size:13
+Accuracy: 0.71
+Perturbation Size:14
+Accuracy: 0.699
+Perturbation Size:15
+Accuracy: 0.694
+Perturbation Size:16
+Accuracy: 0.688
+Perturbation Size:17
+Accuracy: 0.689
+Perturbation Size:18
+Accuracy: 0.673
+Perturbation Size:19
+Accuracy: 0.67
+Perturbation Size:20
+Accuracy: 0.657
+Beta:0.7 Ptb size:0 Accuracy:0.7659999999999999+-0.018547236990991423
+Beta:0.7 Ptb size:1 Accuracy:0.7647999999999999+-0.02269273011340859
+Beta:0.7 Ptb size:2 Accuracy:0.7615999999999999+-0.02191437884129963
+Beta:0.7 Ptb size:3 Accuracy:0.7592+-0.01825814886564354
+Beta:0.7 Ptb size:4 Accuracy:0.7526+-0.020244505427399324
+Beta:0.7 Ptb size:5 Accuracy:0.7494+-0.019602040710089363
+Beta:0.7 Ptb size:6 Accuracy:0.7442+-0.018059900331950908
+Beta:0.7 Ptb size:7 Accuracy:0.7363999999999999+-0.015014659503298783
+Beta:0.7 Ptb size:8 Accuracy:0.7292000000000001+-0.01449689621953611
+Beta:0.7 Ptb size:9 Accuracy:0.7205999999999999+-0.012690153663372256
+Beta:0.7 Ptb size:10 Accuracy:0.708+-0.012181953866272816
+Beta:0.7 Ptb size:11 Accuracy:0.7026+-0.01061319932913725
+Beta:0.7 Ptb size:12 Accuracy:0.6978+-0.012781236246936329
+Beta:0.7 Ptb size:13 Accuracy:0.6880000000000001+-0.01779887636902955
+Beta:0.7 Ptb size:14 Accuracy:0.6814+-0.018916659324521305
+Beta:0.7 Ptb size:15 Accuracy:0.6719999999999999+-0.023186202793903078
+Beta:0.7 Ptb size:16 Accuracy:0.6487999999999999+-0.0301091348264941
+Beta:0.7 Ptb size:17 Accuracy:0.6448+-0.03603553801457667
+Beta:0.7 Ptb size:18 Accuracy:0.6372+-0.03256009827994999
+Beta:0.7 Ptb size:19 Accuracy:0.6388+-0.03702647701307812
+Beta:0.7 Ptb size:20 Accuracy:0.629+-0.034146742157927776
+beta 0.8
+seed 265
+=== training gcn model ===
+Epoch 0, training loss: 8.596508026123047
+Epoch 10, training loss: 8.57919692993164
+Epoch 20, training loss: 8.45350170135498
+Epoch 30, training loss: 8.295223236083984
+Epoch 40, training loss: 7.942781448364258
+Epoch 50, training loss: 7.393881797790527
+Epoch 60, training loss: 7.1857075691223145
+Epoch 70, training loss: 6.952681064605713
+Epoch 80, training loss: 7.067331314086914
+Epoch 90, training loss: 6.607466220855713
+Epoch 100, training loss: 6.523887634277344
+Epoch 110, training loss: 6.494012832641602
+Epoch 120, training loss: 6.251544952392578
+Epoch 130, training loss: 6.207020282745361
+Epoch 140, training loss: 6.287420272827148
+Epoch 150, training loss: 6.308432102203369
+Epoch 160, training loss: 5.980235576629639
+Epoch 170, training loss: 6.018164157867432
+Epoch 180, training loss: 5.8482537269592285
+Epoch 190, training loss: 5.843387126922607
+Epoch 200, training loss: 5.865318775177002
+Epoch 210, training loss: 5.934777736663818
+Epoch 220, training loss: 5.801443099975586
+Epoch 230, training loss: 5.76814079284668
+Epoch 240, training loss: 5.5994391441345215
+Epoch 250, training loss: 5.699320316314697
+Epoch 260, training loss: 5.659693717956543
+Epoch 270, training loss: 5.528904438018799
+Epoch 280, training loss: 5.4911932945251465
+Epoch 290, training loss: 5.546603202819824
+Epoch 300, training loss: 5.494840145111084
+Epoch 310, training loss: 5.475107669830322
+Epoch 320, training loss: 5.5275187492370605
+Epoch 330, training loss: 5.411437034606934
+Epoch 340, training loss: 5.389148712158203
+Epoch 350, training loss: 5.408764839172363
+Epoch 360, training loss: 5.365188121795654
+Epoch 370, training loss: 5.371110439300537
+Epoch 380, training loss: 5.333606719970703
+Epoch 390, training loss: 5.3022332191467285
+Epoch 400, training loss: 5.344743728637695
+Epoch 410, training loss: 5.3407511711120605
+Epoch 420, training loss: 5.282113075256348
+Epoch 430, training loss: 5.326832294464111
+Epoch 440, training loss: 5.24102783203125
+Epoch 450, training loss: 5.195481777191162
+Epoch 460, training loss: 5.222241401672363
+Epoch 470, training loss: 5.150212287902832
+Epoch 480, training loss: 5.142586708068848
+Epoch 490, training loss: 5.181123733520508
+random
+Perturbation Size:0
+Accuracy: 0.764
+Perturbation Size:1
+Accuracy: 0.767
+Perturbation Size:2
+Accuracy: 0.766
+Perturbation Size:3
+Accuracy: 0.759
+Perturbation Size:4
+Accuracy: 0.748
+Perturbation Size:5
+Accuracy: 0.739
+Perturbation Size:6
+Accuracy: 0.743
+Perturbation Size:7
+Accuracy: 0.727
+Perturbation Size:8
+Accuracy: 0.731
+Perturbation Size:9
+Accuracy: 0.732
+Perturbation Size:10
+Accuracy: 0.715
+Perturbation Size:11
+Accuracy: 0.708
+Perturbation Size:12
+Accuracy: 0.712
+Perturbation Size:13
+Accuracy: 0.71
+Perturbation Size:14
+Accuracy: 0.706
+Perturbation Size:15
+Accuracy: 0.698
+Perturbation Size:16
+Accuracy: 0.694
+Perturbation Size:17
+Accuracy: 0.698
+Perturbation Size:18
+Accuracy: 0.681
+Perturbation Size:19
+Accuracy: 0.67
+Perturbation Size:20
+Accuracy: 0.661
+seed 125
+=== training gcn model ===
+Epoch 0, training loss: 8.596582412719727
+Epoch 10, training loss: 8.581026077270508
+Epoch 20, training loss: 8.455016136169434
+Epoch 30, training loss: 8.359862327575684
+Epoch 40, training loss: 8.10345458984375
+Epoch 50, training loss: 8.002893447875977
+Epoch 60, training loss: 7.7769246101379395
+Epoch 70, training loss: 7.473258972167969
+Epoch 80, training loss: 7.2928032875061035
+Epoch 90, training loss: 7.125740051269531
+Epoch 100, training loss: 6.896490573883057
+Epoch 110, training loss: 6.7464094161987305
+Epoch 120, training loss: 6.557192802429199
+Epoch 130, training loss: 6.5838623046875
+Epoch 140, training loss: 6.355940818786621
+Epoch 150, training loss: 6.420841217041016
+Epoch 160, training loss: 6.2596635818481445
+Epoch 170, training loss: 6.180474281311035
+Epoch 180, training loss: 6.128550052642822
+Epoch 190, training loss: 6.146096229553223
+Epoch 200, training loss: 5.880751609802246
+Epoch 210, training loss: 6.030251502990723
+Epoch 220, training loss: 5.911047458648682
+Epoch 230, training loss: 5.90523099899292
+Epoch 240, training loss: 5.851626396179199
+Epoch 250, training loss: 5.854958534240723
+Epoch 260, training loss: 5.7663397789001465
+Epoch 270, training loss: 5.714223861694336
+Epoch 280, training loss: 5.8456854820251465
+Epoch 290, training loss: 5.735942363739014
+Epoch 300, training loss: 5.551747798919678
+Epoch 310, training loss: 5.612821578979492
+Epoch 320, training loss: 5.575658798217773
+Epoch 330, training loss: 5.515075206756592
+Epoch 340, training loss: 5.579984188079834
+Epoch 350, training loss: 5.48025369644165
+Epoch 360, training loss: 5.406907558441162
+Epoch 370, training loss: 5.371129512786865
+Epoch 380, training loss: 5.42981481552124
+Epoch 390, training loss: 5.406174659729004
+Epoch 400, training loss: 5.392860412597656
+Epoch 410, training loss: 5.356874942779541
+Epoch 420, training loss: 5.3035736083984375
+Epoch 430, training loss: 5.3465070724487305
+Epoch 440, training loss: 5.347992420196533
+Epoch 450, training loss: 5.262264728546143
+Epoch 460, training loss: 5.348042964935303
+Epoch 470, training loss: 5.293788909912109
+Epoch 480, training loss: 5.294760704040527
+Epoch 490, training loss: 5.282687187194824
+random
+Perturbation Size:0
+Accuracy: 0.729
+Perturbation Size:1
+Accuracy: 0.74
+Perturbation Size:2
+Accuracy: 0.737
+Perturbation Size:3
+Accuracy: 0.74
+Perturbation Size:4
+Accuracy: 0.723
+Perturbation Size:5
+Accuracy: 0.721
+Perturbation Size:6
+Accuracy: 0.709
+Perturbation Size:7
+Accuracy: 0.711
+Perturbation Size:8
+Accuracy: 0.696
+Perturbation Size:9
+Accuracy: 0.69
+Perturbation Size:10
+Accuracy: 0.683
+Perturbation Size:11
+Accuracy: 0.681
+Perturbation Size:12
+Accuracy: 0.677
+Perturbation Size:13
+Accuracy: 0.674
+Perturbation Size:14
+Accuracy: 0.677
+Perturbation Size:15
+Accuracy: 0.679
+Perturbation Size:16
+Accuracy: 0.632
+Perturbation Size:17
+Accuracy: 0.637
+Perturbation Size:18
+Accuracy: 0.643
+Perturbation Size:19
+Accuracy: 0.657
+Perturbation Size:20
+Accuracy: 0.65
+seed 996
+=== training gcn model ===
+Epoch 0, training loss: 8.596548080444336
+Epoch 10, training loss: 8.57329273223877
+Epoch 20, training loss: 8.443652153015137
+Epoch 30, training loss: 8.3324613571167
+Epoch 40, training loss: 7.971313953399658
+Epoch 50, training loss: 7.751424789428711
+Epoch 60, training loss: 7.478299617767334
+Epoch 70, training loss: 7.291940212249756
+Epoch 80, training loss: 7.130600929260254
+Epoch 90, training loss: 6.9108991622924805
+Epoch 100, training loss: 6.825044631958008
+Epoch 110, training loss: 6.576748847961426
+Epoch 120, training loss: 6.593937873840332
+Epoch 130, training loss: 6.311673164367676
+Epoch 140, training loss: 6.296035289764404
+Epoch 150, training loss: 6.115628242492676
+Epoch 160, training loss: 6.222193241119385
+Epoch 170, training loss: 5.978058815002441
+Epoch 180, training loss: 5.932908535003662
+Epoch 190, training loss: 5.853808879852295
+Epoch 200, training loss: 5.81658411026001
+Epoch 210, training loss: 5.872807502746582
+Epoch 220, training loss: 5.735755920410156
+Epoch 230, training loss: 5.7435736656188965
+Epoch 240, training loss: 5.706552028656006
+Epoch 250, training loss: 5.637555122375488
+Epoch 260, training loss: 5.655567169189453
+Epoch 270, training loss: 5.626514434814453
+Epoch 280, training loss: 5.601492881774902
+Epoch 290, training loss: 5.490216255187988
+Epoch 300, training loss: 5.504356384277344
+Epoch 310, training loss: 5.463871479034424
+Epoch 320, training loss: 5.448883056640625
+Epoch 330, training loss: 5.401676654815674
+Epoch 340, training loss: 5.4733052253723145
+Epoch 350, training loss: 5.347523212432861
+Epoch 360, training loss: 5.356801986694336
+Epoch 370, training loss: 5.375838756561279
+Epoch 380, training loss: 5.33488655090332
+Epoch 390, training loss: 5.32207727432251
+Epoch 400, training loss: 5.370428085327148
+Epoch 410, training loss: 5.270634651184082
+Epoch 420, training loss: 5.315805912017822
+Epoch 430, training loss: 5.241092681884766
+Epoch 440, training loss: 5.2142791748046875
+Epoch 450, training loss: 5.220351219177246
+Epoch 460, training loss: 5.20050048828125
+Epoch 470, training loss: 5.195870876312256
+Epoch 480, training loss: 5.246312141418457
+Epoch 490, training loss: 5.290170192718506
+random
+Perturbation Size:0
+Accuracy: 0.794
+Perturbation Size:1
+Accuracy: 0.795
+Perturbation Size:2
+Accuracy: 0.791
+Perturbation Size:3
+Accuracy: 0.787
+Perturbation Size:4
+Accuracy: 0.783
+Perturbation Size:5
+Accuracy: 0.764
+Perturbation Size:6
+Accuracy: 0.763
+Perturbation Size:7
+Accuracy: 0.752
+Perturbation Size:8
+Accuracy: 0.737
+Perturbation Size:9
+Accuracy: 0.722
+Perturbation Size:10
+Accuracy: 0.714
+Perturbation Size:11
+Accuracy: 0.706
+Perturbation Size:12
+Accuracy: 0.689
+Perturbation Size:13
+Accuracy: 0.669
+Perturbation Size:14
+Accuracy: 0.662
+Perturbation Size:15
+Accuracy: 0.65
+Perturbation Size:16
+Accuracy: 0.631
+Perturbation Size:17
+Accuracy: 0.614
+Perturbation Size:18
+Accuracy: 0.612
+Perturbation Size:19
+Accuracy: 0.606
+Perturbation Size:20
+Accuracy: 0.599
+seed 527
+=== training gcn model ===
+Epoch 0, training loss: 8.596390724182129
+Epoch 10, training loss: 8.572457313537598
+Epoch 20, training loss: 8.477350234985352
+Epoch 30, training loss: 8.347280502319336
+Epoch 40, training loss: 8.067005157470703
+Epoch 50, training loss: 7.846011638641357
+Epoch 60, training loss: 7.341756820678711
+Epoch 70, training loss: 7.19382381439209
+Epoch 80, training loss: 7.083858966827393
+Epoch 90, training loss: 6.862891674041748
+Epoch 100, training loss: 6.76847505569458
+Epoch 110, training loss: 6.687129020690918
+Epoch 120, training loss: 6.643577575683594
+Epoch 130, training loss: 6.382326126098633
+Epoch 140, training loss: 6.437788486480713
+Epoch 150, training loss: 6.302398681640625
+Epoch 160, training loss: 6.066248893737793
+Epoch 170, training loss: 6.067643642425537
+Epoch 180, training loss: 6.041530609130859
+Epoch 190, training loss: 6.012146949768066
+Epoch 200, training loss: 5.952725887298584
+Epoch 210, training loss: 5.874028205871582
+Epoch 220, training loss: 5.81939697265625
+Epoch 230, training loss: 5.759634017944336
+Epoch 240, training loss: 5.7078447341918945
+Epoch 250, training loss: 5.80422306060791
+Epoch 260, training loss: 5.68118953704834
+Epoch 270, training loss: 5.600550651550293
+Epoch 280, training loss: 5.6045756340026855
+Epoch 290, training loss: 5.53938627243042
+Epoch 300, training loss: 5.582224369049072
+Epoch 310, training loss: 5.55556583404541
+Epoch 320, training loss: 5.577008247375488
+Epoch 330, training loss: 5.498316287994385
+Epoch 340, training loss: 5.482964038848877
+Epoch 350, training loss: 5.415425777435303
+Epoch 360, training loss: 5.4973673820495605
+Epoch 370, training loss: 5.349224090576172
+Epoch 380, training loss: 5.295479774475098
+Epoch 390, training loss: 5.316672325134277
+Epoch 400, training loss: 5.2315354347229
+Epoch 410, training loss: 5.328690528869629
+Epoch 420, training loss: 5.251868724822998
+Epoch 430, training loss: 5.343979835510254
+Epoch 440, training loss: 5.2214789390563965
+Epoch 450, training loss: 5.115860939025879
+Epoch 460, training loss: 5.247433185577393
+Epoch 470, training loss: 5.209805965423584
+Epoch 480, training loss: 5.170788764953613
+Epoch 490, training loss: 5.097222805023193
+random
+Perturbation Size:0
+Accuracy: 0.778
+Perturbation Size:1
+Accuracy: 0.78
+Perturbation Size:2
+Accuracy: 0.773
+Perturbation Size:3
+Accuracy: 0.767
+Perturbation Size:4
+Accuracy: 0.76
+Perturbation Size:5
+Accuracy: 0.765
+Perturbation Size:6
+Accuracy: 0.758
+Perturbation Size:7
+Accuracy: 0.749
+Perturbation Size:8
+Accuracy: 0.745
+Perturbation Size:9
+Accuracy: 0.731
+Perturbation Size:10
+Accuracy: 0.709
+Perturbation Size:11
+Accuracy: 0.699
+Perturbation Size:12
+Accuracy: 0.678
+Perturbation Size:13
+Accuracy: 0.676
+Perturbation Size:14
+Accuracy: 0.654
+Perturbation Size:15
+Accuracy: 0.638
+Perturbation Size:16
+Accuracy: 0.605
+Perturbation Size:17
+Accuracy: 0.594
+Perturbation Size:18
+Accuracy: 0.589
+Perturbation Size:19
+Accuracy: 0.586
+Perturbation Size:20
+Accuracy: 0.577
+seed 320
+=== training gcn model ===
+Epoch 0, training loss: 8.596449851989746
+Epoch 10, training loss: 8.571748733520508
+Epoch 20, training loss: 8.449814796447754
+Epoch 30, training loss: 8.289395332336426
+Epoch 40, training loss: 7.861752033233643
+Epoch 50, training loss: 7.707204341888428
+Epoch 60, training loss: 7.489892482757568
+Epoch 70, training loss: 7.174790859222412
+Epoch 80, training loss: 7.0222063064575195
+Epoch 90, training loss: 6.71921443939209
+Epoch 100, training loss: 6.63439416885376
+Epoch 110, training loss: 6.507071018218994
+Epoch 120, training loss: 6.388045787811279
+Epoch 130, training loss: 6.394264221191406
+Epoch 140, training loss: 6.238907814025879
+Epoch 150, training loss: 6.085943222045898
+Epoch 160, training loss: 6.155703067779541
+Epoch 170, training loss: 5.847732067108154
+Epoch 180, training loss: 5.953410625457764
+Epoch 190, training loss: 5.878370761871338
+Epoch 200, training loss: 5.781229019165039
+Epoch 210, training loss: 5.835660934448242
+Epoch 220, training loss: 5.741575241088867
+Epoch 230, training loss: 5.673426628112793
+Epoch 240, training loss: 5.602329254150391
+Epoch 250, training loss: 5.677351474761963
+Epoch 260, training loss: 5.69720983505249
+Epoch 270, training loss: 5.5613508224487305
+Epoch 280, training loss: 5.625833511352539
+Epoch 290, training loss: 5.537468433380127
+Epoch 300, training loss: 5.507953643798828
+Epoch 310, training loss: 5.4027533531188965
+Epoch 320, training loss: 5.421133995056152
+Epoch 330, training loss: 5.375543117523193
+Epoch 340, training loss: 5.38856315612793
+Epoch 350, training loss: 5.292872905731201
+Epoch 360, training loss: 5.36707067489624
+Epoch 370, training loss: 5.257176399230957
+Epoch 380, training loss: 5.30294132232666
+Epoch 390, training loss: 5.314847469329834
+Epoch 400, training loss: 5.3120832443237305
+Epoch 410, training loss: 5.214633941650391
+Epoch 420, training loss: 5.198079586029053
+Epoch 430, training loss: 5.18922233581543
+Epoch 440, training loss: 5.191768646240234
+Epoch 450, training loss: 5.15133810043335
+Epoch 460, training loss: 5.172183513641357
+Epoch 470, training loss: 5.1079206466674805
+Epoch 480, training loss: 5.101535797119141
+Epoch 490, training loss: 5.071342468261719
+random
+Perturbation Size:0
+Accuracy: 0.757
+Perturbation Size:1
+Accuracy: 0.755
+Perturbation Size:2
+Accuracy: 0.753
+Perturbation Size:3
+Accuracy: 0.746
+Perturbation Size:4
+Accuracy: 0.745
+Perturbation Size:5
+Accuracy: 0.742
+Perturbation Size:6
+Accuracy: 0.744
+Perturbation Size:7
+Accuracy: 0.737
+Perturbation Size:8
+Accuracy: 0.732
+Perturbation Size:9
+Accuracy: 0.732
+Perturbation Size:10
+Accuracy: 0.719
+Perturbation Size:11
+Accuracy: 0.715
+Perturbation Size:12
+Accuracy: 0.717
+Perturbation Size:13
+Accuracy: 0.71
+Perturbation Size:14
+Accuracy: 0.705
+Perturbation Size:15
+Accuracy: 0.696
+Perturbation Size:16
+Accuracy: 0.695
+Perturbation Size:17
+Accuracy: 0.694
+Perturbation Size:18
+Accuracy: 0.678
+Perturbation Size:19
+Accuracy: 0.673
+Perturbation Size:20
+Accuracy: 0.656
+Beta:0.8 Ptb size:0 Accuracy:0.7644+-0.021767866225241298
+Beta:0.8 Ptb size:1 Accuracy:0.7674+-0.019106019993708805
+Beta:0.8 Ptb size:2 Accuracy:0.764+-0.018242806801586225
+Beta:0.8 Ptb size:3 Accuracy:0.7598+-0.016581917862539316
+Beta:0.8 Ptb size:4 Accuracy:0.7518+-0.01965095417530662
+Beta:0.8 Ptb size:5 Accuracy:0.7462000000000001+-0.01658191786253932
+Beta:0.8 Ptb size:6 Accuracy:0.7434+-0.01887432117984646
+Beta:0.8 Ptb size:7 Accuracy:0.7352000000000001+-0.015025311976794372
+Beta:0.8 Ptb size:8 Accuracy:0.7282+-0.016845177351396467
+Beta:0.8 Ptb size:9 Accuracy:0.7214+-0.016144348856488466
+Beta:0.8 Ptb size:10 Accuracy:0.708+-0.01289961239727765
+Beta:0.8 Ptb size:11 Accuracy:0.7017999999999999+-0.011582745788456177
+Beta:0.8 Ptb size:12 Accuracy:0.6946+-0.016859418732566047
+Beta:0.8 Ptb size:13 Accuracy:0.6878+-0.01826909959467074
+Beta:0.8 Ptb size:14 Accuracy:0.6808+-0.021479292353334144
+Beta:0.8 Ptb size:15 Accuracy:0.6721999999999999+-0.024252010225958565
+Beta:0.8 Ptb size:16 Accuracy:0.6514+-0.036499863013441554
+Beta:0.8 Ptb size:17 Accuracy:0.6474+-0.04196951274437194
+Beta:0.8 Ptb size:18 Accuracy:0.6406+-0.03610318545502602
+Beta:0.8 Ptb size:19 Accuracy:0.6384+-0.03560112357777493
+Beta:0.8 Ptb size:20 Accuracy:0.6286+-0.03405055065634038
+beta 0.9
+seed 265
+=== training gcn model ===
+Epoch 0, training loss: 8.596508026123047
+Epoch 10, training loss: 8.57919979095459
+Epoch 20, training loss: 8.453472137451172
+Epoch 30, training loss: 8.295174598693848
+Epoch 40, training loss: 7.942329406738281
+Epoch 50, training loss: 7.3923516273498535
+Epoch 60, training loss: 7.185157299041748
+Epoch 70, training loss: 6.950274467468262
+Epoch 80, training loss: 7.059994220733643
+Epoch 90, training loss: 6.604433059692383
+Epoch 100, training loss: 6.522243022918701
+Epoch 110, training loss: 6.494043350219727
+Epoch 120, training loss: 6.249963760375977
+Epoch 130, training loss: 6.2067108154296875
+Epoch 140, training loss: 6.285747051239014
+Epoch 150, training loss: 6.307644367218018
+Epoch 160, training loss: 5.979801654815674
+Epoch 170, training loss: 6.019201278686523
+Epoch 180, training loss: 5.846541881561279
+Epoch 190, training loss: 5.843023777008057
+Epoch 200, training loss: 5.862911224365234
+Epoch 210, training loss: 5.934936046600342
+Epoch 220, training loss: 5.79950475692749
+Epoch 230, training loss: 5.766410827636719
+Epoch 240, training loss: 5.599040508270264
+Epoch 250, training loss: 5.701565742492676
+Epoch 260, training loss: 5.6582159996032715
+Epoch 270, training loss: 5.52924919128418
+Epoch 280, training loss: 5.491349697113037
+Epoch 290, training loss: 5.544445514678955
+Epoch 300, training loss: 5.491263389587402
+Epoch 310, training loss: 5.474457263946533
+Epoch 320, training loss: 5.5268235206604
+Epoch 330, training loss: 5.4124603271484375
+Epoch 340, training loss: 5.39029598236084
+Epoch 350, training loss: 5.40785026550293
+Epoch 360, training loss: 5.3664140701293945
+Epoch 370, training loss: 5.369582176208496
+Epoch 380, training loss: 5.334305763244629
+Epoch 390, training loss: 5.3016133308410645
+Epoch 400, training loss: 5.346272945404053
+Epoch 410, training loss: 5.3400044441223145
+Epoch 420, training loss: 5.282708644866943
+Epoch 430, training loss: 5.324914932250977
+Epoch 440, training loss: 5.239189147949219
+Epoch 450, training loss: 5.195411205291748
+Epoch 460, training loss: 5.22202205657959
+Epoch 470, training loss: 5.150497913360596
+Epoch 480, training loss: 5.140463829040527
+Epoch 490, training loss: 5.1796088218688965
+random
+Perturbation Size:0
+Accuracy: 0.772
+Perturbation Size:1
+Accuracy: 0.768
+Perturbation Size:2
+Accuracy: 0.762
+Perturbation Size:3
+Accuracy: 0.759
+Perturbation Size:4
+Accuracy: 0.748
+Perturbation Size:5
+Accuracy: 0.74
+Perturbation Size:6
+Accuracy: 0.741
+Perturbation Size:7
+Accuracy: 0.73
+Perturbation Size:8
+Accuracy: 0.735
+Perturbation Size:9
+Accuracy: 0.729
+Perturbation Size:10
+Accuracy: 0.719
+Perturbation Size:11
+Accuracy: 0.713
+Perturbation Size:12
+Accuracy: 0.713
+Perturbation Size:13
+Accuracy: 0.712
+Perturbation Size:14
+Accuracy: 0.715
+Perturbation Size:15
+Accuracy: 0.702
+Perturbation Size:16
+Accuracy: 0.689
+Perturbation Size:17
+Accuracy: 0.691
+Perturbation Size:18
+Accuracy: 0.685
+Perturbation Size:19
+Accuracy: 0.671
+Perturbation Size:20
+Accuracy: 0.678
+seed 125
+=== training gcn model ===
+Epoch 0, training loss: 8.596582412719727
+Epoch 10, training loss: 8.581026077270508
+Epoch 20, training loss: 8.455018997192383
+Epoch 30, training loss: 8.359883308410645
+Epoch 40, training loss: 8.103411674499512
+Epoch 50, training loss: 8.003101348876953
+Epoch 60, training loss: 7.776333808898926
+Epoch 70, training loss: 7.474672794342041
+Epoch 80, training loss: 7.291567325592041
+Epoch 90, training loss: 7.126802444458008
+Epoch 100, training loss: 6.897584915161133
+Epoch 110, training loss: 6.745912075042725
+Epoch 120, training loss: 6.556933403015137
+Epoch 130, training loss: 6.583802700042725
+Epoch 140, training loss: 6.3579020500183105
+Epoch 150, training loss: 6.421099662780762
+Epoch 160, training loss: 6.261366844177246
+Epoch 170, training loss: 6.1789021492004395
+Epoch 180, training loss: 6.127197265625
+Epoch 190, training loss: 6.148887634277344
+Epoch 200, training loss: 5.881311416625977
+Epoch 210, training loss: 6.0303754806518555
+Epoch 220, training loss: 5.9111480712890625
+Epoch 230, training loss: 5.904757499694824
+Epoch 240, training loss: 5.850442886352539
+Epoch 250, training loss: 5.854101181030273
+Epoch 260, training loss: 5.767192363739014
+Epoch 270, training loss: 5.715714931488037
+Epoch 280, training loss: 5.848872184753418
+Epoch 290, training loss: 5.734767436981201
+Epoch 300, training loss: 5.552446365356445
+Epoch 310, training loss: 5.613090515136719
+Epoch 320, training loss: 5.573349475860596
+Epoch 330, training loss: 5.512294292449951
+Epoch 340, training loss: 5.576901435852051
+Epoch 350, training loss: 5.474963188171387
+Epoch 360, training loss: 5.405697345733643
+Epoch 370, training loss: 5.366071701049805
+Epoch 380, training loss: 5.4247870445251465
+Epoch 390, training loss: 5.40232515335083
+Epoch 400, training loss: 5.387617111206055
+Epoch 410, training loss: 5.353579044342041
+Epoch 420, training loss: 5.300118446350098
+Epoch 430, training loss: 5.346839904785156
+Epoch 440, training loss: 5.345264434814453
+Epoch 450, training loss: 5.259160041809082
+Epoch 460, training loss: 5.348883628845215
+Epoch 470, training loss: 5.293796062469482
+Epoch 480, training loss: 5.295759201049805
+Epoch 490, training loss: 5.280689716339111
+random
+Perturbation Size:0
+Accuracy: 0.737
+Perturbation Size:1
+Accuracy: 0.735
+Perturbation Size:2
+Accuracy: 0.723
+Perturbation Size:3
+Accuracy: 0.722
+Perturbation Size:4
+Accuracy: 0.713
+Perturbation Size:5
+Accuracy: 0.713
+Perturbation Size:6
+Accuracy: 0.709
+Perturbation Size:7
+Accuracy: 0.71
+Perturbation Size:8
+Accuracy: 0.696
+Perturbation Size:9
+Accuracy: 0.692
+Perturbation Size:10
+Accuracy: 0.681
+Perturbation Size:11
+Accuracy: 0.685
+Perturbation Size:12
+Accuracy: 0.677
+Perturbation Size:13
+Accuracy: 0.676
+Perturbation Size:14
+Accuracy: 0.673
+Perturbation Size:15
+Accuracy: 0.671
+Perturbation Size:16
+Accuracy: 0.638
+Perturbation Size:17
+Accuracy: 0.637
+Perturbation Size:18
+Accuracy: 0.637
+Perturbation Size:19
+Accuracy: 0.66
+Perturbation Size:20
+Accuracy: 0.649
+seed 996
+=== training gcn model ===
+Epoch 0, training loss: 8.596548080444336
+Epoch 10, training loss: 8.573293685913086
+Epoch 20, training loss: 8.443653106689453
+Epoch 30, training loss: 8.332505226135254
+Epoch 40, training loss: 7.971060752868652
+Epoch 50, training loss: 7.751124382019043
+Epoch 60, training loss: 7.478429794311523
+Epoch 70, training loss: 7.291436672210693
+Epoch 80, training loss: 7.130126476287842
+Epoch 90, training loss: 6.910838603973389
+Epoch 100, training loss: 6.825396537780762
+Epoch 110, training loss: 6.577412128448486
+Epoch 120, training loss: 6.597535133361816
+Epoch 130, training loss: 6.312414646148682
+Epoch 140, training loss: 6.2962775230407715
+Epoch 150, training loss: 6.115079879760742
+Epoch 160, training loss: 6.224752902984619
+Epoch 170, training loss: 5.977601528167725
+Epoch 180, training loss: 5.9326605796813965
+Epoch 190, training loss: 5.852298736572266
+Epoch 200, training loss: 5.816516399383545
+Epoch 210, training loss: 5.872501373291016
+Epoch 220, training loss: 5.7363505363464355
+Epoch 230, training loss: 5.745368003845215
+Epoch 240, training loss: 5.707704544067383
+Epoch 250, training loss: 5.6370649337768555
+Epoch 260, training loss: 5.655133247375488
+Epoch 270, training loss: 5.626806735992432
+Epoch 280, training loss: 5.599588871002197
+Epoch 290, training loss: 5.490697383880615
+Epoch 300, training loss: 5.503581523895264
+Epoch 310, training loss: 5.464669704437256
+Epoch 320, training loss: 5.449246406555176
+Epoch 330, training loss: 5.401917934417725
+Epoch 340, training loss: 5.475860595703125
+Epoch 350, training loss: 5.347226142883301
+Epoch 360, training loss: 5.357568740844727
+Epoch 370, training loss: 5.374917507171631
+Epoch 380, training loss: 5.335285186767578
+Epoch 390, training loss: 5.321345806121826
+Epoch 400, training loss: 5.370909690856934
+Epoch 410, training loss: 5.270135402679443
+Epoch 420, training loss: 5.317028999328613
+Epoch 430, training loss: 5.240665435791016
+Epoch 440, training loss: 5.213469505310059
+Epoch 450, training loss: 5.221169471740723
+Epoch 460, training loss: 5.199640274047852
+Epoch 470, training loss: 5.194381237030029
+Epoch 480, training loss: 5.246371269226074
+Epoch 490, training loss: 5.288484573364258
+random
+Perturbation Size:0
+Accuracy: 0.794
+Perturbation Size:1
+Accuracy: 0.799
+Perturbation Size:2
+Accuracy: 0.79
+Perturbation Size:3
+Accuracy: 0.787
+Perturbation Size:4
+Accuracy: 0.787
+Perturbation Size:5
+Accuracy: 0.772
+Perturbation Size:6
+Accuracy: 0.763
+Perturbation Size:7
+Accuracy: 0.753
+Perturbation Size:8
+Accuracy: 0.737
+Perturbation Size:9
+Accuracy: 0.725
+Perturbation Size:10
+Accuracy: 0.711
+Perturbation Size:11
+Accuracy: 0.706
+Perturbation Size:12
+Accuracy: 0.696
+Perturbation Size:13
+Accuracy: 0.67
+Perturbation Size:14
+Accuracy: 0.663
+Perturbation Size:15
+Accuracy: 0.651
+Perturbation Size:16
+Accuracy: 0.636
+Perturbation Size:17
+Accuracy: 0.612
+Perturbation Size:18
+Accuracy: 0.605
+Perturbation Size:19
+Accuracy: 0.593
+Perturbation Size:20
+Accuracy: 0.592
+seed 527
+=== training gcn model ===
+Epoch 0, training loss: 8.596390724182129
+Epoch 10, training loss: 8.572457313537598
+Epoch 20, training loss: 8.477359771728516
+Epoch 30, training loss: 8.347257614135742
+Epoch 40, training loss: 8.067543983459473
+Epoch 50, training loss: 7.845987796783447
+Epoch 60, training loss: 7.342382431030273
+Epoch 70, training loss: 7.1931023597717285
+Epoch 80, training loss: 7.082667350769043
+Epoch 90, training loss: 6.862568378448486
+Epoch 100, training loss: 6.769207954406738
+Epoch 110, training loss: 6.687435150146484
+Epoch 120, training loss: 6.6443400382995605
+Epoch 130, training loss: 6.383288383483887
+Epoch 140, training loss: 6.436544895172119
+Epoch 150, training loss: 6.300289154052734
+Epoch 160, training loss: 6.065596103668213
+Epoch 170, training loss: 6.065790176391602
+Epoch 180, training loss: 6.041563987731934
+Epoch 190, training loss: 6.011282920837402
+Epoch 200, training loss: 5.951395511627197
+Epoch 210, training loss: 5.875439167022705
+Epoch 220, training loss: 5.821630954742432
+Epoch 230, training loss: 5.762259006500244
+Epoch 240, training loss: 5.706084728240967
+Epoch 250, training loss: 5.804914474487305
+Epoch 260, training loss: 5.680438995361328
+Epoch 270, training loss: 5.601558208465576
+Epoch 280, training loss: 5.605068206787109
+Epoch 290, training loss: 5.540079116821289
+Epoch 300, training loss: 5.581970691680908
+Epoch 310, training loss: 5.555140495300293
+Epoch 320, training loss: 5.576087951660156
+Epoch 330, training loss: 5.497412204742432
+Epoch 340, training loss: 5.480849266052246
+Epoch 350, training loss: 5.415061950683594
+Epoch 360, training loss: 5.4958720207214355
+Epoch 370, training loss: 5.348423957824707
+Epoch 380, training loss: 5.2974114418029785
+Epoch 390, training loss: 5.316712856292725
+Epoch 400, training loss: 5.230495929718018
+Epoch 410, training loss: 5.327696323394775
+Epoch 420, training loss: 5.252330780029297
+Epoch 430, training loss: 5.344135761260986
+Epoch 440, training loss: 5.218302249908447
+Epoch 450, training loss: 5.113502502441406
+Epoch 460, training loss: 5.245103359222412
+Epoch 470, training loss: 5.2081403732299805
+Epoch 480, training loss: 5.168794631958008
+Epoch 490, training loss: 5.099309921264648
+random
+Perturbation Size:0
+Accuracy: 0.775
+Perturbation Size:1
+Accuracy: 0.781
+Perturbation Size:2
+Accuracy: 0.77
+Perturbation Size:3
+Accuracy: 0.763
+Perturbation Size:4
+Accuracy: 0.759
+Perturbation Size:5
+Accuracy: 0.759
+Perturbation Size:6
+Accuracy: 0.758
+Perturbation Size:7
+Accuracy: 0.749
+Perturbation Size:8
+Accuracy: 0.745
+Perturbation Size:9
+Accuracy: 0.728
+Perturbation Size:10
+Accuracy: 0.712
+Perturbation Size:11
+Accuracy: 0.702
+Perturbation Size:12
+Accuracy: 0.686
+Perturbation Size:13
+Accuracy: 0.669
+Perturbation Size:14
+Accuracy: 0.655
+Perturbation Size:15
+Accuracy: 0.638
+Perturbation Size:16
+Accuracy: 0.598
+Perturbation Size:17
+Accuracy: 0.598
+Perturbation Size:18
+Accuracy: 0.59
+Perturbation Size:19
+Accuracy: 0.584
+Perturbation Size:20
+Accuracy: 0.577
+seed 320
+=== training gcn model ===
+Epoch 0, training loss: 8.596449851989746
+Epoch 10, training loss: 8.571748733520508
+Epoch 20, training loss: 8.449813842773438
+Epoch 30, training loss: 8.289392471313477
+Epoch 40, training loss: 7.861721992492676
+Epoch 50, training loss: 7.7074666023254395
+Epoch 60, training loss: 7.490269660949707
+Epoch 70, training loss: 7.174001693725586
+Epoch 80, training loss: 7.022286891937256
+Epoch 90, training loss: 6.720588207244873
+Epoch 100, training loss: 6.635303020477295
+Epoch 110, training loss: 6.508086204528809
+Epoch 120, training loss: 6.388022422790527
+Epoch 130, training loss: 6.395046710968018
+Epoch 140, training loss: 6.237621784210205
+Epoch 150, training loss: 6.084989547729492
+Epoch 160, training loss: 6.1539435386657715
+Epoch 170, training loss: 5.846986770629883
+Epoch 180, training loss: 5.953638076782227
+Epoch 190, training loss: 5.878636360168457
+Epoch 200, training loss: 5.78044319152832
+Epoch 210, training loss: 5.834047794342041
+Epoch 220, training loss: 5.741611957550049
+Epoch 230, training loss: 5.672475814819336
+Epoch 240, training loss: 5.602056980133057
+Epoch 250, training loss: 5.676543235778809
+Epoch 260, training loss: 5.6975812911987305
+Epoch 270, training loss: 5.561391353607178
+Epoch 280, training loss: 5.626521110534668
+Epoch 290, training loss: 5.5377516746521
+Epoch 300, training loss: 5.507657527923584
+Epoch 310, training loss: 5.402595520019531
+Epoch 320, training loss: 5.420059680938721
+Epoch 330, training loss: 5.376803874969482
+Epoch 340, training loss: 5.388720989227295
+Epoch 350, training loss: 5.293156147003174
+Epoch 360, training loss: 5.366847038269043
+Epoch 370, training loss: 5.255841255187988
+Epoch 380, training loss: 5.301799297332764
+Epoch 390, training loss: 5.316300868988037
+Epoch 400, training loss: 5.310379505157471
+Epoch 410, training loss: 5.213864803314209
+Epoch 420, training loss: 5.198846340179443
+Epoch 430, training loss: 5.189355850219727
+Epoch 440, training loss: 5.1905198097229
+Epoch 450, training loss: 5.151192665100098
+Epoch 460, training loss: 5.172475814819336
+Epoch 470, training loss: 5.107767105102539
+Epoch 480, training loss: 5.099626541137695
+Epoch 490, training loss: 5.071417331695557
+random
+Perturbation Size:0
+Accuracy: 0.757
+Perturbation Size:1
+Accuracy: 0.759
+Perturbation Size:2
+Accuracy: 0.751
+Perturbation Size:3
+Accuracy: 0.749
+Perturbation Size:4
+Accuracy: 0.747
+Perturbation Size:5
+Accuracy: 0.746
+Perturbation Size:6
+Accuracy: 0.747
+Perturbation Size:7
+Accuracy: 0.737
+Perturbation Size:8
+Accuracy: 0.737
+Perturbation Size:9
+Accuracy: 0.726
+Perturbation Size:10
+Accuracy: 0.719
+Perturbation Size:11
+Accuracy: 0.718
+Perturbation Size:12
+Accuracy: 0.714
+Perturbation Size:13
+Accuracy: 0.709
+Perturbation Size:14
+Accuracy: 0.7
+Perturbation Size:15
+Accuracy: 0.692
+Perturbation Size:16
+Accuracy: 0.68
+Perturbation Size:17
+Accuracy: 0.682
+Perturbation Size:18
+Accuracy: 0.671
+Perturbation Size:19
+Accuracy: 0.665
+Perturbation Size:20
+Accuracy: 0.657
+Beta:0.9 Ptb size:0 Accuracy:0.767+-0.019068298298484863
+Beta:0.9 Ptb size:1 Accuracy:0.7684+-0.021443880245888353
+Beta:0.9 Ptb size:2 Accuracy:0.7592+-0.022139557357815465
+Beta:0.9 Ptb size:3 Accuracy:0.756+-0.021090282122342527
+Beta:0.9 Ptb size:4 Accuracy:0.7507999999999999+-0.023785709995709628
+Beta:0.9 Ptb size:5 Accuracy:0.7459999999999999+-0.01984943324127923
+Beta:0.9 Ptb size:6 Accuracy:0.7436+-0.018969449122207018
+Beta:0.9 Ptb size:7 Accuracy:0.7358+-0.015302287410710871
+Beta:0.9 Ptb size:8 Accuracy:0.7300000000000001+-0.017343586710943056
+Beta:0.9 Ptb size:9 Accuracy:0.72+-0.014071247279470301
+Beta:0.9 Ptb size:10 Accuracy:0.7083999999999999+-0.014108153670838688
+Beta:0.9 Ptb size:11 Accuracy:0.7048+-0.011338430226446664
+Beta:0.9 Ptb size:12 Accuracy:0.6972+-0.014606847709208136
+Beta:0.9 Ptb size:13 Accuracy:0.6872+-0.019197916553626296
+Beta:0.9 Ptb size:14 Accuracy:0.6812000000000001+-0.02271915491386065
+Beta:0.9 Ptb size:15 Accuracy:0.6708000000000001+-0.024044957891416627
+Beta:0.9 Ptb size:16 Accuracy:0.6482+-0.03301151314314447
+Beta:0.9 Ptb size:17 Accuracy:0.6439999999999999+-0.03699189100329964
+Beta:0.9 Ptb size:18 Accuracy:0.6376+-0.0365819627685558
+Beta:0.9 Ptb size:19 Accuracy:0.6346+-0.03790831043452086
+Beta:0.9 Ptb size:20 Accuracy:0.6306+-0.039102941065858494

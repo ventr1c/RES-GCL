@@ -1,0 +1,329 @@
+nohup: ignoring input
+run_gnn.py:14: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+Namespace(attack='random', cuda=True, dataset='Cora', debug=True, device_id=0, dropout=0.5, hidden=32, model='GCN', no_cuda=False, num_hidden=32, num_proj_hidden=32, num_repeat=5, seed=10, select_target_ratio=0.1, test_model='GCN', train_lr=0.01, train_num_epochs=200, weight_decay=0.0005)
+=== training gcn model ===
+Epoch 0, training loss: 1.9455326795578003
+acc_val: 0.2820
+Epoch 10, training loss: 1.7992210388183594
+acc_val: 0.7160
+Epoch 20, training loss: 1.555256962776184
+acc_val: 0.7680
+Epoch 30, training loss: 1.2480990886688232
+acc_val: 0.7680
+Epoch 40, training loss: 0.9343968033790588
+acc_val: 0.7960
+Epoch 50, training loss: 0.7211810946464539
+acc_val: 0.8000
+Epoch 60, training loss: 0.5994262099266052
+acc_val: 0.8060
+Epoch 70, training loss: 0.45846477150917053
+acc_val: 0.8020
+Epoch 80, training loss: 0.4028191864490509
+acc_val: 0.7900
+Epoch 90, training loss: 0.38420596718788147
+acc_val: 0.7920
+Epoch 100, training loss: 0.37287813425064087
+acc_val: 0.7880
+Epoch 110, training loss: 0.3200531303882599
+acc_val: 0.8000
+Epoch 120, training loss: 0.2901037633419037
+acc_val: 0.7920
+Epoch 130, training loss: 0.29420536756515503
+acc_val: 0.7900
+Epoch 140, training loss: 0.278142511844635
+acc_val: 0.7920
+Epoch 150, training loss: 0.2441912293434143
+acc_val: 0.7900
+Epoch 160, training loss: 0.2518620491027832
+acc_val: 0.7940
+Epoch 170, training loss: 0.2270829826593399
+acc_val: 0.7920
+Epoch 180, training loss: 0.22647002339363098
+acc_val: 0.7980
+Epoch 190, training loss: 0.2117905169725418
+acc_val: 0.8000
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:0
+Accuracy: 0.8250000000000001
+Perturbation Size:1
+Accuracy: 0.809
+Perturbation Size:2
+Accuracy: 0.775
+Perturbation Size:3
+Accuracy: 0.745
+Perturbation Size:4
+Accuracy: 0.71
+Perturbation Size:5
+Accuracy: 0.6900000000000001
+Perturbation Size:6
+Accuracy: 0.669
+Perturbation Size:7
+Accuracy: 0.652
+Perturbation Size:8
+Accuracy: 0.632
+Perturbation Size:9
+Accuracy: 0.614
+Perturbation Size:10
+Accuracy: 0.595
+=== training gcn model ===
+Epoch 0, training loss: 1.9464945793151855
+acc_val: 0.3220
+Epoch 10, training loss: 1.8141155242919922
+acc_val: 0.5480
+Epoch 20, training loss: 1.5817595720291138
+acc_val: 0.7160
+Epoch 30, training loss: 1.285107970237732
+acc_val: 0.7600
+Epoch 40, training loss: 1.0023092031478882
+acc_val: 0.7680
+Epoch 50, training loss: 0.7332648038864136
+acc_val: 0.7880
+Epoch 60, training loss: 0.6041452288627625
+acc_val: 0.7820
+Epoch 70, training loss: 0.48897552490234375
+acc_val: 0.7880
+Epoch 80, training loss: 0.4343819320201874
+acc_val: 0.7900
+Epoch 90, training loss: 0.38852861523628235
+acc_val: 0.7860
+Epoch 100, training loss: 0.3835989832878113
+acc_val: 0.7860
+Epoch 110, training loss: 0.33324775099754333
+acc_val: 0.7920
+Epoch 120, training loss: 0.28697022795677185
+acc_val: 0.7940
+Epoch 130, training loss: 0.3047465682029724
+acc_val: 0.7960
+Epoch 140, training loss: 0.25767821073532104
+acc_val: 0.7960
+Epoch 150, training loss: 0.26743271946907043
+acc_val: 0.7940
+Epoch 160, training loss: 0.24366506934165955
+acc_val: 0.7920
+Epoch 170, training loss: 0.23613035678863525
+acc_val: 0.7960
+Epoch 180, training loss: 0.23872296512126923
+acc_val: 0.7960
+Epoch 190, training loss: 0.23478037118911743
+acc_val: 0.7960
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:0
+Accuracy: 0.81
+Perturbation Size:1
+Accuracy: 0.8130000000000001
+Perturbation Size:2
+Accuracy: 0.8
+Perturbation Size:3
+Accuracy: 0.785
+Perturbation Size:4
+Accuracy: 0.78
+Perturbation Size:5
+Accuracy: 0.768
+Perturbation Size:6
+Accuracy: 0.745
+Perturbation Size:7
+Accuracy: 0.737
+Perturbation Size:8
+Accuracy: 0.726
+Perturbation Size:9
+Accuracy: 0.711
+Perturbation Size:10
+Accuracy: 0.6980000000000001
+=== training gcn model ===
+Epoch 0, training loss: 1.9454838037490845
+acc_val: 0.1960
+Epoch 10, training loss: 1.800689697265625
+acc_val: 0.7620
+Epoch 20, training loss: 1.5511353015899658
+acc_val: 0.7760
+Epoch 30, training loss: 1.2120660543441772
+acc_val: 0.7760
+Epoch 40, training loss: 0.9216485023498535
+acc_val: 0.7980
+Epoch 50, training loss: 0.7159886956214905
+acc_val: 0.8100
+Epoch 60, training loss: 0.5631808042526245
+acc_val: 0.7900
+Epoch 70, training loss: 0.4740266501903534
+acc_val: 0.8040
+Epoch 80, training loss: 0.43557441234588623
+acc_val: 0.8000
+Epoch 90, training loss: 0.36879241466522217
+acc_val: 0.8020
+Epoch 100, training loss: 0.3409130573272705
+acc_val: 0.7940
+Epoch 110, training loss: 0.3029707372188568
+acc_val: 0.8040
+Epoch 120, training loss: 0.2975979447364807
+acc_val: 0.8080
+Epoch 130, training loss: 0.2944604754447937
+acc_val: 0.8020
+Epoch 140, training loss: 0.263246089220047
+acc_val: 0.7960
+Epoch 150, training loss: 0.22294417023658752
+acc_val: 0.7980
+Epoch 160, training loss: 0.2211035043001175
+acc_val: 0.8020
+Epoch 170, training loss: 0.2302553653717041
+acc_val: 0.8040
+Epoch 180, training loss: 0.2216104418039322
+acc_val: 0.8000
+Epoch 190, training loss: 0.23512744903564453
+acc_val: 0.7920
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:0
+Accuracy: 0.8190000000000001
+Perturbation Size:1
+Accuracy: 0.8190000000000001
+Perturbation Size:2
+Accuracy: 0.784
+Perturbation Size:3
+Accuracy: 0.764
+Perturbation Size:4
+Accuracy: 0.746
+Perturbation Size:5
+Accuracy: 0.72
+Perturbation Size:6
+Accuracy: 0.6990000000000001
+Perturbation Size:7
+Accuracy: 0.687
+Perturbation Size:8
+Accuracy: 0.671
+Perturbation Size:9
+Accuracy: 0.654
+Perturbation Size:10
+Accuracy: 0.643
+=== training gcn model ===
+Epoch 0, training loss: 1.9465861320495605
+acc_val: 0.1860
+Epoch 10, training loss: 1.8212052583694458
+acc_val: 0.7420
+Epoch 20, training loss: 1.5957038402557373
+acc_val: 0.7580
+Epoch 30, training loss: 1.3055800199508667
+acc_val: 0.7720
+Epoch 40, training loss: 0.9780985116958618
+acc_val: 0.7800
+Epoch 50, training loss: 0.7168739438056946
+acc_val: 0.7860
+Epoch 60, training loss: 0.5719652771949768
+acc_val: 0.7820
+Epoch 70, training loss: 0.46482038497924805
+acc_val: 0.7760
+Epoch 80, training loss: 0.4317491948604584
+acc_val: 0.7780
+Epoch 90, training loss: 0.3771705627441406
+acc_val: 0.7860
+Epoch 100, training loss: 0.3622675836086273
+acc_val: 0.7900
+Epoch 110, training loss: 0.3308899402618408
+acc_val: 0.7900
+Epoch 120, training loss: 0.2747420072555542
+acc_val: 0.7820
+Epoch 130, training loss: 0.29172077775001526
+acc_val: 0.7980
+Epoch 140, training loss: 0.2693931758403778
+acc_val: 0.7960
+Epoch 150, training loss: 0.26350271701812744
+acc_val: 0.7960
+Epoch 160, training loss: 0.25118762254714966
+acc_val: 0.7980
+Epoch 170, training loss: 0.2341543436050415
+acc_val: 0.7900
+Epoch 180, training loss: 0.2283181995153427
+acc_val: 0.7860
+Epoch 190, training loss: 0.23353633284568787
+acc_val: 0.7880
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:0
+Accuracy: 0.801
+Perturbation Size:1
+Accuracy: 0.8140000000000001
+Perturbation Size:2
+Accuracy: 0.808
+Perturbation Size:3
+Accuracy: 0.788
+Perturbation Size:4
+Accuracy: 0.779
+Perturbation Size:5
+Accuracy: 0.77
+Perturbation Size:6
+Accuracy: 0.755
+Perturbation Size:7
+Accuracy: 0.746
+Perturbation Size:8
+Accuracy: 0.729
+Perturbation Size:9
+Accuracy: 0.72
+Perturbation Size:10
+Accuracy: 0.704
+=== training gcn model ===
+Epoch 0, training loss: 1.9460762739181519
+acc_val: 0.0800
+Epoch 10, training loss: 1.8034626245498657
+acc_val: 0.6640
+Epoch 20, training loss: 1.5619779825210571
+acc_val: 0.7240
+Epoch 30, training loss: 1.2894383668899536
+acc_val: 0.7500
+Epoch 40, training loss: 0.969404399394989
+acc_val: 0.7700
+Epoch 50, training loss: 0.7537604570388794
+acc_val: 0.7740
+Epoch 60, training loss: 0.5940693020820618
+acc_val: 0.7900
+Epoch 70, training loss: 0.5024784207344055
+acc_val: 0.7960
+Epoch 80, training loss: 0.4013606905937195
+acc_val: 0.7920
+Epoch 90, training loss: 0.3655611574649811
+acc_val: 0.7880
+Epoch 100, training loss: 0.35712161660194397
+acc_val: 0.7900
+Epoch 110, training loss: 0.3447527289390564
+acc_val: 0.7960
+Epoch 120, training loss: 0.3365394175052643
+acc_val: 0.7940
+Epoch 130, training loss: 0.29582488536834717
+acc_val: 0.8000
+Epoch 140, training loss: 0.2830040454864502
+acc_val: 0.7880
+Epoch 150, training loss: 0.2812403440475464
+acc_val: 0.7960
+Epoch 160, training loss: 0.24211417138576508
+acc_val: 0.7980
+Epoch 170, training loss: 0.2564656436443329
+acc_val: 0.7920
+Epoch 180, training loss: 0.22972258925437927
+acc_val: 0.7980
+Epoch 190, training loss: 0.24481302499771118
+acc_val: 0.7980
+=== picking the best model according to the performance on validation ===
+random
+Perturbation Size:0
+Accuracy: 0.811
+Perturbation Size:1
+Accuracy: 0.8140000000000001
+Perturbation Size:2
+Accuracy: 0.779
+Perturbation Size:3
+Accuracy: 0.757
+Perturbation Size:4
+Accuracy: 0.752
+Perturbation Size:5
+Accuracy: 0.737
+Perturbation Size:6
+Accuracy: 0.713
+Perturbation Size:7
+Accuracy: 0.704
+Perturbation Size:8
+Accuracy: 0.682
+Perturbation Size:9
+Accuracy: 0.674
+Perturbation Size:10
+Accuracy: 0.663

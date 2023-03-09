@@ -7,7 +7,8 @@ Namespace(add_edge_rate_1=0, add_edge_rate_2=0, attack='nettack', base_model='GC
 nettack
 === [Evasion] Attacking 100 nodes respectively ===
 === Perturbation Size 1 ===
-  0%|          | 0/100 [00:00<?, ?it/s]/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/numba/core/ir_utils.py:2147: NumbaPendingDeprecationWarning: 
+
+  0%|          | 0/100 [00:00<?, ?it/s]/home/mfl5681/anaconda3/envs/py38_torch120/lib/python3.8/site-packages/numba/core/ir_utils.py:2147: NumbaPendingDeprecationWarning: 
 Encountered the use of a type that is scheduled for deprecation: type 'reflected set' found for argument 'edges_set' of function 'compute_new_a_hat_uv'.
 
 For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
@@ -20,86 +21,1529 @@ def compute_new_a_hat_uv(edge_ixs, node_nb_ixs, edges_set, twohop_ixs, values_be
   warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
 GCN False
 Robust GNN 0
-  1%|          | 1/100 [00:12<21:13, 12.86s/it]GCN False
+
+  1%|          | 1/100 [00:12<21:13, 12.86s/it]GCN False
 Robust GNN 0
-  2%|▏         | 2/100 [00:22<17:48, 10.90s/it]GCN False
+
+  2%|▏         | 2/100 [00:22<17:48, 10.90s/it]GCN False
 Robust GNN 0
-  3%|▎         | 3/100 [00:32<16:53, 10.44s/it]GCN False
+
+  3%|▎         | 3/100 [00:32<16:53, 10.44s/it]GCN False
 Robust GNN 0
-  4%|▍         | 4/100 [00:42<16:30, 10.32s/it]GCN False
+
+  4%|▍         | 4/100 [00:42<16:30, 10.32s/it]GCN False
 Robust GNN 1
-  5%|▌         | 5/100 [00:53<16:47, 10.60s/it]GCN True
+
+  5%|▌         | 5/100 [00:53<16:47, 10.60s/it]GCN True
 Robust GNN 1
-  6%|▌         | 6/100 [01:03<16:13, 10.36s/it]GCN False
+
+  6%|▌         | 6/100 [01:03<16:13, 10.36s/it]GCN False
 Robust GNN 1
-  7%|▋         | 7/100 [01:14<16:38, 10.73s/it]GCN False
+
+  7%|▋         | 7/100 [01:14<16:38, 10.73s/it]GCN False
 Robust GNN 0
-  8%|▊         | 8/100 [01:25<16:22, 10.68s/it]GCN False
+
+  8%|▊         | 8/100 [01:25<16:22, 10.68s/it]GCN False
 Robust GNN 0
-  9%|▉         | 9/100 [01:34<15:32, 10.25s/it]GCN True
+
+  9%|▉         | 9/100 [01:34<15:32, 10.25s/it]GCN True
 Robust GNN 1
- 10%|█         | 10/100 [01:47<16:43, 11.15s/it]GCN False
+
+ 10%|█         | 10/100 [01:47<16:43, 11.15s/it]GCN False
 Robust GNN 0
- 11%|█         | 11/100 [01:58<16:28, 11.10s/it]GCN False
+
+ 11%|█         | 11/100 [01:58<16:28, 11.10s/it]GCN False
 Robust GNN 0
- 12%|█▏        | 12/100 [02:10<16:36, 11.33s/it]GCN False
+
+ 12%|█▏        | 12/100 [02:10<16:36, 11.33s/it]GCN False
 Robust GNN 0
- 13%|█▎        | 13/100 [02:21<16:01, 11.05s/it]GCN False
+
+ 13%|█▎        | 13/100 [02:21<16:01, 11.05s/it]GCN False
 Robust GNN 0
- 14%|█▍        | 14/100 [02:30<15:07, 10.55s/it]GCN False
+
+ 14%|█▍        | 14/100 [02:30<15:07, 10.55s/it]GCN False
 Robust GNN 0
- 15%|█▌        | 15/100 [02:39<14:21, 10.13s/it]GCN True
+
+ 15%|█▌        | 15/100 [02:39<14:21, 10.13s/it]GCN True
 Robust GNN 1
- 16%|█▌        | 16/100 [02:49<14:03, 10.04s/it]GCN False
+
+ 16%|█▌        | 16/100 [02:49<14:03, 10.04s/it]GCN False
 Robust GNN 0
- 17%|█▋        | 17/100 [03:00<14:09, 10.24s/it]GCN False
+
+ 17%|█▋        | 17/100 [03:00<14:09, 10.24s/it]GCN False
 Robust GNN 0
- 18%|█▊        | 18/100 [03:09<13:46, 10.07s/it]GCN False
+
+ 18%|█▊        | 18/100 [03:09<13:46, 10.07s/it]GCN False
 Robust GNN 1
- 19%|█▉        | 19/100 [03:19<13:29, 10.00s/it]GCN True
+
+ 19%|█▉        | 19/100 [03:19<13:29, 10.00s/it]GCN True
 Robust GNN 1
- 20%|██        | 20/100 [03:30<13:41, 10.26s/it]GCN False
+
+ 20%|██        | 20/100 [03:30<13:41, 10.26s/it]GCN False
 Robust GNN 0
- 21%|██        | 21/100 [03:40<13:20, 10.14s/it]GCN False
+
+ 21%|██        | 21/100 [03:40<13:20, 10.14s/it]GCN False
 Robust GNN 0
- 22%|██▏       | 22/100 [03:51<13:28, 10.36s/it]GCN False
+
+ 22%|██▏       | 22/100 [03:51<13:28, 10.36s/it]GCN False
 Robust GNN 1
- 23%|██▎       | 23/100 [04:01<13:06, 10.22s/it]GCN False
+
+ 23%|██▎       | 23/100 [04:01<13:06, 10.22s/it]GCN False
 Robust GNN 1
- 24%|██▍       | 24/100 [04:10<12:31,  9.88s/it]GCN False
+
+ 24%|██▍       | 24/100 [04:10<12:31,  9.88s/it]GCN False
 Robust GNN 0
- 25%|██▌       | 25/100 [04:20<12:16,  9.82s/it]GCN False
+
+ 25%|██▌       | 25/100 [04:20<12:16,  9.82s/it]GCN False
 Robust GNN 1
- 26%|██▌       | 26/100 [04:31<12:35, 10.21s/it]GCN False
+
+ 26%|██▌       | 26/100 [04:31<12:35, 10.21s/it]GCN False
 Robust GNN 0
- 27%|██▋       | 27/100 [04:40<12:05,  9.93s/it]GCN True
+
+ 27%|██▋       | 27/100 [04:40<12:05,  9.93s/it]GCN True
 Robust GNN 0
- 28%|██▊       | 28/100 [04:50<11:50,  9.87s/it]GCN False
+
+ 28%|██▊       | 28/100 [04:50<11:50,  9.87s/it]GCN False
 Robust GNN 0
- 29%|██▉       | 29/100 [05:00<11:39,  9.86s/it]GCN False
+
+ 29%|██▉       | 29/100 [05:00<11:39,  9.86s/it]GCN False
 Robust GNN 0
- 30%|███       | 30/100 [05:10<11:33,  9.91s/it]GCN False
+
+ 30%|███       | 30/100 [05:10<11:33,  9.91s/it]GCN False
 Robust GNN 0
- 31%|███       | 31/100 [05:21<11:48, 10.27s/it]GCN True
+
+ 31%|███       | 31/100 [05:21<11:48, 10.27s/it]GCN True
 Robust GNN 1
- 32%|███▏      | 32/100 [05:33<12:14, 10.80s/it]GCN False
+
+ 32%|███▏      | 32/100 [05:33<12:14, 10.80s/it]GCN False
 Robust GNN 1
- 33%|███▎      | 33/100 [05:43<11:56, 10.69s/it]GCN False
+
+ 33%|███▎      | 33/100 [05:43<11:56, 10.69s/it]GCN False
 Robust GNN 0
- 34%|███▍      | 34/100 [05:54<11:46, 10.71s/it]GCN False
+
+ 34%|███▍      | 34/100 [05:54<11:46, 10.71s/it]GCN False
 Robust GNN 0
- 35%|███▌      | 35/100 [06:05<11:45, 10.86s/it]GCN False
+
+ 35%|███▌      | 35/100 [06:05<11:45, 10.86s/it]GCN False
 Robust GNN 0
- 36%|███▌      | 36/100 [06:15<11:22, 10.66s/it]GCN False
+
+ 36%|███▌      | 36/100 [06:15<11:22, 10.66s/it]GCN False
 Robust GNN 0
- 37%|███▋      | 37/100 [06:26<11:05, 10.56s/it]GCN False
+
+ 37%|███▋      | 37/100 [06:26<11:05, 10.56s/it]GCN False
 Robust GNN 1
- 38%|███▊      | 38/100 [06:36<10:49, 10.47s/it]GCN False
+
+ 38%|███▊      | 38/100 [06:36<10:49, 10.47s/it]GCN False
 Robust GNN 0
- 39%|███▉      | 39/100 [06:46<10:33, 10.38s/it]GCN True
+
+ 39%|███▉      | 39/100 [06:46<10:33, 10.38s/it]GCN True
 Robust GNN 1
- 40%|████      | 40/100 [06:56<10:21, 10.36s/it]GCN False
+
+ 40%|████      | 40/100 [06:56<10:21, 10.36s/it]GCN False
 Robust GNN 0
- 41%|████      | 41/100 [07:07<10:16, 10.44s/it]GCN False
+
+ 41%|████      | 41/100 [07:07<10:16, 10.44s/it]GCN False
 Robust GNN 0
- 42%|████▏     | 42/100 [07:18<10:09, 10.51s/it]
+
+ 42%|████▏     | 42/100 [07:18<10:09, 10.51s/it]GCN True
+Robust GNN 0
+
+ 43%|████▎     | 43/100 [07:31<10:50, 11.40s/it]GCN False
+Robust GNN 0
+
+ 44%|████▍     | 44/100 [07:40<10:03, 10.77s/it]GCN True
+Robust GNN 1
+
+ 45%|████▌     | 45/100 [07:52<09:57, 10.87s/it]GCN True
+Robust GNN 1
+
+ 46%|████▌     | 46/100 [08:06<10:40, 11.87s/it]GCN True
+Robust GNN 0
+
+ 47%|████▋     | 47/100 [08:15<09:49, 11.12s/it]GCN False
+Robust GNN 0
+
+ 48%|████▊     | 48/100 [08:26<09:29, 10.95s/it]GCN False
+Robust GNN 0
+
+ 49%|████▉     | 49/100 [08:35<09:00, 10.59s/it]GCN True
+Robust GNN 1
+
+ 50%|█████     | 50/100 [08:45<08:30, 10.20s/it]GCN True
+Robust GNN 1
+
+ 51%|█████     | 51/100 [08:54<08:09,  9.99s/it]GCN False
+Robust GNN 0
+
+ 52%|█████▏    | 52/100 [09:04<07:59,  9.99s/it]GCN True
+Robust GNN 1
+
+ 53%|█████▎    | 53/100 [09:13<07:39,  9.77s/it]GCN False
+Robust GNN 0
+
+ 54%|█████▍    | 54/100 [09:24<07:42, 10.05s/it]GCN True
+Robust GNN 1
+
+ 55%|█████▌    | 55/100 [09:39<08:39, 11.55s/it]GCN True
+Robust GNN 1
+
+ 56%|█████▌    | 56/100 [09:50<08:21, 11.40s/it]GCN False
+Robust GNN 0
+
+ 57%|█████▋    | 57/100 [10:01<07:57, 11.10s/it]GCN False
+Robust GNN 0
+
+ 58%|█████▊    | 58/100 [10:12<07:45, 11.09s/it]GCN False
+Robust GNN 1
+
+ 59%|█████▉    | 59/100 [10:21<07:18, 10.69s/it]GCN False
+Robust GNN 0
+
+ 60%|██████    | 60/100 [10:31<06:59, 10.48s/it]GCN True
+Robust GNN 0
+
+ 61%|██████    | 61/100 [10:42<06:45, 10.39s/it]GCN True
+Robust GNN 1
+
+ 62%|██████▏   | 62/100 [10:55<07:10, 11.34s/it]GCN True
+Robust GNN 1
+
+ 63%|██████▎   | 63/100 [11:07<07:00, 11.36s/it]GCN True
+Robust GNN 1
+
+ 64%|██████▍   | 64/100 [11:19<06:55, 11.53s/it]GCN False
+Robust GNN 0
+
+ 65%|██████▌   | 65/100 [11:29<06:28, 11.10s/it]GCN True
+Robust GNN 1
+
+ 66%|██████▌   | 66/100 [11:38<06:00, 10.62s/it]GCN False
+Robust GNN 1
+
+ 67%|██████▋   | 67/100 [11:48<05:47, 10.54s/it]GCN True
+Robust GNN 0
+
+ 68%|██████▊   | 68/100 [11:59<05:34, 10.46s/it]GCN True
+Robust GNN 0
+
+ 69%|██████▉   | 69/100 [12:12<05:54, 11.44s/it]GCN False
+Robust GNN 0
+
+ 70%|███████   | 70/100 [12:23<05:31, 11.05s/it]GCN True
+Robust GNN 1
+
+ 71%|███████   | 71/100 [12:38<05:53, 12.20s/it]GCN True
+Robust GNN 0
+
+ 72%|███████▏  | 72/100 [12:48<05:23, 11.54s/it]GCN False
+Robust GNN 0
+
+ 73%|███████▎  | 73/100 [12:58<04:59, 11.09s/it]GCN False
+Robust GNN 0
+
+ 74%|███████▍  | 74/100 [13:08<04:39, 10.76s/it]GCN False
+Robust GNN 0
+
+ 75%|███████▌  | 75/100 [13:18<04:26, 10.65s/it]GCN False
+Robust GNN 0
+
+ 76%|███████▌  | 76/100 [13:28<04:08, 10.35s/it]GCN False
+Robust GNN 0
+
+ 77%|███████▋  | 77/100 [13:36<03:46,  9.83s/it]GCN True
+Robust GNN 0
+
+ 78%|███████▊  | 78/100 [13:46<03:37,  9.88s/it]GCN False
+Robust GNN 0
+
+ 79%|███████▉  | 79/100 [13:56<03:29, 10.00s/it]GCN True
+Robust GNN 1
+
+ 80%|████████  | 80/100 [14:05<03:08,  9.42s/it]GCN True
+Robust GNN 0
+
+ 81%|████████  | 81/100 [14:14<02:56,  9.30s/it]GCN False
+Robust GNN 0
+
+ 82%|████████▏ | 82/100 [14:23<02:47,  9.29s/it]GCN False
+Robust GNN 1
+
+ 83%|████████▎ | 83/100 [14:33<02:43,  9.63s/it]GCN True
+Robust GNN 0
+
+ 84%|████████▍ | 84/100 [14:44<02:38,  9.91s/it]GCN False
+Robust GNN 0
+
+ 85%|████████▌ | 85/100 [14:56<02:38, 10.54s/it]GCN False
+Robust GNN 0
+
+ 86%|████████▌ | 86/100 [15:06<02:27, 10.55s/it]GCN False
+Robust GNN 0
+
+ 87%|████████▋ | 87/100 [15:16<02:14, 10.36s/it]GCN False
+Robust GNN 0
+
+ 88%|████████▊ | 88/100 [15:27<02:03, 10.32s/it]GCN True
+Robust GNN 1
+
+ 89%|████████▉ | 89/100 [15:37<01:53, 10.32s/it]GCN True
+Robust GNN 1
+
+ 90%|█████████ | 90/100 [15:48<01:46, 10.68s/it]GCN False
+Robust GNN 1
+
+ 91%|█████████ | 91/100 [15:59<01:35, 10.58s/it]GCN True
+Robust GNN 1
+
+ 92%|█████████▏| 92/100 [16:11<01:28, 11.07s/it]GCN False
+Robust GNN 1
+
+ 93%|█████████▎| 93/100 [16:21<01:15, 10.83s/it]GCN True
+Robust GNN 0
+
+ 94%|█████████▍| 94/100 [16:32<01:04, 10.67s/it]GCN False
+Robust GNN 0
+
+ 95%|█████████▌| 95/100 [16:43<00:53, 10.77s/it]GCN False
+Robust GNN 0
+
+ 96%|█████████▌| 96/100 [16:53<00:42, 10.69s/it]GCN False
+Robust GNN 0
+
+ 97%|█████████▋| 97/100 [17:03<00:31, 10.59s/it]GCN False
+Robust GNN 0
+
+ 98%|█████████▊| 98/100 [17:14<00:20, 10.49s/it]GCN True
+Robust GNN 1
+
+ 99%|█████████▉| 99/100 [17:24<00:10, 10.54s/it]GCN True
+Robust GNN 1
+
+100%|██████████| 100/100 [17:35<00:00, 10.58s/it]
+100%|██████████| 100/100 [17:35<00:00, 10.55s/it]
+[GCN] misclassification rate : 0.65
+[CL] misclassification rate : 0.63
+=== Perturbation Size 2 ===
+
+  0%|          | 0/100 [00:00<?, ?it/s]GCN False
+Robust GNN 0
+
+  1%|          | 1/100 [00:16<26:39, 16.16s/it]GCN False
+Robust GNN 0
+
+  2%|▏         | 2/100 [00:31<25:17, 15.48s/it]GCN False
+Robust GNN 0
+
+  3%|▎         | 3/100 [00:45<24:25, 15.11s/it]GCN False
+Robust GNN 0
+
+  4%|▍         | 4/100 [01:01<24:15, 15.16s/it]GCN False
+Robust GNN 0
+
+  5%|▌         | 5/100 [01:17<25:00, 15.80s/it]GCN False
+Robust GNN 0
+
+  6%|▌         | 6/100 [01:33<24:36, 15.70s/it]GCN False
+Robust GNN 0
+
+  7%|▋         | 7/100 [01:51<25:24, 16.39s/it]GCN False
+Robust GNN 0
+
+  8%|▊         | 8/100 [02:06<24:21, 15.88s/it]GCN False
+Robust GNN 0
+
+  9%|▉         | 9/100 [02:19<22:41, 14.96s/it]GCN True
+Robust GNN 1
+
+ 10%|█         | 10/100 [02:36<23:38, 15.76s/it]GCN False
+Robust GNN 0
+
+ 11%|█         | 11/100 [02:50<22:19, 15.05s/it]GCN False
+Robust GNN 0
+
+ 12%|█▏        | 12/100 [03:10<24:20, 16.60s/it]GCN False
+Robust GNN 0
+
+ 13%|█▎        | 13/100 [03:25<23:21, 16.10s/it]GCN False
+Robust GNN 0
+
+ 14%|█▍        | 14/100 [03:40<22:47, 15.90s/it]GCN False
+Robust GNN 0
+
+ 15%|█▌        | 15/100 [03:54<21:50, 15.42s/it]GCN False
+Robust GNN 1
+
+ 16%|█▌        | 16/100 [04:10<21:53, 15.63s/it]GCN False
+Robust GNN 0
+
+ 17%|█▋        | 17/100 [04:25<21:08, 15.28s/it]GCN False
+Robust GNN 0
+
+ 18%|█▊        | 18/100 [04:39<20:31, 15.02s/it]GCN False
+Robust GNN 0
+
+ 19%|█▉        | 19/100 [04:55<20:21, 15.08s/it]GCN False
+Robust GNN 0
+
+ 20%|██        | 20/100 [05:10<20:12, 15.15s/it]GCN False
+Robust GNN 0
+
+ 21%|██        | 21/100 [05:26<20:09, 15.31s/it]GCN False
+Robust GNN 0
+
+ 22%|██▏       | 22/100 [05:42<20:21, 15.66s/it]GCN True
+Robust GNN 1
+
+ 23%|██▎       | 23/100 [05:59<20:27, 15.94s/it]GCN False
+Robust GNN 0
+
+ 24%|██▍       | 24/100 [06:14<19:47, 15.62s/it]GCN False
+Robust GNN 0
+
+ 25%|██▌       | 25/100 [06:29<19:27, 15.57s/it]GCN False
+Robust GNN 0
+
+ 26%|██▌       | 26/100 [06:49<20:47, 16.85s/it]GCN False
+Robust GNN 0
+
+ 27%|██▋       | 27/100 [07:04<19:46, 16.25s/it]GCN False
+Robust GNN 0
+
+ 28%|██▊       | 28/100 [07:19<19:13, 16.02s/it]GCN False
+Robust GNN 0
+
+ 29%|██▉       | 29/100 [07:34<18:29, 15.62s/it]GCN False
+Robust GNN 0
+
+ 30%|███       | 30/100 [07:47<17:17, 14.82s/it]GCN False
+Robust GNN 0
+
+ 31%|███       | 31/100 [08:02<17:10, 14.94s/it]GCN True
+Robust GNN 1
+
+ 32%|███▏      | 32/100 [08:19<17:37, 15.56s/it]GCN False
+Robust GNN 1
+
+ 33%|███▎      | 33/100 [08:34<17:12, 15.42s/it]GCN False
+Robust GNN 0
+
+ 34%|███▍      | 34/100 [08:50<17:13, 15.66s/it]GCN False
+Robust GNN 0
+
+ 35%|███▌      | 35/100 [09:07<17:17, 15.95s/it]GCN False
+Robust GNN 0
+
+ 36%|███▌      | 36/100 [09:22<16:35, 15.55s/it]GCN False
+Robust GNN 0
+
+ 37%|███▋      | 37/100 [09:36<16:06, 15.35s/it]GCN False
+Robust GNN 0
+
+ 38%|███▊      | 38/100 [09:52<15:48, 15.30s/it]GCN False
+Robust GNN 0
+
+ 39%|███▉      | 39/100 [10:06<15:22, 15.13s/it]GCN True
+Robust GNN 1
+
+ 40%|████      | 40/100 [10:22<15:10, 15.17s/it]GCN False
+Robust GNN 0
+
+ 41%|████      | 41/100 [10:38<15:24, 15.67s/it]GCN False
+Robust GNN 0
+
+ 42%|████▏     | 42/100 [10:54<15:13, 15.76s/it]GCN False
+Robust GNN 0
+
+ 43%|████▎     | 43/100 [11:19<17:24, 18.33s/it]GCN False
+Robust GNN 0
+
+ 44%|████▍     | 44/100 [11:34<16:09, 17.31s/it]GCN True
+Robust GNN 1
+
+ 45%|████▌     | 45/100 [11:49<15:26, 16.85s/it]GCN True
+Robust GNN 1
+
+ 46%|████▌     | 46/100 [12:16<17:52, 19.86s/it]GCN False
+Robust GNN 0
+
+ 47%|████▋     | 47/100 [12:31<16:16, 18.42s/it]GCN False
+Robust GNN 0
+
+ 48%|████▊     | 48/100 [12:46<14:59, 17.30s/it]GCN False
+Robust GNN 0
+
+ 49%|████▉     | 49/100 [13:02<14:21, 16.89s/it]GCN False
+Robust GNN 0
+
+ 50%|█████     | 50/100 [13:17<13:28, 16.18s/it]GCN False
+Robust GNN 0
+
+ 51%|█████     | 51/100 [13:30<12:33, 15.38s/it]GCN False
+Robust GNN 0
+
+ 52%|█████▏    | 52/100 [13:44<11:56, 14.92s/it]GCN False
+Robust GNN 0
+
+ 53%|█████▎    | 53/100 [13:58<11:25, 14.58s/it]GCN False
+Robust GNN 0
+
+ 54%|█████▍    | 54/100 [14:11<10:53, 14.21s/it]GCN True
+Robust GNN 1
+
+ 55%|█████▌    | 55/100 [14:34<12:35, 16.80s/it]GCN True
+Robust GNN 1
+
+ 56%|█████▌    | 56/100 [14:52<12:40, 17.28s/it]GCN False
+Robust GNN 0
+
+ 57%|█████▋    | 57/100 [15:08<12:06, 16.90s/it]GCN False
+Robust GNN 0
+
+ 58%|█████▊    | 58/100 [15:25<11:47, 16.85s/it]GCN False
+Robust GNN 0
+
+ 59%|█████▉    | 59/100 [15:40<11:04, 16.20s/it]GCN False
+Robust GNN 0
+
+ 60%|██████    | 60/100 [15:54<10:27, 15.68s/it]GCN False
+Robust GNN 0
+
+ 61%|██████    | 61/100 [16:09<10:01, 15.41s/it]GCN True
+Robust GNN 1
+
+ 62%|██████▏   | 62/100 [16:31<11:01, 17.41s/it]GCN False
+Robust GNN 1
+
+ 63%|██████▎   | 63/100 [16:49<10:49, 17.57s/it]GCN False
+Robust GNN 0
+
+ 64%|██████▍   | 64/100 [17:08<10:52, 18.14s/it]GCN False
+Robust GNN 0
+
+ 65%|██████▌   | 65/100 [17:24<10:12, 17.49s/it]GCN False
+Robust GNN 0
+
+ 66%|██████▌   | 66/100 [17:40<09:38, 17.01s/it]GCN False
+Robust GNN 0
+
+ 67%|██████▋   | 67/100 [17:56<09:03, 16.47s/it]GCN False
+Robust GNN 0
+
+ 68%|██████▊   | 68/100 [18:11<08:33, 16.04s/it]GCN True
+Robust GNN 0
+
+ 69%|██████▉   | 69/100 [18:33<09:13, 17.85s/it]GCN False
+Robust GNN 0
+
+ 70%|███████   | 70/100 [18:47<08:20, 16.68s/it]GCN True
+Robust GNN 0
+
+ 71%|███████   | 71/100 [19:09<08:56, 18.50s/it]GCN False
+Robust GNN 0
+
+ 72%|███████▏  | 72/100 [19:23<07:54, 16.93s/it]GCN False
+Robust GNN 0
+
+ 73%|███████▎  | 73/100 [19:37<07:12, 16.02s/it]GCN False
+Robust GNN 0
+
+ 74%|███████▍  | 74/100 [19:50<06:37, 15.27s/it]GCN False
+Robust GNN 0
+
+ 75%|███████▌  | 75/100 [20:05<06:15, 15.02s/it]GCN False
+Robust GNN 0
+
+ 76%|███████▌  | 76/100 [20:19<05:53, 14.72s/it]GCN False
+Robust GNN 0
+
+ 77%|███████▋  | 77/100 [20:32<05:33, 14.49s/it]GCN False
+Robust GNN 0
+
+ 78%|███████▊  | 78/100 [20:49<05:33, 15.17s/it]GCN False
+Robust GNN 0
+
+ 79%|███████▉  | 79/100 [21:06<05:29, 15.70s/it]GCN False
+Robust GNN 0
+
+ 80%|████████  | 80/100 [21:21<05:09, 15.46s/it]GCN False
+Robust GNN 0
+
+ 81%|████████  | 81/100 [21:36<04:50, 15.31s/it]GCN False
+Robust GNN 0
+
+ 82%|████████▏ | 82/100 [21:51<04:35, 15.31s/it]GCN False
+Robust GNN 0
+
+ 83%|████████▎ | 83/100 [22:09<04:32, 16.05s/it]GCN False
+Robust GNN 0
+
+ 84%|████████▍ | 84/100 [22:25<04:15, 15.98s/it]GCN False
+Robust GNN 0
+
+ 85%|████████▌ | 85/100 [22:42<04:04, 16.32s/it]GCN False
+Robust GNN 0
+
+ 86%|████████▌ | 86/100 [22:58<03:47, 16.28s/it]GCN False
+Robust GNN 0
+
+ 87%|████████▋ | 87/100 [23:13<03:27, 15.94s/it]GCN False
+Robust GNN 0
+
+ 88%|████████▊ | 88/100 [23:27<03:02, 15.21s/it]GCN False
+Robust GNN 0
+
+ 89%|████████▉ | 89/100 [23:40<02:41, 14.71s/it]GCN True
+Robust GNN 1
+
+ 90%|█████████ | 90/100 [23:57<02:31, 15.19s/it]GCN False
+Robust GNN 1
+
+ 91%|█████████ | 91/100 [24:13<02:18, 15.41s/it]GCN False
+Robust GNN 1
+
+ 92%|█████████▏| 92/100 [24:32<02:11, 16.50s/it]GCN False
+Robust GNN 0
+
+ 93%|█████████▎| 93/100 [24:46<01:50, 15.84s/it]GCN False
+Robust GNN 0
+
+ 94%|█████████▍| 94/100 [25:02<01:35, 15.96s/it]GCN False
+Robust GNN 0
+
+ 95%|█████████▌| 95/100 [25:16<01:17, 15.42s/it]GCN False
+Robust GNN 0
+
+ 96%|█████████▌| 96/100 [25:30<00:59, 14.92s/it]GCN False
+Robust GNN 0
+
+ 97%|█████████▋| 97/100 [25:45<00:44, 14.76s/it]GCN False
+Robust GNN 0
+
+ 98%|█████████▊| 98/100 [26:01<00:30, 15.35s/it]GCN True
+Robust GNN 0
+
+ 99%|█████████▉| 99/100 [26:16<00:15, 15.18s/it]GCN False
+Robust GNN 0
+
+100%|██████████| 100/100 [26:31<00:00, 15.06s/it]
+100%|██████████| 100/100 [26:31<00:00, 15.91s/it]
+[GCN] misclassification rate : 0.87
+[CL] misclassification rate : 0.85
+=== Perturbation Size 3 ===
+
+  0%|          | 0/100 [00:00<?, ?it/s]GCN False
+Robust GNN 0
+
+  1%|          | 1/100 [00:20<34:17, 20.78s/it]GCN False
+Robust GNN 0
+
+  2%|▏         | 2/100 [00:41<33:42, 20.64s/it]GCN False
+Robust GNN 0
+
+  3%|▎         | 3/100 [01:00<32:24, 20.05s/it]GCN False
+Robust GNN 0
+
+  4%|▍         | 4/100 [01:21<32:37, 20.39s/it]GCN False
+Robust GNN 0
+
+  5%|▌         | 5/100 [01:40<31:31, 19.91s/it]GCN False
+Robust GNN 0
+
+  6%|▌         | 6/100 [01:59<30:49, 19.68s/it]GCN False
+Robust GNN 0
+
+  7%|▋         | 7/100 [02:17<29:32, 19.06s/it]GCN False
+Robust GNN 0
+
+  8%|▊         | 8/100 [02:36<28:59, 18.91s/it]GCN False
+Robust GNN 0
+
+  9%|▉         | 9/100 [02:55<28:57, 19.09s/it]GCN True
+Robust GNN 0
+
+ 10%|█         | 10/100 [03:24<33:03, 22.04s/it]GCN False
+Robust GNN 0
+
+ 11%|█         | 11/100 [03:44<31:51, 21.47s/it]GCN False
+Robust GNN 0
+
+ 12%|█▏        | 12/100 [04:09<32:49, 22.38s/it]GCN False
+Robust GNN 0
+
+ 13%|█▎        | 13/100 [04:26<30:17, 20.89s/it]GCN False
+Robust GNN 0
+
+ 14%|█▍        | 14/100 [04:50<31:07, 21.72s/it]GCN False
+Robust GNN 0
+
+ 15%|█▌        | 15/100 [05:09<29:48, 21.04s/it]GCN False
+Robust GNN 0
+
+ 16%|█▌        | 16/100 [05:28<28:33, 20.39s/it]GCN False
+Robust GNN 0
+
+ 17%|█▋        | 17/100 [05:45<26:54, 19.45s/it]GCN False
+Robust GNN 1
+
+ 18%|█▊        | 18/100 [06:05<26:46, 19.59s/it]GCN False
+Robust GNN 0
+
+ 19%|█▉        | 19/100 [06:23<25:43, 19.05s/it]GCN False
+Robust GNN 0
+
+ 20%|██        | 20/100 [06:42<25:30, 19.13s/it]GCN False
+Robust GNN 0
+
+ 21%|██        | 21/100 [07:02<25:14, 19.18s/it]GCN False
+Robust GNN 0
+
+ 22%|██▏       | 22/100 [07:25<26:27, 20.35s/it]GCN False
+Robust GNN 1
+
+ 23%|██▎       | 23/100 [07:48<27:18, 21.28s/it]GCN False
+Robust GNN 0
+
+ 24%|██▍       | 24/100 [08:07<26:03, 20.57s/it]GCN False
+Robust GNN 0
+
+ 25%|██▌       | 25/100 [08:28<25:47, 20.63s/it]GCN False
+Robust GNN 0
+
+ 26%|██▌       | 26/100 [08:56<28:25, 23.05s/it]GCN False
+Robust GNN 0
+
+ 27%|██▋       | 27/100 [09:16<26:42, 21.95s/it]GCN False
+Robust GNN 0
+
+ 28%|██▊       | 28/100 [09:37<26:00, 21.68s/it]GCN False
+Robust GNN 0
+
+ 29%|██▉       | 29/100 [09:53<23:44, 20.06s/it]GCN False
+Robust GNN 0
+
+ 30%|███       | 30/100 [10:11<22:46, 19.52s/it]GCN False
+Robust GNN 0
+
+ 31%|███       | 31/100 [10:35<23:51, 20.74s/it]GCN True
+Robust GNN 1
+
+ 32%|███▏      | 32/100 [11:03<26:03, 23.00s/it]GCN False
+Robust GNN 0
+
+ 33%|███▎      | 33/100 [11:22<24:08, 21.63s/it]GCN False
+Robust GNN 0
+
+ 34%|███▍      | 34/100 [11:40<22:42, 20.65s/it]GCN False
+Robust GNN 0
+
+ 35%|███▌      | 35/100 [12:00<21:59, 20.29s/it]GCN False
+Robust GNN 0
+
+ 36%|███▌      | 36/100 [12:19<21:19, 19.99s/it]GCN False
+Robust GNN 0
+
+ 37%|███▋      | 37/100 [12:38<20:46, 19.78s/it]GCN False
+Robust GNN 0
+
+ 38%|███▊      | 38/100 [12:58<20:35, 19.93s/it]GCN False
+Robust GNN 0
+
+ 39%|███▉      | 39/100 [13:19<20:25, 20.10s/it]GCN True
+Robust GNN 1
+
+ 40%|████      | 40/100 [13:41<20:49, 20.82s/it]GCN False
+Robust GNN 0
+
+ 41%|████      | 41/100 [14:03<20:41, 21.05s/it]GCN False
+Robust GNN 0
+
+ 42%|████▏     | 42/100 [14:25<20:38, 21.35s/it]GCN False
+Robust GNN 0
+
+ 43%|████▎     | 43/100 [15:00<24:07, 25.39s/it]GCN False
+Robust GNN 0
+
+ 44%|████▍     | 44/100 [15:20<22:13, 23.82s/it]GCN True
+Robust GNN 1
+
+ 45%|████▌     | 45/100 [15:41<21:02, 22.95s/it]GCN True
+Robust GNN 1
+
+ 46%|████▌     | 46/100 [16:18<24:34, 27.31s/it]GCN False
+Robust GNN 0
+
+ 47%|████▋     | 47/100 [16:36<21:35, 24.44s/it]GCN False
+Robust GNN 0
+
+ 48%|████▊     | 48/100 [16:55<19:40, 22.70s/it]GCN False
+Robust GNN 0
+
+ 49%|████▉     | 49/100 [17:16<18:57, 22.30s/it]GCN False
+Robust GNN 0
+
+ 50%|█████     | 50/100 [17:36<17:56, 21.54s/it]GCN False
+Robust GNN 0
+
+ 51%|█████     | 51/100 [17:55<17:04, 20.92s/it]GCN False
+Robust GNN 0
+
+ 52%|█████▏    | 52/100 [18:15<16:22, 20.47s/it]GCN False
+Robust GNN 0
+
+ 53%|█████▎    | 53/100 [18:35<15:51, 20.25s/it]GCN False
+Robust GNN 0
+
+ 54%|█████▍    | 54/100 [18:56<15:48, 20.62s/it]GCN True
+Robust GNN 1
+
+ 55%|█████▌    | 55/100 [19:34<19:17, 25.72s/it]GCN True
+Robust GNN 1
+
+ 56%|█████▌    | 56/100 [19:58<18:34, 25.33s/it]GCN False
+Robust GNN 0
+
+ 57%|█████▋    | 57/100 [20:22<17:50, 24.89s/it]GCN False
+Robust GNN 0
+
+ 58%|█████▊    | 58/100 [20:43<16:35, 23.70s/it]GCN False
+Robust GNN 0
+
+ 59%|█████▉    | 59/100 [21:02<15:21, 22.47s/it]GCN False
+Robust GNN 0
+
+ 60%|██████    | 60/100 [21:22<14:21, 21.55s/it]GCN False
+Robust GNN 0
+
+ 61%|██████    | 61/100 [21:44<14:02, 21.60s/it]GCN False
+Robust GNN 1
+
+ 62%|██████▏   | 62/100 [22:11<14:49, 23.41s/it]GCN False
+Robust GNN 0
+
+ 63%|██████▎   | 63/100 [22:34<14:21, 23.27s/it]GCN False
+Robust GNN 0
+
+ 64%|██████▍   | 64/100 [23:01<14:40, 24.47s/it]GCN False
+Robust GNN 0
+
+ 65%|██████▌   | 65/100 [23:26<14:14, 24.40s/it]GCN False
+Robust GNN 0
+
+ 66%|██████▌   | 66/100 [23:47<13:14, 23.36s/it]GCN False
+Robust GNN 0
+
+ 67%|██████▋   | 67/100 [24:06<12:09, 22.09s/it]GCN False
+Robust GNN 0
+
+ 68%|██████▊   | 68/100 [24:25<11:19, 21.24s/it]GCN False
+Robust GNN 0
+
+ 69%|██████▉   | 69/100 [24:58<12:46, 24.73s/it]GCN False
+Robust GNN 0
+
+ 70%|███████   | 70/100 [25:19<11:49, 23.65s/it]GCN False
+Robust GNN 0
+
+ 71%|███████   | 71/100 [25:55<13:15, 27.44s/it]GCN False
+Robust GNN 0
+
+ 72%|███████▏  | 72/100 [26:15<11:40, 25.03s/it]GCN False
+Robust GNN 0
+
+ 73%|███████▎  | 73/100 [26:34<10:32, 23.44s/it]GCN False
+Robust GNN 0
+
+ 74%|███████▍  | 74/100 [26:54<09:37, 22.23s/it]GCN False
+Robust GNN 0
+
+ 75%|███████▌  | 75/100 [27:14<08:56, 21.45s/it]GCN False
+Robust GNN 0
+
+ 76%|███████▌  | 76/100 [27:33<08:22, 20.95s/it]GCN False
+Robust GNN 0
+
+ 77%|███████▋  | 77/100 [27:52<07:45, 20.23s/it]GCN False
+Robust GNN 0
+
+ 78%|███████▊  | 78/100 [28:12<07:27, 20.36s/it]GCN False
+Robust GNN 0
+
+ 79%|███████▉  | 79/100 [28:36<07:30, 21.43s/it]GCN False
+Robust GNN 0
+
+ 80%|████████  | 80/100 [28:57<07:01, 21.06s/it]GCN False
+Robust GNN 0
+
+ 81%|████████  | 81/100 [29:16<06:33, 20.70s/it]GCN False
+Robust GNN 0
+
+ 82%|████████▏ | 82/100 [29:38<06:16, 20.93s/it]GCN False
+Robust GNN 0
+
+ 83%|████████▎ | 83/100 [30:01<06:08, 21.70s/it]GCN False
+Robust GNN 0
+
+ 84%|████████▍ | 84/100 [30:25<05:54, 22.17s/it]GCN False
+Robust GNN 0
+
+ 85%|████████▌ | 85/100 [30:48<05:39, 22.61s/it]GCN False
+Robust GNN 0
+
+ 86%|████████▌ | 86/100 [31:12<05:21, 22.96s/it]GCN False
+Robust GNN 0
+
+ 87%|████████▋ | 87/100 [31:33<04:49, 22.23s/it]GCN False
+Robust GNN 0
+
+ 88%|████████▊ | 88/100 [31:52<04:16, 21.36s/it]GCN False
+Robust GNN 0
+
+ 89%|████████▉ | 89/100 [32:12<03:49, 20.87s/it]GCN True
+Robust GNN 1
+
+ 90%|█████████ | 90/100 [32:37<03:42, 22.25s/it]GCN False
+Robust GNN 0
+
+ 91%|█████████ | 91/100 [32:56<03:12, 21.35s/it]GCN False
+Robust GNN 0
+
+ 92%|█████████▏| 92/100 [33:15<02:44, 20.59s/it]GCN False
+Robust GNN 0
+
+ 93%|█████████▎| 93/100 [33:32<02:16, 19.48s/it]GCN False
+Robust GNN 0
+
+ 94%|█████████▍| 94/100 [33:50<01:54, 19.14s/it]GCN False
+Robust GNN 0
+
+ 95%|█████████▌| 95/100 [34:08<01:32, 18.58s/it]GCN False
+Robust GNN 0
+
+ 96%|█████████▌| 96/100 [34:26<01:13, 18.37s/it]GCN False
+Robust GNN 0
+
+ 97%|█████████▋| 97/100 [34:45<00:56, 18.78s/it]GCN False
+Robust GNN 0
+
+ 98%|█████████▊| 98/100 [35:07<00:39, 19.59s/it]GCN False
+Robust GNN 0
+
+ 99%|█████████▉| 99/100 [35:29<00:20, 20.36s/it]GCN False
+Robust GNN 0
+
+100%|██████████| 100/100 [35:46<00:00, 19.45s/it]
+100%|██████████| 100/100 [35:46<00:00, 21.47s/it]
+[GCN] misclassification rate : 0.92
+[CL] misclassification rate : 0.9
+=== Perturbation Size 4 ===
+
+  0%|          | 0/100 [00:00<?, ?it/s]GCN False
+Robust GNN 0
+
+  1%|          | 1/100 [00:26<43:48, 26.55s/it]GCN False
+Robust GNN 0
+
+  2%|▏         | 2/100 [00:51<41:26, 25.38s/it]GCN False
+Robust GNN 0
+
+  3%|▎         | 3/100 [01:14<39:13, 24.26s/it]GCN False
+Robust GNN 0
+
+  4%|▍         | 4/100 [01:39<39:33, 24.73s/it]GCN False
+Robust GNN 0
+
+  5%|▌         | 5/100 [02:02<37:56, 23.97s/it]GCN False
+Robust GNN 0
+
+  6%|▌         | 6/100 [02:31<40:19, 25.74s/it]GCN False
+Robust GNN 0
+
+  7%|▋         | 7/100 [02:53<37:54, 24.45s/it]GCN False
+Robust GNN 0
+
+  8%|▊         | 8/100 [03:15<36:39, 23.91s/it]GCN False
+Robust GNN 0
+
+  9%|▉         | 9/100 [03:38<35:53, 23.66s/it]GCN False
+Robust GNN 0
+
+ 10%|█         | 10/100 [04:12<40:05, 26.73s/it]GCN False
+Robust GNN 0
+
+ 11%|█         | 11/100 [04:36<38:29, 25.95s/it]GCN False
+Robust GNN 0
+
+ 12%|█▏        | 12/100 [05:08<40:36, 27.68s/it]GCN False
+Robust GNN 0
+
+ 13%|█▎        | 13/100 [05:30<37:35, 25.92s/it]GCN False
+Robust GNN 0
+
+ 14%|█▍        | 14/100 [05:54<36:31, 25.48s/it]GCN False
+Robust GNN 0
+
+ 15%|█▌        | 15/100 [06:17<34:51, 24.60s/it]GCN False
+Robust GNN 0
+
+ 16%|█▌        | 16/100 [06:39<33:18, 23.79s/it]GCN False
+Robust GNN 0
+
+ 17%|█▋        | 17/100 [07:01<32:15, 23.32s/it]GCN False
+Robust GNN 0
+
+ 18%|█▊        | 18/100 [07:23<31:25, 22.99s/it]GCN False
+Robust GNN 0
+
+ 19%|█▉        | 19/100 [07:44<30:17, 22.43s/it]GCN False
+Robust GNN 0
+
+ 20%|██        | 20/100 [08:10<31:07, 23.35s/it]GCN False
+Robust GNN 0
+
+ 21%|██        | 21/100 [08:34<31:09, 23.67s/it]GCN False
+Robust GNN 0
+
+ 22%|██▏       | 22/100 [09:02<32:20, 24.88s/it]GCN False
+Robust GNN 1
+
+ 23%|██▎       | 23/100 [09:29<32:41, 25.47s/it]GCN False
+Robust GNN 0
+
+ 24%|██▍       | 24/100 [09:52<31:34, 24.93s/it]GCN False
+Robust GNN 0
+
+ 25%|██▌       | 25/100 [10:16<30:45, 24.61s/it]GCN False
+Robust GNN 0
+
+ 26%|██▌       | 26/100 [10:50<33:51, 27.45s/it]GCN False
+Robust GNN 0
+
+ 27%|██▋       | 27/100 [11:14<32:00, 26.31s/it]GCN False
+Robust GNN 0
+
+ 28%|██▊       | 28/100 [11:39<31:07, 25.94s/it]GCN False
+Robust GNN 0
+
+ 29%|██▉       | 29/100 [12:01<29:20, 24.79s/it]GCN False
+Robust GNN 0
+
+ 30%|███       | 30/100 [12:22<27:38, 23.70s/it]GCN False
+Robust GNN 0
+
+ 31%|███       | 31/100 [12:48<27:57, 24.32s/it]GCN False
+Robust GNN 1
+
+ 32%|███▏      | 32/100 [13:22<30:56, 27.30s/it]GCN False
+Robust GNN 0
+
+ 33%|███▎      | 33/100 [13:45<29:05, 26.05s/it]GCN False
+Robust GNN 0
+
+ 34%|███▍      | 34/100 [14:07<27:10, 24.71s/it]GCN False
+Robust GNN 0
+
+ 35%|███▌      | 35/100 [14:32<26:56, 24.86s/it]GCN False
+Robust GNN 0
+
+ 36%|███▌      | 36/100 [14:54<25:29, 23.89s/it]GCN False
+Robust GNN 0
+
+ 37%|███▋      | 37/100 [15:16<24:37, 23.45s/it]GCN False
+Robust GNN 0
+
+ 38%|███▊      | 38/100 [15:39<24:00, 23.24s/it]GCN False
+Robust GNN 0
+
+ 39%|███▉      | 39/100 [16:04<24:08, 23.74s/it]GCN True
+Robust GNN 1
+
+ 40%|████      | 40/100 [16:31<24:46, 24.77s/it]GCN False
+Robust GNN 0
+
+ 41%|████      | 41/100 [16:55<23:57, 24.37s/it]GCN False
+Robust GNN 0
+
+ 42%|████▏     | 42/100 [17:20<23:45, 24.58s/it]GCN False
+Robust GNN 0
+
+ 43%|████▎     | 43/100 [18:00<27:53, 29.36s/it]GCN False
+Robust GNN 0
+
+ 44%|████▍     | 44/100 [18:25<26:00, 27.87s/it]GCN True
+Robust GNN 1
+
+ 45%|████▌     | 45/100 [18:50<24:47, 27.05s/it]GCN False
+Robust GNN 1
+
+ 46%|████▌     | 46/100 [19:38<29:59, 33.32s/it]GCN False
+Robust GNN 0
+
+ 47%|████▋     | 47/100 [20:02<27:07, 30.71s/it]GCN False
+Robust GNN 0
+
+ 48%|████▊     | 48/100 [20:26<24:47, 28.61s/it]GCN False
+Robust GNN 0
+
+ 49%|████▉     | 49/100 [20:51<23:18, 27.41s/it]GCN False
+Robust GNN 0
+
+ 50%|█████     | 50/100 [21:12<21:23, 25.66s/it]GCN False
+Robust GNN 0
+
+ 51%|█████     | 51/100 [21:34<20:00, 24.50s/it]GCN False
+Robust GNN 0
+
+ 52%|█████▏    | 52/100 [21:57<19:10, 23.98s/it]GCN False
+Robust GNN 0
+
+ 53%|█████▎    | 53/100 [22:20<18:42, 23.87s/it]GCN False
+Robust GNN 0
+
+ 54%|█████▍    | 54/100 [22:42<17:51, 23.29s/it]GCN True
+Robust GNN 1
+
+ 55%|█████▌    | 55/100 [23:26<22:00, 29.34s/it]GCN False
+Robust GNN 1
+
+ 56%|█████▌    | 56/100 [23:54<21:11, 28.89s/it]GCN False
+Robust GNN 0
+
+ 57%|█████▋    | 57/100 [24:23<20:43, 28.91s/it]GCN False
+Robust GNN 0
+
+ 58%|█████▊    | 58/100 [24:46<19:09, 27.37s/it]GCN False
+Robust GNN 0
+
+ 59%|█████▉    | 59/100 [25:09<17:45, 25.99s/it]GCN False
+Robust GNN 0
+
+ 60%|██████    | 60/100 [25:32<16:40, 25.02s/it]GCN False
+Robust GNN 0
+
+ 61%|██████    | 61/100 [25:55<15:51, 24.40s/it]GCN False
+Robust GNN 1
+
+ 62%|██████▏   | 62/100 [26:31<17:44, 28.02s/it]GCN False
+Robust GNN 0
+
+ 63%|██████▎   | 63/100 [27:00<17:19, 28.10s/it]GCN False
+Robust GNN 0
+
+ 64%|██████▍   | 64/100 [27:32<17:40, 29.46s/it]GCN False
+Robust GNN 0
+
+ 65%|██████▌   | 65/100 [28:00<16:58, 29.09s/it]GCN False
+Robust GNN 0
+
+ 66%|██████▌   | 66/100 [28:27<16:04, 28.37s/it]GCN False
+Robust GNN 0
+
+ 67%|██████▋   | 67/100 [28:50<14:41, 26.71s/it]GCN False
+Robust GNN 0
+
+ 68%|██████▊   | 68/100 [29:12<13:33, 25.41s/it]GCN False
+Robust GNN 0
+
+ 69%|██████▉   | 69/100 [29:53<15:33, 30.12s/it]GCN False
+Robust GNN 0
+
+ 70%|███████   | 70/100 [30:19<14:23, 28.78s/it]GCN False
+Robust GNN 0
+
+ 71%|███████   | 71/100 [31:02<15:54, 32.92s/it]GCN False
+Robust GNN 0
+
+ 72%|███████▏  | 72/100 [31:25<14:02, 30.09s/it]GCN False
+Robust GNN 0
+
+ 73%|███████▎  | 73/100 [31:47<12:23, 27.52s/it]GCN False
+Robust GNN 0
+
+ 74%|███████▍  | 74/100 [32:09<11:14, 25.95s/it]GCN False
+Robust GNN 0
+
+ 75%|███████▌  | 75/100 [32:33<10:33, 25.33s/it]GCN False
+Robust GNN 0
+
+ 76%|███████▌  | 76/100 [32:59<10:16, 25.69s/it]GCN False
+Robust GNN 0
+
+ 77%|███████▋  | 77/100 [33:24<09:42, 25.32s/it]GCN False
+Robust GNN 0
+
+ 78%|███████▊  | 78/100 [33:51<09:29, 25.90s/it]GCN False
+Robust GNN 0
+
+ 79%|███████▉  | 79/100 [34:20<09:24, 26.89s/it]GCN False
+Robust GNN 0
+
+ 80%|████████  | 80/100 [34:43<08:34, 25.71s/it]GCN False
+Robust GNN 0
+
+ 81%|████████  | 81/100 [35:08<08:00, 25.31s/it]GCN False
+Robust GNN 0
+
+ 82%|████████▏ | 82/100 [35:32<07:30, 25.02s/it]GCN False
+Robust GNN 0
+
+ 83%|████████▎ | 83/100 [35:56<06:59, 24.65s/it]GCN False
+Robust GNN 0
+
+ 84%|████████▍ | 84/100 [36:24<06:53, 25.87s/it]GCN False
+Robust GNN 0
+
+ 85%|████████▌ | 85/100 [36:52<06:35, 26.36s/it]GCN False
+Robust GNN 0
+
+ 86%|████████▌ | 86/100 [37:20<06:14, 26.77s/it]GCN False
+Robust GNN 0
+
+ 87%|████████▋ | 87/100 [37:44<05:40, 26.19s/it]GCN False
+Robust GNN 0
+
+ 88%|████████▊ | 88/100 [38:08<05:03, 25.33s/it]GCN False
+Robust GNN 0
+
+ 89%|████████▉ | 89/100 [38:30<04:28, 24.36s/it]GCN True
+Robust GNN 1
+
+ 90%|█████████ | 90/100 [38:59<04:16, 25.70s/it]GCN False
+Robust GNN 0
+
+ 91%|█████████ | 91/100 [39:22<03:43, 24.84s/it]GCN False
+Robust GNN 0
+
+ 92%|█████████▏| 92/100 [39:43<03:11, 23.93s/it]GCN False
+Robust GNN 0
+
+ 93%|█████████▎| 93/100 [40:06<02:44, 23.56s/it]GCN False
+Robust GNN 0
+
+ 94%|█████████▍| 94/100 [40:32<02:25, 24.20s/it]GCN False
+Robust GNN 0
+
+ 95%|█████████▌| 95/100 [40:54<01:57, 23.60s/it]GCN False
+Robust GNN 0
+
+ 96%|█████████▌| 96/100 [41:17<01:33, 23.41s/it]GCN False
+Robust GNN 0
+
+ 97%|█████████▋| 97/100 [41:44<01:13, 24.65s/it]GCN False
+Robust GNN 0
+
+ 98%|█████████▊| 98/100 [42:07<00:48, 24.13s/it]GCN False
+Robust GNN 0
+
+ 99%|█████████▉| 99/100 [42:31<00:24, 24.06s/it]GCN False
+Robust GNN 0
+
+100%|██████████| 100/100 [42:53<00:00, 23.48s/it]
+100%|██████████| 100/100 [42:53<00:00, 25.74s/it]
+[GCN] misclassification rate : 0.96
+[CL] misclassification rate : 0.91
+=== Perturbation Size 5 ===
+
+  0%|          | 0/100 [00:00<?, ?it/s]GCN False
+Robust GNN 0
+
+  1%|          | 1/100 [00:35<58:37, 35.53s/it]GCN False
+Robust GNN 0
+
+  2%|▏         | 2/100 [01:07<54:13, 33.20s/it]GCN False
+Robust GNN 0
+
+  3%|▎         | 3/100 [01:39<52:45, 32.63s/it]GCN False
+Robust GNN 0
+
+  4%|▍         | 4/100 [02:13<53:12, 33.26s/it]GCN False
+Robust GNN 0
+
+  5%|▌         | 5/100 [02:43<51:04, 32.25s/it]GCN False
+Robust GNN 0
+
+  6%|▌         | 6/100 [03:26<56:03, 35.78s/it]GCN False
+Robust GNN 0
+
+  7%|▋         | 7/100 [03:54<51:37, 33.31s/it]GCN False
+Robust GNN 0
+
+  8%|▊         | 8/100 [04:25<49:39, 32.39s/it]GCN False
+Robust GNN 0
+
+  9%|▉         | 9/100 [04:55<48:11, 31.77s/it]GCN True
+Robust GNN 0
+
+ 10%|█         | 10/100 [05:38<52:47, 35.19s/it]GCN False
+Robust GNN 0
+
+ 11%|█         | 11/100 [06:12<51:44, 34.88s/it]GCN False
+Robust GNN 0
+
+ 12%|█▏        | 12/100 [06:53<53:59, 36.81s/it]GCN False
+Robust GNN 0
+
+ 13%|█▎        | 13/100 [07:21<49:38, 34.23s/it]GCN False
+Robust GNN 0
+
+ 14%|█▍        | 14/100 [07:54<48:20, 33.73s/it]GCN False
+Robust GNN 0
+
+ 15%|█▌        | 15/100 [08:24<46:12, 32.61s/it]GCN False
+Robust GNN 0
+
+ 16%|█▌        | 16/100 [08:52<43:47, 31.28s/it]GCN False
+Robust GNN 0
+
+ 17%|█▋        | 17/100 [09:21<42:16, 30.56s/it]GCN False
+Robust GNN 0
+
+ 18%|█▊        | 18/100 [09:54<42:31, 31.12s/it]GCN False
+Robust GNN 0
+
+ 19%|█▉        | 19/100 [10:19<39:47, 29.48s/it]GCN False
+Robust GNN 0
+
+ 20%|██        | 20/100 [10:55<41:41, 31.27s/it]GCN False
+Robust GNN 0
+
+ 21%|██        | 21/100 [11:25<40:40, 30.89s/it]GCN False
+Robust GNN 0
+
+ 22%|██▏       | 22/100 [12:02<42:51, 32.97s/it]GCN False
+Robust GNN 1
+
+ 23%|██▎       | 23/100 [12:36<42:27, 33.09s/it]GCN False
+Robust GNN 0
+
+ 24%|██▍       | 24/100 [13:12<43:03, 33.99s/it]GCN False
+Robust GNN 0
+
+ 25%|██▌       | 25/100 [13:43<41:19, 33.06s/it]GCN False
+Robust GNN 0
+
+ 26%|██▌       | 26/100 [14:31<46:20, 37.58s/it]GCN False
+Robust GNN 0
+
+ 27%|██▋       | 27/100 [15:05<44:28, 36.56s/it]GCN False
+Robust GNN 0
+
+ 28%|██▊       | 28/100 [15:40<43:19, 36.10s/it]GCN False
+Robust GNN 0
+
+ 29%|██▉       | 29/100 [16:08<39:56, 33.76s/it]GCN False
+Robust GNN 0
+
+ 30%|███       | 30/100 [16:36<37:21, 32.02s/it]GCN False
+Robust GNN 0
+
+ 31%|███       | 31/100 [17:06<35:54, 31.23s/it]GCN False
+Robust GNN 0
+
+ 32%|███▏      | 32/100 [17:49<39:27, 34.82s/it]GCN False
+Robust GNN 0
+
+ 33%|███▎      | 33/100 [18:19<37:21, 33.45s/it]GCN False
+Robust GNN 0
+
+ 34%|███▍      | 34/100 [18:49<35:36, 32.37s/it]GCN False
+Robust GNN 0
+
+ 35%|███▌      | 35/100 [19:24<35:56, 33.18s/it]GCN False
+Robust GNN 0
+
+ 36%|███▌      | 36/100 [19:53<33:51, 31.74s/it]GCN False
+Robust GNN 0
+
+ 37%|███▋      | 37/100 [20:23<32:56, 31.37s/it]GCN False
+Robust GNN 0
+
+ 38%|███▊      | 38/100 [20:52<31:47, 30.76s/it]GCN False
+Robust GNN 0
+
+ 39%|███▉      | 39/100 [21:26<32:10, 31.65s/it]GCN False
+Robust GNN 1
+
+ 40%|████      | 40/100 [22:03<33:21, 33.36s/it]GCN False
+Robust GNN 0
+
+ 41%|████      | 41/100 [22:39<33:22, 33.94s/it]GCN False
+Robust GNN 0
+
+ 42%|████▏     | 42/100 [23:08<31:30, 32.59s/it]GCN False
+Robust GNN 0
+
+ 43%|████▎     | 43/100 [23:54<34:43, 36.55s/it]GCN False
+Robust GNN 0
+
+ 44%|████▍     | 44/100 [24:24<32:12, 34.51s/it]GCN True
+Robust GNN 1
+
+ 45%|████▌     | 45/100 [24:52<30:02, 32.77s/it]GCN False
+Robust GNN 1
+
+ 46%|████▌     | 46/100 [25:46<35:05, 38.99s/it]GCN False
+Robust GNN 0
+
+ 47%|████▋     | 47/100 [26:16<32:00, 36.23s/it]GCN False
+Robust GNN 0
+
+ 48%|████▊     | 48/100 [26:44<29:13, 33.73s/it]GCN False
+Robust GNN 0
+
+ 49%|████▉     | 49/100 [27:14<27:42, 32.60s/it]GCN False
+Robust GNN 0
+
+ 50%|█████     | 50/100 [27:39<25:29, 30.59s/it]GCN False
+Robust GNN 0
+
+ 51%|█████     | 51/100 [28:07<24:18, 29.76s/it]GCN False
+Robust GNN 0
+
+ 52%|█████▏    | 52/100 [28:34<23:09, 28.95s/it]GCN False
+Robust GNN 0
+
+ 53%|█████▎    | 53/100 [29:03<22:34, 28.83s/it]GCN False
+Robust GNN 0
+
+ 54%|█████▍    | 54/100 [29:32<22:10, 28.93s/it]GCN True
+Robust GNN 1
+
+ 55%|█████▌    | 55/100 [30:22<26:24, 35.21s/it]GCN False
+Robust GNN 1
+
+ 56%|█████▌    | 56/100 [30:54<25:02, 34.16s/it]GCN False
+Robust GNN 0
+
+ 57%|█████▋    | 57/100 [31:30<25:00, 34.90s/it]GCN False
+Robust GNN 0
+
+ 58%|█████▊    | 58/100 [31:55<22:16, 31.81s/it]GCN False
+Robust GNN 0
+
+ 59%|█████▉    | 59/100 [32:24<21:06, 30.90s/it]GCN False
+Robust GNN 0
+
+ 60%|██████    | 60/100 [32:49<19:23, 29.10s/it]GCN False
+Robust GNN 0
+
+ 61%|██████    | 61/100 [33:15<18:25, 28.35s/it]GCN False
+Robust GNN 1
+
+ 62%|██████▏   | 62/100 [33:56<20:23, 32.19s/it]GCN False
+Robust GNN 0
+
+ 63%|██████▎   | 63/100 [34:22<18:36, 30.17s/it]GCN False
+Robust GNN 0
+
+ 64%|██████▍   | 64/100 [35:03<20:04, 33.45s/it]GCN False
+Robust GNN 0
+
+ 65%|██████▌   | 65/100 [35:41<20:17, 34.79s/it]GCN False
+Robust GNN 0
+
+ 66%|██████▌   | 66/100 [36:16<19:45, 34.88s/it]GCN False
+Robust GNN 0
+
+ 67%|██████▋   | 67/100 [36:42<17:44, 32.26s/it]GCN False
+Robust GNN 0
+
+ 68%|██████▊   | 68/100 [37:09<16:22, 30.69s/it]GCN False
+Robust GNN 0
+
+ 69%|██████▉   | 69/100 [37:57<18:35, 35.99s/it]GCN False
+Robust GNN 0
+
+ 70%|███████   | 70/100 [38:29<17:16, 34.56s/it]GCN False
+Robust GNN 0
+
+ 71%|███████   | 71/100 [39:20<19:09, 39.65s/it]GCN False
+Robust GNN 0
+
+ 72%|███████▏  | 72/100 [39:48<16:49, 36.04s/it]GCN False
+Robust GNN 0
+
+ 73%|███████▎  | 73/100 [40:16<15:09, 33.70s/it]GCN False
+Robust GNN 0
+
+ 74%|███████▍  | 74/100 [40:43<13:43, 31.67s/it]GCN False
+Robust GNN 0
+
+ 75%|███████▌  | 75/100 [41:13<12:59, 31.20s/it]GCN False
+Robust GNN 0
+
+ 76%|███████▌  | 76/100 [41:42<12:12, 30.54s/it]GCN False
+Robust GNN 0
+
+ 77%|███████▋  | 77/100 [42:07<11:05, 28.91s/it]GCN False
+Robust GNN 0
+
+ 78%|███████▊  | 78/100 [42:37<10:40, 29.11s/it]GCN False
+Robust GNN 0
+
+ 79%|███████▉  | 79/100 [43:11<10:43, 30.66s/it]GCN False
+Robust GNN 0
+
+ 80%|████████  | 80/100 [43:37<09:43, 29.19s/it]GCN False
+Robust GNN 0
+
+ 81%|████████  | 81/100 [44:11<09:41, 30.63s/it]GCN False
+Robust GNN 0
+
+ 82%|████████▏ | 82/100 [44:37<08:46, 29.28s/it]GCN False
+Robust GNN 0
+
+ 83%|████████▎ | 83/100 [45:03<08:00, 28.25s/it]GCN False
+Robust GNN 0
+
+ 84%|████████▍ | 84/100 [45:36<07:56, 29.78s/it]GCN False
+Robust GNN 0
+
+ 85%|████████▌ | 85/100 [46:08<07:37, 30.51s/it]GCN False
+Robust GNN 0
+
+ 86%|████████▌ | 86/100 [46:43<07:23, 31.68s/it]GCN False
+Robust GNN 0
+
+ 87%|████████▋ | 87/100 [47:14<06:49, 31.49s/it]GCN False
+Robust GNN 0
+
+ 88%|████████▊ | 88/100 [47:43<06:08, 30.72s/it]GCN False
+Robust GNN 0
+
+ 89%|████████▉ | 89/100 [48:10<05:28, 29.83s/it]GCN False
+Robust GNN 1
+
+ 90%|█████████ | 90/100 [48:42<05:03, 30.39s/it]GCN False
+Robust GNN 0
+
+ 91%|█████████ | 91/100 [49:10<04:26, 29.61s/it]GCN False
+Robust GNN 0
+
+ 92%|█████████▏| 92/100 [49:37<03:50, 28.78s/it]GCN False
+Robust GNN 0
+
+ 93%|█████████▎| 93/100 [50:04<03:18, 28.43s/it]GCN False
+Robust GNN 0
+
+ 94%|█████████▍| 94/100 [50:36<02:56, 29.41s/it]GCN False
+Robust GNN 0
+
+ 95%|█████████▌| 95/100 [51:03<02:22, 28.55s/it]GCN False
+Robust GNN 0
+
+ 96%|█████████▌| 96/100 [51:30<01:53, 28.34s/it]GCN False
+Robust GNN 0
+
+ 97%|█████████▋| 97/100 [52:04<01:30, 30.03s/it]GCN False
+Robust GNN 0
+
+ 98%|█████████▊| 98/100 [52:31<00:58, 29.02s/it]GCN False
+Robust GNN 0
+
+ 99%|█████████▉| 99/100 [52:57<00:27, 27.95s/it]GCN False
+Robust GNN 0
+
+100%|██████████| 100/100 [53:25<00:00, 28.11s/it]
+100%|██████████| 100/100 [53:25<00:00, 32.06s/it]
+[GCN] misclassification rate : 0.97
+[CL] misclassification rate : 0.92  

@@ -1,5 +1,7 @@
 from models.random_smooth import sample_noise,sample_noise_1by1,sample_noise_all,sample_noise_all_dense
 
+import copy
+import numpy as np
 import torch
 import os.path as osp
 import GCL.losses as L
@@ -12,11 +14,11 @@ from torch.optim import Adam
 from GCL.eval import get_split, SVMEvaluator
 from GCL.models import DualBranchContrast
 from torch_geometric.nn import GINConv, global_add_pool
-from torch_geometric.data import DataLoader
+from torch_geometric.loader import DataLoader
 from torch_geometric.datasets import TUDataset
 
 
-from eval import label_evaluation
+from eval import label_evaluation,linear_evaluation
 
 def make_gin_conv(input_dim, out_dim):
     return GINConv(nn.Sequential(nn.Linear(input_dim, out_dim), nn.ReLU(), nn.Linear(out_dim, out_dim)))
@@ -78,7 +80,7 @@ class Encoder(torch.nn.Module):
         x1, edge_index1, edge_weight1 = aug1(x, edge_index,)
         x2, edge_index2, edge_weight2 = aug2(x, edge_index,)
         # print(edge_index1.shape,edge_weight1)
-        if(self.if_smoothed and self._train_flag):
+        if(self.if_smoothed):
             edge_index1, edge_weight1 = sample_noise_all(self.args, edge_index1, edge_weight1, self.device)
             # edge_index1, edge_weight1 = sample_noise_all_dense(self.args,edge_index1,edge_weight1, self.device)
         # print(edge_index1.shape,edge_weight1)
@@ -121,6 +123,48 @@ class Encoder(torch.nn.Module):
             epoch_loss += loss.item()
         return epoch_loss
         
+
+    def smooth_test(self, num, dataset,split):
+        self.eval()
+        predictions = []
+        for _ in range(num):
+            x = []
+            y = []
+            rs_dataset = copy.deepcopy(dataset)
+            if(self.if_smoothed == True): 
+                for rs_data in rs_dataset:
+                    # print(data.edge_index.shape)
+                    # sample_noise_1by1(self.args, data.x, data.edge_index, data.edge_weight,idxs,device)
+                    # rs_edge_index, rs_edge_weight = sample_noise_all_dense(self.args,data.edge_index, data.edge_weight, self.device)
+                    rs_data.edge_index, _ = sample_noise_all(self.args, rs_data.edge_index, rs_data.edge_weight, self.device)
+            rs_dataloader = DataLoader(rs_dataset, batch_size=self.args.batch_size)
+            for data in rs_dataloader:
+                data = data.to(self.device)
+                if data.x is None:
+                    num_nodes = data.batch.size(0)
+                    data.x = torch.ones((num_nodes, 1), dtype=torch.float32, device=self.device).to(self.device)
+                _, g, _, _, _, _ = self.forward(data.x, data.edge_index, data.batch,)
+                # if(self.if_smoothed == True): 
+                #     # print(data.edge_index.shape)
+                #     # sample_noise_1by1(self.args, data.x, data.edge_index, data.edge_weight,idxs,device)
+                #     # rs_edge_index, rs_edge_weight = sample_noise_all_dense(self.args,data.edge_index, data.edge_weight, self.device)
+                #     rs_edge_index, _ = sample_noise_all(self.args, data.edge_index, data.edge_weight, self.device)
+                #     _, g, _, _, _, _ = self.forward(data.x, rs_edge_index, data.batch,)
+                # else:
+                #     _, g, _, _, _, _ = self.forward(data.x, data.edge_index, data.batch,)
+                x.append(g)
+                y.append(data.y)
+                # print(g,data.y)
+            x = torch.cat(x, dim=0)
+            y = torch.cat(y, dim=0)
+            acc, prediction = linear_evaluation(x, y, split['train'], split['test'])
+            predictions.append(prediction)
+        num_class = int(y.max()+1)
+        prediction_distribution = np.array([np.bincount(prediction_list, minlength=num_class) for prediction_list in zip(*predictions)])
+        final_prediction = prediction_distribution.argmax(1)
+        acc = (((torch.tensor(final_prediction).cpu()==y[split['test']].cpu()).sum())/len(final_prediction))
+        # print((torch.tensor(final_prediction)==y[split['test']]))
+        return acc
     def test(self, dataloader,split):
         self.eval()
         x = []
@@ -148,9 +192,11 @@ class Encoder(torch.nn.Module):
 
         # split = get_split(num_samples=x.size()[0], train_ratio=0.8, test_ratio=0.1)
         acc = label_evaluation(x, y, split['train'], split['test'])
-        print("Accuracy:",acc)
-        result = SVMEvaluator(linear=True)(x, y, split)
-        return result
+        
+        # print("Accuracy:",acc)
+        return acc
+        # result = SVMEvaluator(linear=True)(x, y, split)
+        # return result
 
 def train(encoder_model, contrast_model, dataloader, optimizer):
     encoder_model.train()

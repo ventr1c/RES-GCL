@@ -188,3 +188,126 @@ def svc_classify(x, y, search):
         accuracies_val.append(accuracy_score(y_test, classifier.predict(x_test)))
 
     return np.mean(accuracies_val), np.mean(accuracies)
+
+def linear_evaluation(embeddings, y, idx_train, idx_test):
+    idx_train = idx_train.cpu().numpy()
+    idx_test = idx_test.cpu().numpy()
+
+    X = embeddings.detach().cpu().numpy()
+    Y = y.detach().cpu().numpy()
+    Y = Y.reshape(-1, 1)
+    onehot_encoder = OneHotEncoder(categories='auto').fit(Y)
+    Y = onehot_encoder.transform(Y).toarray().astype(np.bool)
+
+    X = normalize(X, norm='l2')
+
+    # X_train, X_test, y_train, y_test = train_test_split(X, Y,
+    #                                                     test_size=1 - ratio)
+
+    logreg = LogisticRegression(solver='liblinear')
+    c = 2.0 ** np.arange(-10, 10)
+
+    clf = GridSearchCV(estimator=OneVsRestClassifier(logreg),
+                       param_grid=dict(estimator__C=c), n_jobs=8, cv=5,
+                       verbose=0)
+    clf.fit(X[idx_train], Y[idx_train])
+
+    y_pred = clf.predict_proba(X[idx_test])
+    y_pred = prob_to_one_hot(y_pred)
+    y_test = Y[idx_test]
+
+    # micro = f1_score(y_test, y_pred, average="micro")
+    # macro = f1_score(y_test, y_pred, average="macro")
+
+    # print(y_pred.argmax(1).shape,y_test.argmax(1))
+    # return {
+    #     'F1Mi': micro,
+    #     'F1Ma': macro
+    # }
+    # prediction results of idx_test
+    prediction = y_pred.argmax(1)
+    acc = (((y_pred.argmax(1)==y_test.argmax(1)).sum())/len(y_pred.argmax(1)))
+    return acc, prediction
+
+import models.random_smooth as random_smooth
+def smoothed_linear_evaluation(args, model, x, edge_index, edge_weight, num, y, idx_train, idx_test, device):
+    idx_train = idx_train.cpu().numpy()
+    idx_test = idx_test.cpu().numpy()
+
+    num_class = int(y.max()+1)
+
+    predictions = []
+    for _ in range(num):
+        rs_edge_index, rs_edge_weight = random_smooth.sample_noise(args, edge_index, edge_weight, idx_test, device)
+        embeddings = model(x, rs_edge_index, rs_edge_weight)
+
+        X = embeddings.detach().cpu().numpy()
+        Y = y.detach().cpu().numpy()
+        Y = Y.reshape(-1, 1)
+        onehot_encoder = OneHotEncoder(categories='auto').fit(Y)
+        Y = onehot_encoder.transform(Y).toarray().astype(np.bool)
+
+        X = normalize(X, norm='l2')
+
+        # X_train, X_test, y_train, y_test = train_test_split(X, Y,
+        #                                                     test_size=1 - ratio)
+
+        logreg = LogisticRegression(solver='liblinear')
+        c = 2.0 ** np.arange(-10, 10)
+
+        clf = GridSearchCV(estimator=OneVsRestClassifier(logreg),
+                        param_grid=dict(estimator__C=c), n_jobs=8, cv=5,
+                        verbose=0)
+        clf.fit(X[idx_train], Y[idx_train])
+
+        y_pred = clf.predict_proba(X[idx_test])
+        y_pred = prob_to_one_hot(y_pred)
+        y_test = Y[idx_test]
+        prediction = y_pred.argmax(1)
+        predictions.append(prediction)
+        # print(prediction)
+    prediction_distribution = np.array([np.bincount(prediction_list, minlength=num_class) for prediction_list in zip(*predictions)])
+    final_prediction = prediction_distribution.argmax(1)
+    acc = (((final_prediction==y_test.argmax(1)).sum())/len(final_prediction))
+    return acc, final_prediction
+
+def smoothed_linear_evaluation_all(args, model, x, edge_index, edge_weight, num, y, idx_train, idx_test, device):
+    idx_train = idx_train.cpu().numpy()
+    idx_test = idx_test.cpu().numpy()
+
+    num_class = int(y.max()+1)
+
+    predictions = []
+    for _ in range(num):
+        rs_edge_index, rs_edge_weight = random_smooth.sample_noise_all(args, edge_index, edge_weight, device)
+        embeddings = model(x, rs_edge_index, rs_edge_weight)
+
+        X = embeddings.detach().cpu().numpy()
+        Y = y.detach().cpu().numpy()
+        Y = Y.reshape(-1, 1)
+        onehot_encoder = OneHotEncoder(categories='auto').fit(Y)
+        Y = onehot_encoder.transform(Y).toarray().astype(np.bool)
+
+        X = normalize(X, norm='l2')
+
+        # X_train, X_test, y_train, y_test = train_test_split(X, Y,
+        #                                                     test_size=1 - ratio)
+
+        logreg = LogisticRegression(solver='liblinear')
+        c = 2.0 ** np.arange(-10, 10)
+
+        clf = GridSearchCV(estimator=OneVsRestClassifier(logreg),
+                        param_grid=dict(estimator__C=c), n_jobs=8, cv=5,
+                        verbose=0)
+        clf.fit(X[idx_train], Y[idx_train])
+
+        y_pred = clf.predict_proba(X[idx_test])
+        y_pred = prob_to_one_hot(y_pred)
+        y_test = Y[idx_test]
+        prediction = y_pred.argmax(1)
+        predictions.append(prediction)
+        # print(prediction)
+    prediction_distribution = np.array([np.bincount(prediction_list, minlength=num_class) for prediction_list in zip(*predictions)])
+    final_prediction = prediction_distribution.argmax(1)
+    acc = (((final_prediction==y_test.argmax(1)).sum())/len(final_prediction))
+    return acc, final_prediction

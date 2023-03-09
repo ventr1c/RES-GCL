@@ -1,0 +1,1288 @@
+nohup: ignoring input
+Namespace(attack='random', cuda=True, dataset='Pubmed', debug=True, device_id=1, dropout=0.5, hidden=128, no_cuda=False, num_repeat=5, seed=10, select_target_ratio=0.1, train_lr=0.01, weight_decay=0.0005)
+seed 265
+Perturbation Size:0
+Epoch: 10, Loss: 0.8501, Acc: 0.6930
+Epoch: 20, Loss: 0.8257, Acc: 0.6770
+Epoch: 30, Loss: 0.8261, Acc: 0.6740
+Epoch: 40, Loss: 0.8276, Acc: 0.6720
+Epoch: 50, Loss: 0.8278, Acc: 0.6730
+Epoch: 60, Loss: 0.8281, Acc: 0.6680
+Epoch: 70, Loss: 0.8278, Acc: 0.7020
+Epoch: 80, Loss: 0.8277, Acc: 0.6490
+Epoch: 90, Loss: 0.8272, Acc: 0.6530
+Epoch: 100, Loss: 0.8268, Acc: 0.6670
+Best Acc: 0.6670
+Perturbation Size:1
+Epoch: 10, Loss: 0.8669, Acc: 0.6520
+Epoch: 20, Loss: 0.8432, Acc: 0.6370
+Epoch: 30, Loss: 0.8441, Acc: 0.6280
+Epoch: 40, Loss: 0.8451, Acc: 0.6140
+Epoch: 50, Loss: 0.8452, Acc: 0.5440
+Epoch: 60, Loss: 0.8450, Acc: 0.6170
+Epoch: 70, Loss: 0.8447, Acc: 0.6110
+Epoch: 80, Loss: 0.8445, Acc: 0.6060
+Epoch: 90, Loss: 0.8447, Acc: 0.6440
+Epoch: 100, Loss: 0.8443, Acc: 0.5840
+Best Acc: 0.5840
+Perturbation Size:2
+Epoch: 10, Loss: 0.8716, Acc: 0.6190
+Epoch: 20, Loss: 0.8488, Acc: 0.6150
+Epoch: 30, Loss: 0.8500, Acc: 0.5180
+Epoch: 40, Loss: 0.8510, Acc: 0.5670
+Epoch: 50, Loss: 0.8516, Acc: 0.5560
+Epoch: 60, Loss: 0.8507, Acc: 0.5130
+Epoch: 70, Loss: 0.8503, Acc: 0.5450
+Epoch: 80, Loss: 0.8506, Acc: 0.5510
+Epoch: 90, Loss: 0.8502, Acc: 0.5610
+Epoch: 100, Loss: 0.8501, Acc: 0.5650
+Best Acc: 0.5650
+Perturbation Size:3
+Epoch: 10, Loss: 0.8747, Acc: 0.6230
+Epoch: 20, Loss: 0.8516, Acc: 0.5430
+Epoch: 30, Loss: 0.8525, Acc: 0.5300
+Epoch: 40, Loss: 0.8535, Acc: 0.6120
+Epoch: 50, Loss: 0.8535, Acc: 0.5340
+Epoch: 60, Loss: 0.8534, Acc: 0.5130
+Epoch: 70, Loss: 0.8530, Acc: 0.6010
+Epoch: 80, Loss: 0.8527, Acc: 0.5560
+Epoch: 90, Loss: 0.8527, Acc: 0.5710
+Epoch: 100, Loss: 0.8521, Acc: 0.5510
+Best Acc: 0.5510
+Perturbation Size:4
+Epoch: 10, Loss: 0.8770, Acc: 0.6210
+Epoch: 20, Loss: 0.8541, Acc: 0.5460
+Epoch: 30, Loss: 0.8548, Acc: 0.5580
+Epoch: 40, Loss: 0.8557, Acc: 0.5280
+Epoch: 50, Loss: 0.8559, Acc: 0.5690
+Epoch: 60, Loss: 0.8556, Acc: 0.5320
+Epoch: 70, Loss: 0.8553, Acc: 0.5350
+Epoch: 80, Loss: 0.8552, Acc: 0.5530
+Epoch: 90, Loss: 0.8544, Acc: 0.5440
+Epoch: 100, Loss: 0.8546, Acc: 0.5480
+Best Acc: 0.5480
+Perturbation Size:5
+Epoch: 10, Loss: 0.8807, Acc: 0.5730
+Epoch: 20, Loss: 0.8570, Acc: 0.4900
+Epoch: 30, Loss: 0.8589, Acc: 0.5420
+Epoch: 40, Loss: 0.8589, Acc: 0.5530
+Epoch: 50, Loss: 0.8584, Acc: 0.5200
+Epoch: 60, Loss: 0.8587, Acc: 0.5570
+Epoch: 70, Loss: 0.8583, Acc: 0.5610
+Epoch: 80, Loss: 0.8582, Acc: 0.5560
+Epoch: 90, Loss: 0.8572, Acc: 0.5550
+Epoch: 100, Loss: 0.8578, Acc: 0.5110
+Best Acc: 0.5110
+Perturbation Size:6
+Epoch: 10, Loss: 0.8815, Acc: 0.5960
+Epoch: 20, Loss: 0.8581, Acc: 0.5930
+Epoch: 30, Loss: 0.8595, Acc: 0.5790
+Epoch: 40, Loss: 0.8604, Acc: 0.5610
+Epoch: 50, Loss: 0.8601, Acc: 0.5660
+Epoch: 60, Loss: 0.8597, Acc: 0.5390
+Epoch: 70, Loss: 0.8595, Acc: 0.5530
+Epoch: 80, Loss: 0.8595, Acc: 0.5360
+Epoch: 90, Loss: 0.8589, Acc: 0.5630
+Epoch: 100, Loss: 0.8591, Acc: 0.5840
+Best Acc: 0.5840
+Perturbation Size:7
+Epoch: 10, Loss: 0.8822, Acc: 0.5500
+Epoch: 20, Loss: 0.8596, Acc: 0.5580
+Epoch: 30, Loss: 0.8611, Acc: 0.5050
+Epoch: 40, Loss: 0.8614, Acc: 0.5180
+Epoch: 50, Loss: 0.8615, Acc: 0.5440
+Epoch: 60, Loss: 0.8610, Acc: 0.5540
+Epoch: 70, Loss: 0.8607, Acc: 0.5560
+Epoch: 80, Loss: 0.8606, Acc: 0.5350
+Epoch: 90, Loss: 0.8604, Acc: 0.5430
+Epoch: 100, Loss: 0.8599, Acc: 0.5210
+Best Acc: 0.5210
+Perturbation Size:8
+Epoch: 10, Loss: 0.8836, Acc: 0.5990
+Epoch: 20, Loss: 0.8610, Acc: 0.5980
+Epoch: 30, Loss: 0.8621, Acc: 0.5300
+Epoch: 40, Loss: 0.8623, Acc: 0.5750
+Epoch: 50, Loss: 0.8623, Acc: 0.5460
+Epoch: 60, Loss: 0.8620, Acc: 0.5480
+Epoch: 70, Loss: 0.8621, Acc: 0.5120
+Epoch: 80, Loss: 0.8614, Acc: 0.5600
+Epoch: 90, Loss: 0.8610, Acc: 0.5210
+Epoch: 100, Loss: 0.8612, Acc: 0.4280
+Best Acc: 0.4280
+Perturbation Size:9
+Epoch: 10, Loss: 0.8848, Acc: 0.6070
+Epoch: 20, Loss: 0.8618, Acc: 0.5720
+Epoch: 30, Loss: 0.8631, Acc: 0.5410
+Epoch: 40, Loss: 0.8639, Acc: 0.5520
+Epoch: 50, Loss: 0.8637, Acc: 0.5550
+Epoch: 60, Loss: 0.8632, Acc: 0.5620
+Epoch: 70, Loss: 0.8627, Acc: 0.5220
+Epoch: 80, Loss: 0.8628, Acc: 0.5720
+Epoch: 90, Loss: 0.8623, Acc: 0.5720
+Epoch: 100, Loss: 0.8621, Acc: 0.5290
+Best Acc: 0.5290
+Perturbation Size:10
+Epoch: 10, Loss: 0.8854, Acc: 0.5940
+Epoch: 20, Loss: 0.8627, Acc: 0.5630
+Epoch: 30, Loss: 0.8637, Acc: 0.5200
+Epoch: 40, Loss: 0.8644, Acc: 0.5350
+Epoch: 50, Loss: 0.8641, Acc: 0.5240
+Epoch: 60, Loss: 0.8641, Acc: 0.5360
+Epoch: 70, Loss: 0.8637, Acc: 0.5310
+Epoch: 80, Loss: 0.8629, Acc: 0.5440
+Epoch: 90, Loss: 0.8631, Acc: 0.5750
+Epoch: 100, Loss: 0.8631, Acc: 0.5340
+Best Acc: 0.5340
+Perturbation Size:11
+Epoch: 10, Loss: 0.8846, Acc: 0.6090
+Epoch: 20, Loss: 0.8631, Acc: 0.5800
+Epoch: 30, Loss: 0.8645, Acc: 0.5450
+Epoch: 40, Loss: 0.8649, Acc: 0.5130
+Epoch: 50, Loss: 0.8646, Acc: 0.5470
+Epoch: 60, Loss: 0.8644, Acc: 0.4870
+Epoch: 70, Loss: 0.8642, Acc: 0.5330
+Epoch: 80, Loss: 0.8640, Acc: 0.5180
+Epoch: 90, Loss: 0.8637, Acc: 0.5740
+Epoch: 100, Loss: 0.8636, Acc: 0.5070
+Best Acc: 0.5070
+Perturbation Size:12
+Epoch: 10, Loss: 0.8865, Acc: 0.5590
+Epoch: 20, Loss: 0.8642, Acc: 0.5440
+Epoch: 30, Loss: 0.8650, Acc: 0.5630
+Epoch: 40, Loss: 0.8658, Acc: 0.5180
+Epoch: 50, Loss: 0.8656, Acc: 0.5750
+Epoch: 60, Loss: 0.8648, Acc: 0.5390
+Epoch: 70, Loss: 0.8645, Acc: 0.5650
+Epoch: 80, Loss: 0.8641, Acc: 0.5550
+Epoch: 90, Loss: 0.8646, Acc: 0.5160
+Epoch: 100, Loss: 0.8647, Acc: 0.5210
+Best Acc: 0.5210
+Perturbation Size:13
+Epoch: 10, Loss: 0.8866, Acc: 0.5960
+Epoch: 20, Loss: 0.8645, Acc: 0.5840
+Epoch: 30, Loss: 0.8660, Acc: 0.5470
+Epoch: 40, Loss: 0.8663, Acc: 0.5600
+Epoch: 50, Loss: 0.8668, Acc: 0.5550
+Epoch: 60, Loss: 0.8663, Acc: 0.5060
+Epoch: 70, Loss: 0.8663, Acc: 0.5750
+Epoch: 80, Loss: 0.8658, Acc: 0.5530
+Epoch: 90, Loss: 0.8652, Acc: 0.5410
+Epoch: 100, Loss: 0.8652, Acc: 0.5280
+Best Acc: 0.5280
+Perturbation Size:14
+Epoch: 10, Loss: 0.8872, Acc: 0.5790
+Epoch: 20, Loss: 0.8655, Acc: 0.5570
+Epoch: 30, Loss: 0.8662, Acc: 0.4790
+Epoch: 40, Loss: 0.8673, Acc: 0.5770
+Epoch: 50, Loss: 0.8670, Acc: 0.5340
+Epoch: 60, Loss: 0.8665, Acc: 0.5560
+Epoch: 70, Loss: 0.8667, Acc: 0.4950
+Epoch: 80, Loss: 0.8661, Acc: 0.5310
+Epoch: 90, Loss: 0.8662, Acc: 0.5190
+Epoch: 100, Loss: 0.8659, Acc: 0.5060
+Best Acc: 0.5060
+Perturbation Size:15
+Epoch: 10, Loss: 0.8875, Acc: 0.5690
+Epoch: 20, Loss: 0.8658, Acc: 0.5330
+Epoch: 30, Loss: 0.8672, Acc: 0.5420
+Epoch: 40, Loss: 0.8688, Acc: 0.5400
+Epoch: 50, Loss: 0.8680, Acc: 0.5600
+Epoch: 60, Loss: 0.8673, Acc: 0.5390
+Epoch: 70, Loss: 0.8673, Acc: 0.4900
+Epoch: 80, Loss: 0.8672, Acc: 0.5430
+Epoch: 90, Loss: 0.8666, Acc: 0.5800
+Epoch: 100, Loss: 0.8668, Acc: 0.5400
+Best Acc: 0.5400
+Perturbation Size:16
+Epoch: 10, Loss: 0.8883, Acc: 0.5910
+Epoch: 20, Loss: 0.8666, Acc: 0.5450
+Epoch: 30, Loss: 0.8681, Acc: 0.5310
+Epoch: 40, Loss: 0.8684, Acc: 0.4900
+Epoch: 50, Loss: 0.8680, Acc: 0.5590
+Epoch: 60, Loss: 0.8681, Acc: 0.5560
+Epoch: 70, Loss: 0.8681, Acc: 0.5050
+Epoch: 80, Loss: 0.8684, Acc: 0.5090
+Epoch: 90, Loss: 0.8673, Acc: 0.5440
+Epoch: 100, Loss: 0.8675, Acc: 0.5610
+Best Acc: 0.5610
+Perturbation Size:17
+Epoch: 10, Loss: 0.8892, Acc: 0.5760
+Epoch: 20, Loss: 0.8673, Acc: 0.5470
+Epoch: 30, Loss: 0.8690, Acc: 0.5360
+Epoch: 40, Loss: 0.8694, Acc: 0.5260
+Epoch: 50, Loss: 0.8690, Acc: 0.5300
+Epoch: 60, Loss: 0.8692, Acc: 0.5410
+Epoch: 70, Loss: 0.8684, Acc: 0.5470
+Epoch: 80, Loss: 0.8686, Acc: 0.5630
+Epoch: 90, Loss: 0.8677, Acc: 0.5340
+Epoch: 100, Loss: 0.8681, Acc: 0.5390
+Best Acc: 0.5390
+Perturbation Size:18
+Epoch: 10, Loss: 0.8903, Acc: 0.5690
+Epoch: 20, Loss: 0.8678, Acc: 0.5580
+Epoch: 30, Loss: 0.8694, Acc: 0.5300
+Epoch: 40, Loss: 0.8703, Acc: 0.5050
+Epoch: 50, Loss: 0.8697, Acc: 0.5350
+Epoch: 60, Loss: 0.8692, Acc: 0.5430
+Epoch: 70, Loss: 0.8688, Acc: 0.5240
+Epoch: 80, Loss: 0.8690, Acc: 0.5850
+Epoch: 90, Loss: 0.8689, Acc: 0.5420
+Epoch: 100, Loss: 0.8688, Acc: 0.4850
+Best Acc: 0.4850
+Perturbation Size:19
+Epoch: 10, Loss: 0.8901, Acc: 0.5830
+Epoch: 20, Loss: 0.8687, Acc: 0.5260
+Epoch: 30, Loss: 0.8702, Acc: 0.4940
+Epoch: 40, Loss: 0.8706, Acc: 0.5430
+Epoch: 50, Loss: 0.8704, Acc: 0.5400
+Epoch: 60, Loss: 0.8704, Acc: 0.5670
+Epoch: 70, Loss: 0.8698, Acc: 0.5320
+Epoch: 80, Loss: 0.8701, Acc: 0.5130
+Epoch: 90, Loss: 0.8698, Acc: 0.5310
+Epoch: 100, Loss: 0.8692, Acc: 0.5570
+Best Acc: 0.5570
+Perturbation Size:20
+Epoch: 10, Loss: 0.8912, Acc: 0.5960
+Epoch: 20, Loss: 0.8691, Acc: 0.5330
+Epoch: 30, Loss: 0.8707, Acc: 0.5170
+Epoch: 40, Loss: 0.8710, Acc: 0.5010
+Epoch: 50, Loss: 0.8708, Acc: 0.5840
+Epoch: 60, Loss: 0.8707, Acc: 0.5740
+Epoch: 70, Loss: 0.8704, Acc: 0.5290
+Epoch: 80, Loss: 0.8703, Acc: 0.5150
+Epoch: 90, Loss: 0.8704, Acc: 0.4900
+Epoch: 100, Loss: 0.8698, Acc: 0.4880
+Best Acc: 0.4880
+seed 125
+Perturbation Size:0
+Epoch: 10, Loss: 0.8500, Acc: 0.7170
+Epoch: 20, Loss: 0.8258, Acc: 0.6780
+Epoch: 30, Loss: 0.8262, Acc: 0.6700
+Epoch: 40, Loss: 0.8278, Acc: 0.6710
+Epoch: 50, Loss: 0.8281, Acc: 0.6620
+Epoch: 60, Loss: 0.8280, Acc: 0.6910
+Epoch: 70, Loss: 0.8274, Acc: 0.6600
+Epoch: 80, Loss: 0.8273, Acc: 0.6700
+Epoch: 90, Loss: 0.8275, Acc: 0.6670
+Epoch: 100, Loss: 0.8274, Acc: 0.6780
+Best Acc: 0.6780
+Perturbation Size:1
+Epoch: 10, Loss: 0.8667, Acc: 0.6330
+Epoch: 20, Loss: 0.8428, Acc: 0.5910
+Epoch: 30, Loss: 0.8444, Acc: 0.6240
+Epoch: 40, Loss: 0.8453, Acc: 0.5990
+Epoch: 50, Loss: 0.8456, Acc: 0.5620
+Epoch: 60, Loss: 0.8449, Acc: 0.5960
+Epoch: 70, Loss: 0.8448, Acc: 0.5850
+Epoch: 80, Loss: 0.8444, Acc: 0.5900
+Epoch: 90, Loss: 0.8439, Acc: 0.5810
+Epoch: 100, Loss: 0.8444, Acc: 0.5840
+Best Acc: 0.5840
+Perturbation Size:2
+Epoch: 10, Loss: 0.8720, Acc: 0.5990
+Epoch: 20, Loss: 0.8488, Acc: 0.5490
+Epoch: 30, Loss: 0.8501, Acc: 0.5320
+Epoch: 40, Loss: 0.8506, Acc: 0.5700
+Epoch: 50, Loss: 0.8509, Acc: 0.5700
+Epoch: 60, Loss: 0.8507, Acc: 0.5810
+Epoch: 70, Loss: 0.8498, Acc: 0.5440
+Epoch: 80, Loss: 0.8499, Acc: 0.5930
+Epoch: 90, Loss: 0.8498, Acc: 0.5230
+Epoch: 100, Loss: 0.8492, Acc: 0.5300
+Best Acc: 0.5300
+Perturbation Size:3
+Epoch: 10, Loss: 0.8744, Acc: 0.6170
+Epoch: 20, Loss: 0.8517, Acc: 0.5380
+Epoch: 30, Loss: 0.8523, Acc: 0.5470
+Epoch: 40, Loss: 0.8534, Acc: 0.5460
+Epoch: 50, Loss: 0.8535, Acc: 0.5200
+Epoch: 60, Loss: 0.8533, Acc: 0.4740
+Epoch: 70, Loss: 0.8534, Acc: 0.4730
+Epoch: 80, Loss: 0.8535, Acc: 0.5700
+Epoch: 90, Loss: 0.8529, Acc: 0.5010
+Epoch: 100, Loss: 0.8523, Acc: 0.5100
+Best Acc: 0.5100
+Perturbation Size:4
+Epoch: 10, Loss: 0.8776, Acc: 0.5430
+Epoch: 20, Loss: 0.8539, Acc: 0.5490
+Epoch: 30, Loss: 0.8550, Acc: 0.5450
+Epoch: 40, Loss: 0.8559, Acc: 0.5330
+Epoch: 50, Loss: 0.8559, Acc: 0.6150
+Epoch: 60, Loss: 0.8560, Acc: 0.5270
+Epoch: 70, Loss: 0.8551, Acc: 0.5670
+Epoch: 80, Loss: 0.8552, Acc: 0.5830
+Epoch: 90, Loss: 0.8548, Acc: 0.5330
+Epoch: 100, Loss: 0.8547, Acc: 0.5440
+Best Acc: 0.5440
+Perturbation Size:5
+Epoch: 10, Loss: 0.8801, Acc: 0.6120
+Epoch: 20, Loss: 0.8566, Acc: 0.5970
+Epoch: 30, Loss: 0.8582, Acc: 0.5850
+Epoch: 40, Loss: 0.8593, Acc: 0.5610
+Epoch: 50, Loss: 0.8591, Acc: 0.4780
+Epoch: 60, Loss: 0.8585, Acc: 0.5140
+Epoch: 70, Loss: 0.8582, Acc: 0.5020
+Epoch: 80, Loss: 0.8578, Acc: 0.5540
+Epoch: 90, Loss: 0.8578, Acc: 0.4900
+Epoch: 100, Loss: 0.8574, Acc: 0.5300
+Best Acc: 0.5300
+Perturbation Size:6
+Epoch: 10, Loss: 0.8811, Acc: 0.5940
+Epoch: 20, Loss: 0.8582, Acc: 0.5440
+Epoch: 30, Loss: 0.8596, Acc: 0.5550
+Epoch: 40, Loss: 0.8601, Acc: 0.5570
+Epoch: 50, Loss: 0.8602, Acc: 0.5550
+Epoch: 60, Loss: 0.8594, Acc: 0.5640
+Epoch: 70, Loss: 0.8595, Acc: 0.5790
+Epoch: 80, Loss: 0.8592, Acc: 0.5130
+Epoch: 90, Loss: 0.8594, Acc: 0.5730
+Epoch: 100, Loss: 0.8593, Acc: 0.5250
+Best Acc: 0.5250
+Perturbation Size:7
+Epoch: 10, Loss: 0.8829, Acc: 0.5680
+Epoch: 20, Loss: 0.8595, Acc: 0.5170
+Epoch: 30, Loss: 0.8608, Acc: 0.5770
+Epoch: 40, Loss: 0.8612, Acc: 0.5620
+Epoch: 50, Loss: 0.8615, Acc: 0.5420
+Epoch: 60, Loss: 0.8612, Acc: 0.4600
+Epoch: 70, Loss: 0.8609, Acc: 0.5670
+Epoch: 80, Loss: 0.8605, Acc: 0.5600
+Epoch: 90, Loss: 0.8604, Acc: 0.4570
+Epoch: 100, Loss: 0.8607, Acc: 0.5370
+Best Acc: 0.5370
+Perturbation Size:8
+Epoch: 10, Loss: 0.8839, Acc: 0.5950
+Epoch: 20, Loss: 0.8607, Acc: 0.5850
+Epoch: 30, Loss: 0.8619, Acc: 0.5420
+Epoch: 40, Loss: 0.8626, Acc: 0.4590
+Epoch: 50, Loss: 0.8628, Acc: 0.5270
+Epoch: 60, Loss: 0.8624, Acc: 0.5620
+Epoch: 70, Loss: 0.8617, Acc: 0.4690
+Epoch: 80, Loss: 0.8616, Acc: 0.5570
+Epoch: 90, Loss: 0.8613, Acc: 0.5210
+Epoch: 100, Loss: 0.8612, Acc: 0.5660
+Best Acc: 0.5660
+Perturbation Size:9
+Epoch: 10, Loss: 0.8846, Acc: 0.5830
+Epoch: 20, Loss: 0.8617, Acc: 0.5320
+Epoch: 30, Loss: 0.8629, Acc: 0.5460
+Epoch: 40, Loss: 0.8639, Acc: 0.5170
+Epoch: 50, Loss: 0.8634, Acc: 0.5210
+Epoch: 60, Loss: 0.8630, Acc: 0.5810
+Epoch: 70, Loss: 0.8626, Acc: 0.5460
+Epoch: 80, Loss: 0.8621, Acc: 0.5070
+Epoch: 90, Loss: 0.8620, Acc: 0.5310
+Epoch: 100, Loss: 0.8621, Acc: 0.5270
+Best Acc: 0.5270
+Perturbation Size:10
+Epoch: 10, Loss: 0.8851, Acc: 0.6080
+Epoch: 20, Loss: 0.8624, Acc: 0.6080
+Epoch: 30, Loss: 0.8639, Acc: 0.5620
+Epoch: 40, Loss: 0.8648, Acc: 0.5570
+Epoch: 50, Loss: 0.8641, Acc: 0.5600
+Epoch: 60, Loss: 0.8641, Acc: 0.5510
+Epoch: 70, Loss: 0.8638, Acc: 0.5660
+Epoch: 80, Loss: 0.8634, Acc: 0.5750
+Epoch: 90, Loss: 0.8635, Acc: 0.5540
+Epoch: 100, Loss: 0.8628, Acc: 0.4880
+Best Acc: 0.4880
+Perturbation Size:11
+Epoch: 10, Loss: 0.8863, Acc: 0.5720
+Epoch: 20, Loss: 0.8638, Acc: 0.5640
+Epoch: 30, Loss: 0.8647, Acc: 0.5640
+Epoch: 40, Loss: 0.8651, Acc: 0.5540
+Epoch: 50, Loss: 0.8655, Acc: 0.5680
+Epoch: 60, Loss: 0.8647, Acc: 0.5240
+Epoch: 70, Loss: 0.8638, Acc: 0.5390
+Epoch: 80, Loss: 0.8641, Acc: 0.5460
+Epoch: 90, Loss: 0.8640, Acc: 0.5580
+Epoch: 100, Loss: 0.8637, Acc: 0.5380
+Best Acc: 0.5380
+Perturbation Size:12
+Epoch: 10, Loss: 0.8856, Acc: 0.5820
+Epoch: 20, Loss: 0.8635, Acc: 0.5510
+Epoch: 30, Loss: 0.8652, Acc: 0.5670
+Epoch: 40, Loss: 0.8654, Acc: 0.5180
+Epoch: 50, Loss: 0.8658, Acc: 0.5070
+Epoch: 60, Loss: 0.8653, Acc: 0.5440
+Epoch: 70, Loss: 0.8651, Acc: 0.5390
+Epoch: 80, Loss: 0.8646, Acc: 0.4830
+Epoch: 90, Loss: 0.8642, Acc: 0.5330
+Epoch: 100, Loss: 0.8640, Acc: 0.5290
+Best Acc: 0.5290
+Perturbation Size:13
+Epoch: 10, Loss: 0.8874, Acc: 0.5640
+Epoch: 20, Loss: 0.8650, Acc: 0.5540
+Epoch: 30, Loss: 0.8662, Acc: 0.5720
+Epoch: 40, Loss: 0.8667, Acc: 0.5570
+Epoch: 50, Loss: 0.8666, Acc: 0.5020
+Epoch: 60, Loss: 0.8657, Acc: 0.5490
+Epoch: 70, Loss: 0.8655, Acc: 0.5100
+Epoch: 80, Loss: 0.8650, Acc: 0.5420
+Epoch: 90, Loss: 0.8650, Acc: 0.4740
+Epoch: 100, Loss: 0.8655, Acc: 0.5030
+Best Acc: 0.5030
+Perturbation Size:14
+Epoch: 10, Loss: 0.8875, Acc: 0.5540
+Epoch: 20, Loss: 0.8654, Acc: 0.5720
+Epoch: 30, Loss: 0.8666, Acc: 0.5610
+Epoch: 40, Loss: 0.8674, Acc: 0.4620
+Epoch: 50, Loss: 0.8672, Acc: 0.5310
+Epoch: 60, Loss: 0.8672, Acc: 0.5180
+Epoch: 70, Loss: 0.8669, Acc: 0.5360
+Epoch: 80, Loss: 0.8667, Acc: 0.5470
+Epoch: 90, Loss: 0.8667, Acc: 0.5440
+Epoch: 100, Loss: 0.8660, Acc: 0.5430
+Best Acc: 0.5430
+Perturbation Size:15
+Epoch: 10, Loss: 0.8877, Acc: 0.5450
+Epoch: 20, Loss: 0.8659, Acc: 0.5470
+Epoch: 30, Loss: 0.8671, Acc: 0.5510
+Epoch: 40, Loss: 0.8687, Acc: 0.5390
+Epoch: 50, Loss: 0.8680, Acc: 0.5240
+Epoch: 60, Loss: 0.8674, Acc: 0.4920
+Epoch: 70, Loss: 0.8676, Acc: 0.5040
+Epoch: 80, Loss: 0.8668, Acc: 0.5540
+Epoch: 90, Loss: 0.8664, Acc: 0.5570
+Epoch: 100, Loss: 0.8668, Acc: 0.5730
+Best Acc: 0.5730
+Perturbation Size:16
+Epoch: 10, Loss: 0.8890, Acc: 0.5690
+Epoch: 20, Loss: 0.8670, Acc: 0.5610
+Epoch: 30, Loss: 0.8680, Acc: 0.5470
+Epoch: 40, Loss: 0.8682, Acc: 0.5090
+Epoch: 50, Loss: 0.8684, Acc: 0.5770
+Epoch: 60, Loss: 0.8679, Acc: 0.5110
+Epoch: 70, Loss: 0.8680, Acc: 0.5350
+Epoch: 80, Loss: 0.8675, Acc: 0.5140
+Epoch: 90, Loss: 0.8674, Acc: 0.4950
+Epoch: 100, Loss: 0.8677, Acc: 0.5210
+Best Acc: 0.5210
+Perturbation Size:17
+Epoch: 10, Loss: 0.8890, Acc: 0.5800
+Epoch: 20, Loss: 0.8676, Acc: 0.6070
+Epoch: 30, Loss: 0.8688, Acc: 0.5410
+Epoch: 40, Loss: 0.8691, Acc: 0.5860
+Epoch: 50, Loss: 0.8686, Acc: 0.5070
+Epoch: 60, Loss: 0.8687, Acc: 0.5070
+Epoch: 70, Loss: 0.8685, Acc: 0.5370
+Epoch: 80, Loss: 0.8682, Acc: 0.5170
+Epoch: 90, Loss: 0.8682, Acc: 0.5440
+Epoch: 100, Loss: 0.8676, Acc: 0.5700
+Best Acc: 0.5700
+Perturbation Size:18
+Epoch: 10, Loss: 0.8901, Acc: 0.5540
+Epoch: 20, Loss: 0.8681, Acc: 0.5630
+Epoch: 30, Loss: 0.8695, Acc: 0.5590
+Epoch: 40, Loss: 0.8701, Acc: 0.5340
+Epoch: 50, Loss: 0.8701, Acc: 0.5170
+Epoch: 60, Loss: 0.8695, Acc: 0.5060
+Epoch: 70, Loss: 0.8695, Acc: 0.5470
+Epoch: 80, Loss: 0.8688, Acc: 0.5810
+Epoch: 90, Loss: 0.8692, Acc: 0.5410
+Epoch: 100, Loss: 0.8694, Acc: 0.5610
+Best Acc: 0.5610
+Perturbation Size:19
+Epoch: 10, Loss: 0.8903, Acc: 0.6020
+Epoch: 20, Loss: 0.8687, Acc: 0.5740
+Epoch: 30, Loss: 0.8699, Acc: 0.5550
+Epoch: 40, Loss: 0.8709, Acc: 0.5520
+Epoch: 50, Loss: 0.8709, Acc: 0.5400
+Epoch: 60, Loss: 0.8700, Acc: 0.5390
+Epoch: 70, Loss: 0.8700, Acc: 0.5310
+Epoch: 80, Loss: 0.8697, Acc: 0.5220
+Epoch: 90, Loss: 0.8693, Acc: 0.4970
+Epoch: 100, Loss: 0.8694, Acc: 0.5030
+Best Acc: 0.5030
+Perturbation Size:20
+Epoch: 10, Loss: 0.8906, Acc: 0.5710
+Epoch: 20, Loss: 0.8689, Acc: 0.5500
+Epoch: 30, Loss: 0.8704, Acc: 0.5110
+Epoch: 40, Loss: 0.8712, Acc: 0.5220
+Epoch: 50, Loss: 0.8716, Acc: 0.5470
+Epoch: 60, Loss: 0.8705, Acc: 0.5600
+Epoch: 70, Loss: 0.8706, Acc: 0.5220
+Epoch: 80, Loss: 0.8703, Acc: 0.4400
+Epoch: 90, Loss: 0.8701, Acc: 0.4390
+Epoch: 100, Loss: 0.8699, Acc: 0.5420
+Best Acc: 0.5420
+seed 996
+Perturbation Size:0
+Epoch: 10, Loss: 0.8497, Acc: 0.6870
+Epoch: 20, Loss: 0.8254, Acc: 0.6910
+Epoch: 30, Loss: 0.8262, Acc: 0.6780
+Epoch: 40, Loss: 0.8280, Acc: 0.6650
+Epoch: 50, Loss: 0.8281, Acc: 0.7020
+Epoch: 60, Loss: 0.8275, Acc: 0.6850
+Epoch: 70, Loss: 0.8277, Acc: 0.6660
+Epoch: 80, Loss: 0.8270, Acc: 0.6560
+Epoch: 90, Loss: 0.8273, Acc: 0.6590
+Epoch: 100, Loss: 0.8269, Acc: 0.6370
+Best Acc: 0.6370
+Perturbation Size:1
+Epoch: 10, Loss: 0.8661, Acc: 0.6200
+Epoch: 20, Loss: 0.8425, Acc: 0.5960
+Epoch: 30, Loss: 0.8436, Acc: 0.6190
+Epoch: 40, Loss: 0.8456, Acc: 0.6250
+Epoch: 50, Loss: 0.8452, Acc: 0.5770
+Epoch: 60, Loss: 0.8454, Acc: 0.5490
+Epoch: 70, Loss: 0.8448, Acc: 0.6120
+Epoch: 80, Loss: 0.8445, Acc: 0.5660
+Epoch: 90, Loss: 0.8446, Acc: 0.6390
+Epoch: 100, Loss: 0.8445, Acc: 0.6340
+Best Acc: 0.6340
+Perturbation Size:2
+Epoch: 10, Loss: 0.8715, Acc: 0.6020
+Epoch: 20, Loss: 0.8484, Acc: 0.5710
+Epoch: 30, Loss: 0.8493, Acc: 0.5450
+Epoch: 40, Loss: 0.8509, Acc: 0.5240
+Epoch: 50, Loss: 0.8509, Acc: 0.5250
+Epoch: 60, Loss: 0.8505, Acc: 0.5660
+Epoch: 70, Loss: 0.8502, Acc: 0.5420
+Epoch: 80, Loss: 0.8501, Acc: 0.5430
+Epoch: 90, Loss: 0.8495, Acc: 0.5840
+Epoch: 100, Loss: 0.8497, Acc: 0.5820
+Best Acc: 0.5820
+Perturbation Size:3
+Epoch: 10, Loss: 0.8741, Acc: 0.5520
+Epoch: 20, Loss: 0.8512, Acc: 0.5520
+Epoch: 30, Loss: 0.8528, Acc: 0.5630
+Epoch: 40, Loss: 0.8538, Acc: 0.5310
+Epoch: 50, Loss: 0.8532, Acc: 0.5650
+Epoch: 60, Loss: 0.8532, Acc: 0.5650
+Epoch: 70, Loss: 0.8530, Acc: 0.5810
+Epoch: 80, Loss: 0.8524, Acc: 0.5210
+Epoch: 90, Loss: 0.8525, Acc: 0.5590
+Epoch: 100, Loss: 0.8528, Acc: 0.5560
+Best Acc: 0.5560
+Perturbation Size:4
+Epoch: 10, Loss: 0.8768, Acc: 0.5380
+Epoch: 20, Loss: 0.8537, Acc: 0.5620
+Epoch: 30, Loss: 0.8556, Acc: 0.5670
+Epoch: 40, Loss: 0.8561, Acc: 0.5110
+Epoch: 50, Loss: 0.8562, Acc: 0.5480
+Epoch: 60, Loss: 0.8557, Acc: 0.5250
+Epoch: 70, Loss: 0.8553, Acc: 0.5340
+Epoch: 80, Loss: 0.8549, Acc: 0.5260
+Epoch: 90, Loss: 0.8547, Acc: 0.5510
+Epoch: 100, Loss: 0.8548, Acc: 0.5590
+Best Acc: 0.5590
+Perturbation Size:5
+Epoch: 10, Loss: 0.8804, Acc: 0.6320
+Epoch: 20, Loss: 0.8573, Acc: 0.5670
+Epoch: 30, Loss: 0.8588, Acc: 0.5940
+Epoch: 40, Loss: 0.8596, Acc: 0.5430
+Epoch: 50, Loss: 0.8595, Acc: 0.5810
+Epoch: 60, Loss: 0.8584, Acc: 0.5300
+Epoch: 70, Loss: 0.8582, Acc: 0.5480
+Epoch: 80, Loss: 0.8581, Acc: 0.5180
+Epoch: 90, Loss: 0.8578, Acc: 0.4970
+Epoch: 100, Loss: 0.8583, Acc: 0.4830
+Best Acc: 0.4830
+Perturbation Size:6
+Epoch: 10, Loss: 0.8818, Acc: 0.5250
+Epoch: 20, Loss: 0.8585, Acc: 0.5250
+Epoch: 30, Loss: 0.8596, Acc: 0.5430
+Epoch: 40, Loss: 0.8605, Acc: 0.5620
+Epoch: 50, Loss: 0.8606, Acc: 0.5280
+Epoch: 60, Loss: 0.8598, Acc: 0.5870
+Epoch: 70, Loss: 0.8594, Acc: 0.5750
+Epoch: 80, Loss: 0.8597, Acc: 0.5580
+Epoch: 90, Loss: 0.8597, Acc: 0.5060
+Epoch: 100, Loss: 0.8594, Acc: 0.5190
+Best Acc: 0.5190
+Perturbation Size:7
+Epoch: 10, Loss: 0.8823, Acc: 0.5850
+Epoch: 20, Loss: 0.8596, Acc: 0.5560
+Epoch: 30, Loss: 0.8612, Acc: 0.5730
+Epoch: 40, Loss: 0.8624, Acc: 0.5350
+Epoch: 50, Loss: 0.8619, Acc: 0.5620
+Epoch: 60, Loss: 0.8612, Acc: 0.5560
+Epoch: 70, Loss: 0.8607, Acc: 0.5390
+Epoch: 80, Loss: 0.8607, Acc: 0.4960
+Epoch: 90, Loss: 0.8605, Acc: 0.5530
+Epoch: 100, Loss: 0.8602, Acc: 0.5200
+Best Acc: 0.5200
+Perturbation Size:8
+Epoch: 10, Loss: 0.8836, Acc: 0.6270
+Epoch: 20, Loss: 0.8608, Acc: 0.5140
+Epoch: 30, Loss: 0.8619, Acc: 0.5370
+Epoch: 40, Loss: 0.8627, Acc: 0.5570
+Epoch: 50, Loss: 0.8621, Acc: 0.5220
+Epoch: 60, Loss: 0.8623, Acc: 0.4540
+Epoch: 70, Loss: 0.8613, Acc: 0.5610
+Epoch: 80, Loss: 0.8621, Acc: 0.5450
+Epoch: 90, Loss: 0.8621, Acc: 0.5020
+Epoch: 100, Loss: 0.8611, Acc: 0.5420
+Best Acc: 0.5420
+Perturbation Size:9
+Epoch: 10, Loss: 0.8841, Acc: 0.5620
+Epoch: 20, Loss: 0.8613, Acc: 0.5650
+Epoch: 30, Loss: 0.8628, Acc: 0.5310
+Epoch: 40, Loss: 0.8633, Acc: 0.5460
+Epoch: 50, Loss: 0.8625, Acc: 0.5470
+Epoch: 60, Loss: 0.8628, Acc: 0.5620
+Epoch: 70, Loss: 0.8622, Acc: 0.5430
+Epoch: 80, Loss: 0.8626, Acc: 0.4920
+Epoch: 90, Loss: 0.8622, Acc: 0.5330
+Epoch: 100, Loss: 0.8618, Acc: 0.5120
+Best Acc: 0.5120
+Perturbation Size:10
+Epoch: 10, Loss: 0.8841, Acc: 0.5740
+Epoch: 20, Loss: 0.8623, Acc: 0.5450
+Epoch: 30, Loss: 0.8638, Acc: 0.5530
+Epoch: 40, Loss: 0.8642, Acc: 0.5600
+Epoch: 50, Loss: 0.8638, Acc: 0.5340
+Epoch: 60, Loss: 0.8636, Acc: 0.5290
+Epoch: 70, Loss: 0.8634, Acc: 0.5620
+Epoch: 80, Loss: 0.8635, Acc: 0.5210
+Epoch: 90, Loss: 0.8630, Acc: 0.5870
+Epoch: 100, Loss: 0.8631, Acc: 0.5160
+Best Acc: 0.5160
+Perturbation Size:11
+Epoch: 10, Loss: 0.8855, Acc: 0.5780
+Epoch: 20, Loss: 0.8631, Acc: 0.5990
+Epoch: 30, Loss: 0.8644, Acc: 0.4830
+Epoch: 40, Loss: 0.8650, Acc: 0.5290
+Epoch: 50, Loss: 0.8648, Acc: 0.5160
+Epoch: 60, Loss: 0.8644, Acc: 0.5250
+Epoch: 70, Loss: 0.8641, Acc: 0.5390
+Epoch: 80, Loss: 0.8639, Acc: 0.5340
+Epoch: 90, Loss: 0.8635, Acc: 0.5070
+Epoch: 100, Loss: 0.8631, Acc: 0.5110
+Best Acc: 0.5110
+Perturbation Size:12
+Epoch: 10, Loss: 0.8862, Acc: 0.5690
+Epoch: 20, Loss: 0.8636, Acc: 0.5510
+Epoch: 30, Loss: 0.8650, Acc: 0.5540
+Epoch: 40, Loss: 0.8656, Acc: 0.5380
+Epoch: 50, Loss: 0.8655, Acc: 0.5220
+Epoch: 60, Loss: 0.8655, Acc: 0.5470
+Epoch: 70, Loss: 0.8645, Acc: 0.5510
+Epoch: 80, Loss: 0.8644, Acc: 0.5240
+Epoch: 90, Loss: 0.8644, Acc: 0.5230
+Epoch: 100, Loss: 0.8648, Acc: 0.5390
+Best Acc: 0.5390
+Perturbation Size:13
+Epoch: 10, Loss: 0.8863, Acc: 0.5780
+Epoch: 20, Loss: 0.8642, Acc: 0.5720
+Epoch: 30, Loss: 0.8660, Acc: 0.5550
+Epoch: 40, Loss: 0.8665, Acc: 0.5640
+Epoch: 50, Loss: 0.8666, Acc: 0.5400
+Epoch: 60, Loss: 0.8654, Acc: 0.5020
+Epoch: 70, Loss: 0.8655, Acc: 0.5650
+Epoch: 80, Loss: 0.8654, Acc: 0.5760
+Epoch: 90, Loss: 0.8655, Acc: 0.5070
+Epoch: 100, Loss: 0.8657, Acc: 0.5410
+Best Acc: 0.5410
+Perturbation Size:14
+Epoch: 10, Loss: 0.8878, Acc: 0.5670
+Epoch: 20, Loss: 0.8655, Acc: 0.5170
+Epoch: 30, Loss: 0.8667, Acc: 0.5510
+Epoch: 40, Loss: 0.8672, Acc: 0.5540
+Epoch: 50, Loss: 0.8668, Acc: 0.5600
+Epoch: 60, Loss: 0.8667, Acc: 0.5540
+Epoch: 70, Loss: 0.8665, Acc: 0.4570
+Epoch: 80, Loss: 0.8665, Acc: 0.4960
+Epoch: 90, Loss: 0.8661, Acc: 0.5700
+Epoch: 100, Loss: 0.8658, Acc: 0.5400
+Best Acc: 0.5400
+Perturbation Size:15
+Epoch: 10, Loss: 0.8883, Acc: 0.5720
+Epoch: 20, Loss: 0.8660, Acc: 0.5490
+Epoch: 30, Loss: 0.8671, Acc: 0.5800
+Epoch: 40, Loss: 0.8680, Acc: 0.5780
+Epoch: 50, Loss: 0.8677, Acc: 0.5100
+Epoch: 60, Loss: 0.8676, Acc: 0.5400
+Epoch: 70, Loss: 0.8671, Acc: 0.5480
+Epoch: 80, Loss: 0.8672, Acc: 0.5370
+Epoch: 90, Loss: 0.8671, Acc: 0.5130
+Epoch: 100, Loss: 0.8663, Acc: 0.5290
+Best Acc: 0.5290
+Perturbation Size:16
+Epoch: 10, Loss: 0.8884, Acc: 0.5700
+Epoch: 20, Loss: 0.8670, Acc: 0.5770
+Epoch: 30, Loss: 0.8679, Acc: 0.5500
+Epoch: 40, Loss: 0.8685, Acc: 0.5510
+Epoch: 50, Loss: 0.8686, Acc: 0.5650
+Epoch: 60, Loss: 0.8685, Acc: 0.5450
+Epoch: 70, Loss: 0.8680, Acc: 0.5450
+Epoch: 80, Loss: 0.8680, Acc: 0.5650
+Epoch: 90, Loss: 0.8672, Acc: 0.5540
+Epoch: 100, Loss: 0.8679, Acc: 0.5240
+Best Acc: 0.5240
+Perturbation Size:17
+Epoch: 10, Loss: 0.8889, Acc: 0.5560
+Epoch: 20, Loss: 0.8673, Acc: 0.5470
+Epoch: 30, Loss: 0.8683, Acc: 0.5170
+Epoch: 40, Loss: 0.8686, Acc: 0.5030
+Epoch: 50, Loss: 0.8682, Acc: 0.5400
+Epoch: 60, Loss: 0.8686, Acc: 0.5400
+Epoch: 70, Loss: 0.8683, Acc: 0.5100
+Epoch: 80, Loss: 0.8682, Acc: 0.4790
+Epoch: 90, Loss: 0.8677, Acc: 0.5490
+Epoch: 100, Loss: 0.8678, Acc: 0.5660
+Best Acc: 0.5660
+Perturbation Size:18
+Epoch: 10, Loss: 0.8897, Acc: 0.5770
+Epoch: 20, Loss: 0.8682, Acc: 0.5440
+Epoch: 30, Loss: 0.8693, Acc: 0.5690
+Epoch: 40, Loss: 0.8703, Acc: 0.4880
+Epoch: 50, Loss: 0.8702, Acc: 0.5460
+Epoch: 60, Loss: 0.8700, Acc: 0.5130
+Epoch: 70, Loss: 0.8693, Acc: 0.5440
+Epoch: 80, Loss: 0.8692, Acc: 0.5310
+Epoch: 90, Loss: 0.8691, Acc: 0.5410
+Epoch: 100, Loss: 0.8686, Acc: 0.5570
+Best Acc: 0.5570
+Perturbation Size:19
+Epoch: 10, Loss: 0.8905, Acc: 0.5720
+Epoch: 20, Loss: 0.8688, Acc: 0.5430
+Epoch: 30, Loss: 0.8703, Acc: 0.5560
+Epoch: 40, Loss: 0.8700, Acc: 0.5200
+Epoch: 50, Loss: 0.8704, Acc: 0.5000
+Epoch: 60, Loss: 0.8703, Acc: 0.5710
+Epoch: 70, Loss: 0.8700, Acc: 0.5660
+Epoch: 80, Loss: 0.8699, Acc: 0.5010
+Epoch: 90, Loss: 0.8696, Acc: 0.5580
+Epoch: 100, Loss: 0.8693, Acc: 0.5510
+Best Acc: 0.5510
+Perturbation Size:20
+Epoch: 10, Loss: 0.8908, Acc: 0.5780
+Epoch: 20, Loss: 0.8693, Acc: 0.5230
+Epoch: 30, Loss: 0.8706, Acc: 0.5460
+Epoch: 40, Loss: 0.8712, Acc: 0.5700
+Epoch: 50, Loss: 0.8711, Acc: 0.4560
+Epoch: 60, Loss: 0.8707, Acc: 0.4780
+Epoch: 70, Loss: 0.8704, Acc: 0.5390
+Epoch: 80, Loss: 0.8697, Acc: 0.5310
+Epoch: 90, Loss: 0.8701, Acc: 0.4470
+Epoch: 100, Loss: 0.8697, Acc: 0.5620
+Best Acc: 0.5620
+seed 527
+Perturbation Size:0
+Epoch: 10, Loss: 0.8498, Acc: 0.6940
+Epoch: 20, Loss: 0.8254, Acc: 0.6590
+Epoch: 30, Loss: 0.8264, Acc: 0.6430
+Epoch: 40, Loss: 0.8283, Acc: 0.6530
+Epoch: 50, Loss: 0.8278, Acc: 0.6750
+Epoch: 60, Loss: 0.8281, Acc: 0.6630
+Epoch: 70, Loss: 0.8275, Acc: 0.6270
+Epoch: 80, Loss: 0.8274, Acc: 0.6650
+Epoch: 90, Loss: 0.8274, Acc: 0.6660
+Epoch: 100, Loss: 0.8272, Acc: 0.6540
+Best Acc: 0.6540
+Perturbation Size:1
+Epoch: 10, Loss: 0.8662, Acc: 0.6630
+Epoch: 20, Loss: 0.8431, Acc: 0.6000
+Epoch: 30, Loss: 0.8441, Acc: 0.5690
+Epoch: 40, Loss: 0.8454, Acc: 0.5960
+Epoch: 50, Loss: 0.8454, Acc: 0.6090
+Epoch: 60, Loss: 0.8454, Acc: 0.5620
+Epoch: 70, Loss: 0.8450, Acc: 0.6070
+Epoch: 80, Loss: 0.8445, Acc: 0.6100
+Epoch: 90, Loss: 0.8444, Acc: 0.6200
+Epoch: 100, Loss: 0.8444, Acc: 0.6300
+Best Acc: 0.6300
+Perturbation Size:2
+Epoch: 10, Loss: 0.8716, Acc: 0.6180
+Epoch: 20, Loss: 0.8487, Acc: 0.5930
+Epoch: 30, Loss: 0.8499, Acc: 0.5540
+Epoch: 40, Loss: 0.8508, Acc: 0.5320
+Epoch: 50, Loss: 0.8510, Acc: 0.5720
+Epoch: 60, Loss: 0.8509, Acc: 0.6010
+Epoch: 70, Loss: 0.8503, Acc: 0.5320
+Epoch: 80, Loss: 0.8496, Acc: 0.5520
+Epoch: 90, Loss: 0.8496, Acc: 0.5580
+Epoch: 100, Loss: 0.8495, Acc: 0.5580
+Best Acc: 0.5580
+Perturbation Size:3
+Epoch: 10, Loss: 0.8751, Acc: 0.5080
+Epoch: 20, Loss: 0.8515, Acc: 0.5650
+Epoch: 30, Loss: 0.8532, Acc: 0.5420
+Epoch: 40, Loss: 0.8537, Acc: 0.6090
+Epoch: 50, Loss: 0.8540, Acc: 0.5680
+Epoch: 60, Loss: 0.8535, Acc: 0.5520
+Epoch: 70, Loss: 0.8531, Acc: 0.5490
+Epoch: 80, Loss: 0.8527, Acc: 0.5560
+Epoch: 90, Loss: 0.8532, Acc: 0.5520
+Epoch: 100, Loss: 0.8526, Acc: 0.5690
+Best Acc: 0.5690
+Perturbation Size:4
+Epoch: 10, Loss: 0.8776, Acc: 0.5690
+Epoch: 20, Loss: 0.8543, Acc: 0.5900
+Epoch: 30, Loss: 0.8547, Acc: 0.5380
+Epoch: 40, Loss: 0.8563, Acc: 0.5370
+Epoch: 50, Loss: 0.8565, Acc: 0.5400
+Epoch: 60, Loss: 0.8560, Acc: 0.5960
+Epoch: 70, Loss: 0.8558, Acc: 0.5840
+Epoch: 80, Loss: 0.8556, Acc: 0.5460
+Epoch: 90, Loss: 0.8552, Acc: 0.5600
+Epoch: 100, Loss: 0.8549, Acc: 0.5240
+Best Acc: 0.5240
+Perturbation Size:5
+Epoch: 10, Loss: 0.8808, Acc: 0.5870
+Epoch: 20, Loss: 0.8569, Acc: 0.5210
+Epoch: 30, Loss: 0.8580, Acc: 0.5080
+Epoch: 40, Loss: 0.8587, Acc: 0.5560
+Epoch: 50, Loss: 0.8596, Acc: 0.5750
+Epoch: 60, Loss: 0.8581, Acc: 0.5820
+Epoch: 70, Loss: 0.8580, Acc: 0.5110
+Epoch: 80, Loss: 0.8578, Acc: 0.5320
+Epoch: 90, Loss: 0.8576, Acc: 0.5560
+Epoch: 100, Loss: 0.8579, Acc: 0.5250
+Best Acc: 0.5250
+Perturbation Size:6
+Epoch: 10, Loss: 0.8810, Acc: 0.6270
+Epoch: 20, Loss: 0.8582, Acc: 0.6080
+Epoch: 30, Loss: 0.8596, Acc: 0.5670
+Epoch: 40, Loss: 0.8603, Acc: 0.5760
+Epoch: 50, Loss: 0.8601, Acc: 0.5640
+Epoch: 60, Loss: 0.8599, Acc: 0.5370
+Epoch: 70, Loss: 0.8601, Acc: 0.5110
+Epoch: 80, Loss: 0.8592, Acc: 0.4990
+Epoch: 90, Loss: 0.8589, Acc: 0.5100
+Epoch: 100, Loss: 0.8590, Acc: 0.5200
+Best Acc: 0.5200
+Perturbation Size:7
+Epoch: 10, Loss: 0.8829, Acc: 0.5970
+Epoch: 20, Loss: 0.8598, Acc: 0.5490
+Epoch: 30, Loss: 0.8609, Acc: 0.4660
+Epoch: 40, Loss: 0.8617, Acc: 0.5300
+Epoch: 50, Loss: 0.8615, Acc: 0.5570
+Epoch: 60, Loss: 0.8611, Acc: 0.5500
+Epoch: 70, Loss: 0.8616, Acc: 0.5400
+Epoch: 80, Loss: 0.8609, Acc: 0.5490
+Epoch: 90, Loss: 0.8607, Acc: 0.5600
+Epoch: 100, Loss: 0.8604, Acc: 0.4880
+Best Acc: 0.4880
+Perturbation Size:8
+Epoch: 10, Loss: 0.8829, Acc: 0.6180
+Epoch: 20, Loss: 0.8605, Acc: 0.5560
+Epoch: 30, Loss: 0.8620, Acc: 0.5320
+Epoch: 40, Loss: 0.8631, Acc: 0.5300
+Epoch: 50, Loss: 0.8622, Acc: 0.4930
+Epoch: 60, Loss: 0.8614, Acc: 0.5780
+Epoch: 70, Loss: 0.8615, Acc: 0.5250
+Epoch: 80, Loss: 0.8613, Acc: 0.4970
+Epoch: 90, Loss: 0.8615, Acc: 0.5290
+Epoch: 100, Loss: 0.8610, Acc: 0.5190
+Best Acc: 0.5190
+Perturbation Size:9
+Epoch: 10, Loss: 0.8846, Acc: 0.5540
+Epoch: 20, Loss: 0.8620, Acc: 0.5460
+Epoch: 30, Loss: 0.8623, Acc: 0.5080
+Epoch: 40, Loss: 0.8632, Acc: 0.5470
+Epoch: 50, Loss: 0.8625, Acc: 0.5490
+Epoch: 60, Loss: 0.8627, Acc: 0.5210
+Epoch: 70, Loss: 0.8621, Acc: 0.5080
+Epoch: 80, Loss: 0.8622, Acc: 0.5430
+Epoch: 90, Loss: 0.8615, Acc: 0.5560
+Epoch: 100, Loss: 0.8621, Acc: 0.5030
+Best Acc: 0.5030
+Perturbation Size:10
+Epoch: 10, Loss: 0.8850, Acc: 0.5690
+Epoch: 20, Loss: 0.8621, Acc: 0.5640
+Epoch: 30, Loss: 0.8636, Acc: 0.5390
+Epoch: 40, Loss: 0.8639, Acc: 0.5730
+Epoch: 50, Loss: 0.8639, Acc: 0.5030
+Epoch: 60, Loss: 0.8638, Acc: 0.5600
+Epoch: 70, Loss: 0.8635, Acc: 0.5310
+Epoch: 80, Loss: 0.8636, Acc: 0.5500
+Epoch: 90, Loss: 0.8629, Acc: 0.5080
+Epoch: 100, Loss: 0.8624, Acc: 0.5280
+Best Acc: 0.5280
+Perturbation Size:11
+Epoch: 10, Loss: 0.8855, Acc: 0.6010
+Epoch: 20, Loss: 0.8633, Acc: 0.5690
+Epoch: 30, Loss: 0.8640, Acc: 0.5470
+Epoch: 40, Loss: 0.8650, Acc: 0.5750
+Epoch: 50, Loss: 0.8647, Acc: 0.5670
+Epoch: 60, Loss: 0.8644, Acc: 0.5470
+Epoch: 70, Loss: 0.8641, Acc: 0.5500
+Epoch: 80, Loss: 0.8638, Acc: 0.5750
+Epoch: 90, Loss: 0.8636, Acc: 0.5300
+Epoch: 100, Loss: 0.8631, Acc: 0.5360
+Best Acc: 0.5360
+Perturbation Size:12
+Epoch: 10, Loss: 0.8866, Acc: 0.5910
+Epoch: 20, Loss: 0.8639, Acc: 0.5560
+Epoch: 30, Loss: 0.8646, Acc: 0.5590
+Epoch: 40, Loss: 0.8655, Acc: 0.5690
+Epoch: 50, Loss: 0.8655, Acc: 0.5030
+Epoch: 60, Loss: 0.8650, Acc: 0.5160
+Epoch: 70, Loss: 0.8650, Acc: 0.5430
+Epoch: 80, Loss: 0.8649, Acc: 0.5680
+Epoch: 90, Loss: 0.8644, Acc: 0.5400
+Epoch: 100, Loss: 0.8642, Acc: 0.5420
+Best Acc: 0.5420
+Perturbation Size:13
+Epoch: 10, Loss: 0.8871, Acc: 0.5700
+Epoch: 20, Loss: 0.8645, Acc: 0.5660
+Epoch: 30, Loss: 0.8660, Acc: 0.5400
+Epoch: 40, Loss: 0.8669, Acc: 0.5420
+Epoch: 50, Loss: 0.8666, Acc: 0.5390
+Epoch: 60, Loss: 0.8660, Acc: 0.5310
+Epoch: 70, Loss: 0.8663, Acc: 0.5120
+Epoch: 80, Loss: 0.8656, Acc: 0.5350
+Epoch: 90, Loss: 0.8654, Acc: 0.5390
+Epoch: 100, Loss: 0.8653, Acc: 0.5900
+Best Acc: 0.5900
+Perturbation Size:14
+Epoch: 10, Loss: 0.8878, Acc: 0.6020
+Epoch: 20, Loss: 0.8661, Acc: 0.5430
+Epoch: 30, Loss: 0.8667, Acc: 0.5300
+Epoch: 40, Loss: 0.8674, Acc: 0.5360
+Epoch: 50, Loss: 0.8670, Acc: 0.5190
+Epoch: 60, Loss: 0.8666, Acc: 0.5040
+Epoch: 70, Loss: 0.8666, Acc: 0.5030
+Epoch: 80, Loss: 0.8662, Acc: 0.4890
+Epoch: 90, Loss: 0.8662, Acc: 0.5520
+Epoch: 100, Loss: 0.8659, Acc: 0.5070
+Best Acc: 0.5070
+Perturbation Size:15
+Epoch: 10, Loss: 0.8881, Acc: 0.5930
+Epoch: 20, Loss: 0.8655, Acc: 0.5820
+Epoch: 30, Loss: 0.8671, Acc: 0.5330
+Epoch: 40, Loss: 0.8679, Acc: 0.5270
+Epoch: 50, Loss: 0.8679, Acc: 0.5670
+Epoch: 60, Loss: 0.8672, Acc: 0.4470
+Epoch: 70, Loss: 0.8673, Acc: 0.5170
+Epoch: 80, Loss: 0.8665, Acc: 0.5120
+Epoch: 90, Loss: 0.8669, Acc: 0.5830
+Epoch: 100, Loss: 0.8673, Acc: 0.5680
+Best Acc: 0.5680
+Perturbation Size:16
+Epoch: 10, Loss: 0.8887, Acc: 0.5780
+Epoch: 20, Loss: 0.8667, Acc: 0.5630
+Epoch: 30, Loss: 0.8677, Acc: 0.5460
+Epoch: 40, Loss: 0.8683, Acc: 0.5540
+Epoch: 50, Loss: 0.8689, Acc: 0.5280
+Epoch: 60, Loss: 0.8681, Acc: 0.5050
+Epoch: 70, Loss: 0.8677, Acc: 0.5550
+Epoch: 80, Loss: 0.8676, Acc: 0.5500
+Epoch: 90, Loss: 0.8677, Acc: 0.4980
+Epoch: 100, Loss: 0.8672, Acc: 0.5410
+Best Acc: 0.5410
+Perturbation Size:17
+Epoch: 10, Loss: 0.8888, Acc: 0.5660
+Epoch: 20, Loss: 0.8674, Acc: 0.5330
+Epoch: 30, Loss: 0.8682, Acc: 0.5150
+Epoch: 40, Loss: 0.8695, Acc: 0.5270
+Epoch: 50, Loss: 0.8697, Acc: 0.5490
+Epoch: 60, Loss: 0.8691, Acc: 0.5430
+Epoch: 70, Loss: 0.8685, Acc: 0.5410
+Epoch: 80, Loss: 0.8681, Acc: 0.5380
+Epoch: 90, Loss: 0.8677, Acc: 0.5420
+Epoch: 100, Loss: 0.8681, Acc: 0.5260
+Best Acc: 0.5260
+Perturbation Size:18
+Epoch: 10, Loss: 0.8900, Acc: 0.6050
+Epoch: 20, Loss: 0.8681, Acc: 0.5820
+Epoch: 30, Loss: 0.8697, Acc: 0.4840
+Epoch: 40, Loss: 0.8700, Acc: 0.5300
+Epoch: 50, Loss: 0.8693, Acc: 0.5570
+Epoch: 60, Loss: 0.8695, Acc: 0.5500
+Epoch: 70, Loss: 0.8692, Acc: 0.5590
+Epoch: 80, Loss: 0.8693, Acc: 0.5350
+Epoch: 90, Loss: 0.8690, Acc: 0.5480
+Epoch: 100, Loss: 0.8687, Acc: 0.5300
+Best Acc: 0.5300
+Perturbation Size:19
+Epoch: 10, Loss: 0.8902, Acc: 0.5740
+Epoch: 20, Loss: 0.8687, Acc: 0.5400
+Epoch: 30, Loss: 0.8695, Acc: 0.5300
+Epoch: 40, Loss: 0.8708, Acc: 0.5420
+Epoch: 50, Loss: 0.8704, Acc: 0.5380
+Epoch: 60, Loss: 0.8699, Acc: 0.5330
+Epoch: 70, Loss: 0.8695, Acc: 0.5700
+Epoch: 80, Loss: 0.8696, Acc: 0.5520
+Epoch: 90, Loss: 0.8694, Acc: 0.5210
+Epoch: 100, Loss: 0.8694, Acc: 0.5400
+Best Acc: 0.5400
+Perturbation Size:20
+Epoch: 10, Loss: 0.8911, Acc: 0.5580
+Epoch: 20, Loss: 0.8694, Acc: 0.5820
+Epoch: 30, Loss: 0.8703, Acc: 0.5490
+Epoch: 40, Loss: 0.8713, Acc: 0.5540
+Epoch: 50, Loss: 0.8713, Acc: 0.5460
+Epoch: 60, Loss: 0.8707, Acc: 0.5480
+Epoch: 70, Loss: 0.8702, Acc: 0.5050
+Epoch: 80, Loss: 0.8703, Acc: 0.5660
+Epoch: 90, Loss: 0.8704, Acc: 0.5590
+Epoch: 100, Loss: 0.8699, Acc: 0.5590
+Best Acc: 0.5590
+seed 320
+Perturbation Size:0
+Epoch: 10, Loss: 0.8493, Acc: 0.7130
+Epoch: 20, Loss: 0.8254, Acc: 0.6580
+Epoch: 30, Loss: 0.8267, Acc: 0.6750
+Epoch: 40, Loss: 0.8278, Acc: 0.6510
+Epoch: 50, Loss: 0.8279, Acc: 0.6780
+Epoch: 60, Loss: 0.8278, Acc: 0.6460
+Epoch: 70, Loss: 0.8281, Acc: 0.6410
+Epoch: 80, Loss: 0.8279, Acc: 0.6780
+Epoch: 90, Loss: 0.8277, Acc: 0.6550
+Epoch: 100, Loss: 0.8271, Acc: 0.6550
+Best Acc: 0.6550
+Perturbation Size:1
+Epoch: 10, Loss: 0.8667, Acc: 0.6080
+Epoch: 20, Loss: 0.8429, Acc: 0.6420
+Epoch: 30, Loss: 0.8440, Acc: 0.6080
+Epoch: 40, Loss: 0.8454, Acc: 0.6300
+Epoch: 50, Loss: 0.8456, Acc: 0.5580
+Epoch: 60, Loss: 0.8447, Acc: 0.5870
+Epoch: 70, Loss: 0.8452, Acc: 0.5800
+Epoch: 80, Loss: 0.8443, Acc: 0.5980
+Epoch: 90, Loss: 0.8441, Acc: 0.6090
+Epoch: 100, Loss: 0.8443, Acc: 0.5810
+Best Acc: 0.5810
+Perturbation Size:2
+Epoch: 10, Loss: 0.8723, Acc: 0.6290
+Epoch: 20, Loss: 0.8488, Acc: 0.5680
+Epoch: 30, Loss: 0.8495, Acc: 0.5430
+Epoch: 40, Loss: 0.8508, Acc: 0.6040
+Epoch: 50, Loss: 0.8513, Acc: 0.5110
+Epoch: 60, Loss: 0.8511, Acc: 0.5430
+Epoch: 70, Loss: 0.8507, Acc: 0.5650
+Epoch: 80, Loss: 0.8500, Acc: 0.5340
+Epoch: 90, Loss: 0.8499, Acc: 0.5510
+Epoch: 100, Loss: 0.8498, Acc: 0.5860
+Best Acc: 0.5860
+Perturbation Size:3
+Epoch: 10, Loss: 0.8746, Acc: 0.5430
+Epoch: 20, Loss: 0.8514, Acc: 0.5730
+Epoch: 30, Loss: 0.8530, Acc: 0.5370
+Epoch: 40, Loss: 0.8539, Acc: 0.5020
+Epoch: 50, Loss: 0.8542, Acc: 0.5380
+Epoch: 60, Loss: 0.8531, Acc: 0.5490
+Epoch: 70, Loss: 0.8533, Acc: 0.5440
+Epoch: 80, Loss: 0.8528, Acc: 0.5960
+Epoch: 90, Loss: 0.8528, Acc: 0.5530
+Epoch: 100, Loss: 0.8524, Acc: 0.5600
+Best Acc: 0.5600
+Perturbation Size:4
+Epoch: 10, Loss: 0.8765, Acc: 0.5970
+Epoch: 20, Loss: 0.8535, Acc: 0.5460
+Epoch: 30, Loss: 0.8553, Acc: 0.5150
+Epoch: 40, Loss: 0.8561, Acc: 0.5460
+Epoch: 50, Loss: 0.8557, Acc: 0.5430
+Epoch: 60, Loss: 0.8558, Acc: 0.5780
+Epoch: 70, Loss: 0.8550, Acc: 0.5890
+Epoch: 80, Loss: 0.8549, Acc: 0.4670
+Epoch: 90, Loss: 0.8550, Acc: 0.5300
+Epoch: 100, Loss: 0.8551, Acc: 0.5560
+Best Acc: 0.5560
+Perturbation Size:5
+Epoch: 10, Loss: 0.8804, Acc: 0.5830
+Epoch: 20, Loss: 0.8570, Acc: 0.5970
+Epoch: 30, Loss: 0.8586, Acc: 0.5290
+Epoch: 40, Loss: 0.8588, Acc: 0.5630
+Epoch: 50, Loss: 0.8585, Acc: 0.5430
+Epoch: 60, Loss: 0.8583, Acc: 0.5540
+Epoch: 70, Loss: 0.8583, Acc: 0.4710
+Epoch: 80, Loss: 0.8582, Acc: 0.5000
+Epoch: 90, Loss: 0.8578, Acc: 0.5040
+Epoch: 100, Loss: 0.8571, Acc: 0.4860
+Best Acc: 0.4860
+Perturbation Size:6
+Epoch: 10, Loss: 0.8809, Acc: 0.6100
+Epoch: 20, Loss: 0.8582, Acc: 0.4890
+Epoch: 30, Loss: 0.8594, Acc: 0.5910
+Epoch: 40, Loss: 0.8605, Acc: 0.5670
+Epoch: 50, Loss: 0.8593, Acc: 0.5040
+Epoch: 60, Loss: 0.8596, Acc: 0.5410
+Epoch: 70, Loss: 0.8596, Acc: 0.5330
+Epoch: 80, Loss: 0.8596, Acc: 0.5670
+Epoch: 90, Loss: 0.8592, Acc: 0.5970
+Epoch: 100, Loss: 0.8589, Acc: 0.5410
+Best Acc: 0.5410
+Perturbation Size:7
+Epoch: 10, Loss: 0.8818, Acc: 0.5760
+Epoch: 20, Loss: 0.8596, Acc: 0.5110
+Epoch: 30, Loss: 0.8614, Acc: 0.5720
+Epoch: 40, Loss: 0.8618, Acc: 0.5450
+Epoch: 50, Loss: 0.8615, Acc: 0.5020
+Epoch: 60, Loss: 0.8607, Acc: 0.5350
+Epoch: 70, Loss: 0.8606, Acc: 0.5140
+Epoch: 80, Loss: 0.8602, Acc: 0.5010
+Epoch: 90, Loss: 0.8601, Acc: 0.5470
+Epoch: 100, Loss: 0.8601, Acc: 0.5070
+Best Acc: 0.5070
+Perturbation Size:8
+Epoch: 10, Loss: 0.8831, Acc: 0.6150
+Epoch: 20, Loss: 0.8606, Acc: 0.5630
+Epoch: 30, Loss: 0.8621, Acc: 0.5560
+Epoch: 40, Loss: 0.8627, Acc: 0.5320
+Epoch: 50, Loss: 0.8624, Acc: 0.5330
+Epoch: 60, Loss: 0.8617, Acc: 0.5290
+Epoch: 70, Loss: 0.8617, Acc: 0.4860
+Epoch: 80, Loss: 0.8614, Acc: 0.5350
+Epoch: 90, Loss: 0.8610, Acc: 0.4950
+Epoch: 100, Loss: 0.8608, Acc: 0.5190
+Best Acc: 0.5190
+Perturbation Size:9
+Epoch: 10, Loss: 0.8843, Acc: 0.5820
+Epoch: 20, Loss: 0.8619, Acc: 0.6040
+Epoch: 30, Loss: 0.8626, Acc: 0.5670
+Epoch: 40, Loss: 0.8634, Acc: 0.5550
+Epoch: 50, Loss: 0.8636, Acc: 0.5110
+Epoch: 60, Loss: 0.8628, Acc: 0.5740
+Epoch: 70, Loss: 0.8626, Acc: 0.5490
+Epoch: 80, Loss: 0.8624, Acc: 0.4910
+Epoch: 90, Loss: 0.8622, Acc: 0.5080
+Epoch: 100, Loss: 0.8622, Acc: 0.4960
+Best Acc: 0.4960
+Perturbation Size:10
+Epoch: 10, Loss: 0.8854, Acc: 0.6090
+Epoch: 20, Loss: 0.8625, Acc: 0.5650
+Epoch: 30, Loss: 0.8642, Acc: 0.5590
+Epoch: 40, Loss: 0.8646, Acc: 0.5860
+Epoch: 50, Loss: 0.8641, Acc: 0.5420
+Epoch: 60, Loss: 0.8644, Acc: 0.5240
+Epoch: 70, Loss: 0.8636, Acc: 0.5280
+Epoch: 80, Loss: 0.8633, Acc: 0.5260
+Epoch: 90, Loss: 0.8633, Acc: 0.5380
+Epoch: 100, Loss: 0.8634, Acc: 0.5480
+Best Acc: 0.5480
+Perturbation Size:11
+Epoch: 10, Loss: 0.8853, Acc: 0.5540
+Epoch: 20, Loss: 0.8633, Acc: 0.5590
+Epoch: 30, Loss: 0.8640, Acc: 0.5420
+Epoch: 40, Loss: 0.8652, Acc: 0.5420
+Epoch: 50, Loss: 0.8647, Acc: 0.5590
+Epoch: 60, Loss: 0.8648, Acc: 0.4980
+Epoch: 70, Loss: 0.8640, Acc: 0.5760
+Epoch: 80, Loss: 0.8639, Acc: 0.5600
+Epoch: 90, Loss: 0.8634, Acc: 0.5350
+Epoch: 100, Loss: 0.8633, Acc: 0.5170
+Best Acc: 0.5170
+Perturbation Size:12
+Epoch: 10, Loss: 0.8855, Acc: 0.5860
+Epoch: 20, Loss: 0.8637, Acc: 0.5800
+Epoch: 30, Loss: 0.8648, Acc: 0.5570
+Epoch: 40, Loss: 0.8658, Acc: 0.5280
+Epoch: 50, Loss: 0.8653, Acc: 0.5720
+Epoch: 60, Loss: 0.8653, Acc: 0.5620
+Epoch: 70, Loss: 0.8650, Acc: 0.5610
+Epoch: 80, Loss: 0.8645, Acc: 0.5050
+Epoch: 90, Loss: 0.8643, Acc: 0.5090
+Epoch: 100, Loss: 0.8643, Acc: 0.5460
+Best Acc: 0.5460
+Perturbation Size:13
+Epoch: 10, Loss: 0.8870, Acc: 0.6030
+Epoch: 20, Loss: 0.8650, Acc: 0.5610
+Epoch: 30, Loss: 0.8659, Acc: 0.5520
+Epoch: 40, Loss: 0.8668, Acc: 0.5280
+Epoch: 50, Loss: 0.8660, Acc: 0.5750
+Epoch: 60, Loss: 0.8659, Acc: 0.5470
+Epoch: 70, Loss: 0.8655, Acc: 0.5190
+Epoch: 80, Loss: 0.8650, Acc: 0.4940
+Epoch: 90, Loss: 0.8652, Acc: 0.5120
+Epoch: 100, Loss: 0.8651, Acc: 0.5400
+Best Acc: 0.5400
+Perturbation Size:14
+Epoch: 10, Loss: 0.8876, Acc: 0.6120
+Epoch: 20, Loss: 0.8651, Acc: 0.5860
+Epoch: 30, Loss: 0.8662, Acc: 0.4820
+Epoch: 40, Loss: 0.8670, Acc: 0.5690
+Epoch: 50, Loss: 0.8666, Acc: 0.5400
+Epoch: 60, Loss: 0.8666, Acc: 0.4930
+Epoch: 70, Loss: 0.8671, Acc: 0.5400
+Epoch: 80, Loss: 0.8661, Acc: 0.5720
+Epoch: 90, Loss: 0.8662, Acc: 0.5250
+Epoch: 100, Loss: 0.8660, Acc: 0.5330
+Best Acc: 0.5330
+Perturbation Size:15
+Epoch: 10, Loss: 0.8878, Acc: 0.5680
+Epoch: 20, Loss: 0.8659, Acc: 0.5780
+Epoch: 30, Loss: 0.8673, Acc: 0.5270
+Epoch: 40, Loss: 0.8680, Acc: 0.5710
+Epoch: 50, Loss: 0.8674, Acc: 0.5150
+Epoch: 60, Loss: 0.8678, Acc: 0.5480
+Epoch: 70, Loss: 0.8673, Acc: 0.4900
+Epoch: 80, Loss: 0.8668, Acc: 0.5410
+Epoch: 90, Loss: 0.8671, Acc: 0.4920
+Epoch: 100, Loss: 0.8665, Acc: 0.5660
+Best Acc: 0.5660
+Perturbation Size:16
+Epoch: 10, Loss: 0.8886, Acc: 0.6000
+Epoch: 20, Loss: 0.8668, Acc: 0.5580
+Epoch: 30, Loss: 0.8672, Acc: 0.5640
+Epoch: 40, Loss: 0.8690, Acc: 0.5240
+Epoch: 50, Loss: 0.8689, Acc: 0.5690
+Epoch: 60, Loss: 0.8684, Acc: 0.5810
+Epoch: 70, Loss: 0.8679, Acc: 0.5610
+Epoch: 80, Loss: 0.8676, Acc: 0.5750
+Epoch: 90, Loss: 0.8678, Acc: 0.5140
+Epoch: 100, Loss: 0.8671, Acc: 0.5370
+Best Acc: 0.5370
+Perturbation Size:17
+Epoch: 10, Loss: 0.8891, Acc: 0.5590
+Epoch: 20, Loss: 0.8671, Acc: 0.5730
+Epoch: 30, Loss: 0.8687, Acc: 0.4850
+Epoch: 40, Loss: 0.8693, Acc: 0.5320
+Epoch: 50, Loss: 0.8684, Acc: 0.5820
+Epoch: 60, Loss: 0.8692, Acc: 0.4830
+Epoch: 70, Loss: 0.8680, Acc: 0.5290
+Epoch: 80, Loss: 0.8680, Acc: 0.4670
+Epoch: 90, Loss: 0.8679, Acc: 0.5850
+Epoch: 100, Loss: 0.8681, Acc: 0.5720
+Best Acc: 0.5720
+Perturbation Size:18
+Epoch: 10, Loss: 0.8900, Acc: 0.5680
+Epoch: 20, Loss: 0.8686, Acc: 0.5580
+Epoch: 30, Loss: 0.8695, Acc: 0.5580
+Epoch: 40, Loss: 0.8700, Acc: 0.5380
+Epoch: 50, Loss: 0.8703, Acc: 0.5410
+Epoch: 60, Loss: 0.8694, Acc: 0.5090
+Epoch: 70, Loss: 0.8692, Acc: 0.5370
+Epoch: 80, Loss: 0.8691, Acc: 0.5520
+Epoch: 90, Loss: 0.8693, Acc: 0.5620
+Epoch: 100, Loss: 0.8688, Acc: 0.5120
+Best Acc: 0.5120
+Perturbation Size:19
+Epoch: 10, Loss: 0.8908, Acc: 0.6050
+Epoch: 20, Loss: 0.8690, Acc: 0.5690
+Epoch: 30, Loss: 0.8697, Acc: 0.5130
+Epoch: 40, Loss: 0.8702, Acc: 0.5120
+Epoch: 50, Loss: 0.8704, Acc: 0.5050
+Epoch: 60, Loss: 0.8703, Acc: 0.5290
+Epoch: 70, Loss: 0.8701, Acc: 0.5070
+Epoch: 80, Loss: 0.8695, Acc: 0.5780
+Epoch: 90, Loss: 0.8697, Acc: 0.5320
+Epoch: 100, Loss: 0.8697, Acc: 0.4910
+Best Acc: 0.4910
+Perturbation Size:20
+Epoch: 10, Loss: 0.8911, Acc: 0.5140
+Epoch: 20, Loss: 0.8690, Acc: 0.5470
+Epoch: 30, Loss: 0.8705, Acc: 0.5520
+Epoch: 40, Loss: 0.8712, Acc: 0.5190
+Epoch: 50, Loss: 0.8707, Acc: 0.5480
+Epoch: 60, Loss: 0.8709, Acc: 0.5350
+Epoch: 70, Loss: 0.8706, Acc: 0.5310
+Epoch: 80, Loss: 0.8701, Acc: 0.5300
+Epoch: 90, Loss: 0.8706, Acc: 0.5830
+Epoch: 100, Loss: 0.8700, Acc: 0.5290
+Best Acc: 0.5290
+Ptb size:0 Accuracy:0.6582000000000001+-0.01376081392941567
+Ptb size:1 Accuracy:0.6026+-0.024063249988312073
+Ptb size:2 Accuracy:0.5642+-0.020003999600079952
+Ptb size:3 Accuracy:0.5492+-0.020468512403201165
+Ptb size:4 Accuracy:0.5462+-0.01233531515608743
+Ptb size:5 Accuracy:0.507+-0.01942163741809636
+Ptb size:6 Accuracy:0.5378000000000001+-0.02440819534500654
+Ptb size:7 Accuracy:0.5146+-0.01635359287740772
+Ptb size:8 Accuracy:0.5148+-0.04675638993763312
+Ptb size:9 Accuracy:0.5134000000000001+-0.012970736293672782
+Ptb size:10 Accuracy:0.5227999999999999+-0.02022275945562328
+Ptb size:11 Accuracy:0.5218+-0.012828094168659671
+Ptb size:12 Accuracy:0.5354000000000001+-0.009134549797335396
+Ptb size:13 Accuracy:0.5404+-0.028330901856453476
+Ptb size:14 Accuracy:0.5258+-0.016092234151913166
+Ptb size:15 Accuracy:0.5551999999999999+-0.017405746177627628
+Ptb size:16 Accuracy:0.5368+-0.014260434775980723
+Ptb size:17 Accuracy:0.5546+-0.018607525359380775
+Ptb size:18 Accuracy:0.529+-0.028404225037835504
+Ptb size:19 Accuracy:0.5284000000000001+-0.026484712571594984
+Ptb size:20 Accuracy:0.536+-0.026810445725500374

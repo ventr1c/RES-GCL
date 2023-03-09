@@ -38,7 +38,7 @@ def drop_feature(x, drop_prob):
 def drop_adj_1by1(args,edge_index, edge_weight, p,device):
     # update edge_index according to edge_weight
     if(edge_weight!=None):
-        edge_index = edge_index[:,edge_weight.long()]
+        edge_index = edge_index[:,edge_weight.nonzero().flatten().long()]
         edge_weight = torch.ones([edge_index.shape[1],]).to(device)
 
     # rs = np.random.RandomState(args.seed)
@@ -132,7 +132,7 @@ def construct_augmentation_overall(args, x, edge_index, edge_weight=None, device
 def _sample_structure_noise(args,x,edge_index, edge_weight, idx, device):
     # update edge_index according to edge_weight
     if(edge_weight!=None):
-        edge_index = edge_index[:,edge_weight.long()]
+        edge_index = edge_index[:,edge_weight.nonzero().flatten().long()]
         edge_weight = torch.ones([edge_index.shape[1],]).to(device)
 
     # select edge_index according to idx
@@ -173,9 +173,12 @@ def generate_node_noisy(args,data,idx_target,perturbation_size,device):
     noisy_data.edge_index = update_edge_index
     return noisy_data
 
-def generate_graph_noisy(args,data,perturbation_size,device,to_undirected=False):
-    rs = np.random.RandomState(10)
-    N = data.x.shape[0]
+def generate_graph_noisy(args,data,perturbation_size,device,to_undirected=True):
+    rs = np.random.RandomState(args.seed)
+    if(args.dataset == 'COLLAB'):
+        N = data.num_nodes
+    else:
+        N = data.x.shape[0]
     noisy_data = copy.deepcopy(data)
 
     edge_index_to_add = rs.randint(0, N, (2, perturbation_size))
@@ -186,7 +189,7 @@ def generate_graph_noisy(args,data,perturbation_size,device,to_undirected=False)
         edge_index_to_add = torch.stack([row,col])
 
     updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
-    updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    # updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
     noisy_data.edge_index = updated_edge_index
     return noisy_data
 

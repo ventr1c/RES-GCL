@@ -32,9 +32,6 @@ parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='Disables CUDA training.')
 parser.add_argument('--seed', type=int, default=10, help='Random seed.')
 parser.add_argument('--num_repeat', type=int, default=1)
-parser.add_argument('--base_model', type=str, default='GCN', help='propagation model for encoder',
-                    choices=['GCN','GAT','GraphSage','GIN'])
-parser.add_argument('--if_smoothed', action='store_true', default=False)
 parser.add_argument('--model', type=str, default='Grace', help='propagation model for encoder',
                     choices=['GCN','GAT','GraphSage','GIN','GNNGuard','RobustGCN'])
 parser.add_argument('--dataset', type=str, default='Cora', 
@@ -44,12 +41,13 @@ parser.add_argument('--train_lr', type=float, default=0.01,
                     help='Initial learning rate.')
 parser.add_argument('--weight_decay', type=float, default=5e-4,
                     help='Weight decay (L2 loss on parameters).')
-parser.add_argument('--hidden', type=int, default=128,
+parser.add_argument('--hidden', type=int, default=32,
                     help='Number of hidden units of backdoor model.')
-parser.add_argument('--num_hidden', type=int, default=128,
+parser.add_argument('--num_hidden', type=int, default=32,
                     help='Number of hidden units.')
-parser.add_argument('--num_proj_hidden', type=int, default=128,
+parser.add_argument('--num_proj_hidden', type=int, default=32,
                     help='Number of hidden units in MLP.')
+parser.add_argument('--train_num_epochs', type=int, default=200)
 # parser.add_argument('--thrd', type=float, default=0.5)
 # parser.add_argument('--target_class', type=int, default=0)
 parser.add_argument('--dropout', type=float, default=0.5,
@@ -61,37 +59,12 @@ parser.add_argument('--test_model', type=str, default='GCN',
 # GPU setting
 parser.add_argument('--device_id', type=int, default=2,
                     help="Threshold of prunning edges")
-# Contrastive Learning setting
-parser.add_argument('--config', type=str, default="config.yaml")
-parser.add_argument('--cl_lr', type=float, default=0.0005)
-parser.add_argument('--cl_num_proj_hidden', type=int, default=128)
-parser.add_argument('--cl_num_layers', type=int, default=2)
-parser.add_argument('--cl_activation', type=str, default='relu')
-parser.add_argument('--cl_base_model', type=str, default='GCNConv')
-parser.add_argument('--cont_weight', type=float, default=1)
-parser.add_argument('--add_edge_rate_1', type=float, default=0)
-parser.add_argument('--add_edge_rate_2', type=float, default=0)
-parser.add_argument('--drop_edge_rate_1', type=float, default=0.2)
-parser.add_argument('--drop_edge_rate_2', type=float, default=0)
-parser.add_argument('--drop_feat_rate_1', type=float, default=0.3)
-parser.add_argument('--drop_feat_rate_2', type=float, default=0.2)
-parser.add_argument('--tau', type=float, default=0.1)
-parser.add_argument('--cl_num_epochs', type=int, default=200)
-parser.add_argument('--cl_weight_decay', type=float, default=1e-5)
-parser.add_argument('--cont_batch_size', type=int, default=0)
-parser.add_argument('--noisy_level', type=float, default=0.3)
-parser.add_argument('--clf_weight', type=float, default=1)
-parser.add_argument('--inv_weight', type=float, default=1)
-# parser.add_argument('--select_thrh', type=float, default=0.8)
-
 # Attack
 parser.add_argument('--attack', type=str, default='none',
                     choices=['nettack','random','none'],)
 parser.add_argument('--select_target_ratio', type=float, default=0.1,
                     help="The number of selected target test nodes for targeted attack")
-# Randomized Smoothing
-parser.add_argument('--prob', default=0.8, type=float,
-                    help="probability to keep the status for each binary entry")
+
 
 # args = parser.parse_args()
 args = parser.parse_known_args()[0]
@@ -161,26 +134,26 @@ unlabeled_idx = (torch.bitwise_not(data.test_mask)&torch.bitwise_not(data.train_
 # In[28]:
 
 
-if(args.dataset == 'Cora'):
-    args.drop_edge_rate_1 = 0.2
-    args.drop_edge_rate_2 = 0.4
-    args.drop_feat_rate_1 = 0.3
-    args.drop_feat_rate_2 = 0.4
-    args.tau = 0.1
-    args.cl_lr = 0.0005
-    args.weight_decay = 1e-5
-    args.cl_num_epochs = 500
-    args.num_hidden = 128
-elif(args.dataset == "Pubmed"):
-    args.drop_edge_rate_1 = 0.4
-    args.drop_edge_rate_2 = 0.1
-    args.drop_feat_rate_1 = 0.0
-    args.drop_feat_rate_2 = 0.2
-    args.tau = 0.1
-    args.cl_lr = 0.001
-    args.weight_decay = 1e-5
-    args.cl_num_epochs = 500
-    args.num_hidden = 256
+# if(args.dataset == 'Cora'):
+#     args.drop_edge_rate_1 = 0.2
+#     args.drop_edge_rate_2 = 0.4
+#     args.drop_feat_rate_1 = 0.3
+#     args.drop_feat_rate_2 = 0.4
+#     args.tau = 0.1
+#     args.cl_lr = 0.0005
+#     # args.weight_decay = 1e-5
+#     args.cl_num_epochs = 500
+#     args.num_hidden = 128
+# elif(args.dataset == "Pubmed"):
+#     args.drop_edge_rate_1 = 0.4
+#     args.drop_edge_rate_2 = 0.1
+#     args.drop_feat_rate_1 = 0.0
+#     args.drop_feat_rate_2 = 0.2
+#     args.tau = 0.1
+#     args.cl_lr = 0.001
+#     args.weight_decay = 1e-5
+#     args.cl_num_epochs = 500
+#     args.num_hidden = 256
 
 
 # In[29]:
@@ -232,7 +205,7 @@ accs = []
 for seed in seeds:
     # Construct and train encoder
     model = model_construct(args,args.model,data,device)
-    model.fit(data.x, data.edge_index,data.edge_weight,data.y,idx_train,idx_val=idx_val,train_iters=args.cl_num_epochs,verbose=True)
+    model.fit(data.x, data.edge_index,data.edge_weight,data.y,idx_train,idx_val=idx_val,train_iters=args.train_num_epochs,verbose=True)
     model.test(data.x,data.edge_index,data.edge_weight,data.y,idx_clean_test)
     # Evaluation 
 # In[30]:
@@ -289,7 +262,7 @@ for seed in seeds:
             modified_adj = adj
             target_num = len(target_node_list)
             print('=== [Evasion] Attacking %s nodes respectively ===' % target_num)
-            perturbation_sizes = list(range(1,6))
+            perturbation_sizes = list(range(1,11))
             for n_perturbation in perturbation_sizes:
                 cnt = 0
                 cl_cnt=0
@@ -327,14 +300,14 @@ for seed in seeds:
         elif(args.attack == 'random'):
             import construct_graph
             import copy
-            perturbation_sizes = list(range(0,6))
+            perturbation_sizes = list(range(0,11))
             for n_perturbation in perturbation_sizes:
                 print("Perturbation Size:{}".format(n_perturbation))
                 noisy_data = copy.deepcopy(data)
-                print(n_perturbation)
-                for idx in idx_clean_test:
-                    noisy_data = construct_graph.generate_node_noisy(args,noisy_data,idx,n_perturbation,device)
-                    noisy_data = noisy_data.to(device)
+                if(n_perturbation > 0):
+                    for idx in idx_clean_test:
+                        noisy_data = construct_graph.generate_node_noisy(args,noisy_data,idx,n_perturbation,device)
+                        noisy_data = noisy_data.to(device)
                 model.eval()
                 acc = model.test(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight,noisy_data.y,idx_clean_test)
                 # if(args.if_smoothed):

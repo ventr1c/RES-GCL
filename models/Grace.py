@@ -178,11 +178,13 @@ class Grace(nn.Module):
             edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_overall(self.args, self.features, edge_index, edge_weight, device= self.device)
             if(self.if_smoothed==True):
                 # edge_index_1,edge_weight_1 = self.sample_noise_all_dense(self.args,edge_index_1,edge_weight_1,self.device)
+                # edge_index_1,edge_weight_1 = self.sample_noise_all_sparse(self.args,edge_index_1,edge_weight_1,self.features)
                 # print(edge_index_1,edge_weight_1)
                 edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1,idx_train)
+                # edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2,idx_train)
                 # idx_overall = torch.tensor(range(self.features.shape[0])).to(self.device)
                 # edge_index_1,edge_weight_1 = self.sample_noise_1by1(edge_index_1, edge_weight_1,idx_overall)
-            
+                # print(edge_index_1,edge_weight_1)
             z1 = self.forward(x_1, edge_index_1,edge_weight_1)
             z2 = self.forward(x_2, edge_index_2,edge_weight_2)
             # h1 = self.projection(z1)
@@ -336,10 +338,10 @@ class Grace(nn.Module):
             noisy_edge_weight[idx_s] = noisy_edge_weight[idx_s] * mask + rand_inputs * (1-mask)
             # print(rand_noise_data.edge_weight.shape)
             # break
-
-        if(noisy_edge_weight!=None):
-            noisy_edge_index = noisy_edge_index[:,noisy_edge_weight.long()]
-            noisy_edge_weight = torch.ones([noisy_edge_index.shape[1],]).to(self.device)
+        noisy_edge_weight = noisy_edge_weight.float()
+        # if(noisy_edge_weight!=None):
+        #     noisy_edge_index = noisy_edge_index[:,noisy_edge_weight.nonzero().flatten().long()]
+        #     noisy_edge_weight = torch.ones([noisy_edge_index.shape[1],]).to(self.device)
         return noisy_edge_index, noisy_edge_weight
 
     def sample_noise_all(self,edge_index, edge_weight,idxs):
@@ -357,7 +359,7 @@ class Grace(nn.Module):
         noisy_edge_weight = noisy_edge_weight * mask + rand_inputs * (1-mask)
             
         if(noisy_edge_weight!=None):
-            noisy_edge_index = noisy_edge_index[:,noisy_edge_weight.long()]
+            noisy_edge_index = noisy_edge_index[:,noisy_edge_weight.nonzero().flatten().long()]
             noisy_edge_weight = torch.ones([noisy_edge_index.shape[1],]).to(self.device)
         return noisy_edge_index, noisy_edge_weight
     def sample_noise_1by1(self,edge_index, edge_weight,idxs):
@@ -403,9 +405,44 @@ class Grace(nn.Module):
         ## diagonal elements set to be 0
         ind = np.diag_indices(adj_noise.shape[0]) 
         adj_noise[ind[0],ind[1]] = adj[ind[0], ind[1]]
+        adj_noise = adj_noise.requires_grad_(True)
         edge_index, edge_weight = dense_to_sparse(adj_noise)
         return edge_index,edge_weight
 
+    def sample_noise_all_sparse(self,args,edge_index,edge_weight,x):
+        noisy_edge_index = edge_index.clone().detach()
+        if(edge_weight == None):
+            noisy_edge_weight = torch.ones([noisy_edge_index.shape[1],]).to(self.device)
+        else:
+            noisy_edge_weight = edge_weight.clone().detach()
+        # # rand_noise_data = copy.deepcopy(data)
+        # rand_noise_data.edge_weight = torch.ones([rand_noise_data.edge_index.shape[1],]).to(device)
+        m = Bernoulli(torch.tensor([self.args.prob]).to(self.device))
+        mask_connected = m.sample(noisy_edge_weight.shape).squeeze(-1).int()
+        num_edgeRemove = len((1-mask_connected).nonzero().flatten())
+        num_totalEdgeState = x.shape[0] ** 2
+        num_unconnectEdge = num_totalEdgeState - edge_index.shape[1]
+        mask_unconnected = m.sample([num_unconnectEdge]).squeeze(-1).int()
+        num_edgeAdd = len((1-mask_unconnected).nonzero().flatten())
+
+        # rs = np.random.RandomState(args.seed)
+        edge_index_to_add = np.random.randint(0, x.shape[0], (2, num_edgeAdd))
+        edge_index_to_add = torch.tensor(edge_index_to_add).to(self.device)
+        row = torch.cat([edge_index_to_add[0], edge_index_to_add[1]])
+        col = torch.cat([edge_index_to_add[1],edge_index_to_add[0]])
+        edge_index_to_add = torch.stack([row,col])
+        updated_edge_index = torch.cat([edge_index,edge_index_to_add],dim=1)
+
+        unconnected_edge_weight = torch.zeros([edge_index_to_add.shape[1],]).to(self.device)
+        updated_edge_weight = torch.cat([noisy_edge_weight,unconnected_edge_weight],dim=0)
+        rand_inputs = torch.randint_like(updated_edge_weight, low=0, high=2).squeeze().int().to(self.device)
+        mask = m.sample(updated_edge_weight.shape).squeeze(-1).int()
+        updated_edge_weight = updated_edge_weight * mask + rand_inputs * (1-mask)
+        # if(updated_edge_weight!=None):
+        #     updated_edge_index = updated_edge_index[:,updated_edge_weight.nonzero().flatten().long()]
+        #     updated_edge_weight = torch.ones([updated_edge_index.shape[1],]).to(self.device)
+        return updated_edge_index, updated_edge_weight
+    
     # def sample_noise_overall(self,edge_index, edge_weight,idxs):
     #     noisy_edge_index = edge_index.clone().detach()
     #     idx_overall = torch.tensor(range(self.data.num_nodes)).to(self.device)
