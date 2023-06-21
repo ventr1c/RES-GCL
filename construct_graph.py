@@ -173,6 +173,24 @@ def generate_node_noisy(args,data,idx_target,perturbation_size,device):
     noisy_data.edge_index = update_edge_index
     return noisy_data
 
+def generate_node_noisy_global(args,data,perturbation_ratio,device):
+    rs = np.random.RandomState(args.seed)
+    N = data.x.shape[0]
+    noisy_data = copy.deepcopy(data)
+    
+    perturbation_size = int(data.edge_index.shape[1] * perturbation_ratio)
+    edge_index_to_add = rs.randint(0, N, (2, perturbation_size))
+    edge_index_to_add = torch.tensor(edge_index_to_add)
+    # to undirect
+    row = torch.cat([edge_index_to_add[0], edge_index_to_add[1]])
+    col = torch.cat([edge_index_to_add[1],edge_index_to_add[0]])
+    edge_index_to_add = torch.stack([row,col]).to(device)
+
+    updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    # updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    noisy_data.edge_index = updated_edge_index
+    return noisy_data
+
 def generate_graph_noisy(args,data,perturbation_size,device,to_undirected=True):
     rs = np.random.RandomState(args.seed)
     if(args.dataset == 'COLLAB'):
@@ -192,6 +210,47 @@ def generate_graph_noisy(args,data,perturbation_size,device,to_undirected=True):
     # updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
     noisy_data.edge_index = updated_edge_index
     return noisy_data
+
+def generate_graph_noisy(args,data,perturbation_size,device,to_undirected=True):
+    rs = np.random.RandomState(args.seed)
+    if(args.dataset == 'COLLAB'):
+        N = data.num_nodes
+    else:
+        N = data.x.shape[0]
+    noisy_data = copy.deepcopy(data)
+
+    edge_index_to_add = rs.randint(0, N, (2, perturbation_size))
+    edge_index_to_add = torch.tensor(edge_index_to_add)
+    if(to_undirected):
+        row = torch.cat([edge_index_to_add[0], edge_index_to_add[1]])
+        col = torch.cat([edge_index_to_add[1],edge_index_to_add[0]])
+        edge_index_to_add = torch.stack([row,col])
+
+    updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    # updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    noisy_data.edge_index = updated_edge_index
+    return noisy_data
+
+def generate_graph_noisy_global(args,data,perturbation_ratio,device,to_undirected=True):
+    rs = np.random.RandomState(args.seed)
+    if(args.dataset == 'COLLAB'):
+        N = data.num_nodes
+    else:
+        N = data.x.shape[0]
+    noisy_data = copy.deepcopy(data)
+    perturbation_size = int(data.edge_index.shape[1] * perturbation_ratio)
+    edge_index_to_add = rs.randint(0, N, (2, perturbation_size))
+    edge_index_to_add = torch.tensor(edge_index_to_add)
+    if(to_undirected):
+        row = torch.cat([edge_index_to_add[0], edge_index_to_add[1]])
+        col = torch.cat([edge_index_to_add[1],edge_index_to_add[0]])
+        edge_index_to_add = torch.stack([row,col])
+    edge_index_to_add = edge_index_to_add.to(device)
+    updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    # updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
+    noisy_data.edge_index = updated_edge_index
+    return noisy_data
+
 
     # noisy_data = copy.deepcopy(data)
 

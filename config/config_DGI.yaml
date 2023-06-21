@@ -1,0 +1,55 @@
+Cora:
+  cl_lr: 0.0005
+  num_hidden: 512
+  num_proj_hidden: 0
+  drop_edge_rate_1: 0
+  drop_edge_rate_2: 0
+  drop_feat_rate_1: 0
+  drop_feat_rate_2: 0
+  tau: 0
+  cl_num_epochs: 500
+  weight_decay: 0.00001
+Pubmed:
+  drop_edge_rate_1: 0
+  drop_edge_rate_2: 0
+  drop_feat_rate_1: 0
+  drop_feat_rate_2: 0
+  tau: 0
+  cl_lr: 0.001
+  weight_decay: 0.00001
+  cl_num_epochs: 500
+  num_hidden: 512
+  num_proj_hidden: 0
+Computers:
+    drop_edge_rate_1: 0
+    drop_edge_rate_2: 0
+    drop_feat_rate_1: 0
+    drop_feat_rate_2: 0
+    tau: 0
+    cl_lr: 0.001
+    weight_decay: 0.00001
+    cl_num_epochs: 2000
+    num_hidden: 512
+    num_proj_hidden: 0
+ogbn-arxiv:
+    drop_edge_rate_1: 0.
+    drop_edge_rate_2: 0.
+    drop_feat_rate_1: 0.
+    drop_feat_rate_2: 0.
+    tau: 0.
+    cl_lr: 0.0005
+    weight_decay: 0.00001
+    cl_num_epochs: 800
+    num_hidden: 256
+    num_proj_hidden: 0
+Physics:
+    drop_edge_rate_1: 0
+    drop_edge_rate_2: 0
+    drop_feat_rate_1: 0
+    drop_feat_rate_2: 0
+    tau: 0
+    cl_lr: 0.01
+    weight_decay: 0.00001
+    cl_num_epochs: 1500
+    num_hidden: 128
+    num_proj_hidden: 0

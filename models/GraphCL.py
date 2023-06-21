@@ -1,4 +1,4 @@
-from models.random_smooth import sample_noise,sample_noise_1by1,sample_noise_all,sample_noise_all_dense
+from models.random_smooth import sample_noise,sample_noise_1by1,sample_noise_all,sample_noise_all_dense, sample_noise_all_graph
 
 import copy
 import numpy as np
@@ -16,16 +16,17 @@ from GCL.models import DualBranchContrast
 from torch_geometric.nn import GINConv, global_add_pool
 from torch_geometric.loader import DataLoader
 from torch_geometric.datasets import TUDataset
-
+import torch.optim as optim
 
 from eval import label_evaluation,linear_evaluation
+import models.random_smooth as random_smooth
 
 def make_gin_conv(input_dim, out_dim):
     return GINConv(nn.Sequential(nn.Linear(input_dim, out_dim), nn.ReLU(), nn.Linear(out_dim, out_dim)))
 
 
 class GConv(nn.Module):
-    def __init__(self, input_dim, hidden_dim, num_layers):
+    def __init__(self, input_dim, hidden_dim, num_layers,dropout):
         super(GConv, self).__init__()
         self.layers = nn.ModuleList()
         self.batch_norms = nn.ModuleList()
@@ -41,7 +42,8 @@ class GConv(nn.Module):
         self.project = torch.nn.Sequential(
             nn.Linear(project_dim, project_dim),
             nn.ReLU(inplace=True),
-            nn.Linear(project_dim, project_dim))
+            nn.Linear(project_dim, project_dim),
+            nn.Dropout(dropout))
 
     def forward(self, x, edge_index, batch, edge_weight=None):
         z = x
@@ -80,13 +82,23 @@ class Encoder(torch.nn.Module):
         x1, edge_index1, edge_weight1 = aug1(x, edge_index,)
         x2, edge_index2, edge_weight2 = aug2(x, edge_index,)
         # print(edge_index1.shape,edge_weight1)
-        if(self.if_smoothed):
-            edge_index1, edge_weight1 = sample_noise_all(self.args, edge_index1, edge_weight1, self.device)
+        batch_1, batch_2 = batch, batch
+        if(self.args.if_smoothed==True):
+            if(self.args.if_keep_structure1 == True): # or ignore_structure or random_drop
+                edge_index1,edge_weight1,batch_1 = edge_index1,edge_weight1, batch
+            elif(self.args.if_keep_structure1 == False):
+                edge_index1,edge_weight1, batch_1 = random_smooth.sample_noise_all_graph(self.args,edge_index1,edge_weight1,batch, self.device)
+            if(self.args.if_ignore_structure2 == True):
+                edge_index2,edge_weight2, batch_2 = random_smooth.sample_noise_all_graph(self.args,edge_index2,edge_weight2,batch, self.device)
+
+        # if(self.if_smoothed):
+        #     edge_index1, edge_weight1 = sample_noise_all(self.args, edge_index1, edge_weight1, self.device)
+            # edge_index1, edge_weight1, edge_attr1 = sample_noise_all_graph(self.args, edge_index1, edge_weight1, edge_attr1, self.device)
             # edge_index1, edge_weight1 = sample_noise_all_dense(self.args,edge_index1,edge_weight1, self.device)
         # print(edge_index1.shape,edge_weight1)
-        z, g = self.encoder(x, edge_index, batch, edge_weight)
-        z1, g1 = self.encoder(x1, edge_index1, batch,)
-        z2, g2 = self.encoder(x2, edge_index2, batch,)
+        z, g = self.encoder(x, edge_index, batch)
+        z1, g1 = self.encoder(x1, edge_index1, batch_1)
+        z2, g2 = self.encoder(x2, edge_index2, batch_2)
         return z, g, z1, z2, g1, g2
 
     def fit(self,dataloader):
@@ -133,10 +145,9 @@ class Encoder(torch.nn.Module):
             rs_dataset = copy.deepcopy(dataset)
             if(self.if_smoothed == True): 
                 for rs_data in rs_dataset:
-                    # print(data.edge_index.shape)
-                    # sample_noise_1by1(self.args, data.x, data.edge_index, data.edge_weight,idxs,device)
                     # rs_edge_index, rs_edge_weight = sample_noise_all_dense(self.args,data.edge_index, data.edge_weight, self.device)
                     rs_data.edge_index, _ = sample_noise_all(self.args, rs_data.edge_index, rs_data.edge_weight, self.device)
+                    # rs_data.edge_index, _, rs_data.edge_attr = sample_noise_all_graph(self.args, rs_data.edge_index, rs_data.edge_weight, rs_data.edge_attr, self.device)
             rs_dataloader = DataLoader(rs_dataset, batch_size=self.args.batch_size)
             for data in rs_dataloader:
                 data = data.to(self.device)
@@ -198,17 +209,57 @@ class Encoder(torch.nn.Module):
         # result = SVMEvaluator(linear=True)(x, y, split)
         # return result
 
-def train(encoder_model, contrast_model, dataloader, optimizer):
+class GraphCL(torch.nn.Module):
+    def __init__(self, args, nfeat, nhid, nproj, dropout=0.5, lr=0.01, weight_decay=5e-4,tau=None, layer=2,if_smoothed=True,device=None):
+        super(GraphCL, self).__init__()
+        self.args = args
+        self.nfeat = nfeat
+        self.nhid = nhid
+        self.lr = lr
+        self.weight_decay = 0
+        self.device = device
+        self.aug2 = A.Identity()
+        # self.aug1 = A.RandomChoice([A.RWSampling(num_seeds=1000, walk_length=args.walk_length_2),
+        #                    A.NodeDropping(pn=args.drop_node_rate_2),
+        #                    A.FeatureMasking(pf=args.drop_feat_rate_2),
+        #                    A.EdgeRemoving(pe=args.drop_edge_rate_2)], 1)
+        self.aug1 = A.RandomChoice([A.NodeDropping(pn=args.drop_node_rate_2),
+                           A.FeatureMasking(pf=args.drop_feat_rate_2),
+                           A.EdgeRemoving(pe=args.drop_edge_rate_2)], 1)
+        A.Compose([A.EdgeRemoving(pe=self.args.drop_edge_rate_2), A.FeatureMasking(pf=self.args.drop_edge_rate_2)])
+        self.gconv = GConv(input_dim=nfeat, hidden_dim=nhid, num_layers=layer, dropout= dropout).to(device)
+        
+        self.input_dim = nfeat
+        self.encoder_model = Encoder(args, encoder=self.gconv, augmentor=(self.aug1, self.aug2), input_dim=self.input_dim, hidden_dim = self.nhid, lr = lr, tau = tau, num_epoch = None, if_smoothed = if_smoothed, device = device)
+        self.contrast_model = DualBranchContrast(loss=L.InfoNCE(tau=tau), mode='G2G').to(device)
+    def fit(self, dataloader, train_iters=200,seen_node_idx=None,verbose=True):
+        optimizer = optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.weight_decay)
+
+        for i in range(train_iters):
+            loss = train(self.encoder_model, self.contrast_model, dataloader, optimizer, self.device)
+            if verbose and i % 10 == 0:
+                print('Epoch {}, training loss: {}'.format(i, loss))
+            
+    def test(self, dataloader):
+        return test(self.encoder_model, dataloader)
+    
+    def forward(self, x, edge_index, batch, edge_weight=None):
+        x = x.float()
+        _, g, _, _, _, _ = self.encoder_model(x, edge_index,batch=batch, edge_weight=edge_weight)
+        # z = torch.cat([h1, h2], dim=1)
+        return g
+    
+def train(encoder_model, contrast_model, dataloader, optimizer, device):
     encoder_model.train()
     epoch_loss = 0
     for data in dataloader:
-        data = data.to('cuda')
+        data = data.to(device)
         optimizer.zero_grad()
 
         if data.x is None:
             num_nodes = data.batch.size(0)
             data.x = torch.ones((num_nodes, 1), dtype=torch.float32, device=data.batch.device)
-
+        data.x = data.x.float()
         _, _, _, _, g1, g2 = encoder_model(data.x, data.edge_index, data.batch)
         g1, g2 = [encoder_model.encoder.project(g) for g in [g1, g2]]
         loss = contrast_model(g1=g1, g2=g2, batch=data.batch)

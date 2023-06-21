@@ -102,7 +102,7 @@ def subgraph(subset,edge_index, edge_attr = None, relabel_nodes: bool = False):
 def get_split(args,data, device):
     rs = np.random.RandomState(10)
     perm = rs.permutation(data.num_nodes)
-    train_number = int(0.2*len(perm))
+    train_number = int(0.1*len(perm))
     idx_train = torch.tensor(sorted(perm[:train_number])).to(device)
     data.train_mask = torch.zeros_like(data.train_mask)
     data.train_mask[idx_train] = True
@@ -113,7 +113,7 @@ def get_split(args,data, device):
     data.val_mask[idx_val] = True
 
 
-    test_number = int(0.2*len(perm))
+    test_number = int(0.8*len(perm))
     idx_test = torch.tensor(sorted(perm[train_number+val_number:train_number+val_number+test_number])).to(device)
     data.test_mask = torch.zeros_like(data.test_mask)
     data.test_mask[idx_test] = True

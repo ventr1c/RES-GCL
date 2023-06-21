@@ -14,7 +14,9 @@ from copy import deepcopy
 from torch.distributions.bernoulli import Bernoulli
 from torch_geometric.utils import subgraph
 from models.random_smooth import sample_noise_all_dense,sample_noise_1by1_dense
-from torch_geometric.utils import to_undirected, to_dense_adj,to_torch_coo_tensor,dense_to_sparse
+from torch_geometric.utils import to_undirected, to_dense_adj,to_torch_coo_tensor,dense_to_sparse,degree
+import torch_geometric.utils as pyg_utils
+import eval
 
 class GCN_body(nn.Module):
     def __init__(self,nfeat, nhid, dropout=0.5, layer=2,device=None,layer_norm_first=False,use_ln=False):
@@ -25,15 +27,25 @@ class GCN_body(nn.Module):
         self.dropout = dropout
 
         self.convs = nn.ModuleList()
-        self.convs.append(GCNConv(nfeat,2 * nhid))
+        self.convs.append(GCNConv(nfeat,nhid))
         self.lns = nn.ModuleList()
         self.lns.append(torch.nn.LayerNorm(nfeat))
         for _ in range(1, layer-1):
-            self.convs.append(GCNConv(2 * nhid,2 * nhid))
-            self.lns.append(nn.LayerNorm(2 * nhid))
+            self.convs.append(GCNConv(nhid,nhid))
+            self.lns.append(nn.LayerNorm(nhid))
             
-        self.convs.append(GCNConv(2 * nhid,nhid))
-        self.lns.append(nn.LayerNorm(2 * nhid))
+        self.convs.append(GCNConv(nhid,nhid))
+        self.lns.append(nn.LayerNorm(nhid))
+
+        # self.convs.append(GCNConv(nfeat,2 * nhid))
+        # self.lns = nn.ModuleList()
+        # self.lns.append(torch.nn.LayerNorm(nfeat))
+        # for _ in range(1, layer-1):
+        #     self.convs.append(GCNConv(2 * nhid,2 * nhid))
+        #     self.lns.append(nn.LayerNorm(2 * nhid))
+            
+        # self.convs.append(GCNConv(2 * nhid,nhid))
+        # self.lns.append(nn.LayerNorm(2 * nhid))
 
         self.lns.append(torch.nn.LayerNorm(nhid))
         self.layer_norm_first = layer_norm_first
@@ -49,10 +61,29 @@ class GCN_body(nn.Module):
             i+=1
             x = F.dropout(x, self.dropout, training=self.training)
         return x
+
+    def inference(self, x_all, subgraph_loader):
+        # Compute representations of nodes layer by layer, using *all*
+        # available edges. This leads to faster computation in contrast to
+        # immediately computing the final representations of each batch.
+        for i, conv in enumerate(self.convs):
+            xs = []
+            for batch_size, n_id, adj in subgraph_loader:
+                edge_index, _, size = adj.to(self.device)
+                x = x_all[n_id].to(self.device)
+                x_target = x[:size[1]]
+                x = conv(x, edge_index)
+                if i != len(self.convs) - 1:
+                    x = F.relu(x)
+                xs.append(x.cpu())
+
+            x_all = torch.cat(xs, dim=0)
+
+        return x_all
         
 class Grace(nn.Module):
 
-    def __init__(self, args, nfeat, nhid, nclass, dropout=0.5, lr=0.01, weight_decay=5e-4,tau=None, layer=2,if_smoothed=True,device=None,use_ln=False,layer_norm_first=False):
+    def __init__(self, args, nfeat, nhid, nproj, nclass, dropout=0.5, lr=0.01, weight_decay=5e-4,tau=None, layer=2,if_smoothed=True,device=None,use_ln=False,layer_norm_first=False):
 
         super(Grace, self).__init__()
 
@@ -91,8 +122,8 @@ class Grace(nn.Module):
         self.fc = nn.Linear(nhid,nclass).to(device)
 
         # projection layer
-        self.fc1 = torch.nn.Linear(nhid, 128).to(device)
-        self.fc2 = torch.nn.Linear(128, nhid).to(device)
+        self.fc1 = torch.nn.Linear(nhid, nproj).to(device)
+        self.fc2 = torch.nn.Linear(nproj, nhid).to(device)
 
     
     def forward(self, x, edge_index, edge_weight=None):
@@ -114,8 +145,47 @@ class Grace(nn.Module):
         z = F.elu(self.fc1(z))
         return self.fc2(z)
 
+    def fit_batch(self, loader, train_iters=200, verbose=False):
+        optimizer = optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.weight_decay)
+        for i in range(train_iters):
+            total_loss = total_examples = 0
+            for data in loader:
+                data = data.to(self.device)
+                edge_index, edge_weight = data.edge_index, data.edge_weight
+                features = data.x
+                
+                edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_overall(self.args, features, edge_index, edge_weight, device= self.device)
+                if(self.if_smoothed==True):
+                    if(self.args.if_keep_structure1 == True): # or ignore_structure or random_drop
+                        edge_index_1,edge_weight_1 = edge_index_1,edge_weight_1
+                    elif(self.args.if_keep_structure1 == False):
+                        edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1)
+                    if(self.args.if_ignore_structure2 == True):
+                        edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2)
+
+                z1 = self.forward(x_1, edge_index_1,edge_weight_1)
+                z2 = self.forward(x_2, edge_index_2,edge_weight_2)
+                
+                loss = self.loss(z1, z2, batch_size=self.args.cont_batch_size)
+                loss.backward()
+                optimizer.step()
+                total_loss += loss.item()
+                total_examples += data.num_nodes
+                
+                z1 = z1.cpu()
+                z2 = z2.cpu()
+                data = data.cpu()
+
+            if verbose and i % 10 == 0:
+                print('Epoch {}, training loss: {}, total examples: {}'.format(i, total_loss, total_examples))
+                # labels = data.y.to(self.device)
+                # self.seen_node_idx = seen_node_idx
+                # self.idx_train = idx_train
+                # self.idx_val = idx_val
+                # self.idx_test = idx_test
+
         
-    def fit(self, features, edge_index, edge_weight, labels, idx_train, idx_val=None, train_iters=200,seen_node_idx=None,verbose=False):
+    def fit(self, features, edge_index, edge_weight, labels, train_iters=200,seen_node_idx=None,idx_train=None,idx_val=None, idx_test=None, verbose=False):
         """Train the gcn model, when idx_val is not None, pick the best model according to the validation loss.
         Parameters
         ----------
@@ -141,28 +211,69 @@ class Grace(nn.Module):
         self.features = features.to(self.device)
         self.labels = labels.to(self.device)
         self.seen_node_idx = seen_node_idx
-        if idx_val is None:
-            self._train_without_val(self.labels, idx_train, train_iters, verbose)
-        else:
-            self._train_with_val(self.labels, idx_train, idx_val, train_iters, verbose)
+        self.idx_train = idx_train
+        self.idx_val = idx_val
+        self.idx_test = idx_test
+        # self._train_with_val(self.labels, train_iters, verbose)
+        self._train_without_val(self.labels, train_iters, verbose)
+        # self._train_without_val_batch(self.labels, train_iters, verbose)
+        # if idx_val is None:
+        #     self._train_without_val(self.labels, idx_train, train_iters, verbose)
+        # else:
+        #     self._train_with_val(self.labels, idx_train, idx_val, train_iters, verbose)
 
-    def _train_without_val(self, labels, idx_train, train_iters, verbose):
-        self.train()
+    def _train_without_val_batch_old(self, labels, train_iters, verbose):
         optimizer = optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.weight_decay)
         for i in range(train_iters):
-            optimizer.zero_grad()
-            output = self.forward(self.features, self.edge_index, self.edge_weight)
-            loss_train = F.nll_loss(output[idx_train], labels[idx_train])
-            loss_train.backward()
-            optimizer.step()
+            from torch_geometric.utils  import k_hop_subgraph
+            num_nodes = self.features.shape[0]
+            indices = torch.arange(0, num_nodes).to(self.device)
+            batch_size = self.args.cont_batch_size
+            num_batches = (num_nodes - 1) // batch_size + 1
+            losses = []
+            for j in range(num_batches):
+                mask = indices[j * batch_size:(j + 1) * batch_size]
+                sub_nodeset, sub_edge_index, sub_mapping, sub_edge_mask  = k_hop_subgraph(node_idx = mask, num_hops = 2, edge_index = self.edge_index, relabel_nodes=True)
+
+                edge_index, edge_weight = sub_edge_index, None
+                features = self.features[sub_nodeset,:]
+                print(features.shape,edge_index.shape)
+                # edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_1by1(self.args, self.features, edge_index, edge_weight)
+                edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_overall(self.args, features, edge_index, edge_weight, device= self.device)
+                if(self.if_smoothed==True):
+                    # edge_index_2,edge_weight_2 = self.sample_noise_all_sparse(self.args,edge_index_1,edge_weight_1,self.features)
+                    # print(edge_index_1,edge_weight_1)
+                    if(self.args.if_keep_structure1 == True): # or ignore_structure or random_drop
+                        edge_index_1,edge_weight_1 = edge_index_1,edge_weight_1
+                    elif(self.args.if_keep_structure1 == False):
+                        edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1)
+                    if(self.args.if_ignore_structure2 == True):
+                        edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2)
+                    # edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1,idx_train)
+                    # edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2,idx_train)
+                    # idx_overall = torch.tensor(range(self.features.shape[0])).to(self.device)
+                    # edge_index_1,edge_weight_1 = self.sample_noise_1by1(edge_index_1, edge_weight_1,idx_overall)
+                    # print(edge_index_1,edge_weight_1)
+
+                z1 = self.forward(x_1, edge_index_1,edge_weight_1)
+                z2 = self.forward(x_2, edge_index_2,edge_weight_2)
+                # h1 = self.projection(z1)
+                # h2 = self.projection(z2)
+                h1 = z1
+                h2 = z2
+
+                if(self.seen_node_idx!=None):
+                    cont_loss = self.loss(h1[self.seen_node_idx], h2[self.seen_node_idx], batch_size=self.args.cont_batch_size)
+                else:
+                    cont_loss = self.loss(h1, h2, batch_size=0)
+                losses.append(cont_loss)
+            loss =  torch.cat(losses)
             if verbose and i % 10 == 0:
-                print('Epoch {}, training loss: {}'.format(i, loss_train.item()))
+                print('Epoch {}, training loss: {}'.format(i, loss.item()))
+            loss.backward()
+            optimizer.step()
 
-        self.eval()
-        output = self.forward(self.features, self.edge_index, self.edge_weight)
-        self.output = output
-
-    def _train_with_val(self, labels, idx_train, idx_val, train_iters, verbose):
+    def _train_without_val(self, labels, train_iters, verbose):
         if verbose:
             print('=== training gcn model ===')
         optimizer = optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.weight_decay)
@@ -177,14 +288,20 @@ class Grace(nn.Module):
             # edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_1by1(self.args, self.features, edge_index, edge_weight)
             edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_overall(self.args, self.features, edge_index, edge_weight, device= self.device)
             if(self.if_smoothed==True):
-                # edge_index_1,edge_weight_1 = self.sample_noise_all_dense(self.args,edge_index_1,edge_weight_1,self.device)
-                # edge_index_1,edge_weight_1 = self.sample_noise_all_sparse(self.args,edge_index_1,edge_weight_1,self.features)
+                # edge_index_2,edge_weight_2 = self.sample_noise_all_sparse(self.args,edge_index_1,edge_weight_1,self.features)
                 # print(edge_index_1,edge_weight_1)
-                edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1,idx_train)
+                if(self.args.if_keep_structure1 == True): # or ignore_structure or random_drop
+                    edge_index_1,edge_weight_1 = edge_index_1,edge_weight_1
+                elif(self.args.if_keep_structure1 == False):
+                    edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1)
+                if(self.args.if_ignore_structure2 == True):
+                    edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2)
+                # edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1,idx_train)
                 # edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2,idx_train)
                 # idx_overall = torch.tensor(range(self.features.shape[0])).to(self.device)
                 # edge_index_1,edge_weight_1 = self.sample_noise_1by1(edge_index_1, edge_weight_1,idx_overall)
                 # print(edge_index_1,edge_weight_1)
+
             z1 = self.forward(x_1, edge_index_1,edge_weight_1)
             z2 = self.forward(x_2, edge_index_2,edge_weight_2)
             # h1 = self.projection(z1)
@@ -202,6 +319,62 @@ class Grace(nn.Module):
                 print('Epoch {}, training loss: {}'.format(i, loss.item()))
             loss.backward()
             optimizer.step()
+
+    def _train_with_val(self, labels, train_iters, verbose):
+        if verbose:
+            print('=== training gcn model ===')
+        optimizer = optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.weight_decay)
+
+        best_loss_val = 100
+        best_acc_val = 0
+        for i in range(train_iters):
+            self.train()
+            optimizer.zero_grad()
+            # edge_index, edge_weight = self.sample_noise_all(self.edge_index,self.edge_weight,idx_train)
+            edge_index, edge_weight = self.edge_index, self.edge_weight
+            # edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_1by1(self.args, self.features, edge_index, edge_weight)
+            edge_index_1,x_1,edge_weight_1,edge_index_2,x_2,edge_weight_2 = construct_augmentation_overall(self.args, self.features, edge_index, edge_weight, device= self.device)
+            if(self.if_smoothed==True):
+                # edge_index_2,edge_weight_2 = self.sample_noise_all_sparse(self.args,edge_index_1,edge_weight_1,self.features)
+                # print(edge_index_1,edge_weight_1)
+                if(self.args.if_keep_structure1 == True): # or ignore_structure or random_drop
+                    edge_index_1,edge_weight_1 = edge_index_1,edge_weight_1
+                elif(self.args.if_keep_structure1 == False):
+                    edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1)
+                if(self.args.if_ignore_structure2 == True):
+                    edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2)
+                # edge_index_1,edge_weight_1 = self.sample_noise_all(edge_index_1,edge_weight_1,idx_train)
+                # edge_index_2,edge_weight_2 = self.sample_noise_all(edge_index_2,edge_weight_2,idx_train)
+                # idx_overall = torch.tensor(range(self.features.shape[0])).to(self.device)
+                # edge_index_1,edge_weight_1 = self.sample_noise_1by1(edge_index_1, edge_weight_1,idx_overall)
+                # print(edge_index_1,edge_weight_1)
+            z1 = self.forward(x_1, edge_index_1,edge_weight_1)
+            z2 = self.forward(x_2, edge_index_2,edge_weight_2)
+            # h1 = self.projection(z1)
+            # h2 = self.projection(z2)
+            h1 = z1
+            h2 = z2
+
+            if(self.seen_node_idx!=None):
+                cont_loss = self.loss(h1[self.seen_node_idx], h2[self.seen_node_idx], batch_size=self.args.cont_batch_size)
+            else:
+                cont_loss = self.loss(h1, h2, batch_size=self.args.cont_batch_size)
+
+            loss =  cont_loss
+            loss.backward()
+            optimizer.step()
+            if verbose and i % 10 == 0:
+                print('Epoch {}, training loss: {}'.format(i, loss.item()))
+            if i % 50 == 0:
+                self.eval()
+                z = self.forward(self.features, self.edge_index,self.edge_weight)
+                acc_val = eval.lr_evaluation(z,labels,self.idx_train,self.idx_val)
+                if acc_val>best_acc_val:
+                    best_acc_val = acc_val
+                    self.weights = deepcopy(self.state_dict())
+                print('Epoch {}, training loss: {} val acc: {} best val acc: {}'.format(i, loss.item(), acc_val, best_acc_val))
+        self.load_state_dict(self.weights)
+            
         
 
     def linear_evaluation(self):
@@ -262,13 +435,18 @@ class Grace(nn.Module):
 
         for i in range(num_batches):
             mask = indices[i * batch_size:(i + 1) * batch_size]
-            refl_sim = f(self.sim(z1[mask], z1))  # [B, N]
-            between_sim = f(self.sim(z1[mask], z2))  # [B, N]
+            refl_sim = f(self.sim(z1[mask], z1[mask]))  # [B, N]
+            between_sim = f(self.sim(z1[mask], z2[mask]))  # [B, N]
 
             losses.append(-torch.log(
-                between_sim[:, i * batch_size:(i + 1) * batch_size].diag()
-                / (refl_sim.sum(1) + between_sim.sum(1)
-                   - refl_sim[:, i * batch_size:(i + 1) * batch_size].diag())))
+            between_sim.diag()
+            / (refl_sim.sum(1) + between_sim.sum(1) - refl_sim.diag())))
+
+        
+            # losses.append(-torch.log(
+            #     between_sim[:, i * batch_size:(i + 1) * batch_size].diag()
+            #     / (refl_sim.sum(1) + between_sim.sum(1)
+            #        - refl_sim[:, i * batch_size:(i + 1) * batch_size].diag())))
 
         return torch.cat(losses)
 
@@ -335,7 +513,7 @@ class Grace(nn.Module):
             # print(mask)
             rand_inputs = torch.randint_like(noisy_edge_weight[idx_s], low=0, high=2).squeeze().int().to(self.device)
             # print(rand_noise_data.edge_weight.shape,mask.shape)
-            noisy_edge_weight[idx_s] = noisy_edge_weight[idx_s] * mask + rand_inputs * (1-mask)
+            noisy_edge_weight[idx_s] = noisy_edge_weight[idx_s] * mask #+ rand_inputs * (1-mask)
             # print(rand_noise_data.edge_weight.shape)
             # break
         noisy_edge_weight = noisy_edge_weight.float()
@@ -344,7 +522,7 @@ class Grace(nn.Module):
         #     noisy_edge_weight = torch.ones([noisy_edge_index.shape[1],]).to(self.device)
         return noisy_edge_index, noisy_edge_weight
 
-    def sample_noise_all(self,edge_index, edge_weight,idxs):
+    def sample_noise_all(self,edge_index, edge_weight,idxs=None):
         noisy_edge_index = edge_index.clone().detach()
         if(edge_weight == None):
             noisy_edge_weight = torch.ones([noisy_edge_index.shape[1],]).to(self.device)
@@ -356,7 +534,7 @@ class Grace(nn.Module):
         mask = m.sample(noisy_edge_weight.shape).squeeze(-1).int()
         rand_inputs = torch.randint_like(noisy_edge_weight, low=0, high=2).squeeze().int().to(self.device)
         # print(rand_noise_data.edge_weight.shape,mask.shape)
-        noisy_edge_weight = noisy_edge_weight * mask + rand_inputs * (1-mask)
+        noisy_edge_weight = noisy_edge_weight * mask # + rand_inputs * (1-mask)
             
         if(noisy_edge_weight!=None):
             noisy_edge_index = noisy_edge_index[:,noisy_edge_weight.nonzero().flatten().long()]
@@ -438,9 +616,10 @@ class Grace(nn.Module):
         rand_inputs = torch.randint_like(updated_edge_weight, low=0, high=2).squeeze().int().to(self.device)
         mask = m.sample(updated_edge_weight.shape).squeeze(-1).int()
         updated_edge_weight = updated_edge_weight * mask + rand_inputs * (1-mask)
-        # if(updated_edge_weight!=None):
-        #     updated_edge_index = updated_edge_index[:,updated_edge_weight.nonzero().flatten().long()]
-        #     updated_edge_weight = torch.ones([updated_edge_index.shape[1],]).to(self.device)
+
+        if(updated_edge_weight!=None):
+            updated_edge_index = updated_edge_index[:,updated_edge_weight.nonzero().flatten().long()]
+            updated_edge_weight = torch.ones([updated_edge_index.shape[1],]).to(self.device)
         return updated_edge_index, updated_edge_weight
     
     # def sample_noise_overall(self,edge_index, edge_weight,idxs):

@@ -262,7 +262,7 @@ for seed in seeds:
             modified_adj = adj
             target_num = len(target_node_list)
             print('=== [Evasion] Attacking %s nodes respectively ===' % target_num)
-            perturbation_sizes = list(range(1,11))
+            perturbation_sizes = list(range(1,6))
             for n_perturbation in perturbation_sizes:
                 cnt = 0
                 cl_cnt=0
@@ -329,7 +329,7 @@ for seed in seeds:
             # acc = label_evaluation(z, rs_data.y, idx_train, idx_clean_test)
             print("Accuracy:",acc)
             # accs.append(acc)
-
+    
 
     # In[ ]:
 

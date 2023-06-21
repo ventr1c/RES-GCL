@@ -1,0 +1,33 @@
+MUTAG:
+    drop_edge_rate_1: 0.2
+    drop_edge_rate_2: 0.2
+    drop_feat_rate_1: 0.1
+    drop_feat_rate_2: 0.1
+    tau: 0.
+    cl_lr: 0.01
+    weight_decay: 0.00001
+    cl_num_epochs: 100
+    num_hidden: 128
+    num_proj_hidden: 128
+PROTEINS:
+  drop_edge_rate_1: 0.2
+  drop_edge_rate_2: 0.2
+  drop_feat_rate_1: 0.1
+  drop_feat_rate_2: 0.1
+  tau: 0.
+  cl_lr: 0.01
+  weight_decay: 0.00001
+  cl_num_epochs: 100
+  num_hidden: 32
+  num_proj_hidden: 32
+ogbg-molhiv:
+  drop_edge_rate_1: 0.2
+  drop_edge_rate_2: 0.2
+  drop_feat_rate_1: 0.1
+  drop_feat_rate_2: 0.1
+  tau: 0.
+  cl_lr: 0.01
+  weight_decay: 0.00001
+  cl_num_epochs: 100
+  num_hidden: 32
+  num_proj_hidden: 32

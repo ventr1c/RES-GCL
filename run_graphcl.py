@@ -36,8 +36,8 @@ parser.add_argument('--seed', type=int, default=10, help='Random seed.')
 parser.add_argument('--base_model', type=str, default='GCN', help='propagation model for encoder',
                     choices=['GCN','GAT','GraphSage','GIN'])
 parser.add_argument('--if_smoothed', action='store_true', default=False)
-parser.add_argument('--encoder_model', type=str, default='Grace', help='propagation model for encoder',
-                    choices=['Grace','GraphCL'])
+parser.add_argument('--encoder_model', type=str, default='GraphCL', help='propagation model for encoder',
+                    choices=['GraphCL'])
 parser.add_argument('--dataset', type=str, default='PROTEINS', 
                     help='Dataset',
                     choices=['PROTEINS','MUTAG','COLLAB','ENZYMES'])
@@ -92,7 +92,7 @@ parser.add_argument('--attack', type=str, default='none',
 parser.add_argument('--select_target_ratio', type=float, default=0.1,
                     help="The number of selected target test nodes for targeted attack")
 # Randomized Smoothing
-parser.add_argument('--prob', default=0.8, type=float,
+parser.add_argument('--prob', default=0.9, type=float,
                     help="probability to keep the status for each binary entry")
 # args = parser.parse_args()
 args = parser.parse_known_args()[0]
@@ -162,7 +162,7 @@ split = utils.get_split_self(num_samples=len(dataset), train_ratio=0.8, test_rat
 
 
 import copy 
-from models.construct import model_construct
+import models.construct as Construct
 from construct_graph import *
 from models.GCN_CL import GCN_Encoder, Grace
 
@@ -208,25 +208,8 @@ rs = np.random.RandomState(args.seed)
 seeds = rs.randint(1000,size=args.num_repeat)
 
 perturbation_sizes = list(range(0,21))
-# noisy_dataloaders = []
-# noisy_datasets = []
-# for n_perturbation in perturbation_sizes:
-#     print("Perturbation Size:{}".format(n_perturbation))
-#     # noisy_dataset = copy.deepcopy(dataset)
-#     print(n_perturbation)
-#     noisy_dataset = []
-#     if(len(noisy_datasets)==0):
-#         for data in dataset:
-#             noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
-#             noisy_dataset.append(noisy_data)
-#     else:
-#         for data in noisy_datasets[-1]:
-#             noisy_data = construct_graph.generate_graph_noisy(args,data,1,device)
-#             noisy_dataset.append(noisy_data)
-#     noisy_datasets.append(noisy_dataset)
-#     noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
-#     noisy_dataloaders.append(noisy_dataloader)
-betas = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9] 
+
+betas = [0.001,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9] 
 for beta in betas:
     args.prob = beta
     print("beta:{}".format(beta))
@@ -239,13 +222,14 @@ for beta in betas:
         args.seed = seed
         # Construct and train encoder
         aug1 = A.Identity()
-        aug2 = A.RandomChoice([A.RWSampling(num_seeds=args.seed, walk_length=args.walk_length),
+        aug2 = A.RandomChoice([
                             A.NodeDropping(pn=args.drop_edge_rate_2),
                             A.FeatureMasking(pf=args.drop_feat_rate_2),
                             A.EdgeRemoving(pe=args.drop_node_rate_2)], 1)
-
+        # A.RWSampling(num_seeds=args.seed, walk_length=args.walk_length)
         gconv = GConv(input_dim=input_dim, hidden_dim=args.hidden, num_layers=2).to(device)
-        model = Encoder(args = args, encoder=gconv, augmentor=(aug1, aug2), input_dim=input_dim, hidden_dim=args.num_hidden, lr=args.cl_lr, tau=args.tau,num_epoch = args.cl_num_epochs, if_smoothed = args.if_smoothed,device = device)
+        model = Construct.encoder_construct(args,args.encoder_model,data,gconv,aug1,aug2,input_dim,device)
+        # model = Encoder(args = args, encoder=gconv, augmentor=(aug1, aug2), input_dim=input_dim, hidden_dim=args.num_hidden, lr=args.cl_lr, tau=args.tau,num_epoch = args.cl_num_epochs, if_smoothed = args.if_smoothed,device = device)
         model.fit(dataloader)
         model.test(dataloader,split)
         # test_result = model.test(dataloader,split)
@@ -261,9 +245,7 @@ for beta in betas:
             # perturbation_sizes = list(range(0,21))
             noisy_datasets = []
             for n_perturbation in perturbation_sizes:
-                # print("Perturbation Size:{}".format(n_perturbation))
-                # noisy_dataset = copy.deepcopy(dataset)
-                # print(n_perturbation)
+
                 if(n_perturbation > 0):
                     noisy_dataset = []
                     if(len(noisy_datasets)==0):
@@ -279,40 +261,13 @@ for beta in betas:
                 else:
                     noisy_dataset = dataset
                     noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
-                # noisy_dataloaders.append(noisy_dataloader)
-
-                # noisy_dataloader = noisy_dataloaders[n_perturbation-1]
-                
-                # noisy_dataset = []
-                # for data in dataset:
-                # # for i in range(len(noisy_dataset)):
-                #     noisy_data = construct_graph.generate_graph_noisy(args,data,n_perturbation,device)
-                #     # noisy_dataset[i] = noisy_data.to(device)
-                #     noisy_dataset.append(noisy_data)
-                # noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
-                # for i in range(3):  
                 if(args.if_smoothed):
-                    test_result = model.smooth_test(100, noisy_dataset, split)
+                    test_result = model.smooth_test(20, noisy_dataset, split)
                 else:      
                     test_result = model.test(noisy_dataloader,split)
                 accuracys[n_perturbation].append(test_result)
                 print("Accuracy:{:4f}".format(test_result))
-                # for i in range(len(noisy_dataset)):
-                #     noisy_data = construct_graph.generate_graph_noisy(args,noisy_dataset[i],n_perturbation,device)
-                #     # noisy_dataset[i] = noisy_data.to(device)
-                #     # noisy_dataloader = DataLoader(noisy_dataset, batch_size=args.batch_size)
-                #     test_result = model.single_test(noisy_data)
-                # print(f'(E): Best test F1Mi={test_result["micro_f1"]:.4f}, F1Ma={test_result["macro_f1"]:.4f}')
-            
-        # elif(args.attack == 'none'):
-        #     model.eval()
-        #     if(args.if_smoothed == True):
-        #         rs_edge_index, rs_edge_weight = sample_noise_all(args, data.edge_index, data.edge_weight, device)
-        #         z, _, _ = model(data.x, rs_edge_index, rs_edge_weight)
-        #     else:
-        #         z, _, _ = model(data.x, data.edge_index, data.edge_weight)
-            # acc = label_evaluation(z, data.y, idx_train, idx_clean_test)
-            # print("Accuracy:",acc)
+                
     if(args.attack == 'random'):
         for n_perturbation in perturbation_sizes:
             mean_acc =  np.mean(accuracys[n_perturbation])  
