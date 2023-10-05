@@ -1,6 +1,9 @@
 # Certifiably Robust Graph Contrastive Learning
 An official PyTorch implementation of "Certifiably Robust Graph Contrastive Learning" (NeurIPS 2023). [[paper]]()
 
+## Note
+The code has not been organized yet. We will clean it as soon as possible, thanks.
+
 ## Running the code
 For instance, to check the performance of our RES-GRACE on clean Cora graph, run the following code:
 
