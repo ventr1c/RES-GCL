@@ -18,19 +18,6 @@ An official PyTorch implementation of "Certifiably Robust Graph Contrastive Lear
     - [Reproduce the Results](#reproduce-the-results)
   - [4. Dataset](#5-dataset)
 
-## Running the code
-For instance, to check the performance of our RES-GRACE on clean Cora graph, run the following code:
-
-```
-python run_smooth_node.py --if_smoothed --encoder_model GRACE --dataset Cora --attack none
-```
-
-For PRBCD-perturbed Cora graph, run the following code:
-
-```
-python run_smooth_node.py --if_smoothed --encoder_model GRACE --dataset Cora --attack PRBCD
-```
-
 ## 1. Overview
 * `./models`: This directory contains the model of RES.
 * `./data`: The directory contains the original datasets used in the experiments
