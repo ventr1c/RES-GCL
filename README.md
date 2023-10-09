@@ -16,7 +16,7 @@ An official PyTorch implementation of "Certifiably Robust Graph Contrastive Lear
   - [3. RES](#3-res)
     - [Abstract](#abstract)
     - [Reproduce the Results](#reproduce-the-results)
-  - [4. Dataset](#5-dataset)
+  - [4. Dataset](#4-dataset)
 
 ## 1. Overview
 * `./models`: This directory contains the model of RES.
