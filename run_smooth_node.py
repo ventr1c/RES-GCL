@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-# !/usr/bin/env python
-# coding: utf-8
-
-
-# In[31]:
-
 import yaml
 from yaml import SafeLoader
 import imp
@@ -21,8 +9,6 @@ import torch
 from torch_geometric.datasets import Planetoid,Reddit2,Flickr,PPI,Amazon, Coauthor, WikiCS
 
 
-# from torch_geometric.loader import DataLoader
-# from help_funcs import prune_unrelated_edge,prune_unrelated_edge_isolated
 import scipy.sparse as sp
 
 # Training settings
@@ -51,8 +37,6 @@ parser.add_argument('--num_hidden', type=int, default=128,
                     help='Number of hidden units.')
 parser.add_argument('--num_proj_hidden', type=int, default=128,
                     help='Number of hidden units in MLP.')
-# parser.add_argument('--thrd', type=float, default=0.5)
-# parser.add_argument('--target_class', type=int, default=0)
 parser.add_argument('--dropout', type=float, default=0.5,
                     help='Dropout rate (1 - keep probability).')
 
@@ -65,7 +49,6 @@ parser.add_argument('--device_id', type=int, default=2,
 # Contrastive Learning setting
 parser.add_argument('--config', type=str, default="config.yaml")
 parser.add_argument('--cl_lr', type=float, default=0.0005)
-# parser.add_argument('--cl_num_proj_hidden', type=int, default=128)
 parser.add_argument('--cl_num_layers', type=int, default=2)
 parser.add_argument('--cl_activation', type=str, default='relu')
 parser.add_argument('--cl_base_model', type=str, default='GCNConv')
@@ -83,7 +66,6 @@ parser.add_argument('--cont_batch_size', type=int, default=0)
 parser.add_argument('--noisy_level', type=float, default=0.3)
 parser.add_argument('--clf_weight', type=float, default=1)
 parser.add_argument('--inv_weight', type=float, default=1)
-# parser.add_argument('--select_thrh', type=float, default=0.8)
 
 # Attack
 parser.add_argument('--attack', type=str, default='none',
@@ -108,8 +90,6 @@ args.cuda =  not args.no_cuda and torch.cuda.is_available()
 device = torch.device(('cuda:{}' if torch.cuda.is_available() else 'cpu').format(args.device_id))
 
 np.random.seed(args.seed)
-# torch.manual_seed(args.seed)
-# torch.cuda.manual_seed(args.seed)
 
 
 # In[13]:
@@ -133,36 +113,24 @@ elif(args.dataset == 'Reddit2'):
     dataset = Reddit2(root='./data/Reddit2/',                     transform=transform)
 elif(args.dataset == 'ogbn-arxiv'):
     from ogb.nodeproppred import PygNodePropPredDataset
-    # Download and process data at './dataset/ogbg_molhiv/'
     dataset = PygNodePropPredDataset(name = 'ogbn-arxiv', root='./data/')
     split_idx = dataset.get_idx_split() 
 
 data = dataset[0].to(device)
 
 
-# from deeprobust.graph.data import Dataset, Dpr2Pyg, Pyg2Dpr
-# dr_data = Dataset(root='/tmp/', name='pubmed') # load clean graph
-# data = Dpr2Pyg(dr_data)
-# data = data[0].to(device)
-
 # we build our own train test split 
 if(args.dataset == 'ogbn-arxiv'):
     nNode = data.x.shape[0]
     setattr(data,'train_mask',torch.zeros(nNode, dtype=torch.bool).to(device))
-    # dataset[0].train_mask = torch.zeros(nEdge, dtype=torch.bool).to(device)
     data.val_mask = torch.zeros(nNode, dtype=torch.bool).to(device)
     data.test_mask = torch.zeros(nNode, dtype=torch.bool).to(device)
     data.y = data.y.squeeze(1)
 elif(args.dataset == 'Computers' or args.dataset == 'Photo' or args.dataset == 'CS' or args.dataset == 'Physics'):
     nNode = data.x.shape[0]
     setattr(data,'train_mask',torch.zeros(nNode, dtype=torch.bool).to(device))
-    # dataset[0].train_mask = torch.zeros(nEdge, dtype=torch.bool).to(device)
     data.val_mask = torch.zeros(nNode, dtype=torch.bool).to(device)
     data.test_mask = torch.zeros(nNode, dtype=torch.bool).to(device)
-# elif(args.dataset == 'WikiCS'):
-#     data.train_mask = data.train_mask[:,0]
-#     data.val_mask = data.val_mask[:,0]
-#     data.stopping_mask = data.stopping_mask[:,0]
 
 # In[14]:
 
@@ -170,7 +138,6 @@ print(data)
 from utils import get_split
 if(args.dataset == 'Computers' or args.dataset == 'Photo' or args.dataset == 'ogbn-arxiv' or args.dataset == 'Physics'):
     data, idx_train, idx_val, idx_clean_test, idx_atk = get_split(args,data,device)
-# data, idx_train, idx_val, idx_clean_test, idx_atk = get_split(args,data,device)
 idx_train = data.train_mask.nonzero().flatten()
 idx_val = data.val_mask.nonzero().flatten()
 idx_clean_test = data.test_mask.nonzero().flatten()
@@ -181,8 +148,6 @@ from utils import subgraph
 data.edge_index = to_undirected(data.edge_index)
 train_edge_index,_, edge_mask = subgraph(torch.bitwise_not(data.test_mask),data.edge_index,relabel_nodes=False)
 mask_edge_index = data.edge_index[:,torch.bitwise_not(edge_mask)]
-# filter out the unlabeled nodes except from training nodes and testing nodes, nonzero() is to get index, flatten is to get 1-d tensor
-# unlabeled_idx = (torch.bitwise_not(data.test_mask)&torch.bitwise_not(data.train_mask)).nonzero().flatten()
 
 # In[28]:
 if(args.if_smoothed == True):
@@ -256,22 +221,11 @@ rs = np.random.RandomState(args.seed)
 seeds = rs.randint(1000,size=args.num_repeat)
 
 mean_degree = int(torch.mean(degree(data.edge_index[0])).item())+2
-# atk_budget = min(2*mean_degree,20)
-# atk_budget = min(2*mean_degree,20)
 atk_budget = 20
 
 accs = []
-# betas = [0.1,0.2,0.3,0.4]
-# betas = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]
-# betas = [0.,0.1,0.3,0.5,0.7,0.9]
 if(args.if_smoothed):
-    # betas = [0.2,0.1,0.3,0.4,0.5,0.9,0.01,0.05,0.001,0.005]
-    # betas = [0.01,0.05,0.1,0.2,0.3,0.4,0.5,0.9,0.001,0.005]
-    # betas = [0.1,0.2,0.3]
     betas = [0.5,0.4,0.3,0.2]
-    # betas = [0.3,0.4,0.5,0.9,0.1,0.2]
-    # betas = [0.2,0.4]
-    # betas = [0.01]
 else:
     betas = [-1]
 for beta in betas:
@@ -280,8 +234,6 @@ for beta in betas:
     # initialize 
     if(args.attack == 'nettack'):
         perturbation_sizes = list(range(0,6))
-        # perturbation_sizes = [0]
-        # perturbation_sizes = list(range(1,6))
         misclf_rates_cl = {}
         misclf_rates_gcn = {}
         for n_perturbation in perturbation_sizes:
@@ -297,21 +249,15 @@ for beta in betas:
         elif(args.dataset == 'Computers'):
             atk_budget = 20
         perturbation_sizes = [0, atk_budget]
-        # perturbation_sizes = [0]
-        # perturbation_sizes = list(range(0,atk_budget+1))
         accuracys = {}
         for n_perturbation in perturbation_sizes:
             accuracys[n_perturbation] = []
     elif(args.attack == 'PRBCD'):
-        # perturbation_sizes = list(range(0,atk_budget+1))
-        # perturbation_sizes = [0, 0.05, 0.10,0.25, 0.5, 1.0]
         perturbation_sizes = [0, 0.10,]
         accuracys = {}
         for n_perturbation in perturbation_sizes:
             accuracys[n_perturbation] = []
     elif(args.attack == 'random_global'):
-        # perturbation_sizes = list(range(0,atk_budget+1))
-        # perturbation_sizes = [0, 0.05, 0.10,0.25, 0.5, 1.0]
         perturbation_sizes = [0, 0.10,]
         accuracys = {}
         for n_perturbation in perturbation_sizes:
@@ -324,7 +270,6 @@ for beta in betas:
         print("seed {}".format(seed))
         # Construct and train encoder
         model = model_construct(args,args.encoder_model,data,device)
-        # model.fit(data.x, data.edge_index,data.edge_weight,data.y,idx_train,idx_val=idx_val,train_iters=args.cl_num_epochs,seen_node_idx=None,verbose=True)
         model.fit(data.x, data.edge_index,data.edge_weight,data.y,train_iters=args.cl_num_epochs,seen_node_idx=None, verbose=True)
         # Evaluation 
     # In[30]:
@@ -333,7 +278,6 @@ for beta in betas:
         from scipy.sparse import csr_matrix
         def single_test(adj, features, target_node, gcn=None):
             if gcn is None:
-                # test on GCN (poisoning attack)
                 gcn = GCN(nfeat=features.shape[1],
                         nhid=16,
                         nclass=labels.max().item() + 1,
@@ -345,11 +289,9 @@ for beta in betas:
                 gcn.eval()
                 output = gcn.predict()
             else:
-                # test on GCN (evasion attack)
                 output = gcn.predict(features, adj)
             probs = torch.exp(output[[target_node]])
 
-            # acc_test = accuracy(output[[target_node]], labels[target_node])
             acc_test = (output.argmax(1)[target_node] == labels[target_node])
             return acc_test.item()
 
@@ -359,7 +301,6 @@ for beta in betas:
         import models.random_smooth as random_smooth
         num_class = int(data.y.max()+1)
         smooth_model = random_smooth.Smooth_Ber(args, model, num_class, args.prob, data.x, if_node_level=True,device=device)
-        # if((args.dataset=='Cora') or (args.dataset=='Citeseer') or (args.dataset=='Pubmed') or (args.dataset=='Flickr') or (args.dataset=='ogbn-arxiv')):
         if(args.attack == 'nettack'):
             dpr_data = Pyg2Dpr(dataset)
             adj, features, labels = dpr_data.adj, dpr_data.features, dpr_data.labels
@@ -374,13 +315,11 @@ for beta in betas:
             surrogate.fit(features, adj, labels, idx_train, idx_val, patience=30)
             # Select target nodes
             np.random.seed(42)
-            # idx = np.arange(0,adj.shape[0])
             idx = np.array(idx_clean_test.cpu())
             np.random.shuffle(idx)
             target_node_list = idx[:int(args.select_target_ratio*len(idx))]
             idx_perturn_test = torch.LongTensor(np.array(target_node_list)).to(device)
             # Conduct Attack
-            # degrees = adj.sum(0).A1
             modified_adj = adj
             target_num = len(target_node_list)
             print('=== [Evasion] Attacking %s nodes respectively ===' % target_num)
@@ -390,7 +329,6 @@ for beta in betas:
                     model.eval()
                     if(args.if_smoothed):
                         _, cl_acc = smooth_model._sample_noise_ber(args.num_sample, data.edge_index, data.edge_weight, data.y, if_node_level = True, idx_test = idx_perturn_test, idx_train = idx_train)
-                        # prediction = prediction_distribution.argmax(1)
                     else:
                         z = model(data.x, data.edge_index, data.edge_weight)
                         cl_acc = label_evaluation(z, data.y, idx_train, idx_perturn_test)
@@ -401,7 +339,6 @@ for beta in betas:
                     cl_cnt=0
                     print('=== Perturbation Size %s ===' % n_perturbation)
                     for target_node in tqdm(target_node_list):
-                        # n_perturbations = int(degrees[target_node])
                         atk_model = Nettack(surrogate, nnodes=adj.shape[0], attack_structure=True, attack_features=False, device=device)
                         atk_model = atk_model.to(device)
                         atk_model.attack(features, modified_adj, labels, target_node, n_perturbation, verbose=False)
@@ -419,16 +356,10 @@ for beta in betas:
                         model.eval()
                         if(args.if_smoothed):
                             _, cl_acc = smooth_model._sample_noise_ber(args.num_sample, perturb_edge_index, perturb_edge_weight, data.y, if_node_level = True, idx_test = idx_target, idx_train = idx_train)
-                            # prediction = prediction_distribution.argmax(1)
                         else:
                             z = model(data.x, perturb_edge_index,perturb_edge_weight)
                             cl_acc = label_evaluation(z, data.y, idx_train, idx_target)
-                        # if(args.if_smoothed):
-                        #     # perturb_edge_index,perturb_edge_weight = sample_noise_1by1_dense(args,perturb_edge_index, perturb_edge_weight,idx_perturn_test, device)
-                        #     perturb_edge_index,perturb_edge_weight = model.sample_noise(perturb_edge_index, perturb_edge_weight,idx_perturn_test)
-                        #     # perturb_edge_index,perturb_edge_weight = model.sample_noise_1by1(perturb_edge_index, perturb_edge_weight,idx_perturn_test)
-                        # z = model(data.x, perturb_edge_index,perturb_edge_weight)
-                        # cl_acc = label_evaluation(z, data.y, idx_train, idx_target)
+              
                         print("CL",cl_acc)
                         if cl_acc == 0:
                             cl_cnt += 1
@@ -442,12 +373,9 @@ for beta in betas:
                     print('[CL] misclassification rate : %s' % (cl_cnt/target_num))
 
         elif(args.attack == 'random'):
-            # classes, probs = smooth_model.certify_Ber(n0=10,n=100,alpha=0.01,idx_train=idx_train, idx_test = idx_clean_test)
             import construct_graph
             import copy
-            # perturbation_sizes = list(range(0,atk_budget+1))
             for n_perturbation in perturbation_sizes:
-                # print("Perturbation Size:{}".format(n_perturbation))
                 model = model.to(device)
                 noisy_data = copy.deepcopy(data).to(device)
                 idxs = np.array(idx_clean_test.cpu())
@@ -461,107 +389,57 @@ for beta in betas:
                 model.eval()
                 if(args.if_smoothed):
                     _, acc = smooth_model._sample_noise_ber(args.num_sample, noisy_data.edge_index, noisy_data.edge_weight, noisy_data.y, if_node_level = True, idx_test = idx_perturn_test, idx_train = idx_train)
-                    # prediction = prediction_distribution.argmax(1)
-                    # acc, prediction = smoothed_linear_evaluation(args, model, noisy_data.x, noisy_data.edge_index, noisy_data.edge_weight, 100, noisy_data.y, idx_train, idx_clean_test, device)
                 else:
                     z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight).to(device)
                     if(args.dataset == 'ogbn-arxiv'):
                         acc = lr_evaluation(z, noisy_data.y, idx_train, idx_perturn_test)
                     else:
                         acc = label_evaluation(z, noisy_data.y, idx_train, idx_perturn_test)
-                # if(args.if_smoothed):
-                #     noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                #     # noisy_data.edge_index,noisy_data.edge_weight = sample_noise_1by1_dense(args,noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test, device)
-                #     # noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise_1by1(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                # z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight)
-                # # Calculate Robust Accuracy and Bounded Probability 
-                # acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
                 print("Accuracy:",acc)
                 accuracys[n_perturbation].append(acc)
                 if(args.dataset == 'ogbn-arxiv'):
                     noisy_data = noisy_data.cpu()
-                    # z = z.cpu()
-                    # torch.cuda.empty_cache()
             model.to(torch.device('cpu'))
         elif(args.attack == 'PRBCD'):
             import generate_prbcd_attack
-            # classes, probs = smooth_model.certify_Ber(n0=10,n=100,alpha=0.01,idx_train=idx_train, idx_test = idx_clean_test)
             import construct_graph
             import copy
-            # perturbation_sizes = list(range(0,atk_budget+1))
-            # perturbation_sizes = [0, 0.05, 0.10,0.25, 0.5, 1.0]
             for global_ptb_rate in perturbation_sizes:
-            # for n_perturbation in perturbation_sizes:
-                # print("Perturbation Size:{}".format(n_perturbation))
                 noisy_data = copy.deepcopy(data)
-                # global_atk_budget = len(idx_clean_test) * n_perturbation
-                # global_ptb_rate = global_atk_budget/data.edge_index.shape[1]
-                # print("Ptb size:{} Ptb rate:{}".format(n_perturbation, global_ptb_rate))
                 print("prate:{}".format(global_ptb_rate))
                 if(global_ptb_rate > 0):
                     noisy_data = generate_prbcd_attack.generate_prbcd_attack(noisy_data, global_ptb_rate, device)
-                    # for idx in idx_clean_test:
-                    #     noisy_data = construct_graph.generate_node_noisy(args,noisy_data,idx,n_perturbation,device)
-                    #     noisy_data = noisy_data.to(device)
                 model.eval()
                 if(args.if_smoothed):
                     prediction_distribution, acc = smooth_model._sample_noise_ber(args.num_sample, noisy_data.edge_index, noisy_data.edge_weight, noisy_data.y, if_node_level = True, idx_test = idx_clean_test, idx_train = idx_train)
                     prediction = prediction_distribution.argmax(1)
-                    # acc, prediction = smoothed_linear_evaluation(args, model, noisy_data.x, noisy_data.edge_index, noisy_data.edge_weight, 100, noisy_data.y, idx_train, idx_clean_test, device)
                 else:
                     z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight)
                     if(args.dataset == 'ogbn-arxiv'):
                         acc = lr_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
                     else:
                         acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
-                # if(args.if_smoothed):
-                #     noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                #     # noisy_data.edge_index,noisy_data.edge_weight = sample_noise_1by1_dense(args,noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test, device)
-                #     # noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise_1by1(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                # z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight)
-                # # Calculate Robust Accuracy and Bounded Probability 
-                # acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
                 print("Accuracy:",acc)
                 accuracys[global_ptb_rate].append(acc)
         elif(args.attack == 'random_global'):
             import generate_prbcd_attack
-            # classes, probs = smooth_model.certify_Ber(n0=10,n=100,alpha=0.01,idx_train=idx_train, idx_test = idx_clean_test)
             import construct_graph
             import copy
-            # perturbation_sizes = list(range(0,atk_budget+1))
-            # perturbation_sizes = [0, 0.05, 0.10,0.25, 0.5, 1.0]
             for global_ptb_rate in perturbation_sizes:
-            # for n_perturbation in perturbation_sizes:
-                # print("Perturbation Size:{}".format(n_perturbation))
                 noisy_data = copy.deepcopy(data)
-                # global_atk_budget = len(idx_clean_test) * n_perturbation
-                # global_ptb_rate = global_atk_budget/data.edge_index.shape[1]
-                # print("Ptb size:{} Ptb rate:{}".format(n_perturbation, global_ptb_rate))
                 print("prate:{}".format(global_ptb_rate))
                 if(global_ptb_rate > 0):
                     noisy_data = construct_graph.generate_node_noisy_global(args,noisy_data,n_perturbation,device)
-                    # noisy_data = generate_prbcd_attack.generate_prbcd_attack(noisy_data, global_ptb_rate, device)
-                    # for idx in idx_clean_test:
-                    #     noisy_data = construct_graph.generate_node_noisy(args,noisy_data,idx,n_perturbation,device)
-                    #     noisy_data = noisy_data.to(device)
                 model.eval()
                 if(args.if_smoothed):
                     prediction_distribution, acc = smooth_model._sample_noise_ber(args.num_sample, noisy_data.edge_index, noisy_data.edge_weight, noisy_data.y, if_node_level = True, idx_test = idx_clean_test, idx_train = idx_train)
                     prediction = prediction_distribution.argmax(1)
-                    # acc, prediction = smoothed_linear_evaluation(args, model, noisy_data.x, noisy_data.edge_index, noisy_data.edge_weight, 100, noisy_data.y, idx_train, idx_clean_test, device)
                 else:
                     z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight)
                     if(args.dataset == 'ogbn-arxiv'):
                         acc = lr_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
                     else:
                         acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
-                # if(args.if_smoothed):
-                #     noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                #     # noisy_data.edge_index,noisy_data.edge_weight = sample_noise_1by1_dense(args,noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test, device)
-                #     # noisy_data.edge_index,noisy_data.edge_weight = model.sample_noise_1by1(noisy_data.edge_index,noisy_data.edge_weight,idx_clean_test)
-                # z = model(noisy_data.x, noisy_data.edge_index,noisy_data.edge_weight)
-                # # Calculate Robust Accuracy and Bounded Probability 
-                # acc = label_evaluation(z, noisy_data.y, idx_train, idx_clean_test)
                 print("Accuracy:",acc)
                 accuracys[global_ptb_rate].append(acc)
     if(args.attack == 'nettack'):
@@ -581,24 +459,18 @@ for beta in betas:
             print("Beta:{} Ptb size:{} Accuracy:{:.4f}+-{:.4f}".format(args.prob, n_perturbation,mean_acc,std_acc))
     elif(args.attack == 'PRBCD'):
         for n_perturbation in perturbation_sizes:
-            # global_atk_budget = len(idx_clean_test) * n_perturbation
-            # global_prb_rate = global_atk_budget/data.edge_index.shape[1]
             global_prb_rate = n_perturbation
 
             mean_acc =  np.mean(accuracys[n_perturbation])  
             std_acc =  np.std(accuracys[n_perturbation])     
             print("Beta:{} Ptb rate:{} Accuracy:{:.4f}+-{:.4f}".format(args.prob,global_prb_rate,mean_acc,std_acc))
-            # print("Beta:{} Ptb size:{} Ptb rate:{} Accuracy:{:.4f}+-{:.4f}".format(args.prob, n_perturbation,global_prb_rate,mean_acc,std_acc))
     elif(args.attack == 'random_global'):
         for n_perturbation in perturbation_sizes:
-            # global_atk_budget = len(idx_clean_test) * n_perturbation
-            # global_prb_rate = global_atk_budget/data.edge_index.shape[1]
             global_prb_rate = n_perturbation
 
             mean_acc =  np.mean(accuracys[n_perturbation])  
             std_acc =  np.std(accuracys[n_perturbation])     
             print("Beta:{} Ptb rate:{} Accuracy:{:.4f}+-{:.4f}".format(args.prob,global_prb_rate,mean_acc,std_acc))
-            # print("Beta:{} Ptb size:{} Ptb rate:{} Accuracy:{:.4f}+-{:.4f}".format(args.prob, n_perturbation,global_prb_rate,mean_acc,std_acc))
 
     # In[ ]:
 

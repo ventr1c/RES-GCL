@@ -49,26 +49,6 @@ def drop_adj_1by1(args,edge_index, edge_weight, p,device):
     remain_edge_weight = torch.ones([remain_edge_index.shape[1],]).to(device)
     return remain_edge_index,remain_edge_weight
 
-# def construct_augmentation(data):
-#     # graph 1:
-#     noisy_edge_index,added_edges=add_random_edge(data.edge_index,force_undirected=True,p=0)
-#     noisy_edge_index,noisy_edge_weight=dropout_adj(data.edge_index,data.edge_weight,force_undirected=True,p=0.2)
-#     aug_edge_index_1 = torch.cat([noisy_edge_index,added_edges],dim=1)
-#     aug_x_1 = drop_feature(data.x,drop_prob=0.3)
-#     # graph 2:
-#     noisy_edge_index,added_edges=add_random_edge(data.edge_index,force_undirected=True,p=0)
-#     noisy_edge_index,noisy_edge_weight=dropout_adj(data.edge_index,data.edge_weight,force_undirected=True,p=0.4)
-#     aug_edge_index_2 = torch.cat([noisy_edge_index,added_edges],dim=1)
-#     aug_x_2 = drop_feature(data.x,drop_prob=0.4)
-#     return aug_edge_index_1,aug_x_1,aug_edge_index_2,aug_x_2
-
-# def construct_augmentation_std(data1,data2):
-#     # graph 1:
-#     aug_edge_index_1,aug_x_1 = data1.edge_index,data1.x
-#     # graph 2:
-#     aug_edge_index_2,aug_x_2 = data2.edge_index,data2.x
-#     return aug_edge_index_1,aug_x_1,aug_edge_index_2,aug_x_2
-
 def construct_augmentation_1(args, x, edge_index, edge_weight=None):
     #
 
@@ -128,23 +108,6 @@ def construct_augmentation_overall(args, x, edge_index, edge_weight=None, device
 
     aug_x_2 = drop_feature(x,drop_prob=args.drop_feat_rate_2)
     return aug_edge_index_1,aug_x_1,aug_edge_weight_1,aug_edge_index_2,aug_x_2,aug_edge_weight_2
-
-def _sample_structure_noise(args,x,edge_index, edge_weight, idx, device):
-    # update edge_index according to edge_weight
-    if(edge_weight!=None):
-        edge_index = edge_index[:,edge_weight.nonzero().flatten().long()]
-        edge_weight = torch.ones([edge_index.shape[1],]).to(device)
-
-    # select edge_index according to idx
-    
-
-    # rs = np.random.RandomState(args.seed)
-    # remain_mask = rs.binomial(1,p,edge_index.shape[1])
-    remain_mask = np.random.binomial(1,p,edge_index.shape[1])
-    remain_index = remain_mask.nonzero()[0]
-    remain_edge_index = edge_index[:,remain_index]
-    remain_edge_weight = torch.ones([remain_edge_index.shape[1],]).to(device)
-    return remain_edge_index,remain_edge_weight
 
 def single_add_random_edges(idx_target, idx_add_nodes,device):
     edge_list = []
@@ -250,15 +213,4 @@ def generate_graph_noisy_global(args,data,perturbation_ratio,device,to_undirecte
     # updated_edge_index = torch.cat([data.edge_index,edge_index_to_add],dim=1)
     noisy_data.edge_index = updated_edge_index
     return noisy_data
-
-
-    # noisy_data = copy.deepcopy(data)
-
-    # _, added_edges = add_random_edge(data.edge_index,p=perturbation_size/data.edge_index.shape[1],force_undirected=False,)
-    # row = torch.cat([added_edges[0], added_edges[1]])
-    # col = torch.cat([added_edges[1],added_edges[0]])
-    # added_edges = torch.stack([row,col])
-    # updated_edge_index = torch.cat([data.edge_index,added_edges],dim=1)
-    # noisy_data.edge_index = updated_edge_index
-    # return noisy_data
     

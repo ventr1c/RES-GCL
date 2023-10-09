@@ -161,39 +161,6 @@ def sample_noise_1by1(args, x, edge_index, edge_weight,idxs,device):
             noisy_edge_weight = torch.ones([noisy_edge_index.shape[1],]).to(device)
     return noisy_edge_index, noisy_edge_weight
     
-def sample_noise_all_dense(args,edge_index,edge_weight,device):
-    adj = to_dense_adj(edge_index,edge_attr=edge_weight)[0]
-    row_idx, col_idx = np.triu_indices(adj.shape[1])
-    rand_inputs = torch.randint_like(adj[row_idx,col_idx], low=0, high=2, device=device)
-    adj_noise = torch.zeros(adj.shape, device=device)
-    m = Bernoulli(torch.tensor([args.prob]).to(device))
-    mask = m.sample(adj[row_idx,col_idx].shape).squeeze(-1).int()
-    adj_noise[row_idx,col_idx] = adj[row_idx,col_idx] * mask + rand_inputs * (1 - mask)
-    adj_noise = adj_noise + adj_noise.t()
-    ## diagonal elements set to be 0
-    ind = np.diag_indices(adj_noise.shape[0]) 
-    adj_noise[ind[0],ind[1]] = adj[ind[0], ind[1]]
-    edge_index, edge_weight = dense_to_sparse(adj_noise)
-    return edge_index,edge_weight
-
-def sample_noise_1by1_dense(args,edge_index,edge_weight,idx,device):
-    adj = to_dense_adj(edge_index,edge_attr=edge_weight)[0]
-    adj_noise = adj.clone().detach()
-    # row_idx, col_idx = np.triu_indices(adj.shape[1])
-    rand_inputs = torch.randint_like(adj[idx], low=0, high=2, device=device)
-    # adj_noise = torch.zeros(adj.shape, device=device)
-    m = Bernoulli(torch.tensor([args.prob]).to(device))
-    mask = m.sample(adj[idx].shape).squeeze(-1).int()
-    adj_noise[idx] = adj[idx] * mask + rand_inputs * (1 - mask)
-    adj_noise[idx,idx] = adj[idx,idx]
-    # print(adj_noise)
-    adj_noise[:,idx] = adj_noise[idx].t()
-    # adj_noise = adj_noise + adj_noise.t()
-    # ## diagonal elements set to be 0
-    # ind = np.diag_indices(adj_noise.shape[0]) 
-    # adj_noise[ind[0],ind[1]] = adj[ind[0], ind[1]]
-    edge_index, edge_weight = dense_to_sparse(adj_noise)
-    return edge_index,edge_weight
 
 def sample_noise_sparse(args, x, edge_index, edge_weight,idxs,device):
     noisy_edge_index = edge_index.clone().detach()
