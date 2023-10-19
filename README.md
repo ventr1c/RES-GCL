@@ -1,5 +1,5 @@
 # Certifiably Robust Graph Contrastive Learning
-An official PyTorch implementation of "Certifiably Robust Graph Contrastive Learning" (NeurIPS 2023). [[paper]](https://arxiv.org/abs/2310.03312)
+An official PyTorch implementation of "Certifiably Robust Graph Contrastive Learning" (NeurIPS 2023). [[paper]](https://arxiv.org/abs/2310.03312) If you find this repo to be useful, please cite our paper. Thank you.
 ```
 @inproceedings{lin2023certifiably,
   title={Certifiably Robust Graph Contrastive Learning},
