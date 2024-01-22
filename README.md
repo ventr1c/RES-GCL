@@ -3,9 +3,10 @@ An official PyTorch implementation of "Certifiably Robust Graph Contrastive Lear
 ```
 @inproceedings{lin2023certifiably,
   title={Certifiably Robust Graph Contrastive Learning},
-  author={Lin, Minhua and Xiao, Teng and Dai, Enyan and Zhang, Xiang and Wang, Suhang},
+  author={Minhua Lin and Teng Xiao and Enyan Dai and Xiang Zhang and Suhang Wang},
   booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
   year={2023},
+  url={https://openreview.net/forum?id=o50nH0sV9x}
 }
 ```
 ## Content
